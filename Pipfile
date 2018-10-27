@@ -10,3 +10,7 @@ sphinx = "*"
 
 [requires]
 python_version = "3.6"
+
+[scripts]
+make = "make -C docs/"
+serve = "python -m http.server"
