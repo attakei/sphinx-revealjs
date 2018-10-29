@@ -1,22 +1,35 @@
-from docutils.nodes import Node
+from docutils.nodes import Element, section
 from sphinx.writers.html5 import HTML5Translator
 
 
+def has_child_sections(node: Element, name: str):
+    nodes = set([n.tagname for n in node.children])
+    return name in nodes
+
+
 class RevealjsSlideTranslator(HTML5Translator):
+    permalink_text = False
+
     def __init__(self, builder, *args, **kwds):
         super().__init__(builder, *args, **kwds)
-        self._on_zero_section = True
+        self.builder.add_permalinks = False
+        self._proc_first_on_section = False
 
-    def visit_section(self, node: Node):
+    def visit_section(self, node: section):
         self.section_level += 1
-        if self.section_level == 1 and self._on_zero_section:
+        if self.section_level == 1:
+            self._proc_first_on_section = True
             self.body.append('<section>\n')
-        if self.section_level == 2 and self._on_zero_section:
-            self._on_zero_section = False
+            return
+        if self._proc_first_on_section:
+            self._proc_first_on_section = False
             self.body.append('</section>\n')
-        self.body.append(
-            self.starttag(node, 'section'))
+        self.body.append('<section>\n')
+        if has_child_sections(node, 'section'):
+            self._proc_first_on_section = True
+            self.body.append('<section>\n')
 
-    def depart_section(self, node: Node):
+    def depart_section(self, node: section):
         self.section_level -= 1
-        self.body.append('</section>\n')
+        if self.section_level >= 1:
+            self.body.append('</section>\n')
