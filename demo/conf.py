@@ -81,7 +81,8 @@ html_theme = 'revealjs'
 # documentation.
 #
 html_theme_options = {
-    'revealjs_version': '3.6.0'
+    'revealjs_version': '3.6.0',
+    'revealjs_theme': 'league',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
