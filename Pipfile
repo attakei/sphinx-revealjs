@@ -17,6 +17,6 @@ restructuredtext-lint = "*"
 python_version = "3.6"
 
 [scripts]
-demo = "make -C demo/"
+demo = "make -C demo/ revealjs"
 make = "make -C docs/"
 serve = "python -m http.server"
