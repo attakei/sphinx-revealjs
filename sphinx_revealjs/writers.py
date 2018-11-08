@@ -1,4 +1,4 @@
-from docutils.nodes import Element, section, comment
+from docutils.nodes import Element, section, comment, literal_block
 from sphinx.writers.html5 import HTML5Translator
 
 
@@ -39,3 +39,10 @@ class RevealjsSlideTranslator(HTML5Translator):
 
     def depart_comment(self, node: comment):
         self.body.append('</aside>\n')
+
+    def visit_literal_block(self, node: literal_block):
+        lang = node['language']
+        self.body.append(f'<pre><code data-trim data-noescape class="{lang}">\n')
+
+    def depart_literal_block(self, node: literal_block):
+        self.body.append('</code></pre>\n')
