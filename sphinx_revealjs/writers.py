@@ -1,4 +1,4 @@
-from docutils.nodes import Element, section
+from docutils.nodes import Element, section, comment
 from sphinx.writers.html5 import HTML5Translator
 
 
@@ -33,3 +33,9 @@ class RevealjsSlideTranslator(HTML5Translator):
         self.section_level -= 1
         if self.section_level >= 1:
             self.body.append('</section>\n')
+
+    def visit_comment(self, node: comment):
+        self.body.append('<aside class="notes">\n')
+
+    def depart_comment(self, node: comment):
+        self.body.append('</aside>\n')

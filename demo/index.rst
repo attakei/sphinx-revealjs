@@ -10,6 +10,8 @@ Sphinx extension to build Revealjs presentation
 Features
 ========
 
+.. This is reST comment. Render into speaker note section
+
 * Convert sections from reStructuredText directly
 * Select revealjs version
 * Select theme from default themes
