@@ -1,7 +1,17 @@
 sphinx-revealjs
 ===============
 
-Sphinx extention for generating Revealjs presentation.
+Sphinx extention for generating Reveal.js presentation.
+
+Orverview
+---------
+
+This extension generate Reveal.js presentation from **standard** reStructuredText.
+
+It include theses features.
+
+* Custom builder to translate from reST to reveal.js style HTML
+* Template to be enable to render presentation local imdependent
 
 Installation
 ------------
@@ -29,8 +39,17 @@ Usage
 
     html_theme = 'revealjs'
 
-3. Build revealjs sources
+3. Write source for standard document style(This extension does not have custom directives) 
+
+4. Build sources as Reveal.js presentation
 
 .. code-block:: bash
 
     $ make revealjs
+
+Futures
+-------
+
+* Index template as none presentation
+* Theme select per presentations
+* CDN support
