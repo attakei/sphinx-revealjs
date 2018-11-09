@@ -45,12 +45,16 @@ if __name__ == '__main__':
         'js',
         'lib',
         'plugin',
+        'LICENSE',
     ]
     dest_base = base_dir / 'sphinx_revealjs' \
         / 'themes' / 'revealjs' / 'static' / 'revealjs'
     for src_ in src_list:
         src = extracted / src_
         dest = dest_base / src_
-        if dest.exists():
+        if src.is_dir():
             shutil.rmtree(dest)
-        shutil.copytree(src, dest)
+            shutil.copytree(src, dest)
+        else:
+            dest.unlink()
+            shutil.copy2(src, dest)
