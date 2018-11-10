@@ -4,8 +4,6 @@ from pathlib import Path
 
 from setuptools import find_packages, setup
 
-from sphinx_revealjs import __version__ as sphinx_revealjs_version
-
 here = Path(__file__).parent
 
 with (here / 'README.rst').open(encoding='utf-8') as f:
@@ -18,7 +16,7 @@ install_requires = [
 
 setup(
     name='sphinx-revealjs',
-    version=sphinx_revealjs_version,
+    version='0.1.0',
     description='',
     long_description=long_description,
     url='https://gitlab.com/attakei/sphinx-revealjs',
