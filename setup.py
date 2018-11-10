@@ -11,6 +11,11 @@ here = Path(__file__).parent
 with (here / 'README.rst').open(encoding='utf-8') as f:
     long_description = f.read()
 
+install_requires = [
+    'docutils',
+    'Sphinx'
+]
+
 setup(
     name='sphinx-revealjs',
     version=sphinx_revealjs_version,
@@ -25,6 +30,7 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     packages=find_packages(exclude=['docs']),
+    install_requires=install_requires,
     extras_require={
     },
     include_package_data=True,
