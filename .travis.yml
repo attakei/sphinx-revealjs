@@ -1,5 +1,7 @@
 sudo: false
+
 language: python
+
 matrix:
   include:
     - python: '3.6'
@@ -13,8 +15,8 @@ matrix:
     - python: '3.6'
       env: TOXENV=pypi
 
-# Run CI
 install:
   - pip install tox
+
 script:
   - tox
