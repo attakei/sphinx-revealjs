@@ -1,5 +1,6 @@
 """Setup module
 """
+import re
 from pathlib import Path
 
 from setuptools import find_packages, setup
@@ -14,9 +15,15 @@ install_requires = [
     'Sphinx'
 ]
 
+
+def fetch_version_string(target: Path) -> str:
+    line_re = re.compile(r"__version__ = '(.*?)'", re.S)
+    return line_re.search(target.open().read()).group(1)
+
+
 setup(
     name='sphinx-revealjs',
-    version='0.1.0',
+    version=fetch_version_string(here / 'sphinx_revealjs' / '__init__.py'),
     description='',
     long_description=long_description,
     url='https://gitlab.com/attakei/sphinx-revealjs',
