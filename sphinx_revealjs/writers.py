@@ -42,7 +42,8 @@ class RevealjsSlideTranslator(HTML5Translator):
 
     def visit_literal_block(self, node: literal_block):
         lang = node['language']
-        self.body.append(f'<pre><code data-trim data-noescape class="{lang}">\n')
+        self.body.append(
+            f'<pre><code data-trim data-noescape class="{lang}">\n')
 
     def depart_literal_block(self, node: literal_block):
         self.body.append('</code></pre>\n')
