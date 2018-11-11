@@ -2,7 +2,7 @@
 """
 from docutils.parsers.rst import Directive, directives
 
-from .nodes import revealjs_section
+from .nodes import revealjs_section, FlagAttribute
 
 
 class RevealjsSection(Directive):
@@ -22,6 +22,10 @@ class RevealjsSection(Directive):
         'data-background-opacity': directives.unchanged,
         # Iframe backgrounds
         'data-background-iframe': directives.unchanged,
+        'data-background-interactive': lambda x: FlagAttribute(),
+        # Transition
+        'data-transition': directives.unchanged,
+        'data-background-transition': directives.unchanged,
     }
 
     def run(self):

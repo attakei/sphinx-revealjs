@@ -116,7 +116,6 @@ Inject background image
         :data-background-image: _static/icon-attakei.jpg
         :data-background-size: contain
 
-
 Inject background video
 -----------------------
 
@@ -128,6 +127,56 @@ Inject background video
     .. revealjs_section::
         :data-background-video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
 
+Inject background iframe
+------------------------
+
+.. revealjs_section::
+    :data-background-iframe: https://slides.com
+    :data-background-interactive:
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :data-background-iframe: https://slides.com
+        :data-background-interactive:
+
+
+Transition settings(before)
+---------------------------
+
+.. revealjs_section::
+    :data-transition: none
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :data-transition: none
+
+Transition settings(after)
+--------------------------
+
+.. revealjs_section::
+    :data-transition: fade
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :data-transition: fade
+
+Background image transition
+---------------------------
+
+.. revealjs_section::
+    :data-background-image: _static/icon-attakei.jpg
+    :data-background-size: contain
+    :data-background-transition: zoom
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :data-background-image: _static/icon-attakei.jpg
+        :data-background-size: contain
+        :data-background-transition: zoom
 
 Usage
 =====
