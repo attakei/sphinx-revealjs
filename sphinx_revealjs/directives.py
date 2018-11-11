@@ -22,7 +22,7 @@ class RevealjsSection(Directive):
         if 'background_image' in self.options:
             meta.update({
                 'data-background': self.options['background_image'],
-                'data-background-size': 'auto',
+                'data-background-size': 'contain',
             })
         if 'background_video' in self.options:
             meta.update({
