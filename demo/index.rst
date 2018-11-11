@@ -89,6 +89,43 @@ code-block as reveal.js code block
 ----------------------------------
 
 
+Direcvite for meta of section
+=============================
+
+Inject background color
+-----------------------
+
+.. revealjs_section::
+    :background_color: #009900
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :background_color: #009900
+
+Inject background image
+-----------------------
+
+.. revealjs_section::
+    :background_image: _static/icon-attakei.jpg
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :background_image: _static/icon-attakei.jpg
+
+
+Inject background video
+-----------------------
+
+.. revealjs_section::
+    :background_video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :background_video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
+
 
 Usage
 =====
