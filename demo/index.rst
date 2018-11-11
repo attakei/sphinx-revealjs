@@ -96,35 +96,37 @@ Inject background color
 -----------------------
 
 .. revealjs_section::
-    :background_color: #009900
+    :data-background-color: #009900
 
 .. code-block:: rest
 
     .. revealjs_section::
-        :background_color: #009900
+        :data-background-color: #009900
 
 Inject background image
 -----------------------
 
 .. revealjs_section::
-    :background_image: _static/icon-attakei.jpg
+    :data-background-image: _static/icon-attakei.jpg
+    :data-background-size: contain
 
 .. code-block:: rest
 
     .. revealjs_section::
-        :background_image: _static/icon-attakei.jpg
+        :data-background-image: _static/icon-attakei.jpg
+        :data-background-size: contain
 
 
 Inject background video
 -----------------------
 
 .. revealjs_section::
-    :background_video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
+    :data-background-video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
 
 .. code-block:: rest
 
     .. revealjs_section::
-        :background_video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
+        :data-background-video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
 
 
 Usage
