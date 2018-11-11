@@ -88,6 +88,10 @@ To:
 code-block as reveal.js code block
 ----------------------------------
 
+Direcvite for meta of section
+-----------------------------
+
+.. revealjs_section::
 
 
 Usage

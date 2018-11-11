@@ -47,3 +47,11 @@ class RevealjsSlideTranslator(HTML5Translator):
 
     def depart_literal_block(self, node: literal_block):
         self.body.append('</code></pre>\n')
+
+
+def visit_revealjs_section(self, node):
+    pass
+
+
+def depart_revealjs_section(self, node):
+    pass
