@@ -2,31 +2,33 @@
 """
 from docutils.parsers.rst import Directive, directives
 
-from .nodes import revealjs_section
+from .nodes import revealjs_section, FlagAttribute
 
 
 class RevealjsSection(Directive):
     option_spec = {
-        'background_color': directives.unchanged,
-        'background_image': directives.unchanged,
-        'background_video': directives.unchanged,
+        # Color backgrounds
+        'data-background-color': directives.unchanged,
+        # Image backgrounds
+        'data-background-image': directives.unchanged,
+        'data-background-position': directives.unchanged,
+        'data-background-repeat': directives.unchanged,
+        # Video backgrounds
+        'data-background-video': directives.unchanged,
+        'data-background-video-loop': directives.unchanged,
+        'data-background-video-muted': directives.unchanged,
+        # Image/Video backgrounds
+        'data-background-size': directives.unchanged,
+        'data-background-opacity': directives.unchanged,
+        # Iframe backgrounds
+        'data-background-iframe': directives.unchanged,
+        'data-background-interactive': lambda x: FlagAttribute(),
+        # Transition
+        'data-transition': directives.unchanged,
+        'data-background-transition': directives.unchanged,
     }
 
     def run(self):
         node = revealjs_section()
-        meta = {}
-        if 'background_color' in self.options:
-            meta.update({
-                'data-background-color': self.options['background_color'],
-            })
-        if 'background_image' in self.options:
-            meta.update({
-                'data-background': self.options['background_image'],
-                'data-background-size': 'contain',
-            })
-        if 'background_video' in self.options:
-            meta.update({
-                'data-background-video': self.options['background_video'],
-            })
-        node['meta'] = meta
+        node.attributes = self.options
         return [node, ]
