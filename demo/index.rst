@@ -96,23 +96,23 @@ Inject background color
 -----------------------
 
 .. revealjs_section::
-    :background_color: #ffffff
+    :background_color: #009900
 
 .. code-block:: rest
 
     .. revealjs_section::
-        :background_color: #ffffff
+        :background_color: #009900
 
 Inject background image
 -----------------------
 
 .. revealjs_section::
-    :background_image: https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
+    :background_image: _static/icon-attakei.jpg
 
 .. code-block:: rest
 
     .. revealjs_section::
-        :background_image: https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
+        :background_image: _static/icon-attakei.jpg
 
 
 Inject background video
