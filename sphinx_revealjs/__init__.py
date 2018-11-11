@@ -9,7 +9,7 @@ from .directives import RevealjsSection
 from .nodes import revealjs_section
 from .writers import not_write
 
-__version__ = '0.2.0'
+__version__ = '0.3.0'
 
 
 def get_theme_path(name: str) -> Path:

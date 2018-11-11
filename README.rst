@@ -39,7 +39,7 @@ Usage
 
         html_theme = 'revealjs'
 
-3. Write source for standard document style(This extension does not have custom directives) 
+3. Write source for standard document style
 
 4. Build sources as Reveal.js presentation
 
