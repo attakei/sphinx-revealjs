@@ -61,9 +61,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         self.body.append('</code></pre>\n')
 
 
-def visit_revealjs_section(self, node):
-    pass
-
-
-def depart_revealjs_section(self, node):
+def not_write(self, node):
+    """visit/depart function for declare "no write"
+    """
     pass
