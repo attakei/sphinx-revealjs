@@ -88,10 +88,43 @@ To:
 code-block as reveal.js code block
 ----------------------------------
 
+
 Direcvite for meta of section
------------------------------
+=============================
+
+Inject background color
+-----------------------
 
 .. revealjs_section::
+    :background_color: #ffffff
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :background_color: #ffffff
+
+Inject background image
+-----------------------
+
+.. revealjs_section::
+    :background_image: https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :background_image: https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
+
+
+Inject background video
+-----------------------
+
+.. revealjs_section::
+    :background_video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
+
+.. code-block:: rest
+
+    .. revealjs_section::
+        :background_video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
 
 
 Usage

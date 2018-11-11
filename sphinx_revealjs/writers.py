@@ -7,6 +7,13 @@ def has_child_sections(node: Element, name: str):
     return name in nodes
 
 
+def find_child_section(node: Element, name: str):
+    for n in node.children:
+        if n.tagname == name:
+            return n
+    return None
+
+
 class RevealjsSlideTranslator(HTML5Translator):
     permalink_text = False
 
@@ -17,6 +24,11 @@ class RevealjsSlideTranslator(HTML5Translator):
 
     def visit_section(self, node: section):
         self.section_level += 1
+        meta = find_child_section(node, 'revealjs_section')
+        if meta is not None:
+            attrs = meta.attributes_str()
+        else:
+            attrs = ''
         if self.section_level == 1:
             self._proc_first_on_section = True
             self.body.append('<section>\n')
@@ -24,7 +36,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self._proc_first_on_section:
             self._proc_first_on_section = False
             self.body.append('</section>\n')
-        self.body.append('<section>\n')
+        self.body.append(f"<section {attrs}>\n")
         if has_child_sections(node, 'section'):
             self._proc_first_on_section = True
             self.body.append('<section>\n')
