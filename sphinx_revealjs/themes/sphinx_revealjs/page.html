@@ -14,6 +14,19 @@
 		<link rel="stylesheet" href="{{ pathto('_static/revealjs/css/reveal.css', 1) }}" />
 		<link rel="stylesheet" href="{{ pathto('_static/revealjs/css/theme/'+ theme_revealjs_theme + '.css', 1) }}" />
 		<link rel="stylesheet" href="{{ pathto('_static/revealjs/lib/css/zenburn.css', 1) }}" />
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( "link" );
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			if (window.location.search.match( /print-pdf/gi )) {
+				link.href = "{{ pathto('_static/revealjs/css/print/pdf.css', 1) }}";
+			} else {
+				link.href = "{{ pathto('_static/revealjs/css/print/paper.css', 1) }}";
+			}
+			document.getElementsByTagName( "head" )[0].appendChild( link );
+		</script>
 	</head>
 
 	<body>
