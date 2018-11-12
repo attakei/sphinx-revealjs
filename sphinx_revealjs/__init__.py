@@ -27,8 +27,6 @@ def setup(app: Sphinx):
     app.add_directive('revealjs_section', RevealjsSection)
     app.add_html_theme(
         'revealjs', str(get_theme_path('revealjs')))
-    app.add_html_theme(
-        'revealjs_debugging', str(get_theme_path('debugging')))
     return {
         'version': __version__,
         'env_version': 1,
