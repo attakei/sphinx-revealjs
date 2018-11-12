@@ -1,6 +1,6 @@
 from sphinx.builders.html import StandaloneHTMLBuilder
 
-from .writers import RevealjsSlideTranslator
+from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 
 class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
