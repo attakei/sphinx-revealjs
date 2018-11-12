@@ -1,20 +1,14 @@
 """
 """
-from pathlib import Path
-
 from sphinx.application import Sphinx
 
 from .builders import RevealjsHTMLBuilder
 from .directives import RevealjsSection
 from .nodes import revealjs_section
+from .themes import get_theme_path
 from .writers import not_write
 
 __version__ = '0.3.0'
-
-
-def get_theme_path(name: str) -> Path:
-    here = Path(__file__).parent
-    return here / 'themes' / name
 
 
 def setup(app: Sphinx):
