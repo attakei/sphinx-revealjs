@@ -12,7 +12,6 @@ __version__ = '0.3.0'
 
 
 def setup(app: Sphinx):
-    app.add_config_value('revealjs_version', '3.7.0', 'html')
     app.add_builder(RevealjsHTMLBuilder)
     app.add_node(
         revealjs_section,
