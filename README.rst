@@ -37,8 +37,6 @@ Usage
             'sphinx_revealjs',
         ]
 
-        html_theme = 'revealjs'
-
 3. Write source for standard document style
 
 4. Build sources as Reveal.js presentation
