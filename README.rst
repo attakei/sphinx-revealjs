@@ -1,7 +1,7 @@
 sphinx-revealjs
 ===============
 
-Sphinx extention for generating Reveal.js presentation.
+Sphinx extention with theme to generate Reveal.js presentation
 
 Orverview
 ---------
@@ -16,13 +16,9 @@ It include theses features.
 Installation
 ------------
 
-This project is not registered to PyPI.
-
-For installation, you need to install from GitHub.
-
 .. code-block:: bash
 
-    $ pip install git+https://github.com/attakei/sphinx-revealjs
+    $ pip install sphinx-revealjs
 
 
 Usage
