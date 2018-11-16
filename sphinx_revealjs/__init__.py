@@ -20,6 +20,8 @@ def setup(app: Sphinx):
         html=(not_write, not_write),
         revealjs=(not_write, not_write))
     app.add_directive('revealjs_section', RevealjsSection)
+    app.add_config_value('revealjs_theme', 'sphinx_revealjs', True)
+    app.add_config_value('revealjs_theme_options', {}, True)
     app.add_html_theme(
         'sphinx_revealjs', str(get_theme_path('sphinx_revealjs')))
     return {

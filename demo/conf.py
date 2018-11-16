@@ -100,6 +100,13 @@ html_static_path = ['_static']
 # html_sidebars = {}
 
 
+# -- Options for Reveal.js output ---------------------------------------------
+revealjs_theme_options = {
+    'revealjs_custom_theme': True,
+    'revealjs_theme': 'black2',
+}
+
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
