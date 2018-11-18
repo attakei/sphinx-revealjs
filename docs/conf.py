@@ -5,6 +5,13 @@
 # This file does only contain a selection of the most common options. For a
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
+import re
+from pathlib import Path
+
+
+def fetch_version_string(target: Path) -> str:
+    line_re = re.compile(r"__version__ = '(.*?)'", re.S)
+    return line_re.search(target.open().read()).group(1)
 
 # -- Path setup --------------------------------------------------------------
 
@@ -16,6 +23,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+PROJ_ROOT = Path(__file__).parents[1]
 
 # -- Project information -----------------------------------------------------
 
@@ -26,7 +34,7 @@ author = 'Kazuya Takei'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.3.1'
+release = fetch_version_string(PROJ_ROOT / 'sphinx_revealjs' / '__init__.py')
 
 
 # -- General configuration ---------------------------------------------------
