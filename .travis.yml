@@ -14,6 +14,8 @@ matrix:
       env: TOXENV=flakes
     - python: '3.6'
       env: TOXENV=pypi
+    - python: '3.6'
+      env: TOXENV=build
 
 install:
   - pip install tox
@@ -29,4 +31,4 @@ deploy:
   local-dir: demo/_build/revealjs/
   on:
     branch: master
-    condition: $TOXENV = "py36"
+    condition: $TOXENV = "build"
