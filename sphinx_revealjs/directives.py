@@ -2,7 +2,9 @@
 """
 from docutils.parsers.rst import Directive, directives
 
-from sphinx_revealjs.nodes import revealjs_section, revealjs_slide, FlagAttribute
+from sphinx_revealjs.nodes import (
+    revealjs_section, revealjs_slide, FlagAttribute
+)
 
 
 class RevealjsSection(Directive):

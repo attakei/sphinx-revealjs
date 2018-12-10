@@ -10,6 +10,7 @@ SPHINX_TESTAPP_CONF = {
     'copy_srcdir_to_tmpdir': True,
 }
 
+
 class DemoMakeTesting(unittest.TestCase):
     @with_app(**SPHINX_TESTAPP_CONF)
     def test_build_ok(self, app, status, warning):
