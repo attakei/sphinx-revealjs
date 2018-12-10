@@ -1,12 +1,20 @@
 sphinx-revealjs
 ===============
 
+.. image:: https://img.shields.io/pypi/v/nine.svg
+    :target: https://pypi.org/project/sphinx-revealjs/
+
+.. image:: https://travis-ci.org/attakei/sphinx-revealjs.svg?branch=master
+    :target: https://travis-ci.org/attakei/sphinx-revealjs
+
+
 Sphinx extention with theme to generate Reveal.js presentation
 
 Orverview
 ---------
 
-This extension generate Reveal.js presentation from **standard** reStructuredText.
+This extension generate Reveal.js presentation
+from **standard** reStructuredText.
 
 It include theses features.
 
@@ -41,9 +49,13 @@ Usage
 
         $ make revealjs
 
+Change logs
+-----------
+
+See `it <./CHANGES.rst>`_
+
 Futures
 -------
 
 * Index template as none presentation
-* Theme select per presentations
 * CDN support
