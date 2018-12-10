@@ -11,7 +11,7 @@ matrix:
     - python: '3.6'
       env: TOXENV=docstyle
     - python: '3.6'
-      env: TOXENV=codestyle
+      env: TOXENV=flake8
     - python: '3.6'
       env: TOXENV=flakes
     - python: '3.6'
