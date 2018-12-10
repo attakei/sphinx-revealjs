@@ -15,6 +15,13 @@ install_requires = [
     'Sphinx'
 ]
 
+extra_requires = {
+    'testing': [
+        'nose',
+        'sphinx-testing',
+    ]
+}
+
 
 def fetch_version_string(target: Path) -> str:
     line_re = re.compile(r"__version__ = '(.*?)'", re.S)
@@ -40,7 +47,6 @@ setup(
     ],
     packages=find_packages(exclude=['docs', 'demo', 'tools']),
     install_requires=install_requires,
-    extras_require={
-    },
+    extras_require=extra_requires,
     include_package_data=True,
 )

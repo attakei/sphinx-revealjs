@@ -14,3 +14,7 @@ class revealjs_section(nodes.Structural, nodes.Element):
                 continue
             pair.append(f'{k}="{v}"')
         return ' '.join(pair)
+
+
+class revealjs_slide(nodes.Structural, nodes.Element):
+    pass
