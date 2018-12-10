@@ -2,7 +2,9 @@
 """
 from docutils.parsers.rst import Directive, directives
 
-from sphinx_revealjs.nodes import revealjs_section, FlagAttribute
+from sphinx_revealjs.nodes import (
+    revealjs_section, revealjs_slide, FlagAttribute
+)
 
 
 class RevealjsSection(Directive):
@@ -30,5 +32,16 @@ class RevealjsSection(Directive):
 
     def run(self):
         node = revealjs_section()
+        node.attributes = self.options
+        return [node, ]
+
+
+class RevealjsSlide(Directive):
+    option_spec = {
+        'theme': directives.unchanged,
+    }
+
+    def run(self):
+        node = revealjs_slide()
         node.attributes = self.options
         return [node, ]

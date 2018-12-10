@@ -30,6 +30,10 @@ class RevealjsSlideTranslator(HTML5Translator):
         else:
             attrs = ''
         if self.section_level == 1:
+            slide_meta = find_child_section(node, 'revealjs_slide')
+            if slide_meta:
+                print('koko')
+                self.builder.revealjs_slide = slide_meta
             self._proc_first_on_section = True
             self.body.append('<section>\n')
             return
