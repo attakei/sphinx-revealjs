@@ -12,6 +12,7 @@ sphinx = "*"
 isort = "*"
 restructuredtext-lint = "*"
 "doc8" = "*"
+sphinx-rtd-theme = "*"
 
 [requires]
 python_version = "3.6"
