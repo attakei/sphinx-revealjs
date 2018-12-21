@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 0.4.1
+=========
+
+:date: 2018-12-21
+
+Fixes
+-----
+
+* ``revealjs_section`` directive of source apply for itself only
+
 ver 0.4.0
 =========
 
