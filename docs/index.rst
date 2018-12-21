@@ -1,16 +1,24 @@
-.. sphinx-revealjs documentation master file, created by
-   sphinx-quickstart on Mon Nov 19 00:46:47 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+===============
+sphinx-revealjs
+===============
 
-Welcome to sphinx-revealjs's documentation!
-===========================================
+``sphinx-revealjs`` is Sphinx extension
+to generate Reveal.js presentation documents
+from **standard** reStructuredText.
+
+Basic Features
+==============
+
+* Nested sections
+* Speaker note
+* Syntax highlight for Reveal.js (not used pygments)
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
-
-
+   :caption: List of Contents:
 
 Indices and tables
 ==================
