@@ -20,6 +20,8 @@ Contents
    :maxdepth: 2
    :caption: List of Contents:
 
+   overview
+
 Indices and tables
 ==================
 
