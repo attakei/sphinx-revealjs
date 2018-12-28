@@ -21,6 +21,7 @@ Contents
    :caption: List of Contents:
 
    overview
+   setup
 
 Indices and tables
 ==================
