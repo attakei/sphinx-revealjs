@@ -6,7 +6,7 @@ from sphinx_testing import with_app
 PROJECT_ROOT = Path(__file__).parents[1]
 SPHINX_TESTAPP_CONF = {
     'buildername': 'revealjs',
-    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs'),
+    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs' / 'default'),
     'copy_srcdir_to_tmpdir': True,
 }
 
@@ -22,7 +22,7 @@ class DemoMakeTesting(unittest.TestCase):
     @with_app(**SPHINX_TESTAPP_CONF)
     def test_theme_by_directive(self, app, status, warning):
         app.build()
-        html = (app.outdir / 'changed_theme.html').read_text()
+        html = (app.outdir / 'theme_changed.html').read_text()
         assert '<h1>Test for selecatable theme</h1>' in html
         theme_url_path = f'_static/solarized.css'
         assert theme_url_path in html

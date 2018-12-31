@@ -6,7 +6,7 @@ from sphinx_testing import with_app
 PROJECT_ROOT = Path(__file__).parents[1]
 SPHINX_TESTAPP_CONF = {
     'buildername': 'revealjs',
-    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs'),
+    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs' / 'default'),
     'copy_srcdir_to_tmpdir': True,
 }
 

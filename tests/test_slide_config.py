@@ -6,7 +6,7 @@ from sphinx_testing import with_app
 PROJECT_ROOT = Path(__file__).parents[1]
 SPHINX_TESTAPP_CONF = {
     'buildername': 'revealjs',
-    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs'),
+    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs' / 'default'),
     'copy_srcdir_to_tmpdir': True,
 }
 SPHINX_TESTAPP_INVALIDCONF = {
@@ -25,7 +25,7 @@ class SlideConfigTesting(unittest.TestCase):
     @with_app(**SPHINX_TESTAPP_CONF)
     def test_valid_conf_in_rst(self, app, status, warning):
         app.build()
-        html = (app.outdir / 'override_config.html').read_text()
+        html = (app.outdir / 'config_override.html').read_text()
         assert '<h1>Test for override config</h1>' in html
         assert 'Object.assign(revealConfig, {"transition": "none"});' in html
 
