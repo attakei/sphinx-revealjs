@@ -17,7 +17,7 @@ class SlideConfigTesting(unittest.TestCase):
         app.build()
         html = (app.outdir / 'override_config.html').read_text()
         assert '<h1>Test for override config</h1>' in html
-        assert 'Object.assign(revealConfig, {transition: "none"});' in html
+        assert 'Object.assign(revealConfig, {"transition": "none"});' in html
 
     @with_app(**SPHINX_TESTAPP_CONF)
     def test_theme_invalid_config(self, app, status, warning):
