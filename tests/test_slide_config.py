@@ -11,16 +11,9 @@ SPHINX_TESTAPP_CONF = {
 }
 
 
-class DemoMakeTesting(unittest.TestCase):
+class SlideConfigTesting(unittest.TestCase):
     @with_app(**SPHINX_TESTAPP_CONF)
-    def test_theme_default(self, app, status, warning):
-        app.build()
-        html = (app.outdir / 'index.html').read_text()
-        theme_url_path = f'_static/black.css'
-        assert theme_url_path in html
-
-    @with_app(**SPHINX_TESTAPP_CONF)
-    def test_theme_by_directive(self, app, status, warning):
+    def test_conf_in_directive(self, app, status, warning):
         app.build()
         html = (app.outdir / 'override_config.html').read_text()
         assert '<h1>Test for override config</h1>' in html
