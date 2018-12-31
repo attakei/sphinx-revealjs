@@ -56,8 +56,8 @@
 					{ src: "{{ pathto('_static/revealjs/plugin/highlight/highlight.js', 1) }}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			};
-			{% if theme_revealjs_configuration %}
-			Object.assign(revealConfig, {{ theme_revealjs_configuration }});
+			{% if theme_revealjs_config %}
+			Object.assign(revealConfig, {{ theme_revealjs_config }});
 			{% endif %}
 			{% if revealjs_slide and revealjs_slide.config %}
 			Object.assign(revealConfig, {{ revealjs_slide.config }});
