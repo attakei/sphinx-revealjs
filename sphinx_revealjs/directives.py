@@ -1,10 +1,22 @@
 """Custom directives for Reveal.js
 """
+import json
+
 from docutils.parsers.rst import Directive, directives
 
 from sphinx_revealjs.nodes import (
     revealjs_section, revealjs_slide, FlagAttribute
 )
+
+
+def raw_json(argument):
+    if argument is None:
+        return directives.unchanged(argument)
+    try:
+        json.loads(argument)
+    except json.decoder.JSONDecodeError:
+        return ''
+    return argument
 
 
 class RevealjsSection(Directive):
@@ -39,6 +51,7 @@ class RevealjsSection(Directive):
 class RevealjsSlide(Directive):
     option_spec = {
         'theme': directives.unchanged,
+        'config': raw_json,
     }
 
     def run(self):
