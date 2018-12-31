@@ -1,3 +1,7 @@
+"""Testing with test docs
+
+Use generated html from test documents
+"""
 import unittest
 
 from sphinx_testing import with_app
@@ -5,7 +9,17 @@ from sphinx_testing import with_app
 from testutils import gen_testdoc_conf
 
 
+class RegularOutputTesting(unittest.TestCase):
+    """Simple output content test"""
+    @with_app(**gen_testdoc_conf())
+    def test_theme_default(self, app, status, warning):
+        app.build()
+        html = (app.outdir / 'index.html').read_text()
+        assert 'sphinx-revealjs test doc' in html
+
+
 class SlideConfigTesting(unittest.TestCase):
+    """Test case for Revealjs config parameters"""
     @with_app(**gen_testdoc_conf())
     def test_valid_conf_in_rst(self, app, status, warning):
         app.build()
@@ -17,7 +31,6 @@ class SlideConfigTesting(unittest.TestCase):
     def test_valid_conf_in_confpy(self, app, status, warning):
         app.build()
         html = (app.outdir / 'index.html').read_text()
-        print(html)
         assert 'Object.assign(revealConfig, {"transition":"none"});' in html
 
     @with_app(**gen_testdoc_conf())
@@ -32,3 +45,21 @@ class SlideConfigTesting(unittest.TestCase):
         app.build()
         html = (app.outdir / 'index.html').read_text()
         assert 'Object.assign(revealConfig, {transition:"});' not in html
+
+
+class SlideThemeTesting(unittest.TestCase):
+    """Test case for Reveal.js theme settings"""
+    @with_app(**gen_testdoc_conf())
+    def test_theme_default(self, app, status, warning):
+        app.build()
+        html = (app.outdir / 'index.html').read_text()
+        theme_url_path = f'_static/black.css'
+        assert theme_url_path in html
+
+    @with_app(**gen_testdoc_conf())
+    def test_theme_by_directive(self, app, status, warning):
+        app.build()
+        html = (app.outdir / 'theme_changed.html').read_text()
+        assert '<h1>Test for selecatable theme</h1>' in html
+        theme_url_path = f'_static/solarized.css'
+        assert theme_url_path in html
