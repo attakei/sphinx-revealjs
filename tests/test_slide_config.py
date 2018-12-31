@@ -11,12 +11,12 @@ SPHINX_TESTAPP_CONF = {
 }
 SPHINX_TESTAPP_INVALIDCONF = {
     'buildername': 'revealjs',
-    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs-invalid'),
+    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs' / 'invalid-conf'),
     'copy_srcdir_to_tmpdir': True,
 }
 SPHINX_TESTAPP_VALIDCONF = {
     'buildername': 'revealjs',
-    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs-validconf'),
+    'srcdir': str(PROJECT_ROOT / 'tests' / 'testdocs' / 'valid-conf'),
     'copy_srcdir_to_tmpdir': True,
 }
 
