@@ -9,7 +9,7 @@ from sphinx_revealjs.nodes import (
 )
 
 
-def javascript_object(argument):
+def raw_json(argument):
     if argument is None:
         return directives.unchanged(argument)
     try:
@@ -51,7 +51,7 @@ class RevealjsSection(Directive):
 class RevealjsSlide(Directive):
     option_spec = {
         'theme': directives.unchanged,
-        'config': javascript_object,
+        'config': raw_json,
     }
 
     def run(self):
