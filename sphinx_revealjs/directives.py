@@ -39,6 +39,7 @@ class RevealjsSection(Directive):
 class RevealjsSlide(Directive):
     option_spec = {
         'theme': directives.unchanged,
+        'config': directives.unchanged,
     }
 
     def run(self):

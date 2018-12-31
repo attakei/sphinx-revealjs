@@ -44,8 +44,7 @@
 		<script src="{{ pathto('_static/revealjs/lib/js/head.min.js', 1) }}"></script>
 		<script src="{{ pathto('_static/revealjs/js/reveal.js', 1) }}"></script>
 		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
+			var revealConfig = {
 				controls: true,
 				progress: true,
 				history: true,
@@ -56,7 +55,12 @@
 					{ src: "{{ pathto('_static/revealjs/plugin/notes/notes.js', 1) }}", async: true },
 					{ src: "{{ pathto('_static/revealjs/plugin/highlight/highlight.js', 1) }}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
-			});
+			};
+			{% if revealjs_slide and revealjs_slide.config %}
+			Object.assign(revealConfig, {{ revealjs_slide.config }});
+			{% endif %}
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize(revealConfig);
 		</script>
 	</body>
 </html>
