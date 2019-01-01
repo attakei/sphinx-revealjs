@@ -2,6 +2,18 @@
 Change logs
 ===========
 
+ver 0.5.0
+=========
+
+:date: 2018-12-31
+
+Features
+--------
+
+* Revealjs initialize config accept from sphinx document config
+* Revealjs initialize config accept from ``revealjs_slide`` directive
+
+
 ver 0.4.1
 =========
 

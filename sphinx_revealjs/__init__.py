@@ -1,7 +1,7 @@
 """
 """
 
-__version__ = '0.4.1'
+__version__ = '0.5.0'
 
 
 from sphinx.application import Sphinx
