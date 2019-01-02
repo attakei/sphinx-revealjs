@@ -22,6 +22,7 @@ Contents
 
    overview
    setup
+   customizations
 
 Indices and tables
 ==================
