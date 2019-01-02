@@ -12,11 +12,13 @@ sphinx = "*"
 isort = "*"
 restructuredtext-lint = "*"
 "doc8" = "*"
+sphinx-rtd-theme = "*"
 
 [requires]
 python_version = "3.6"
 
 [scripts]
+docs = "make -C docs/ html"
 demo = "make -C demo/"
 make = "make -C docs/ revealjs"
 serve = "python -m http.server"
