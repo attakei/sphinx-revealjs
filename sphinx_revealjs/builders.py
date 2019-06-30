@@ -1,4 +1,5 @@
 from sphinx.builders.html import StandaloneHTMLBuilder
+from typing import Dict, Tuple
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
@@ -12,8 +13,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         super().__init__(app)
         self.revealjs_slide = None
 
-    def get_theme_config(self):
-        # type: () -> Tuple[unicode, Dict]
+    def get_theme_config(self) -> Tuple[str, Dict]:
         theme_name = getattr(self.config, 'revealjs_theme', 'sphinx_revealjs')
         theme_options = getattr(self.config, 'revealjs_theme_options', {})
         config = raw_json(theme_options.get('revealjs_config', ''))
