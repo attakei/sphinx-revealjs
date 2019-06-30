@@ -2,6 +2,17 @@
 Change logs
 ===========
 
+ver 0.5.1
+=========
+
+:date: 2019-06-30
+
+Extra
+-----
+
+* Update Reveal.js from 3.7.0 to 3.8.0
+
+
 ver 0.5.0
 =========
 
