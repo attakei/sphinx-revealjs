@@ -1,9 +1,5 @@
 """
 """
-
-__version__ = '0.5.1'
-
-
 from sphinx.application import Sphinx
 
 from sphinx_revealjs.builders import RevealjsHTMLBuilder
@@ -11,6 +7,8 @@ from sphinx_revealjs.directives import RevealjsSection, RevealjsSlide
 from sphinx_revealjs.nodes import revealjs_section, revealjs_slide
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import not_write
+
+from ._version import __version__
 
 
 def setup(app: Sphinx):
