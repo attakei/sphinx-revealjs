@@ -16,7 +16,7 @@ def validate_dir_state(target: Path) -> bool:
     return actually
 
 
-def download_release(target: Path, version: str = '3.7.0') -> Path:
+def download_release(target: Path, version: str = '3.8.0') -> Path:
     target.mkdir(exist_ok=True)
     url = f"https://github.com/hakimel/reveal.js/archive/{version}.tar.gz"
     dest = target / f"revealjs-{version}.tgz"
@@ -48,7 +48,7 @@ if __name__ == '__main__':
         'LICENSE',
     ]
     dest_base = base_dir / 'sphinx_revealjs' \
-        / 'themes' / 'revealjs' / 'static' / 'revealjs'
+        / 'themes' / 'sphinx_revealjs' / 'static' / 'revealjs'
     for src_ in src_list:
         src = extracted / src_
         dest = dest_base / src_
