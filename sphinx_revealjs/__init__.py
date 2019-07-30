@@ -1,5 +1,4 @@
-"""
-"""
+"""Root module for sphinx-revealjs."""
 
 __version__ = '0.5.1'
 
@@ -20,6 +19,7 @@ from sphinx_revealjs.writers import (
 
 
 def setup(app: Sphinx):
+    """Set up function called by Sphinx."""
     app.add_builder(RevealjsHTMLBuilder)
     app.add_node(
         revealjs_section,
