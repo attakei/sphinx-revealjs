@@ -1,12 +1,22 @@
+"""Custom docutils nodes for Reveal.js."""
 from docutils import nodes
 
 
 class FlagAttribute(object):
+    """Flag options for docutils node."""
+
     pass
 
 
 class SectionTagRenderer(object):
+    """Mix-in class to build attributes combined string."""
+
     def attributes_str(self):
+        """Build string of attributes for Reveal.js sections.
+
+        Catch only keys starting 'data-'.
+        Others are skipped.
+        """
         pair = []
         for k, v in self.attributes.items():
             if not k.startswith('data-'):
@@ -18,13 +28,13 @@ class SectionTagRenderer(object):
         return ' '.join(pair)
 
 
-class revealjs_section(SectionTagRenderer, nodes.Structural, nodes.Element):
+class revealjs_section(SectionTagRenderer, nodes.Structural, nodes.Element):  # noqa: D101,E501
     pass
 
 
-class revealjs_break(SectionTagRenderer, nodes.Structural, nodes.Element):
+class revealjs_break(SectionTagRenderer, nodes.Structural, nodes.Element):  # noqa: D101,E501
     pass
 
 
-class revealjs_slide(nodes.Structural, nodes.Element):
+class revealjs_slide(nodes.Structural, nodes.Element):  # noqa: D101
     pass

@@ -1,15 +1,15 @@
-"""Custom directives for Reveal.js.
-"""
+"""Custom directives for Reveal.js."""
 import json
 
 from docutils.parsers.rst import Directive, directives
 
 from sphinx_revealjs.nodes import (
-    revealjs_break, revealjs_section, revealjs_slide, FlagAttribute
+    FlagAttribute, revealjs_break, revealjs_section, revealjs_slide
 )
 
 
 def raw_json(argument):
+    """Type of direction attribute."""
     if argument is None:
         return directives.unchanged(argument)
     try:
@@ -42,35 +42,35 @@ REVEALJS_SECTION_ATTRIBUTES = {
 }
 
 
-class RevealjsSection(Directive):
+class RevealjsSection(Directive):  # noqa: D101
     option_spec = REVEALJS_SECTION_ATTRIBUTES
 
-    def run(self):
+    def run(self):  # noqa: D102
         node = revealjs_section()
         node.attributes = self.options
         return [node, ]
 
 
-class RevealjsBreak(Directive):
+class RevealjsBreak(Directive):  # noqa: D101
     option_spec = dict(
         # if it is set, next section does not display title
         notitle=lambda x: FlagAttribute(),
         **REVEALJS_SECTION_ATTRIBUTES
     )
 
-    def run(self):
+    def run(self):  # noqa: D102
         node = revealjs_break()
         node.attributes = self.options
         return [node, ]
 
 
-class RevealjsSlide(Directive):
+class RevealjsSlide(Directive):  # noqa: D101
     option_spec = {
         'theme': directives.unchanged,
         'config': raw_json,
     }
 
-    def run(self):
+    def run(self):  # noqa: D102
         node = revealjs_slide()
         node.attributes = self.options
         return [node, ]

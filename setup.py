@@ -1,5 +1,4 @@
-"""Setup module
-"""
+"""Setup module."""
 import re
 from pathlib import Path
 
@@ -31,6 +30,7 @@ extra_requires = {
 
 
 def fetch_version_string(target: Path) -> str:
+    """Fetch version string from module."""
     line_re = re.compile(r"__version__ = '(.*?)'", re.S)
     return line_re.search(target.open().read()).group(1)
 
@@ -38,7 +38,7 @@ def fetch_version_string(target: Path) -> str:
 setup(
     name='sphinx-revealjs',
     version=fetch_version_string(here / 'sphinx_revealjs' / '__init__.py'),
-    description='Sphinx extention with theme to generate Reveal.js presentation',
+    description='Sphinx extension with theme to generate Reveal.js presentation',  # noqa
     long_description=long_description,
     url='https://github.com/attakei/sphinx-revealjs',
     author='attakei',
