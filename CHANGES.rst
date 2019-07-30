@@ -2,6 +2,26 @@
 Change logs
 ===========
 
+ver 0.6.0
+=========
+
+:date: 2019-07-31
+
+Features
+--------
+
+* Add new directive ``revealjs_break`` to split sections.
+
+  * Updated demo
+
+Extra
+-----
+
+* Add docstrings any sources. (ignore tests)
+* Remove Pipenv.
+* Migrate metadata and options from ``setup.py`` into ``setup.cfg`` .
+* Use bumpversion for versioning
+
 ver 0.5.1
 =========
 
