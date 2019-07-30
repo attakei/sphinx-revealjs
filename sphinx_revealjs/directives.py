@@ -19,28 +19,31 @@ def raw_json(argument):
     return argument
 
 
+REVEALJS_SECTION_ATTRIBUTES = {
+    # Color backgrounds
+    'data-background-color': directives.unchanged,
+    # Image backgrounds
+    'data-background-image': directives.unchanged,
+    'data-background-position': directives.unchanged,
+    'data-background-repeat': directives.unchanged,
+    # Video backgrounds
+    'data-background-video': directives.unchanged,
+    'data-background-video-loop': directives.unchanged,
+    'data-background-video-muted': directives.unchanged,
+    # Image/Video backgrounds
+    'data-background-size': directives.unchanged,
+    'data-background-opacity': directives.unchanged,
+    # Iframe backgrounds
+    'data-background-iframe': directives.unchanged,
+    'data-background-interactive': lambda x: FlagAttribute(),
+    # Transition
+    'data-transition': directives.unchanged,
+    'data-background-transition': directives.unchanged,
+}
+
+
 class RevealjsSection(Directive):
-    option_spec = {
-        # Color backgrounds
-        'data-background-color': directives.unchanged,
-        # Image backgrounds
-        'data-background-image': directives.unchanged,
-        'data-background-position': directives.unchanged,
-        'data-background-repeat': directives.unchanged,
-        # Video backgrounds
-        'data-background-video': directives.unchanged,
-        'data-background-video-loop': directives.unchanged,
-        'data-background-video-muted': directives.unchanged,
-        # Image/Video backgrounds
-        'data-background-size': directives.unchanged,
-        'data-background-opacity': directives.unchanged,
-        # Iframe backgrounds
-        'data-background-iframe': directives.unchanged,
-        'data-background-interactive': lambda x: FlagAttribute(),
-        # Transition
-        'data-transition': directives.unchanged,
-        'data-background-transition': directives.unchanged,
-    }
+    option_spec = REVEALJS_SECTION_ATTRIBUTES
 
     def run(self):
         node = revealjs_section()
@@ -49,27 +52,7 @@ class RevealjsSection(Directive):
 
 
 class RevealjsBreak(Directive):
-    option_spec = {
-        # Color backgrounds
-        'data-background-color': directives.unchanged,
-        # Image backgrounds
-        'data-background-image': directives.unchanged,
-        'data-background-position': directives.unchanged,
-        'data-background-repeat': directives.unchanged,
-        # Video backgrounds
-        'data-background-video': directives.unchanged,
-        'data-background-video-loop': directives.unchanged,
-        'data-background-video-muted': directives.unchanged,
-        # Image/Video backgrounds
-        'data-background-size': directives.unchanged,
-        'data-background-opacity': directives.unchanged,
-        # Iframe backgrounds
-        'data-background-iframe': directives.unchanged,
-        'data-background-interactive': lambda x: FlagAttribute(),
-        # Transition
-        'data-transition': directives.unchanged,
-        'data-background-transition': directives.unchanged,
-    }
+    option_spec = REVEALJS_SECTION_ATTRIBUTES
 
     def run(self):
         node = revealjs_break()
