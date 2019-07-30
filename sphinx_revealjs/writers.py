@@ -77,7 +77,7 @@ def visit_revealjs_break(self, node: revealjs_break):
 def depart_revealjs_break(self, node: revealjs_break):
     attrs = node.attributes_str()
     self.body.append(f'<section {attrs}>\n')
-    if 'title' in node.attributes:
+    if 'notitle' not in node.attributes:
         title = find_child_section(node.parent, 'title')
         self.body.append(f'<h{self.section_level}>')
         self.body.append(title.children[0])

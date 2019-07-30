@@ -53,7 +53,8 @@ class RevealjsSection(Directive):
 
 class RevealjsBreak(Directive):
     option_spec = dict(
-        title=lambda x: FlagAttribute(),
+        # if it is set, next section does not display title
+        notitle=lambda x: FlagAttribute(),
         **REVEALJS_SECTION_ATTRIBUTES
     )
 
