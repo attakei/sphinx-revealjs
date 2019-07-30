@@ -1,4 +1,4 @@
-"""Custom directives for Reveal.js
+"""Custom directives for Reveal.js.
 """
 import json
 

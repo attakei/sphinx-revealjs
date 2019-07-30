@@ -65,7 +65,7 @@ class RevealjsSlideTranslator(HTML5Translator):
 
 
 def not_write(self, node):
-    """visit/depart function for declare "no write"
+    """visit/depart function for declare "no write".
     """
     pass
 
