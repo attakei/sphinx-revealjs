@@ -1,5 +1,6 @@
 from docutils.nodes import Element, section, comment, literal_block
 from sphinx.writers.html5 import HTML5Translator
+from .nodes import revealjs_break
 
 
 def has_child_sections(node: Element, name: str):
@@ -67,3 +68,12 @@ def not_write(self, node):
     """visit/depart function for declare "no write"
     """
     pass
+
+
+def visit_revealjs_break(self, node: revealjs_break):
+    self.body.append('</section>\n')
+
+
+def depart_revealjs_break(self, node: revealjs_break):
+    attrs = node.attributes_str()
+    self.body.append(f'<section {attrs}>\n')
