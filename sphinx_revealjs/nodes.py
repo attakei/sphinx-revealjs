@@ -9,6 +9,8 @@ class SectionTagRenderer(object):
     def attributes_str(self):
         pair = []
         for k, v in self.attributes.items():
+            if not k.startswith('data-'):
+                continue
             if isinstance(v, FlagAttribute):
                 pair.append(k)
                 continue

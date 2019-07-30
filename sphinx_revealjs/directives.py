@@ -52,7 +52,10 @@ class RevealjsSection(Directive):
 
 
 class RevealjsBreak(Directive):
-    option_spec = REVEALJS_SECTION_ATTRIBUTES
+    option_spec = dict(
+        title=lambda x: FlagAttribute(),
+        **REVEALJS_SECTION_ATTRIBUTES
+    )
 
     def run(self):
         node = revealjs_break()
