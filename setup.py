@@ -20,6 +20,7 @@ extra_requires = {
         'flake8',
         'flake8-docstrings',
         'flake8-isort',
+        'pydocstyle<4.0.0',
         'doc8',
     ],
     'testing': [
