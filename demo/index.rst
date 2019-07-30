@@ -178,6 +178,33 @@ Background image transition
         :data-background-size: contain
         :data-background-transition: zoom
 
+
+Keep title without duplicated written
+-------------------------------------
+
+First section
+
+.. revealjs_break::
+
+Second section
+
+.. code-block:: rest
+
+    .. revealjs_break::
+
+
+.. revealjs_break::
+    :notitle:
+
+Third section.
+
+You can hide section title
+
+.. code-block:: rest
+
+    .. revealjs_break::
+        :notitle:
+
 Usage
 =====
 
