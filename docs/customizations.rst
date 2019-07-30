@@ -15,7 +15,8 @@ Usage
 -----
 
 |THIS| is accept themes and theme options.
-If you want set parameters, write ``revealjs_theme`` and ``revealjs_theme_options`` .
+If you want set parameters,
+write ``revealjs_theme`` and ``revealjs_theme_options``.
 
 .. code-block:: python
 

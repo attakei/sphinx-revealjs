@@ -25,7 +25,7 @@ Features
 Convert sections from reStructuredText directly
 ===============================================
 
-Adjust section structure 
+Adjust section structure
 ------------------------
 
 From:
@@ -57,10 +57,10 @@ To:
         </section>
         <section>
             <h3>Content 1</h3>
-        </section>    
+        </section>
         <section>
             <h3>Content 2</h3>
-        </section>    
+        </section>
     </section>
 
 
@@ -262,7 +262,7 @@ Build
 -----
 
 This extension has custom builder name ``revealjs`` .
-If you make docs as Reveal.js presentation, you call ``make revealjs`` 
+If you make docs as Reveal.js presentation, you call ``make revealjs``
 
 .. code-block:: bash
 
