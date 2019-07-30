@@ -16,6 +16,13 @@ install_requires = [
 ]
 
 extra_requires = {
+    'linting': [
+        'flake8',
+        'flake8-docstrings',
+        'flake8-isort',
+        'pydocstyle<4.0.0',
+        'doc8',
+    ],
     'testing': [
         'nose',
         'sphinx-testing',
