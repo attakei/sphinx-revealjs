@@ -24,3 +24,6 @@ jobs:
     - name: Lint with flake8 anddoc8
       run: |
         tox -e flake8,doc8
+    - name: Test with nosetests
+      run: |
+        tox -e nosetests
