@@ -1,6 +1,9 @@
 sphinx-revealjs
 ===============
 
+.. image:: https://github.com/attakei/sphinx-revealjs/workflows/Python%20package/badge.svg
+    :target: https://github.com/attakei/sphinx-revealjs/actions
+
 .. image:: https://img.shields.io/pypi/v/nine.svg
     :target: https://pypi.org/project/sphinx-revealjs/
 
