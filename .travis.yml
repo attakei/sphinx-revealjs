@@ -5,30 +5,18 @@ language: python
 matrix:
   include:
     - python: '3.6'
-      env: TOXENV=py36
+      env: TOXENV=nosetests
     - python: '3.7-dev'
-      env: TOXENV=py37
+      env: TOXENV=nosetests
     - python: '3.6'
       env: TOXENV=flake8
     - python: '3.6'
       env: TOXENV=doc8
     - python: '3.6'
       env: TOXENV=pypi
-    - python: '3.6'
-      env: TOXENV=build
 
 install:
   - pip install tox
 
 script:
   - tox
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: demo/_build/revealjs/
-  on:
-    branch: master
-    condition: $TOXENV = "build"
