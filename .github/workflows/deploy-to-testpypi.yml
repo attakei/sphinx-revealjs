@@ -1,0 +1,23 @@
+name: Deploy packages to test-pypi
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - run: |
+          python tools/bump_next.py
+      - name: Deploy packages to Test-PyPI
+        uses: docker://plugins/pypi
+        env:
+          PLUGIN_REPOSITORY: https://test.pypi.org/legacy/
+          PLUGIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PLUGIN_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
