@@ -1,5 +1,5 @@
 # --------------------------------------
-# Bump next preversion writer
+# Bump post version writer
 # --------------------------------------
 import argparse
 from datetime import datetime
@@ -9,7 +9,7 @@ import configparser
 
 def calc_pre():
     cur = datetime.now()
-    return f'next{int(cur.timestamp())}'
+    return f'post{int(cur.timestamp())}'
 
 
 def bump_file(fpath, current_version, next_version):
