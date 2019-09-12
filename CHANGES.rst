@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 0.6.1
+=========
+
+:date: 2019-09-12
+
+Fixes
+-----
+
+* Remove tag that refer source not exits
+
 ver 0.6.0
 =========
 

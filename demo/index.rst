@@ -2,8 +2,8 @@
 sphinx-revealjs
 ===============
 
-:Version: 0.6.0
-:Released: 2019-07-30
+:Version: 0.6.1
+:Released: 2019-09-12
 
 Overview
 ========

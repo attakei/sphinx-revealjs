@@ -1,6 +1,6 @@
 """Root module for sphinx-revealjs."""
 
-__version__ = '0.6.0'
+__version__ = '0.6.1'
 
 
 from sphinx.application import Sphinx
