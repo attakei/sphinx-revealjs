@@ -271,6 +271,20 @@ If you make docs as Reveal.js presentation, you call ``make revealjs``
 This presentation is made from ``https://github.com/attakei/sphinx-revealjs/blob/demo/docs/index.rst``
 
 
+SUpport features
+================
+
+Fragments
+---------
+
+This is support fragment with groups.
+
+.. revealjs_fragments::
+
+   * First
+   * Second
+   * Third
+
 Enjoy writing reST as presentation
 ==================================
 
