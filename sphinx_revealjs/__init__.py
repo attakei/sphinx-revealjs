@@ -7,15 +7,14 @@ from sphinx.application import Sphinx
 
 from sphinx_revealjs.builders import RevealjsHTMLBuilder
 from sphinx_revealjs.directives import (
-    RevealjsBreak, RevealjsFragments, RevealjsSection, RevealjsSlide,
+    RevealjsBreak, RevealjsFragments, RevealjsSection, RevealjsSlide
 )
 from sphinx_revealjs.nodes import (
-    revealjs_break, revealjs_fragments, revealjs_section, revealjs_slide,
+    revealjs_break, revealjs_fragments, revealjs_section, revealjs_slide
 )
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
-    depart_revealjs_break,
-    not_write, visit_revealjs_break
+    depart_revealjs_break, not_write, visit_revealjs_break
 )
 
 

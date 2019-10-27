@@ -4,8 +4,8 @@ import json
 from docutils.parsers.rst import Directive, directives
 
 from sphinx_revealjs.nodes import (
-    FlagAttribute, revealjs_break, revealjs_fragments,
-    revealjs_section, revealjs_slide
+    FlagAttribute, revealjs_break, revealjs_fragments, revealjs_section,
+    revealjs_slide
 )
 
 
@@ -80,7 +80,7 @@ class RevealjsSlide(Directive):  # noqa: D101
 class RevealjsFragments(Directive):  # noqa: D101
     has_content = True
 
-    def run(self):
+    def run(self):  # noqa: D102
         node = revealjs_fragments()
         if self.content:
             self.state.nested_parse(self.content, self.content_offset, node)
