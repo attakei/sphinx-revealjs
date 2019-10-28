@@ -7,10 +7,10 @@ from sphinx.application import Sphinx
 
 from sphinx_revealjs.builders import RevealjsHTMLBuilder
 from sphinx_revealjs.directives import (
-    RevealjsBreak, RevealjsSection, RevealjsSlide
+    RevealjsBreak, RevealjsFragments, RevealjsSection, RevealjsSlide
 )
 from sphinx_revealjs.nodes import (
-    revealjs_break, revealjs_section, revealjs_slide
+    revealjs_break, revealjs_fragments, revealjs_section, revealjs_slide
 )
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
@@ -33,9 +33,14 @@ def setup(app: Sphinx):
         revealjs_slide,
         html=(not_write, not_write),
         revealjs=(not_write, not_write))
+    app.add_node(
+        revealjs_fragments,
+        html=(not_write, not_write),
+        revealjs=(not_write, not_write))
     app.add_directive('revealjs_break', RevealjsBreak)
     app.add_directive('revealjs_section', RevealjsSection)
     app.add_directive('revealjs_slide', RevealjsSlide)
+    app.add_directive('revealjs_fragments', RevealjsFragments)
     app.add_config_value('revealjs_theme', 'sphinx_revealjs', True)
     app.add_config_value('revealjs_theme_options', {}, True)
     app.add_html_theme(

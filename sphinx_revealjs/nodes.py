@@ -38,3 +38,7 @@ class revealjs_break(SectionTagRenderer, nodes.Structural, nodes.Element):  # no
 
 class revealjs_slide(nodes.Structural, nodes.Element):  # noqa: D101
     pass
+
+
+class revealjs_fragments(nodes.Structural, nodes.Element):  # noqa: D101
+    pass

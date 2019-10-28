@@ -23,6 +23,7 @@ Contents
    overview
    setup
    customizations
+   content_directives
 
 Indices and tables
 ==================
