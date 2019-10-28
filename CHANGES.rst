@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 0.7.0
+=========
+
+:date: 2019-10-28
+
+Features
+--------
+
+* Add new directive ``revealjs_fragments`` to use Fragment.
+
 ver 0.6.1
 =========
 
