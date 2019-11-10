@@ -67,6 +67,8 @@ theme
 config
     Override parameter to initialize Reveal.js
 
+google_font
+    Use webfont from Google Fonts (san-self only)
 
 Section configuration
 =====================
