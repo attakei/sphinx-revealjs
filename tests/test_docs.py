@@ -63,3 +63,14 @@ class SlideThemeTesting(unittest.TestCase):
         assert '<h1>Test for selecatable theme</h1>' in html
         theme_url_path = f'_static/solarized.css'
         assert theme_url_path in html
+
+
+class SlideFontTesting(unittest.TestCase):
+    """Test case for Reveal.js webfont settings"""
+    @with_app(**gen_testdoc_conf())
+    def test_theme_by_directive(self, app, status, warning):
+        app.build()
+        html = (app.outdir / 'webfont_set.html').read_text()
+        assert '<h1>Test for selecatable theme</h1>' in html
+        assert 'Noto Sans JP' in html
+        assert 'Noto+Sans+JP' in html

@@ -68,6 +68,7 @@ class RevealjsBreak(Directive):  # noqa: D101
 class RevealjsSlide(Directive):  # noqa: D101
     option_spec = {
         'theme': directives.unchanged,
+        'google_font': directives.unchanged,
         'config': raw_json,
     }
 
