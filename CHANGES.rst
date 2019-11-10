@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 0.8.0
+=========
+
+:date: 2019-11-11
+
+Features
+--------
+
+* Add new config option ``google_font`` to set google-font style.
+
 ver 0.7.0
 =========
 
