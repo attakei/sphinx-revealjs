@@ -46,6 +46,13 @@ class SlideConfigTesting(unittest.TestCase):
         html = (app.outdir / 'index.html').read_text()
         assert 'Object.assign(revealConfig, {transition:"});' not in html
 
+    @with_app(**gen_testdoc_conf('conf-google-fonts'))
+    def test_google_fonts_in_confpy(self, app, status, warning):
+        app.build()
+        html = (app.outdir / 'index.html').read_text()
+        assert 'Noto Sans JP' in html
+        assert 'Noto+Sans+JP' in html
+
 
 class SlideThemeTesting(unittest.TestCase):
     """Test case for Reveal.js theme settings"""
