@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import AnyStr, Tuple
 
-from sphinx_testing import TestApp
+from sphinx_testing import with_app, TestApp
 
 
 PROJECT_ROOT = Path(__file__).parents[1] / 'demo'
@@ -32,17 +32,13 @@ class RevealjsParser(HTMLParser):
 
 
 class DemoMakeTesting(unittest.TestCase):
-    testapp: TestApp
-    html: AnyStr
-    parser: RevealjsParser
-
-    @classmethod
-    def setUpClass(cls):
-        cls.testapp = TestApp(srcdir=str(PROJECT_ROOT), buildername='revealjs', copy_srcdir_to_tmpdir=True)
-        cls.html: AnyStr = (cls.testapp.outdir / 'index.html').read_text()
-        cls.parser: RevealjsParser = RevealjsParser()
-        cls.parser.feed(cls.html)
-
-    def test_refs_all_exists(self):
-        google_fonts = [f for f in self.parser.remote_css_files if f.startswith('https://fonts.googleapis.com')]
+    @with_app(
+        buildername='revealjs',
+        srcdir=str(PROJECT_ROOT),
+        copy_srcdir_to_tmpdir=True)
+    def test_refs_all_exists(self, app: TestApp, status, warning):
+        html: AnyStr = (app.outdir / 'index.html').read_text()
+        parser = RevealjsParser()
+        parser.feed(html)
+        google_fonts = [f for f in parser.remote_css_files if f.startswith('https://fonts.googleapis.com')]
         self.assertEqual(len(google_fonts), 0)
