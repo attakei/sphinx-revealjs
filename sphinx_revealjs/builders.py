@@ -19,6 +19,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
         self.revealjs_slide = None
+        self.css_files = [
+            '_static/revealjs/css/reveal.css',
+            '_static/revealjs/lib/css/zenburn.css',
+        ]
 
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).
