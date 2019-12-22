@@ -1,8 +1,9 @@
 import unittest
-from html.parser import HTMLParser
 from pathlib import Path
 
 from sphinx_testing import with_app, TestApp
+from testutils import RevealjsParser
+
 
 PROJECT_ROOT = Path(__file__).parents[1]
 
@@ -20,18 +21,25 @@ class DemoMakeTesting(unittest.TestCase):
         srcdir=str(PROJECT_ROOT / 'demo'),
         copy_srcdir_to_tmpdir=True)
     def test_refs_all_exists(self, app: TestApp, status, warning):
-        class RevealjsParser(HTMLParser):
-            def handle_starttag(self_, tag, attrs):
-                attrs_dict = dict(attrs)
-                # Judge that local resource is exists
-                if tag == 'script' and 'src' in attrs_dict:
-                    if not attrs_dict['src'].startswith('_static'):
-                        return
-                    script_src = Path(app.outdir) / attrs_dict['src']
-                    assert script_src.exists()
-                return
-
         app.build()
         html = (app.outdir / 'index.html').read_text()
         parser = RevealjsParser()
         parser.feed(html)
+        for src in parser.local_css_files:
+            self.assertTrue((Path(app.outdir) / src).exists())
+        for src in parser.local_js_files:
+            self.assertTrue((Path(app.outdir) / src).exists())
+        assert '_static/revealjs/css/reveal.css' in parser.local_css_files
+        assert '_static/revealjs/lib/css/zenburn.css' in parser.local_css_files
+
+    @with_app(
+        buildername='html',
+        srcdir=str(PROJECT_ROOT / 'demo'),
+        copy_srcdir_to_tmpdir=True)
+    def test_css_skipped_in_html_build(self, app: TestApp, status, warning):
+        app.build()
+        html = (app.outdir / 'index.html').read_text()
+        parser = RevealjsParser()
+        parser.feed(html)
+        assert '_static/revealjs/css/reveal.css' not in parser.local_css_files
+        assert '_static/revealjs/lib/css/zenburn.css' not in parser.local_css_files
