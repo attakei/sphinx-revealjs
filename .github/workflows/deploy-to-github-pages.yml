@@ -17,8 +17,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install .
+          pip install -r demo/requirements.txt
           make -C demo revealjs
           touch demo/_build/revealjs/.nojekyll
+        env:
+          GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
       - name: Deploy to GitHub Pages
         uses: maxheld83/ghpages@v0.2.1
         env:

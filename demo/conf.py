@@ -12,7 +12,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -39,6 +39,7 @@ release = '2018.10'
 # ones.
 extensions = [
     'sphinx_revealjs',
+    'sphinxcontrib.gtagjs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -180,3 +181,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+if 'GTAGJS_IDS' in os.environ:
+    gtagjs_ids = os.environ['GTAGJS_IDS'].split(',')
