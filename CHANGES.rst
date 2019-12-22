@@ -2,6 +2,19 @@
 Change logs
 ===========
 
+ver 0.9.0
+=========
+
+:date: 2019-12-22
+
+Fixes
+-----
+
+* google-fonts default options is changed for not to render in template.
+* Adjusting templates based by sphinx basic theme. (short breaking)
+
+  * Enable ``metatags`` , ``scripts`` and more template values.
+
 ver 0.8.0
 =========
 
