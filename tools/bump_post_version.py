@@ -24,10 +24,12 @@ def main():
     setup_cfg.read('setup.cfg')
     current_version = setup_cfg.get('bumpversion', 'current_version')
     next_version = f'{current_version}-{calc_pre()}'
-    bump_file(
-        Path('setup.py'), current_version, next_version)
-    bump_file(
-        Path('sphinx_revealjs/__init__.py'), current_version, next_version)
+    # Find bump files and bumpversion
+    for sec in setup_cfg.sections():
+        if not sec.startswith("bumpversion:file:"):
+            continue
+        bump_file(
+            Path(sec[17:]), current_version, next_version)
 
 
 if __name__ == '__main__':
