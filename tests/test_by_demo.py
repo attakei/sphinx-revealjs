@@ -10,15 +10,16 @@ from sphinx_testing import with_app, TestApp
 from testutils import RevealjsParser
 
 
-PROJECT_ROOT = Path(__file__).parents[1] / 'demo'
+PROJECT_ROOT = Path(__file__).parents[1]
 
 
 class DemoMakeTesting(unittest.TestCase):
     @with_app(
         buildername='revealjs',
-        srcdir=str(PROJECT_ROOT),
+        srcdir=str(PROJECT_ROOT / 'demo'),
         copy_srcdir_to_tmpdir=True)
     def test_refs_all_exists(self, app: TestApp, status, warning):
+        app.build()
         html: AnyStr = (app.outdir / 'index.html').read_text()
         parser = RevealjsParser()
         parser.feed(html)
