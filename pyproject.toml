@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "sphinx-revealjs"
+version = "0.9.0"
+description = "Sphinx extension with theme to generate Reveal.js presentation"
+authors = ["Kazuya Takei <myself@attakei.net>"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Sphinx",
+    "Framework :: Sphinx :: Extension",
+    "ramework :: Sphinx :: Theme",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Multimedia :: Graphics :: Presentation"
+]
+homepage = "https://github.com/attakei/sphinx-revealjs"
+repository = "https://github.com/attakei/sphinx-revealjs"
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6 | ^3.7 | ^3.8"
+docutils = "*"
+sphinx = "*"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.7.9"
+flake8-docstrings = "^1.5.0"
+flake8-isort = "^2.9.0"
+pydocstyle = "<4.0.0"
+doc8 = "^0.8.0"
+nose = "^1.3.7"
+sphinx-testing = "^1.0.1"
+beautifulsoup4 = "^4.8.2"
+bumpversion = "^0.5.3"
+sphinxcontrib-gtagjs = "^0.1.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
