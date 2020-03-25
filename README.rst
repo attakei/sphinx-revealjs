@@ -62,3 +62,9 @@ Futures
 
 * Index template as none presentation
 * CDN support
+
+
+Copyright
+---------
+
+Apache-2.0 license. Please see `LICENSE <./LICENSE>`_.
