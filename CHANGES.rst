@@ -2,6 +2,28 @@
 Change logs
 ===========
 
+ver 0.10.0
+==========
+
+:data: 2020-03-25
+
+Features
+--------
+
+* Change bundle Reveal.js (3.8.0 -> 3.9.1)
+* Add support version (3.8, author's default)
+
+Fixes
+-----
+
+* In development, depend by ``sphinxcontrib-gtagjs``. (use in demo) 
+
+Extra
+-----
+
+* Change license (MIT -> Apache-2.0)
+* Use poetry as build environment
+
 ver 0.9.0
 =========
 
