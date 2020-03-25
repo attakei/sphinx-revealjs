@@ -7,7 +7,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: Sphinx",
     "Framework :: Sphinx :: Extension",
-    "ramework :: Sphinx :: Theme",
+    "Framework :: Sphinx :: Theme",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.6",
