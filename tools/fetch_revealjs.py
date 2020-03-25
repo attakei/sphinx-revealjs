@@ -16,7 +16,7 @@ def validate_dir_state(target: Path) -> bool:
     return actually
 
 
-def download_release(target: Path, version: str = '3.8.0') -> Path:
+def download_release(target: Path, version: str = '3.9.1') -> Path:
     target.mkdir(exist_ok=True)
     url = f"https://github.com/hakimel/reveal.js/archive/{version}.tar.gz"
     dest = target / f"revealjs-{version}.tgz"
