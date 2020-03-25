@@ -407,6 +407,21 @@ lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
+category = "dev"
+description = "Sphinx extension to render global site tag of Google."
+name = "sphinxcontrib-gtagjs"
+optional = false
+python-versions = "*"
+version = "0.1.1"
+
+[package.dependencies]
+Sphinx = "*"
+
+[package.extras]
+linting = ["doc8", "pygments", "black", "flake8"]
+packaging = ["bumpversion"]
+
+[[package]]
 category = "main"
 description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
 name = "sphinxcontrib-htmlhelp"
@@ -500,7 +515,7 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 
 [metadata]
-content-hash = "36633e62c32493e790bbdd8b27014c86ea33742016a1d480ce6f14761a11fac1"
+content-hash = "08b18ebf21cf10f957425df4fc730330d747841e3cd0a4d5535de233a6b928d7"
 python-versions = "^3.6 | ^3.7 | ^3.8"
 
 [metadata.files]
@@ -684,6 +699,9 @@ sphinxcontrib-applehelp = [
 sphinxcontrib-devhelp = [
     {file = "sphinxcontrib-devhelp-1.0.2.tar.gz", hash = "sha256:ff7f1afa7b9642e7060379360a67e9c41e8f3121f2ce9164266f61b9f4b338e4"},
     {file = "sphinxcontrib_devhelp-1.0.2-py2.py3-none-any.whl", hash = "sha256:8165223f9a335cc1af7ffe1ed31d2871f325254c0423bc0c4c7cd1c1e4734a2e"},
+]
+sphinxcontrib-gtagjs = [
+    {file = "sphinxcontrib-gtagjs-0.1.1.tar.gz", hash = "sha256:d2f1bdb714598c1540e9cce2de9709707f043269a164d05d9674b13fa59ed833"},
 ]
 sphinxcontrib-htmlhelp = [
     {file = "sphinxcontrib-htmlhelp-1.0.3.tar.gz", hash = "sha256:e8f5bb7e31b2dbb25b9cc435c8ab7a79787ebf7f906155729338f3156d93659b"},
