@@ -16,7 +16,7 @@ Features
 Fixes
 -----
 
-* In development, depend by ``sphinxcontrib-gtagjs``. (use in demo) 
+* In development, depend by ``sphinxcontrib-gtagjs``. (use in demo)
 
 Extra
 -----
