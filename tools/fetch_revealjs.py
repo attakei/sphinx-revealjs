@@ -1,6 +1,7 @@
 #!/use/bin/env python
 """Fetch and sync reveal.js resources
 """
+import argparse
 import shutil
 import sys
 from pathlib import Path
@@ -32,13 +33,8 @@ def extract_archive(target: Path) -> Path:
         return target.parent / dir_name
 
 
-if __name__ == '__main__':
-    base_dir = Path.cwd()
-    valid = validate_dir_state(base_dir)
-    if not valid:
-        print('Nooo')
-        sys.exit(1)
-    downloaded = download_release(base_dir / 'var')
+def main(args: argparse.Namespace, base_dir: Path):
+    downloaded = download_release(base_dir / 'var', args.version)
     extracted = extract_archive(downloaded)
     src_list = [
         'css',
@@ -58,3 +54,17 @@ if __name__ == '__main__':
         else:
             dest.unlink()
             shutil.copy2(src, dest)
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("version", type=str)
+
+
+if __name__ == '__main__':
+    base_dir = Path.cwd()
+    valid = validate_dir_state(base_dir)
+    if not valid:
+        print('Nooo')
+        sys.exit(1)
+    args = parser.parse_args()
+    main(args, base_dir)
