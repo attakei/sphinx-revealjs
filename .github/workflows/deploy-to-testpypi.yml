@@ -12,14 +12,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-python@v1
+      - name: Set up Python
+        uses: actions/setup-python@v1
         with:
-          python-version: 3.7
-      - run: |
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install poetry
+      - name: Build package
+        run: |
           python tools/bump_post_version.py
-      - name: Deploy packages to Test-PyPI
-        uses: docker://plugins/pypi
+          poetry build
+      - name: Publish test pypi
+        run: |
+          poetry config repositories.testpypi https://test.pypi.org/legacy/
+          poetry config http-basic.testpypi $PYPI_USERNAME $PYPI_PASSWORD 
+          poetry publish -r testpypi
         env:
-          PLUGIN_REPOSITORY: https://test.pypi.org/legacy/
-          PLUGIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          PLUGIN_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
