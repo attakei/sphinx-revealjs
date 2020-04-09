@@ -19,6 +19,7 @@ classifiers = [
 homepage = "https://github.com/attakei/sphinx-revealjs"
 repository = "https://github.com/attakei/sphinx-revealjs"
 license = "Apache-2.0"
+readme = "README.rst"
 
 [tool.poetry.dependencies]
 python = "^3.6 | ^3.7 | ^3.8"
