@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 0.10.1
+==========
+
+:date: 2020-04-09
+
+Fixes
+-----
+
+* Change bundle Reveal.js (3.9.1 -> 3.9.2)
+
 ver 0.10.0
 ==========
 
