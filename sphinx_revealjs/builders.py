@@ -13,15 +13,15 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     This manage theme path and configure default options.
     """
 
-    name = 'revealjs'
+    name = "revealjs"
     default_translator_class = RevealjsSlideTranslator
 
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
         self.revealjs_slide = None
         self.css_files = [
-            '_static/revealjs/css/reveal.css',
-            '_static/revealjs/lib/css/zenburn.css',
+            "_static/revealjs/css/reveal.css",
+            "_static/revealjs/lib/css/zenburn.css",
         ]
 
     def get_theme_config(self) -> Tuple[str, Dict]:
@@ -29,10 +29,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
         Find theme and merge options.
         """
-        theme_name = getattr(self.config, 'revealjs_theme', 'sphinx_revealjs')
-        theme_options = getattr(self.config, 'revealjs_theme_options', {})
-        config = raw_json(theme_options.get('revealjs_config', ''))
-        theme_options['revealjs_config'] = config
+        theme_name = getattr(self.config, "revealjs_theme", "sphinx_revealjs")
+        theme_options = getattr(self.config, "revealjs_theme_options", {})
+        config = raw_json(theme_options.get("revealjs_config", ""))
+        theme_options["revealjs_config"] = config
         return theme_name, theme_options
 
     def get_doc_context(self, docname, body, metatags):
@@ -42,6 +42,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         """
         ctx = super().get_doc_context(docname, body, metatags)
         if self.revealjs_slide:
-            ctx['revealjs_slide'] = self.revealjs_slide.attributes
-            ctx['revealjs_config'] = self.revealjs_slide.content
+            ctx["revealjs_slide"] = self.revealjs_slide.attributes
+            ctx["revealjs_config"] = self.revealjs_slide.content
         return ctx
