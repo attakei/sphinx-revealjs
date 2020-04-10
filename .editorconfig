@@ -1,0 +1,35 @@
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = false
+
+
+# Windows files
+[*.{vbs,bat}]
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charaset = sjis
+
+
+# 2 space indentation
+[*.{yml,js,jsx,ts,tsx,json,rst,html}]
+indent_size = 2
+
+# 4 space indentation
+[*.{py,php,md}]
+indent_size = 4
+
+# Tab indentation (no size specified)
+[*.{go,cfg}]
+indent_style = tab
+
+[Makefile]
+indent_style = tab
+
