@@ -12,6 +12,7 @@ Basic Features
 * Nested sections
 * Speaker note
 * Syntax highlight for Reveal.js (not used pygments)
+* Initialize reveal.js by document
 
 Contents
 ========

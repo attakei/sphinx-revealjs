@@ -55,7 +55,11 @@ Write ``revealjs_slide`` directive directly after first section.
 
     .. revealjs_slide::
         :theme: solarized
-        :config: {"transition": "none"}
+
+        /* Write JavaScript code to initialize Reveal.js */
+        {
+          transition: "none",
+        }
 
 
 Parameters
