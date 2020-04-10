@@ -51,18 +51,7 @@
     </div>
     <script src="{{ pathto('_static/revealjs/js/reveal.js', 1) }}"></script>
     <script>
-        var revealConfig = {
-            controls: true,
-            progress: true,
-            history: true,
-            center: true,
-            transition: "slide", // none/fade/slide/convex/concave/zoom
-            // More info https://github.com/hakimel/reveal.js#dependencies
-            dependencies: [
-                { src: "{{ pathto('_static/revealjs/plugin/notes/notes.js', 1) }}", async: true },
-                { src: "{{ pathto('_static/revealjs/plugin/highlight/highlight.js', 1) }}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-            ]
-        };
+        var revealConfig = {{ revealjs_config }};
         {% if theme_revealjs_config %}
         Object.assign(revealConfig, {{ theme_revealjs_config }});
         {% endif %}

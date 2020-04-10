@@ -19,3 +19,14 @@ class RegularOutputTesting(unittest.TestCase):
         assert 'Test for fragments' in html
         soup = bs4.BeautifulSoup(html, 'html.parser')
         self.assertEqual(len(soup.find_all(attrs={'fragment'})), 3)
+
+
+class ConfigByContentTesting(unittest.TestCase):
+    """Simple output content test"""
+    @with_app(**gen_testdoc_conf())
+    def test_generated_fragment(self, app, status, warning):
+        app.build()
+        html = (app.outdir / 'config_by_content.html').read_text()
+        soup = bs4.BeautifulSoup(html, 'html.parser')
+        script = soup.find_all("script")[-1]
+        self.assertIn("dependencies: [],", script.text)

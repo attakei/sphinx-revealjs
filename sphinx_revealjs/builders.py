@@ -43,4 +43,5 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         ctx = super().get_doc_context(docname, body, metatags)
         if self.revealjs_slide:
             ctx['revealjs_slide'] = self.revealjs_slide.attributes
+            ctx['revealjs_config'] = self.revealjs_slide.content
         return ctx
