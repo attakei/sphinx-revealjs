@@ -80,6 +80,7 @@ class RevealjsSlide(Directive):  # noqa: D101
         if self.content:
             node.content = "".join(self.content)
         else:
+            # flake8: noqa
             node.content = """
             {
                 controls: true,
