@@ -22,10 +22,10 @@ jobs:
           python -m pip install poetry
       - name: Build package
         run: |
-          if [ "$GITHUB_REF" = "next" ] ; then
+          if [ "$GITHUB_REF" = "refs/heads/next" ] ; then
             python tools/bump_extra_version.py dev
           else
-            python tools/bump_extra_version.py
+            python tools/bump_extra_version.py post
           fi
           poetry build
       - name: Publish test pypi
