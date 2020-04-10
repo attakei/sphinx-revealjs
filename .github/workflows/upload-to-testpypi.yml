@@ -23,9 +23,9 @@ jobs:
       - name: Build package
         run: |
           if [ "$GITHUB_REF" = "next" ] ; then
-            python tools/bump_post_version.py dev
+            python tools/bump_extra_version.py dev
           else
-            python tools/bump_post_version.py
+            python tools/bump_extra_version.py
           fi
           poetry build
       - name: Publish test pypi
