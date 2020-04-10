@@ -2,7 +2,7 @@
 sphinx-revealjs
 ===============
 
-``sphinx-revealjs`` is Sphinx extension
+|THIS| is Sphinx extension
 to generate Reveal.js presentation documents
 from **standard** reStructuredText.
 

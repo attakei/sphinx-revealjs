@@ -22,6 +22,9 @@ master_doc = "index"
 language = "en"
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 pygments_style = None
+rst_prolog = """
+.. |THIS| replace:: ``sphinx-revealjs``
+"""
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "sphinx_rtd_theme"

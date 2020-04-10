@@ -1,5 +1,3 @@
-.. |THIS| replace:: ``sphinx-revealjs``
-
 =======================
 Customize presentations
 =======================
