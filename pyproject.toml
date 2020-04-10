@@ -25,6 +25,7 @@ readme = "README.rst"
 python = "^3.6 | ^3.7 | ^3.8"
 docutils = "*"
 sphinx = "*"
+sphinx-rtd-theme = "^0.4.3"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.7.9"
