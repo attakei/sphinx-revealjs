@@ -41,7 +41,8 @@ Contents
    overview
    setup
    configurations
-   customizations
+   customize_slide
+   customize_sections
    content_directives
 
 Indices and tables

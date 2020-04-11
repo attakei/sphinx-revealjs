@@ -5,16 +5,18 @@ Content directives
 |THIS| provides features for contents of section.
 
 
-``revealjs_fragments``
-======================
+revealjs_fragments
+==================
 
 .. note::
     There are cases not working regular.
 
 Inject ``fragment`` attribute into objects.
 
-Example
--------
+Usage
+-----
+
+Write block as directive that you want to present as fragments.
 
 .. code-block:: rst
 
@@ -24,7 +26,7 @@ Example
         * Second
         * Third
 
-See `demo <https://attakei.github.io/sphinx-revealjs/#/>`_
+See `demo <https://attakei.github.io/sphinx-revealjs/#/5/1>`_
 
 Reference
 ---------
