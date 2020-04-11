@@ -7,9 +7,7 @@ author = "Kazuya Takei"
 version = ""
 release = ""
 
-extensions = [
-    "sphinx_revealjs",
-]
+extensions = ["sphinx_revealjs",]
 
 templates_path = ["_templates"]
 
