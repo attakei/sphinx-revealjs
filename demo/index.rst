@@ -2,6 +2,20 @@
 sphinx-revealjs
 ===============
 
+.. revealjs_slide::
+
+    {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: "slide",
+        dependencies: [
+            { src: "{{ pathto('_static/revealjs/plugin/notes/notes.js', 1) }}", async: true },
+            { src: "{{ pathto('_static/revealjs/plugin/highlight/highlight.js', 1) }}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    }
+
 :Based version: 0.9.0
 :Released: 2019-12-22
 

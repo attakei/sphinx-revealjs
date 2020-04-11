@@ -107,7 +107,6 @@ revealjs_theme_options = {
     'revealjs_theme': 'black2',
 }
 
-
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
