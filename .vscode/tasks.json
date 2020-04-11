@@ -29,5 +29,10 @@
       "type": "shell",
       "command": "poetry run nosetests tests/"
     },
+    {
+      "label": "docs",
+      "type": "shell",
+      "command": "poetry run make -C docs html"
+    }
   ]
 }
