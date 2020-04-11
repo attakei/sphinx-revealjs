@@ -1,0 +1,14 @@
+div.flex {
+    display: -webkit-flex;
+    display: flex;
+}
+div.flex > div.half {
+    width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+    -webkit-flex: 1;
+    flex: 1;
+}
+div.flex > div.half > div.figure > img {
+    border: 1px black solid;
+}
