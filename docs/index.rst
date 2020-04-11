@@ -37,10 +37,10 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: List of Contents:
 
    overview
    setup
+   configurations
    customizations
    content_directives
 

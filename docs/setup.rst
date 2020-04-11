@@ -5,25 +5,19 @@ Setup
 Requirements
 ============
 
-|THIS| requires Python 3.6+, Sphinx and make.
+|THIS| requires Python 3.6+ and Sphinx.
 
-Latest development environment
-------------------------------
+Current development environment
+-------------------------------
 
-* Python
-
-  * 3.6.x
-  * 3.7.x
-
-* Sphinx
-
-  * 1.8.2
+* Python: ``3.8``
+* Sphinx: ``2.4.4``
 
 
 Installation
 ============
 
-Because |THIS| is registered in PyPI, you can install this by ``pip`` .
+You can install |THIS| from PyPI.
 
 .. code-block:: shell
 
@@ -35,16 +29,17 @@ You get ``Sphinx`` by this command only.
 Configuration
 =============
 
-|THIS| does not have ``html`` builder but ``revealjs`` builder.
+|THIS| does not provide ``revealjs`` builder instead of ``html`` builder.
 To use builder, edit your ``conf.py``.
 
 .. code-block:: python
 
    extensions = [
-       'sphinx_revealjs',
+       "sphinx_revealjs",
    ]
 
-if you want to configure more, edit conf.py with seeing settings page.
+if you want to configure more,
+edit conf.py with seeing :doc:`./configurations`.
 
 Build
 =====
@@ -55,4 +50,3 @@ Files are generated to **revealjs** folder.
 .. code-block:: shell
 
    $ make revealjs
-
