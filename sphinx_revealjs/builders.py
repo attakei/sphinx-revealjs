@@ -18,8 +18,9 @@ def static_resource_uri(src: str, prefix: str = None) -> str:
 class RevealjsContext(object):
     """Context object for Reveal.js script region."""
 
-    def __init__(self, script_files: List[str]):  # noqa
+    def __init__(self, script_files: List[str], script_conf: str = None):  # noqa
         self.script_files = script_files
+        self.script_conf = script_conf
 
 
 class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
@@ -45,7 +46,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             static_resource_uri(src)
             for src in getattr(self.config, "revealjs_script_files", [])
         ]
-        self.revealjs_context = RevealjsContext(self.revealjs_script_files)
+        self.revealjs_context = RevealjsContext(
+            self.revealjs_script_files,
+            getattr(self.config, "revealjs_script_conf", None),
+        )
 
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).

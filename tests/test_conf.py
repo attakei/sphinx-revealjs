@@ -63,3 +63,13 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             if e.get("src") == "https://example.com/test.js"
         ]
         self.assertEqual(len(elements), 1)
+
+    @with_app(
+        **gen_app_conf(confoverrides={"revealjs_script_conf": '{transition:"none"}'})
+    )
+    def test_revealjs_script_conf(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        self.assertIn(
+            'Object.assign(revealConfig, {transition:"none"});',
+            soup.find_all("script")[-1].text,
+        )

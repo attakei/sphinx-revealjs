@@ -54,6 +54,9 @@
     {% endfor %}
     <script>
         var revealConfig = {};
+        {% if revealjs.script_conf -%}
+        Object.assign(revealConfig, {{ revealjs.script_conf }});
+        {%- endif %}
         {% if revealjs_config %}
         Object.assign(revealConfig, {{ revealjs_config }});
         {% endif %}
