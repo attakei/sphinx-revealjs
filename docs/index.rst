@@ -38,12 +38,41 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   overview
    setup
    configurations
    customize_slide
    customize_sections
    content_directives
+
+Concept and motivation
+======================
+
+Goal of this library is to provide presentation platform
+for self-branding of engineer using Sphinx.
+Using static site hosting service, you can show own presentations to anyone.
+
+Core motivation is that I want to play plesentation by this library.
+
+Liceses
+=======
+
+This library is licensed Apache License verion 2.0.
+
+About license of directly dependencies, please see each software projects or documententions.
+
+* docutils:
+
+  * https://docutils.sourceforge.io/
+
+* Sphinx:
+
+  * https://www.sphinx-doc.org/
+  * https://github.com/sphinx-doc/sphinx
+
+* Reveal.js: 
+
+  * https://revealjs.com/#/
+  * https://github.com/hakimel/reveal.js
 
 Indices and tables
 ==================
