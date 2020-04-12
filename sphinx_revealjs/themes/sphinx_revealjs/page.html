@@ -53,7 +53,10 @@
     <script src="{{ pathto(script_file, 1) }}"></script>
     {% endfor %}
     <script>
-        var revealConfig = {{ revealjs_config }};
+        var revealConfig = {};
+        {% if revealjs_config %}
+        Object.assign(revealConfig, {{ revealjs_config }});
+        {% endif %}
         {% if theme_revealjs_config %}
         Object.assign(revealConfig, {{ theme_revealjs_config }});
         {% endif %}

@@ -31,4 +31,4 @@ class BuidHtmlTests(unittest.TestCase):  # noqa
     @with_app(**gen_app_conf())
     def test_config_as_content(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "with_config_content.html")
-        self.assertIn('var revealConfig = {"transition": "none"};', soup.text)
+        self.assertIn('Object.assign(revealConfig, {"transition": "none"});', soup.text)
