@@ -14,10 +14,11 @@ revealjs_style_theme
 
 :Type: ``str``
 :Required:
-:Example: ``black``, ``_static/custom``
+:Example: ``revealjs/css/theme/black``, ``custom``
 
 Theme name of stylesheet for Reveal.js(excluded suffix).
-If this does not include ``/``,  |THIS| use from bundled theme.
+
+There is bundled Reveal.js theme at ``revealjs/css/theme``.
 
 revealjs_google_fonts
 ---------------------
@@ -49,10 +50,12 @@ revealjs_script_files
 
 :Type: ``List[str]``
 :Optional:
-:Default: ``["_static/revealjs/js/revealjs.js"]``
-:Example: ``["_static/revealjs/js/revealjs.js", "_static/presentation.js"]``
+:Default: ``["revealjs/js/reveal.js"]``
+:Example: ``["revealjs/js/reveal.js", "presentation.js"]``
 
 List of sources that render as ``script`` tags.
+
+There is bundled Reveal.js script at ``revealjs/js/reveal.js``.
 
 Example:
 
@@ -113,12 +116,14 @@ revealjs_script_plugins
 List of pulugin configurations.
 If this value is set, render ``script`` tag after source script tags.
 
+There are bundled Reveal.js plugins at ``revealjs/plugin``.
+
 Example:
 
   .. code-block:: py
 
       revealjs_script_plugins = [
-          "src": "_static/revealjs/plugin/highlight/highlight.js"
+          "src": "revealjs/plugin/highlight/highlight.js"
           "options: """
             {async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
           """
