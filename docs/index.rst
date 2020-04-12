@@ -58,7 +58,8 @@ Liceses
 
 This library is licensed Apache License verion 2.0.
 
-About license of directly dependencies, please see each software projects or documententions.
+About license of directly dependencies,
+please see each software projects or documententions.
 
 * docutils:
 
@@ -69,7 +70,7 @@ About license of directly dependencies, please see each software projects or doc
   * https://www.sphinx-doc.org/
   * https://github.com/sphinx-doc/sphinx
 
-* Reveal.js: 
+* Reveal.js:
 
   * https://revealjs.com/#/
   * https://github.com/hakimel/reveal.js
