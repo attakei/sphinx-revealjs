@@ -6,7 +6,7 @@ from sphinx_testing import TestApp, with_app
 from testutils import gen_app_conf, soup_html
 
 
-class ThemeOptionsTests(unittest.TestCase):  # noqa
+class BuildHtmlTests(unittest.TestCase):  # noqa
     @with_app(
         **gen_app_conf(
             confoverrides={
@@ -41,3 +41,25 @@ class ThemeOptionsTests(unittest.TestCase):  # noqa
         soup = soup_html(app, "index.html")
         self.assertNotIn("Noto Sans JP", soup)
         self.assertNotIn("Noto+Sans+JP", soup)
+
+    @with_app(**gen_app_conf(confoverrides={"revealjs_script_files": ["js/test.js"]}))
+    def test_script_tags(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        elements = [
+            e for e in soup.find_all("script") if e.get("src") == "_static/js/test.js"
+        ]
+        self.assertEqual(len(elements), 1)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={"revealjs_script_files": ["https://example.com/test.js"]}
+        )
+    )
+    def test_script_tags_https(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        elements = [
+            e
+            for e in soup.find_all("script")
+            if e.get("src") == "https://example.com/test.js"
+        ]
+        self.assertEqual(len(elements), 1)
