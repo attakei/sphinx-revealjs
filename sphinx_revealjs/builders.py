@@ -1,10 +1,12 @@
 """Definition for sphinx custom builder."""
-from typing import Dict, List, Tuple
+from typing import Dict, Tuple
 
 from sphinx.builders.html import StandaloneHTMLBuilder
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
+
+from .contexts import RevealjsProjectContext
 
 
 def static_resource_uri(src: str, prefix: str = None) -> str:
@@ -13,14 +15,6 @@ def static_resource_uri(src: str, prefix: str = None) -> str:
     if src.startswith("http://") or src.startswith("https://"):
         return src
     return f"{local_prefix}/{src}"
-
-
-class RevealjsContext(object):
-    """Context object for Reveal.js script region."""
-
-    def __init__(self, script_files: List[str], script_conf: str = None):  # noqa
-        self.script_files = script_files
-        self.script_conf = script_conf
 
 
 class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
@@ -46,7 +40,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             static_resource_uri(src)
             for src in getattr(self.config, "revealjs_script_files", [])
         ]
-        self.revealjs_context = RevealjsContext(
+        self.revealjs_context = RevealjsProjectContext(
             self.revealjs_script_files,
             getattr(self.config, "revealjs_script_conf", None),
         )
