@@ -6,7 +6,7 @@ from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
-from .contexts import RevealjsProjectContext
+from .contexts import RevealjsPlugin, RevealjsProjectContext
 
 
 def static_resource_uri(src: str, prefix: str = None) -> str:
@@ -36,6 +36,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def init(self):  # noqa
         super().init()
+        # Create RevealjsProjectContext
         self.revealjs_script_files = [
             static_resource_uri(src)
             for src in getattr(self.config, "revealjs_script_files", [])
@@ -43,6 +44,13 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         self.revealjs_context = RevealjsProjectContext(
             self.revealjs_script_files,
             getattr(self.config, "revealjs_script_conf", None),
+            [
+                RevealjsPlugin(
+                    static_resource_uri(plugin["src"]),
+                    plugin.get("options", "{}").strip(),
+                )
+                for plugin in getattr(self.config, "revealjs_script_plugins", [])
+            ],
         )
 
     def get_theme_config(self) -> Tuple[str, Dict]:
