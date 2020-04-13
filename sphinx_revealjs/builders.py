@@ -6,6 +6,16 @@ from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
+from .contexts import RevealjsProjectContext
+
+
+def static_resource_uri(src: str, prefix: str = None) -> str:
+    """Build static path of resource."""
+    local_prefix = "_static" if prefix is None else prefix
+    if src.startswith("http://") or src.startswith("https://"):
+        return src
+    return f"{local_prefix}/{src}"
+
 
 class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     """Sphinx builder class to generate Reveal.js presentation HTML.
@@ -23,6 +33,17 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             "_static/revealjs/css/reveal.css",
             "_static/revealjs/lib/css/zenburn.css",
         ]
+
+    def init(self):  # noqa
+        super().init()
+        self.revealjs_script_files = [
+            static_resource_uri(src)
+            for src in getattr(self.config, "revealjs_script_files", [])
+        ]
+        self.revealjs_context = RevealjsProjectContext(
+            self.revealjs_script_files,
+            getattr(self.config, "revealjs_script_conf", None),
+        )
 
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).
@@ -44,4 +65,5 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         if self.revealjs_slide:
             ctx["revealjs_slide"] = self.revealjs_slide.attributes
             ctx["revealjs_config"] = self.revealjs_slide.content
+        ctx["revealjs"] = self.revealjs_context
         return ctx
