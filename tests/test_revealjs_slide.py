@@ -22,6 +22,8 @@ class BuidHtmlTests(unittest.TestCase):  # noqa
             if elm["href"].startswith("https://fonts.googleapis.com")
         ]
         self.assertEqual(len(css_hrefs), 1)
+        styles = "\n".join([e.text for e in soup.find_all("style")])
+        self.assertIn("'M PLUS 1p'", styles)
 
     @with_app(**gen_app_conf())
     def test_config(self, app: TestApp, status, warning):  # noqa

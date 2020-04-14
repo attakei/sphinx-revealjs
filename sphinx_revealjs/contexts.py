@@ -8,8 +8,8 @@ RevealjsPlugin = namedtuple("RevealjsPlugin", ["src", "options"])
 class GoogleFonts(object):
     """Google fonts tag generator."""
 
-    def __init__(self, fonts: List[str]):  # noqa
-        self.fonts = fonts
+    def __init__(self, fonts: List[str] = None):  # noqa
+        self.fonts = fonts or []
 
     @property
     def css_files(self) -> List[str]:
@@ -25,6 +25,12 @@ class GoogleFonts(object):
         """Return style value of 'font-family' to use fonts."""
         fonts = ",".join([f"'{f}'" for f in self.fonts])
         return fonts
+
+    def has_fonts(self) -> bool:  # noqa
+        return bool(self.fonts)
+
+    def extend(self, fonts: List[str]) -> "GoogleFonts":  # noqa
+        return GoogleFonts(list(set(self.fonts + fonts)))
 
 
 class RevealjsProjectContext(object):
