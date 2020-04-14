@@ -101,11 +101,9 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
                 "revealjs_script_plugins": [
                     {
                         "src": "revealjs/plugin/notes/notes.js",
-                        "options": """
-                    {async: true}
-                """,
+                        "options": "{async: true}",
                     },
-                    {"src": "revealjs/plugin/highlight/highlight.js",},
+                    {"src": "revealjs/plugin/highlight/highlight.js"},
                 ]
             }
         )
