@@ -32,23 +32,6 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         soup = soup_html(app, "index.html")
         self.assertNotIn('Object.assign(revealConfig, {transition:"});', soup)
 
-    @with_app(
-        **gen_app_conf(
-            confoverrides={"revealjs_theme_options": {"google_font": "Noto Sans JP"}}
-        )
-    )
-    def test_google_fonts(self, app, status, warning):  # noqa
-        soup = soup_html(app, "index.html")
-        css_hrefs = [
-            elm["href"]
-            for elm in soup.find_all("link", rel="stylesheet")
-            if elm["href"].startswith("https://fonts.googleapis.com")
-        ]
-        self.assertEqual(len(css_hrefs), 1)
-        self.assertNotIn("Noto+Sans+JP", css_hrefs[0]["href"])
-        styles = "\n".join([e.text for e in soup.find_all("style")])
-        self.assertIn("'Noto Sans JP'", styles)
-
     @with_app(**gen_app_conf(confoverrides={"revealjs_script_files": ["js/test.js"]}))
     def test_script_tags(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
