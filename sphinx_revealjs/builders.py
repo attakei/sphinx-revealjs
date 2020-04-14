@@ -1,12 +1,12 @@
 """Definition for sphinx custom builder."""
-from typing import Dict, Tuple
+from typing import Any, Dict, Tuple
 
 from sphinx.builders.html import StandaloneHTMLBuilder
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
-from .contexts import RevealjsPlugin, RevealjsProjectContext
+from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
 
 
 def static_resource_uri(src: str, prefix: str = None) -> str:
@@ -33,9 +33,14 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             "_static/revealjs/css/reveal.css",
             "_static/revealjs/lib/css/zenburn.css",
         ]
+        self.google_fonts = GoogleFonts(self.config.revealjs_generic_font)
 
     def init(self):  # noqa
         super().init()
+        if hasattr(self.config, "revealjs_google_fonts"):
+            self.google_fonts = self.google_fonts.extend(
+                self.config.revealjs_google_fonts
+            )
         # Create RevealjsProjectContext
         self.revealjs_context = RevealjsProjectContext(
             [
@@ -74,3 +79,16 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             ctx["revealjs_config"] = self.revealjs_slide.content
         ctx["revealjs"] = self.revealjs_context
         return ctx
+
+    def update_page_context(
+        self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
+    ) -> None:  # noqa
+        # Injection Google Font css
+        fonts = self.google_fonts
+        if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
+            fonts = fonts.extend(
+                self.revealjs_slide.attributes["google_font"].split(",")
+            )
+        print(fonts.generic_font)
+        ctx["google_fonts"] = fonts
+        ctx["css_files"] = self.css_files + fonts.css_files
