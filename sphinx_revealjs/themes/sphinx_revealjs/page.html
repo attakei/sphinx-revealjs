@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="{{ pathto('_static/revealjs/css/theme/'+ theme_revealjs_theme + '.css', 1) }}" />
     {% endif %}
     {# Google Fonts #}
+    {% if revealjs.google_fonts %}
+    <style>
+        body {
+            font-family: {{ revealjs.google_fonts.font_family }}, sans-serif;
+        }
+    </style>
+    {% endif %}
     {% if revealjs_slide and revealjs_slide.google_font %}
     <link href="https://fonts.googleapis.com/css?family={{ revealjs_slide.google_font|replace(' ', '+') }}&display=swap" rel="stylesheet" >
     <style>

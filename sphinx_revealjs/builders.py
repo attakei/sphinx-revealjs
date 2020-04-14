@@ -6,7 +6,7 @@ from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
-from .contexts import RevealjsPlugin, RevealjsProjectContext
+from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
 
 
 def static_resource_uri(src: str, prefix: str = None) -> str:
@@ -38,6 +38,9 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         super().init()
         # Create RevealjsProjectContext
         self.revealjs_context = RevealjsProjectContext(
+            GoogleFonts(getattr(self.config, "revealjs_google_fonts"))
+            if hasattr(self.config, "revealjs_google_fonts")
+            else None,
             [
                 static_resource_uri(src)
                 for src in getattr(self.config, "revealjs_script_files", [])
@@ -51,6 +54,8 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])
             ],
         )
+        #
+        self.css_files += self.revealjs_context.google_fonts.css_files
 
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).
