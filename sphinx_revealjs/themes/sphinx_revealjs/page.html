@@ -66,6 +66,13 @@
         {% if revealjs_slide and revealjs_slide.config %}
         Object.assign(revealConfig, {{ revealjs_slide.config }});
         {% endif %}
+        {# Render plugins injection #}
+        {% for plugin in revealjs.script_plugins -%}
+          {% set plugin_var = "plugin_" ~ loop.index0 %}
+          {{ plugin_var }} = {{ plugin.options|default("{}")|trim }};
+          {{ plugin_var }}.src = "{{ plugin.src }}";
+          revealjsConfig.dependencies.push({{  plugin_var }});
+        {%- endfor %}
         // More info https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize(revealConfig);
     </script>

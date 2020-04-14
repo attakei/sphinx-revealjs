@@ -73,3 +73,45 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             'Object.assign(revealConfig, {transition:"none"});',
             soup.find_all("script")[-1].text,
         )
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_script_plugins": [
+                    {
+                        "src": "revealjs/plugin/notes/notes.js",
+                        "options": """
+                    {async: true}
+                """,
+                    }
+                ]
+            }
+        )
+    )
+    def test_revealjs_script_plugins(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        script = soup.find_all("script")[-1].text
+        self.assertIn("plugin_0 = {async: true}", script)
+        self.assertIn('plugin_0.src = "_static/revealjs/plugin/notes/notes.js"', script)
+        self.assertIn("revealjsConfig.dependencies.push(plugin_0);", script)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_script_plugins": [
+                    {
+                        "src": "revealjs/plugin/notes/notes.js",
+                        "options": "{async: true}",
+                    },
+                    {"src": "revealjs/plugin/highlight/highlight.js"},
+                ]
+            }
+        )
+    )
+    def test_revealjs_script_plugins(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        script = soup.find_all("script")[-1].text
+        self.assertIn("plugin_1 = {};", script)
+        self.assertIn(
+            'plugin_1.src = "_static/revealjs/plugin/highlight/highlight.js"', script
+        )
