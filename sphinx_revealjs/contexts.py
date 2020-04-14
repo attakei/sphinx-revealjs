@@ -38,12 +38,10 @@ class RevealjsProjectContext(object):
 
     def __init__(
         self,
-        google_fonts: GoogleFonts = None,
         script_files: List[str] = None,
         script_conf: str = None,
         script_plugins: List[RevealjsPlugin] = None,
     ):  # noqa
-        self.google_fonts = google_fonts
         self.script_files = script_files or []
         self.script_conf = script_conf
         self.script_plugins = script_plugins or []

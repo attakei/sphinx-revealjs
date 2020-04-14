@@ -33,12 +33,16 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             "_static/revealjs/css/reveal.css",
             "_static/revealjs/lib/css/zenburn.css",
         ]
+        self.google_fonts = GoogleFonts()
 
     def init(self):  # noqa
         super().init()
+        if hasattr(self.config, "revealjs_google_fonts"):
+            self.google_fonts = self.google_fonts.extend(
+                self.config.revealjs_google_fonts
+            )
         # Create RevealjsProjectContext
         self.revealjs_context = RevealjsProjectContext(
-            GoogleFonts(getattr(self.config, "revealjs_google_fonts", [])),
             [
                 static_resource_uri(src)
                 for src in getattr(self.config, "revealjs_script_files", [])
@@ -80,9 +84,9 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
     ) -> None:  # noqa
         # Injection Google Font css
-        fonts = self.revealjs_context.google_fonts
+        fonts = self.google_fonts
         if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
-            fonts = self.revealjs_context.google_fonts.extend(
+            fonts = fonts.extend(
                 self.revealjs_slide.attributes["google_font"].split(",")
             )
         ctx["google_fonts"] = fonts
