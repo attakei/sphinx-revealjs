@@ -26,6 +26,7 @@ class GoogleFonts(object):
         fonts = ",".join([f"'{f}'" for f in self.fonts])
         return fonts
 
+    @property
     def has_fonts(self) -> bool:  # noqa
         return bool(self.fonts)
 
