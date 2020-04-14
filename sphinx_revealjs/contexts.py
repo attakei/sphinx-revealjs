@@ -10,10 +10,10 @@ class RevealjsProjectContext(object):
 
     def __init__(
         self,
-        script_files: List[str],
+        script_files: List[str] = None,
         script_conf: str = None,
         script_plugins: List[RevealjsPlugin] = None,
     ):  # noqa
-        self.script_files = script_files
+        self.script_files = script_files or []
         self.script_conf = script_conf
         self.script_plugins = script_plugins or []

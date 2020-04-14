@@ -37,12 +37,11 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     def init(self):  # noqa
         super().init()
         # Create RevealjsProjectContext
-        self.revealjs_script_files = [
-            static_resource_uri(src)
-            for src in getattr(self.config, "revealjs_script_files", [])
-        ]
         self.revealjs_context = RevealjsProjectContext(
-            self.revealjs_script_files,
+            [
+                static_resource_uri(src)
+                for src in getattr(self.config, "revealjs_script_files", [])
+            ],
             getattr(self.config, "revealjs_script_conf", None),
             [
                 RevealjsPlugin(
