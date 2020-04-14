@@ -33,7 +33,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             "_static/revealjs/css/reveal.css",
             "_static/revealjs/lib/css/zenburn.css",
         ]
-        self.google_fonts = GoogleFonts()
+        self.google_fonts = GoogleFonts(self.config.revealjs_generic_font)
 
     def init(self):  # noqa
         super().init()
@@ -89,5 +89,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             fonts = fonts.extend(
                 self.revealjs_slide.attributes["google_font"].split(",")
             )
+        print(fonts.generic_font)
         ctx["google_fonts"] = fonts
         ctx["css_files"] = self.css_files + fonts.css_files

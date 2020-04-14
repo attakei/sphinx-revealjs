@@ -51,6 +51,34 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         self.assertEqual(len(link), 1)
         style = soup.find_all("style")[-1]
         self.assertIn("Noto Sans JP", style.text)
+        self.assertIn("sans-serif;", style.text)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_google_fonts": ["Noto Sans JP"],
+                "revealjs_generic_font": "cursive",
+            }
+        )
+    )
+    def test_google_fonts_with_generic(self, app, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        link = [
+            e
+            for e in soup.find_all("link", rel="stylesheet")
+            if e["href"].startswith("https://fonts.googleapi")
+        ]
+        self.assertEqual(len(link), 1)
+        style = soup.find_all("style")[-1]
+        self.assertIn("Noto Sans JP", style.text)
+        self.assertIn("cursive", style.text)
+
+    @with_app(**gen_app_conf(confoverrides={"revealjs_generic_font": "cursive"}))
+    def test_generic_font_only(self, app, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        styles = soup.find_all("style")
+        print(styles)
+        self.assertEqual(len(styles), 0)
 
     @with_app(**gen_app_conf(confoverrides={"revealjs_script_files": ["js/test.js"]}))
     def test_script_tags(self, app: TestApp, status, warning):  # noqa

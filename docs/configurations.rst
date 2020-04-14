@@ -31,8 +31,8 @@ revealjs_google_fonts
 List of using fonts from `Google Fonts <https://fonts.google.com/>`_.
 If this value is set, render ``link`` and ``style`` tags into html.
 
-revealjs_font_family
---------------------
+revealjs_generic_font
+---------------------
 
 :Type: ``str``
 :Optional:

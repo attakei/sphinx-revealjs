@@ -53,6 +53,7 @@ def setup(app: Sphinx):
         "revealjs_script_files", ["_static/revealjs/js/reveal.js"], True
     )
     app.add_config_value("revealjs_google_fonts", [], True)
+    app.add_config_value("revealjs_generic_font", "sans-serif", True)
     app.add_config_value("revealjs_script_conf", None, True)
     app.add_config_value("revealjs_script_plugins", [], True)
     app.add_html_theme("sphinx_revealjs", str(get_theme_path("sphinx_revealjs")))
