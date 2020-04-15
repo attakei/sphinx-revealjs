@@ -77,7 +77,6 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
     def test_generic_font_only(self, app, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         styles = soup.find_all("style")
-        print(styles)
         self.assertEqual(len(styles), 0)
 
     @with_app(**gen_app_conf(confoverrides={"revealjs_script_files": ["js/test.js"]}))

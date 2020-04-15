@@ -89,6 +89,5 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             fonts = fonts.extend(
                 self.revealjs_slide.attributes["google_font"].split(",")
             )
-        print(fonts.generic_font)
         ctx["google_fonts"] = fonts
         ctx["css_files"] = self.css_files + fonts.css_files
