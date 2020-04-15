@@ -86,14 +86,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
     ) -> None:  # noqa
         self.configure_theme(ctx)
-        # Injection Google Font css
-        fonts = self.google_fonts
-        if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
-            fonts = fonts.extend(
-                self.revealjs_slide.attributes["google_font"].split(",")
-            )
-        ctx["google_fonts"] = fonts
-        ctx["css_files"] += fonts.css_files
+        self.configure_fonts(ctx)
 
     def configure_theme(self, ctx: Dict):
         """Find and add theme css from conf and directive."""
@@ -110,3 +103,14 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         else:
             theme = f"_static/revealjs/css/theme/{theme}.css"
         ctx["css_files"] += [theme]
+
+    def configure_fonts(self, ctx: Dict):
+        """Find and add google-fonts settins from conf and directive."""
+        # Injection Google Font css
+        fonts = self.google_fonts
+        if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
+            fonts = fonts.extend(
+                self.revealjs_slide.attributes["google_font"].split(",")
+            )
+        ctx["google_fonts"] = fonts
+        ctx["css_files"] += fonts.css_files
