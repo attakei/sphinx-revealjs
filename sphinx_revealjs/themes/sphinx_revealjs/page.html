@@ -47,15 +47,9 @@
         {% if revealjs.script_conf -%}
         Object.assign(revealConfig, {{ revealjs.script_conf }});
         {%- endif %}
-        {% if revealjs_config %}
-        Object.assign(revealConfig, {{ revealjs_config }});
-        {% endif %}
-        {% if theme_revealjs_config %}
-        Object.assign(revealConfig, {{ theme_revealjs_config }});
-        {% endif %}
-        {% if revealjs_slide and revealjs_slide.config %}
-        Object.assign(revealConfig, {{ revealjs_slide.config }});
-        {% endif %}
+        {% for conf in revealjs_page_confs -%}
+        Object.assign(revealConfig, {{ conf }});
+        {%- endfor %}
         {# Render plugins injection #}
         {% for plugin in revealjs.script_plugins -%}
           {% set plugin_var = "plugin_" ~ loop.index0 %}

@@ -4,7 +4,9 @@ Test presentation
 
 .. revealjs_slide::
 
-    {"transition": "none"}
+    {
+      "transition": "none"
+    }
 
 Sample
 ======
