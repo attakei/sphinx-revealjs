@@ -97,7 +97,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def configure_theme(self, ctx: Dict):  # noqa
         if self.revealjs_slide and "theme" in self.revealjs_slide.attributes:
-            theme = self.revealjs_slide.attributes['theme']
+            theme = self.revealjs_slide.attributes["theme"]
         else:
             theme = self.config.revealjs_style_theme
         if theme.startswith("http://") or theme.startswith("https://"):

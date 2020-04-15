@@ -153,13 +153,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             'plugin_1.src = "_static/revealjs/plugin/highlight/highlight.js"', script
         )
 
-    @with_app(
-        **gen_app_conf(
-            confoverrides={
-                "revealjs_style_theme": "moon"
-            }
-        )
-    )
+    @with_app(**gen_app_conf(confoverrides={"revealjs_style_theme": "moon"}))
     def test_revealjs_style_theme(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         links = [
@@ -169,13 +163,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         ]
         self.assertEqual(len(links), 1)
 
-    @with_app(
-        **gen_app_conf(
-            confoverrides={
-                "revealjs_style_theme": "custom.css"
-            }
-        )
-    )
+    @with_app(**gen_app_conf(confoverrides={"revealjs_style_theme": "custom.css"}))
     def test_revealjs_style_theme(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         links = [
