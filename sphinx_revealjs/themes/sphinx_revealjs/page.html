@@ -6,9 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    {% if revealjs_slide and revealjs_slide.theme %}
-    <link rel="stylesheet" href="{{ pathto('_static/'+ revealjs_slide.theme + '.css', 1) }}" />
-    {% elif theme_revealjs_custom_theme  %}
+    {% if theme_revealjs_custom_theme  %}
     <link rel="stylesheet" href="{{ pathto('_static/'+ theme_revealjs_theme + '.css', 1) }}" />
     {% else %}
     <link rel="stylesheet" href="{{ pathto('_static/revealjs/css/theme/'+ theme_revealjs_theme + '.css', 1) }}" />

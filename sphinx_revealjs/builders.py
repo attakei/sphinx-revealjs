@@ -1,4 +1,5 @@
 """Definition for sphinx custom builder."""
+import copy
 from typing import Any, Dict, Tuple
 
 from sphinx.builders.html import StandaloneHTMLBuilder
@@ -74,6 +75,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         if source has ``revealjs_slide`` property, add configures.
         """
         ctx = super().get_doc_context(docname, body, metatags)
+        ctx["css_files"] = copy.copy(self.css_files)
         if self.revealjs_slide:
             ctx["revealjs_slide"] = self.revealjs_slide.attributes
             ctx["revealjs_config"] = self.revealjs_slide.content
@@ -83,6 +85,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     def update_page_context(
         self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
     ) -> None:  # noqa
+        self.configure_theme(ctx)
         # Injection Google Font css
         fonts = self.google_fonts
         if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
@@ -90,4 +93,20 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 self.revealjs_slide.attributes["google_font"].split(",")
             )
         ctx["google_fonts"] = fonts
-        ctx["css_files"] = self.css_files + fonts.css_files
+        ctx["css_files"] += fonts.css_files
+
+    def configure_theme(self, ctx: Dict):
+        """Find and add theme css from conf and directive."""
+        # Use directive or conf
+        if self.revealjs_slide and "theme" in self.revealjs_slide.attributes:
+            theme = self.revealjs_slide.attributes["theme"]
+        else:
+            theme = self.config.revealjs_style_theme
+        # Build path of stylesheet
+        if theme.startswith("http://") or theme.startswith("https://"):
+            pass
+        elif theme.endswith(".css"):
+            theme = f"_static/{theme}"
+        else:
+            theme = f"_static/revealjs/css/theme/{theme}.css"
+        ctx["css_files"] += [theme]

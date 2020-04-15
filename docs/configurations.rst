@@ -13,12 +13,14 @@ revealjs_style_theme
 --------------------
 
 :Type: ``str``
-:Required:
-:Example: ``revealjs/css/theme/black``, ``custom``
+:Optional:
+:Default: ``black``
+:Example: ``moon``, ``custom.css``
 
-Theme name of stylesheet for Reveal.js(excluded suffix).
+Theme name of stylesheet for Reveal.js.
 
-There is bundled Reveal.js theme at ``revealjs/css/theme``.
+* | If value does not have suffix ``.css``,
+  | use bundled Reveal.js theme(included ``revealjs/css/theme``).
 
 revealjs_google_fonts
 ---------------------
