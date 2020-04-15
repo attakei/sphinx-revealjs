@@ -95,11 +95,14 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         ctx["google_fonts"] = fonts
         ctx["css_files"] += fonts.css_files
 
-    def configure_theme(self, ctx: Dict):  # noqa
+    def configure_theme(self, ctx: Dict):
+        """Find and add theme css from conf and directive."""
+        # Use directive or conf
         if self.revealjs_slide and "theme" in self.revealjs_slide.attributes:
             theme = self.revealjs_slide.attributes["theme"]
         else:
             theme = self.config.revealjs_style_theme
+        # Build path of stylesheet
         if theme.startswith("http://") or theme.startswith("https://"):
             pass
         elif theme.endswith(".css"):
