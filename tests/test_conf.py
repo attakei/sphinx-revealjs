@@ -82,7 +82,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
     def test_revealjs_script_conf(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         self.assertIn(
-            'Object.assign(revealConfig, {transition:"none"});',
+            'Object.assign(revealjsConfig, {transition:"none"});',
             soup.find_all("script")[-1].text,
         )
 

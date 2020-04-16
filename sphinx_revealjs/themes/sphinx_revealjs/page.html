@@ -43,12 +43,12 @@
     <script src="{{ pathto(script_file, 1) }}"></script>
     {% endfor %}
     <script>
-        var revealConfig = {};
+        var revealjsConfig = {};
         {% if revealjs.script_conf -%}
-        Object.assign(revealConfig, {{ revealjs.script_conf }});
+        Object.assign(revealjsConfig, {{ revealjs.script_conf }});
         {%- endif %}
         {% for conf in revealjs_page_confs -%}
-        Object.assign(revealConfig, {{ conf }});
+        Object.assign(revealjsConfig, {{ conf }});
         {%- endfor %}
         {# Render plugins injection #}
         {% for plugin in revealjs.script_plugins -%}
@@ -58,6 +58,6 @@
           revealjsConfig.dependencies.push({{  plugin_var }});
         {%- endfor %}
         // More info https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize(revealConfig);
+        Reveal.initialize(revealjsConfig);
     </script>
 {% endblock %}
