@@ -2,22 +2,8 @@
 sphinx-revealjs
 ===============
 
-.. revealjs_slide::
-
-    {
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        transition: "slide",
-        dependencies: [
-            { src: "{{ pathto('_static/revealjs/plugin/notes/notes.js', 1) }}", async: true },
-            { src: "{{ pathto('_static/revealjs/plugin/highlight/highlight.js', 1) }}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-    }
-
-:Based version: 0.9.0
-:Released: 2019-12-22
+:Based version: 0.11.0 (pre)
+:Released: 2020-04-17
 
 Overview
 ========
@@ -34,7 +20,6 @@ Features
 
 * Convert sections from reStructuredText directly
 * Select theme from default themes
-
 
 Convert sections from reStructuredText directly
 ===============================================
@@ -81,23 +66,21 @@ To:
 reStructuredText comments are used as speaker notes
 ---------------------------------------------------
 
-
 From:
 
 .. code-block:: rest
 
     .. This is comment in reStructuredText
 
-
 To:
 
 .. code-block:: html
 
     <section>
-        <aside class="notes">
+      <aside class="notes">
         This is comment in reStructuredText
-        </aside>
-
+      </aside>
+    </section>
 
 code-block as reveal.js code block
 ----------------------------------
@@ -219,19 +202,31 @@ You can hide section title
     .. revealjs_break::
         :notitle:
 
+Support features
+================
+
+Fragments
+---------
+
+This is support fragment with groups.
+
+.. revealjs_fragments::
+
+   * First
+   * Second
+   * Third
+
 Usage
 =====
 
 Installation
 ------------
 
-This project is not registered to PyPI.
-User need to install from GitHub
+You can install from PyPI.
 
 .. code-block:: bash
 
-    $ pip install git+https://github.com/attakei/sphinx-revealjs
-
+    $ pip install sphinx-revealjs
 
 Configure
 ---------
@@ -241,10 +236,8 @@ Edit `conf.py` to use this extension
 .. code-block:: python
 
     extensions = [
-        'sphinx_revealjs',
+        "sphinx_revealjs",
     ]
-
-    html_theme = 'revealjs'
 
 Write source
 ------------
@@ -271,33 +264,17 @@ Write plain reStructuredText
     Content
     =======
 
-
 Build
 -----
 
 This extension has custom builder name ``revealjs`` .
-If you make docs as Reveal.js presentation, you call ``make revealjs``
+If you make docs as Reveal.js presentation, you call ``make revealjs``.
 
 .. code-block:: bash
 
     $ make revealjs
 
-This presentation is made from ``https://github.com/attakei/sphinx-revealjs/blob/demo/docs/index.rst``
-
-
-SUpport features
-================
-
-Fragments
----------
-
-This is support fragment with groups.
-
-.. revealjs_fragments::
-
-   * First
-   * Second
-   * Third
+This presentation is made from ``https://github.com/attakei/sphinx-revealjs/blob/demo/docs/index.rst``.
 
 Enjoy writing reST as presentation
 ==================================

@@ -27,10 +27,26 @@ html_theme_options = {
 html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
-revealjs_theme_options = {
-    "revealjs_custom_theme": True,
-    "revealjs_theme": "black2",
-}
+revealjs_style_theme = "black"
+revealjs_script_conf = """
+    {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: "slide",
+    }
+"""
+revealjs_script_plugins = [
+    {
+        "src": "revealjs/plugin/notes/notes.js",
+        "options": "{async: true}",
+    },
+    {
+        "src": "revealjs/plugin/highlight/highlight.js",
+        "options": "{async: true, callback: function() { hljs.initHighlightingOnLoad(); }}",
+    },
+]
 
 # -- Options for HTMLHelp output ---------------------------------------------
 htmlhelp_basename = "sphinx-revealjsdoc"
