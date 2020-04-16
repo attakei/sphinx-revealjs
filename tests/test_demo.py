@@ -12,7 +12,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         cls.app = TestApp(
             srcdir=str(PROJECT_ROOT / "demo"),
             buildername="revealjs",
-            copy_srcdir_to_tmpdir=True
+            copy_srcdir_to_tmpdir=True,
         )
         cls.soup = soup_html(cls.app, "index.html")
 
