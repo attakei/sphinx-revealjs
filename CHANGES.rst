@@ -2,6 +2,32 @@
 Change logs
 ===========
 
+ver 0.11.0
+==========
+
+:date: 2020-04-17
+
+Features
+--------
+
+* | Add new config variables ``revealjs_style_theme``,
+  | ``revealjs_google_fonts``,``revealjs_generic_font``,
+  | ``revealjs_script_files``, ``revealjs_script_conf``
+  | and ``revealjs_script_plugins``
+* | **Breaking:** Change directive option,
+  | from ``config`` to ``conf`` in ``RevealjsSlide`` directive.
+
+Drop
+----
+
+* | **Breaking:** Remove config variables
+  | ``revealjs_theme`` and ``revealjs_theme_options``.
+
+Fixes
+-----
+
+* Use black for formatting
+
 ver 0.10.1
 ==========
 
