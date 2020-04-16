@@ -3,14 +3,7 @@
 {%- block extrahead %}
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    {% if theme_revealjs_custom_theme  %}
-    <link rel="stylesheet" href="{{ pathto('_static/'+ theme_revealjs_theme + '.css', 1) }}" />
-    {% else %}
-    <link rel="stylesheet" href="{{ pathto('_static/revealjs/css/theme/'+ theme_revealjs_theme + '.css', 1) }}" />
-    {% endif %}
     {# Google Fonts #}
     {% if google_fonts.has_fonts %}
     <style>
@@ -43,7 +36,9 @@
     <script src="{{ pathto(script_file, 1) }}"></script>
     {% endfor %}
     <script>
-        var revealjsConfig = {};
+        var revealjsConfig = {
+          dependencies: []
+        };
         {% if revealjs.script_conf -%}
         Object.assign(revealjsConfig, {{ revealjs.script_conf }});
         {%- endif %}
