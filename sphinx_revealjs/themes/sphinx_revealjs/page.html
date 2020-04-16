@@ -1,0 +1,63 @@
+{%- extends "layout.html" %}
+
+{%- block extrahead %}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {% if theme_revealjs_custom_theme  %}
+    <link rel="stylesheet" href="{{ pathto('_static/'+ theme_revealjs_theme + '.css', 1) }}" />
+    {% else %}
+    <link rel="stylesheet" href="{{ pathto('_static/revealjs/css/theme/'+ theme_revealjs_theme + '.css', 1) }}" />
+    {% endif %}
+    {# Google Fonts #}
+    {% if google_fonts.has_fonts %}
+    <style>
+        body {
+            font-family: {{ google_fonts.font_family }};
+        }
+    </style>
+    {% endif %}
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( "link" );
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        if (window.location.search.match( /print-pdf/gi )) {
+            link.href = "{{ pathto('_static/revealjs/css/print/pdf.css', 1) }}";
+        } else {
+            link.href = "{{ pathto('_static/revealjs/css/print/paper.css', 1) }}";
+        }
+        document.getElementsByTagName( "head" )[0].appendChild( link );
+    </script>
+{% endblock %}
+
+{%- block content %}
+    <div class="reveal">
+        <div class="slides">
+            {{ body }}
+        </div>
+    </div>
+    {% for script_file in revealjs.script_files %}
+    <script src="{{ pathto(script_file, 1) }}"></script>
+    {% endfor %}
+    <script>
+        var revealConfig = {};
+        {% if revealjs.script_conf -%}
+        Object.assign(revealConfig, {{ revealjs.script_conf }});
+        {%- endif %}
+        {% for conf in revealjs_page_confs -%}
+        Object.assign(revealConfig, {{ conf }});
+        {%- endfor %}
+        {# Render plugins injection #}
+        {% for plugin in revealjs.script_plugins -%}
+          {% set plugin_var = "plugin_" ~ loop.index0 %}
+          {{ plugin_var }} = {{ plugin.options|default("{}")|trim }};
+          {{ plugin_var }}.src = "{{ plugin.src }}";
+          revealjsConfig.dependencies.push({{  plugin_var }});
+        {%- endfor %}
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealConfig);
+    </script>
+{% endblock %}

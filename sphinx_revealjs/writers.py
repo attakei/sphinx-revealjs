@@ -36,24 +36,23 @@ class RevealjsSlideTranslator(HTML5Translator):
         - When enter next section, nest level.
         """
         self.section_level += 1
-        meta = find_child_section(node, 'revealjs_section')
+        meta = find_child_section(node, "revealjs_section")
         if meta is not None:
             attrs = meta.attributes_str()
         else:
-            attrs = ''
+            attrs = ""
         if self.section_level == 1:
-            self.builder.revealjs_slide = \
-                find_child_section(node, 'revealjs_slide')
+            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
             self._proc_first_on_section = True
-            self.body.append('<section>\n')
+            self.body.append("<section>\n")
             return
         if self._proc_first_on_section:
             self._proc_first_on_section = False
-            self.body.append('</section>\n')
+            self.body.append("</section>\n")
         self.body.append(f"<section {attrs}>\n")
-        if has_child_sections(node, 'section'):
+        if has_child_sections(node, "section"):
             self._proc_first_on_section = True
-            self.body.append('<section>\n')
+            self.body.append("<section>\n")
 
     def depart_section(self, node: section):
         """End ``section``.
@@ -62,7 +61,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         """
         self.section_level -= 1
         if self.section_level >= 1:
-            self.body.append('</section>\n')
+            self.body.append("</section>\n")
 
     def visit_comment(self, node: comment):
         """Begin ``comment`` node.
@@ -76,23 +75,22 @@ class RevealjsSlideTranslator(HTML5Translator):
 
         Close speaker note.
         """
-        self.body.append('</aside>\n')
+        self.body.append("</aside>\n")
 
     def visit_literal_block(self, node: literal_block):
         """Begin ``literal_block`` .
 
         Override base method, and open simply ``pre`` and ``code`` tags.
         """
-        lang = node['language']
-        self.body.append(
-            f'<pre><code data-trim data-noescape class="{lang}">\n')
+        lang = node["language"]
+        self.body.append(f'<pre><code data-trim data-noescape class="{lang}">\n')
 
     def depart_literal_block(self, node: literal_block):
         """End ``literal_block``.
 
         Override base method, and close begun tags.
         """
-        self.body.append('</code></pre>\n')
+        self.body.append("</code></pre>\n")
 
 
 def not_write(self, node):
@@ -102,7 +100,7 @@ def not_write(self, node):
 
 def visit_revealjs_break(self, node: revealjs_break):
     """Close current section."""
-    self.body.append('</section>\n')
+    self.body.append("</section>\n")
 
 
 def depart_revealjs_break(self, node: revealjs_break):
@@ -112,10 +110,10 @@ def depart_revealjs_break(self, node: revealjs_break):
     render title from current original section.
     """
     attrs = node.attributes_str()
-    self.body.append(f'<section {attrs}>\n')
-    if 'notitle' not in node.attributes:
-        title = find_child_section(node.parent, 'title')
-        self.body.append(f'<h{self.section_level}>')
+    self.body.append(f"<section {attrs}>\n")
+    if "notitle" not in node.attributes:
+        title = find_child_section(node.parent, "title")
+        self.body.append(f"<h{self.section_level}>")
         self.body.append(title.children[0])
-        self.body.append(f'</h{self.section_level}>')
-        self.body.append('\n')
+        self.body.append(f"</h{self.section_level}>")
+        self.body.append("\n")

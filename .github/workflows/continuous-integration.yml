@@ -1,4 +1,4 @@
-name: Testings
+name: Continuous Integration
 
 on: [push]
 
@@ -21,10 +21,11 @@ jobs:
       run: |
         python -m pip install poetry
         poetry install
-    - name: Lint with flake8 anddoc8
+    - name: Lint sources and docs
       run: |
         poetry run flake8 sphinx_revealjs/
-        poetry run doc8
+        poetry run black --check sphinx_revealjs/ tests/
+        poetry run doc8 docs/
     - name: Test with nosetests
       run: |
         poetry run nosetests tests/

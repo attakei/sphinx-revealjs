@@ -19,20 +19,24 @@ class SectionTagRenderer(object):
         """
         pair = []
         for k, v in self.attributes.items():
-            if not k.startswith('data-'):
+            if not k.startswith("data-"):
                 continue
             if isinstance(v, FlagAttribute):
                 pair.append(k)
                 continue
             pair.append(f'{k}="{v}"')
-        return ' '.join(pair)
+        return " ".join(pair)
 
 
-class revealjs_section(SectionTagRenderer, nodes.Structural, nodes.Element):  # noqa: D101,E501
+class revealjs_section(
+    SectionTagRenderer, nodes.Structural, nodes.Element
+):  # noqa: D101,E501
     pass
 
 
-class revealjs_break(SectionTagRenderer, nodes.Structural, nodes.Element):  # noqa: D101,E501
+class revealjs_break(
+    SectionTagRenderer, nodes.Structural, nodes.Element
+):  # noqa: D101,E501
     pass
 
 
