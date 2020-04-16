@@ -37,14 +37,11 @@ class BuidHtmlTests(unittest.TestCase):  # noqa
     def test_config_as_content(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "with_conf_content.html")
         self.assertIn(
-            'Object.assign(revealConfig, {\n',
-            soup.find_all("script")[-1].text,
+            "Object.assign(revealConfig, {\n", soup.find_all("script")[-1].text,
         )
         self.assertIn(
-            '"transition": "none"\n',
-            soup.find_all("script")[-1].text,
+            '"transition": "none"\n', soup.find_all("script")[-1].text,
         )
         self.assertIn(
-            '});',
-            soup.find_all("script")[-1].text,
+            "});", soup.find_all("script")[-1].text,
         )
