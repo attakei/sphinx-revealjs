@@ -78,30 +78,13 @@ class RevealjsSlide(Directive):  # noqa: D101
     option_spec = {
         "theme": directives.unchanged,
         "google_font": directives.unchanged,
-        "config": raw_json,
+        "conf": raw_json,
     }
 
     def run(self):  # noqa: D102
         node = revealjs_slide()
         node.attributes = self.options
-        if self.content:
-            node.content = "".join(self.content)
-        else:
-            # flake8: noqa
-            node.content = """
-            {
-                controls: true,
-                progress: true,
-                history: true,
-                center: true,
-                transition: "slide", // none/fade/slide/convex/concave/zoom
-                // More info https://github.com/hakimel/reveal.js#dependencies
-                dependencies: [
-                    { src: "{{ pathto('_static/revealjs/plugin/notes/notes.js', 1) }}", async: true },
-                    { src: "{{ pathto('_static/revealjs/plugin/highlight/highlight.js', 1) }}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-                ]
-            }
-            """
+        node.content = "\n".join(self.content or [])
         return [
             node,
         ]

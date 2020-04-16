@@ -1,6 +1,6 @@
 """Definition for sphinx custom builder."""
 import copy
-from typing import Any, Dict, Tuple
+from typing import Any, Dict, List, Tuple
 
 from sphinx.builders.html import StandaloneHTMLBuilder
 
@@ -76,9 +76,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         """
         ctx = super().get_doc_context(docname, body, metatags)
         ctx["css_files"] = copy.copy(self.css_files)
-        if self.revealjs_slide:
-            ctx["revealjs_slide"] = self.revealjs_slide.attributes
-            ctx["revealjs_config"] = self.revealjs_slide.content
         ctx["revealjs"] = self.revealjs_context
         return ctx
 
@@ -87,6 +84,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     ) -> None:  # noqa
         self.configure_theme(ctx)
         self.configure_fonts(ctx)
+        ctx["revealjs_page_confs"] = self.configure_page_script_conf()
 
     def configure_theme(self, ctx: Dict):
         """Find and add theme css from conf and directive."""
@@ -114,3 +112,13 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             )
         ctx["google_fonts"] = fonts
         ctx["css_files"] += fonts.css_files
+
+    def configure_page_script_conf(self) -> List[str]:  # noqa
+        if not self.revealjs_slide:
+            return []
+        configs = []
+        if "conf" in self.revealjs_slide.attributes:
+            configs.append(self.revealjs_slide.attributes["conf"])
+        if self.revealjs_slide.content:
+            configs.append(self.revealjs_slide.content)
+        return configs
