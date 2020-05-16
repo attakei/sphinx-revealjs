@@ -1,5 +1,16 @@
 {%- extends "basic/layout.html" %}
 
+{%- block css %}
+  {# Remove theme css from css() macro #}
+  {%- for css in css_files %}
+    {%- if css|attr("filename") %}
+      {{ css_tag(css) }}
+    {%- else %}
+      <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
+    {%- endif %}
+  {%- endfor %}
+{%- endblock %}
+
 {# This block is not used. #}
 {%- block header %}{% endblock %}
 {%- block relbar1 %}{% endblock %}
