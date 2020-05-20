@@ -2,6 +2,14 @@
 sphinx-revealjs
 ===============
 
+.. This toctree is only to link examples.
+
+.. toctree::
+   :glob:
+   :hidden:
+
+   *
+
 :Based version: 0.11.0 (pre)
 :Released: 2020-04-17
 
@@ -275,6 +283,14 @@ If you make docs as Reveal.js presentation, you call ``make revealjs``.
     $ make revealjs
 
 This presentation is made from ``https://github.com/attakei/sphinx-revealjs/blob/demo/docs/index.rst``.
+
+Other examples
+==============
+
+Within this pages
+-----------------
+
+* :doc:`example-background-only-section`
 
 Enjoy writing reST as presentation
 ==================================
