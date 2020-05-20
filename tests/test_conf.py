@@ -147,3 +147,17 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             if "_static/custom.css" in e["href"]
         ]
         self.assertEqual(len(links), 1)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={"revealjs_css_files": ["https://example.com/example.css"]}
+        )
+    )
+    def test_revealjs_css_files(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        links = [
+            e
+            for e in soup.find_all("link", rel="stylesheet")
+            if "https://example.com/example.css" in e["href"]
+        ]
+        self.assertEqual(len(links), 1)
