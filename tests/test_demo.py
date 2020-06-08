@@ -46,3 +46,11 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
 
     def test_title(self):  # noqa
         self.assertEqual("sphinx-revealjs", self.soup.title.text)
+
+    def test_has_highlightjs_theme(self):  # noqa
+        links = [
+            d
+            for d in self.soup.find_all("link", rel="stylesheet")
+            if d["href"].endswith("revealjs/lib/css/zenburn.css")
+        ]
+        self.assertEqual(len(links), 1)
