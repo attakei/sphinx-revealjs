@@ -55,7 +55,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         )
 
     def init_css_files(self) -> None:  # noqa
-        self.add_css_file("revealjs/css/reveal.css")
         self.add_css_file("revealjs/lib/css/zenburn.css")
         for filename in self.get_builder_config("css_files", "revealjs"):
             self.add_css_file(filename)

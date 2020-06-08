@@ -16,23 +16,13 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         )
         cls.soup = soup_html(cls.app, "index.html")
 
-    def test_no_refs_sphinx_based(self):  # noqa
-        sphinx_basic_css = [
+    def test_has_revealcss(self):  # noqa
+        reveal_css = [
             d
             for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"] == "_static/basic.css"
+            if d["href"].endswith("revealjs/css/reveal.css")
         ]
-        self.assertEqual(len(sphinx_basic_css), 0)
-        self.assertEqual(
-            len(
-                [
-                    d
-                    for d in self.soup.find_all("link", rel="stylesheet")
-                    if d["href"] == "_static/"
-                ]
-            ),
-            0,
-        )
+        self.assertEqual(len(reveal_css), 1)
 
     def test_refs_all_exists(self):  # noqa
         google_fonts = [
