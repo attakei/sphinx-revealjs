@@ -21,7 +21,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         link = [
             e
             for e in soup.find_all("link", rel="stylesheet")
-            if e["href"].startswith("https://fonts.googleapi")
+            if e["href"].startswith("https://fonts.googleapis.com/css2")
         ]
         self.assertEqual(len(link), 1)
         style = soup.find_all("style")[-1]
