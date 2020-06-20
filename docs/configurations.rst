@@ -8,6 +8,17 @@ You can configure in ``conf.py`` for all presentations.
 Style Configurations
 ====================
 
+revealjs_css_files
+------------------
+
+:Type: ``str``
+:Optional:
+:Default: ``[]`` (empty)
+:Example: ``["custom.css"]``
+
+List of using custom css (same of ``html_css_files`` ).
+
+If you want to customize presentation by CSS, write external css and use it.
 
 revealjs_style_theme
 --------------------
