@@ -8,6 +8,16 @@ You can configure in ``conf.py`` for all presentations.
 Style Configurations
 ====================
 
+revealjs_static_path
+--------------------
+
+:Type: ``list``
+:Optional:
+:Default: ``[]`` (empty)
+:Example: ``["custom.css"]``
+
+List of static files directory ( same as ``html_static_path`` )
+
 revealjs_css_files
 ------------------
 
