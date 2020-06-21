@@ -25,6 +25,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         ]
         self.assertEqual(len(link), 1)
         style = soup.find_all("style")[-1]
+        self.assertIn(".reveal", style.text)
         self.assertIn("Noto Sans JP", style.text)
         self.assertIn("sans-serif;", style.text)
 
