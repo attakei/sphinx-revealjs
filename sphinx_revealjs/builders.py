@@ -30,10 +30,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
         self.revealjs_slide = None
-        self.css_files = [
-            "_static/revealjs/css/reveal.css",
-            "_static/revealjs/lib/css/zenburn.css",
-        ]
         self.google_fonts = GoogleFonts(self.config.revealjs_generic_font)
 
     def init(self):  # noqa
@@ -57,6 +53,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])
             ],
         )
+
+    def init_css_files(self) -> None:  # noqa
+        for filename in self.get_builder_config("css_files", "revealjs"):
+            self.add_css_file(filename)
 
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).

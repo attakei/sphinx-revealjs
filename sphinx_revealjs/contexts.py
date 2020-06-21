@@ -16,7 +16,7 @@ class GoogleFonts(object):
     def css_files(self) -> List[str]:
         """Return google fonts urls."""
         return [
-            "https://fonts.googleapis.com/css"
+            "https://fonts.googleapis.com/css2"
             f"?family={font.replace(' ', '+')}&display=swap"
             for font in self.fonts
         ]

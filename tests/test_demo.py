@@ -16,6 +16,14 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         )
         cls.soup = soup_html(cls.app, "index.html")
 
+    def test_has_revealcss(self):  # noqa
+        reveal_css = [
+            d
+            for d in self.soup.find_all("link", rel="stylesheet")
+            if d["href"].endswith("revealjs/css/reveal.css")
+        ]
+        self.assertEqual(len(reveal_css), 1)
+
     def test_refs_all_exists(self):  # noqa
         google_fonts = [
             d
@@ -38,3 +46,11 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
 
     def test_title(self):  # noqa
         self.assertEqual("sphinx-revealjs", self.soup.title.text)
+
+    def test_has_highlightjs_theme(self):  # noqa
+        links = [
+            d
+            for d in self.soup.find_all("link", rel="stylesheet")
+            if d["href"].endswith("revealjs/lib/css/zenburn.css")
+        ]
+        self.assertEqual(len(links), 1)
