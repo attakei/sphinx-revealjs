@@ -2,8 +2,10 @@
 Change logs
 ===========
 
-ver NEXT
-========
+ver 0.12.0
+==========
+
+:date: 2020-06-21
 
 New features
 ------------
@@ -12,6 +14,7 @@ New features
 
   * ``revealjs_js_files``
   * ``revealjs_css_files``
+  * ``revealjs_static_path``
 
 Updates
 -------
@@ -23,6 +26,7 @@ Drop
 ----
 
 * Remove ``zenburn.css`` from default included css files
+* Ignore ``html_js_files``, ``html_css_files`` and ``html_static_path``
 
 ver 0.11.0
 ==========
