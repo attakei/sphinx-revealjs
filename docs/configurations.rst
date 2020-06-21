@@ -14,14 +14,14 @@ revealjs_static_path
 :Type: ``list``
 :Optional:
 :Default: ``[]`` (empty)
-:Example: ``["custom.css"]``
+:Example: ``["_static"]``
 
 List of static files directory ( same as ``html_static_path`` )
 
 revealjs_css_files
 ------------------
 
-:Type: ``str``
+:Type: ``list``
 :Optional:
 :Default: ``[]`` (empty)
 :Example: ``["custom.css"]``
