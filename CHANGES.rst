@@ -8,12 +8,16 @@ ver NEXT
 New features
 ------------
 
-* Config variables ``revealjs_css_files``
+* Config variables:
+
+  * ``revealjs_js_files``
+  * ``revealjs_css_files``
 
 Updates
 -------
 
 * ``revealjs_google_fonts`` use Google Fonts API version 2
+* Change css selector for google-fonts
 
 Drop
 ----
