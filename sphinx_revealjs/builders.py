@@ -53,6 +53,8 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])
             ],
         )
+        # Hand over builder configs to html builder.
+        setattr(self.config, "html_static_path", self.config.revealjs_static_path)
 
     def init_css_files(self) -> None:  # noqa
         for filename in self.get_builder_config("css_files", "revealjs"):

@@ -47,6 +47,7 @@ def setup(app: Sphinx):
     app.add_directive("revealjs_section", RevealjsSection)
     app.add_directive("revealjs_slide", RevealjsSlide)
     app.add_directive("revealjs_fragments", RevealjsFragments)
+    app.add_config_value("revealjs_static_path", [], True)
     app.add_config_value("revealjs_style_theme", "black", True)
     app.add_config_value("revealjs_css_files", [], True)
     app.add_config_value("revealjs_google_fonts", [], True)
