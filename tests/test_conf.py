@@ -166,7 +166,8 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         **gen_app_conf(
             confoverrides={
                 "revealjs_static_path": ["_static"],
-                "revealjs_css_files": ["custom.css"]}
+                "revealjs_css_files": ["custom.css"],
+            }
         )
     )
     def test_revealjs_css_files_local(self, app: TestApp, status, warning):  # noqa
