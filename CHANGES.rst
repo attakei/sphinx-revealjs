@@ -2,6 +2,24 @@
 Change logs
 ===========
 
+ver NEXT
+========
+
+New features
+------------
+
+* Config variables ``revealjs_css_files``
+
+Updates
+-------
+
+* ``revealjs_google_fonts`` use Google Fonts API version 2
+
+Drop
+----
+
+* Remove ``zenburn.css`` from default included css files
+
 ver 0.11.0
 ==========
 

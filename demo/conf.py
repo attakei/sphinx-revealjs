@@ -47,6 +47,9 @@ revealjs_script_plugins = [
         "options": "{async: true, callback: function() { hljs.initHighlightingOnLoad(); }}",
     },
 ]
+revealjs_css_files = [
+    "revealjs/lib/css/zenburn.css",
+]
 
 # -- Options for HTMLHelp output ---------------------------------------------
 htmlhelp_basename = "sphinx-revealjsdoc"
