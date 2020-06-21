@@ -28,6 +28,7 @@ html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
 revealjs_static_path = ["_static"]
+revealjs_google_fonts = ["M PLUS 1p",]
 revealjs_style_theme = "black"
 revealjs_script_conf = """
     {

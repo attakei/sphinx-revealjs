@@ -30,7 +30,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
             for d in self.soup.find_all("link", rel="stylesheet")
             if d["href"].startswith("https://fonts.googleapis.com")
         ]
-        self.assertEqual(len(google_fonts), 0)
+        self.assertEqual(len(google_fonts), 1)
 
     def test_script_conf(self):  # noqa
         script = self.soup.find_all("script")[-1]
