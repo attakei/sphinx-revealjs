@@ -20,6 +20,9 @@ homepage = "https://github.com/attakei/sphinx-revealjs"
 repository = "https://github.com/attakei/sphinx-revealjs"
 license = "Apache-2.0"
 readme = "README.rst"
+include = [
+    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs/**/*",
+]
 
 [tool.poetry.dependencies]
 python = "^3.6 | ^3.7 | ^3.8"
