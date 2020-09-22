@@ -1,15 +1,20 @@
 #!/use/bin/env python
-"""Fetch and sync reveal.js resources
+"""Fetch and sync reveal.js resources.
+
+This script need to run these case.
+
+* After editable install
+* Before build package archibves
 """
 import argparse
 import shutil
 import sys
+import tarfile
 from pathlib import Path
 from urllib.request import urlretrieve
-import tarfile
 
 
-def validate_dir_state(target: Path) -> bool:
+def validate_dir_state(target: Path) -> bool:  # noqa: D103
     expected = [
         'sphinx_revealjs',
     ]
@@ -17,7 +22,7 @@ def validate_dir_state(target: Path) -> bool:
     return actually
 
 
-def download_release(target: Path, version: str = '3.9.1') -> Path:
+def download_release(target: Path, version: str = '3.9.1') -> Path:  # noqa: D103
     target.mkdir(exist_ok=True)
     url = f"https://github.com/hakimel/reveal.js/archive/{version}.tar.gz"
     dest = target / f"revealjs-{version}.tgz"
@@ -26,14 +31,14 @@ def download_release(target: Path, version: str = '3.9.1') -> Path:
     return dest
 
 
-def extract_archive(target: Path) -> Path:
+def extract_archive(target: Path) -> Path:  # noqa: D103
     with tarfile.open(str(target)) as tr:
         dir_name = tr.getmembers()[0].name
         tr.extractall(str(target.parent))
         return target.parent / dir_name
 
 
-def main(args: argparse.Namespace, base_dir: Path):
+def main(args: argparse.Namespace, base_dir: Path):  # noqa: D103
     downloaded = download_release(base_dir / 'var', args.version)
     extracted = extract_archive(downloaded)
     src_list = [
