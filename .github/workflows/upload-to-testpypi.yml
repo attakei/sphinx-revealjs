@@ -27,6 +27,7 @@ jobs:
           else
             python tools/bump_extra_version.py post
           fi
+          poetry run python tools/fetch_revealjs.py
           poetry build
       - name: Publish test pypi
         run: |
