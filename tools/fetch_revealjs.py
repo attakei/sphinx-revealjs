@@ -7,19 +7,14 @@ This script need to run these case.
 * Before build package archibves
 """
 import argparse
+import logging
 import shutil
 import sys
 import tarfile
 from pathlib import Path
 from urllib.request import urlretrieve
 
-
-def validate_dir_state(target: Path) -> bool:  # noqa: D103
-    expected = [
-        'sphinx_revealjs',
-    ]
-    actually = all([(target / e).exists() for e in expected])
-    return actually
+ROOT_DIR = Path(__file__).parent.parent.absolute()
 
 
 def download_release(target: Path, version: str = '3.9.1') -> Path:  # noqa: D103
@@ -67,9 +62,8 @@ parser.add_argument("version", type=str)
 
 if __name__ == '__main__':
     base_dir = Path.cwd()
-    valid = validate_dir_state(base_dir)
-    if not valid:
-        print('Nooo')
+    if base_dir != ROOT_DIR:
+        logging.error("This script can run only project root.")
         sys.exit(1)
     args = parser.parse_args()
     main(args, base_dir)
