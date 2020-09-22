@@ -7,6 +7,11 @@ on:
       - next
     paths:
       - sphinx_revealjs/**
+      - tools/**
+      - README.rst
+      - pyproject.toml
+      - poetry.lock
+      - setup.cfg
 
 jobs:
   build:
