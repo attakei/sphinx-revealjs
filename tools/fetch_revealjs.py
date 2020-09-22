@@ -44,14 +44,16 @@ def main():  # noqa: D103
     for rule in RULES:
         downloaded = download_release(ROOT_DIR / "var", rule["version"])
         extracted = extract_archive(downloaded)
+        dest_base = ROOT_DIR / rule["dest"]
+        dest_base.mkdir(parents=True, exist_ok=True)
         for src_ in rule["src"]:
             src = extracted / src_
             dest = ROOT_DIR / rule["dest"] / src_
-            if src.is_dir():
+            if dest.exists():
                 shutil.rmtree(dest)
+            if src.is_dir():
                 shutil.copytree(src, dest)
             else:
-                dest.unlink()
                 shutil.copy2(src, dest)
 
 
