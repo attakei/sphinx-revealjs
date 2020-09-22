@@ -63,6 +63,19 @@ Futures
 * Index template as none presentation
 * CDN support
 
+Contributings
+-------------
+
+GitHub repository does not have reveal.js library.
+
+If you use from GitHub and editable mode, Run ``tools/fetch_revealjs.py`` after install.
+
+.. code-block:: bash
+
+    $ git clone https://github.com/attakei/sphinx-revealjs
+    $ cd sphinx-revealjs
+    $ poetry install
+    $ poetry run python tools/fetch_revealjs.py
 
 Copyright
 ---------
