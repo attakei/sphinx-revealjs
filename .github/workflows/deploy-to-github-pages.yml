@@ -16,6 +16,7 @@ jobs:
       - name: Make demo page
         run: |
           python -m pip install --upgrade pip
+          python tools/fetch_revealjs.py
           pip install .
           pip install -r demo/requirements.txt
           make -C demo revealjs
