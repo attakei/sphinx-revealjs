@@ -101,7 +101,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         elif theme.endswith(".css"):
             theme = f"_static/{theme}"
         else:
-            theme = f"_static/revealjs/css/theme/{theme}.css"
+            theme = f"_static/revealjs3/css/theme/{theme}.css"
         ctx["css_files"].insert(0, theme)
 
     def configure_fonts(self, ctx: Dict):

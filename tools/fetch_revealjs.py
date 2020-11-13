@@ -19,7 +19,7 @@ RULES = [
     {
         "version": "3.9.2",
         "src": ["css", "js", "lib", "plugin", "LICENSE"],
-        "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs",
+        "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs3",
     },
 ]
 

@@ -20,7 +20,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         reveal_css = [
             d
             for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].endswith("revealjs/css/reveal.css")
+            if d["href"].endswith("revealjs3/css/reveal.css")
         ]
         self.assertEqual(len(reveal_css), 1)
 
@@ -38,11 +38,11 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
 
     def test_script_sources(self):  # noqa
         scripts = [s for s in self.soup.find_all("script") if "src" in s.attrs]
-        self.assertEqual(scripts[-1]["src"], "_static/revealjs/js/reveal.js")
+        self.assertEqual(scripts[-1]["src"], "_static/revealjs3/js/reveal.js")
 
     def test_stylesheet(self):  # noqa
         links = [l["href"] for l in self.soup.find_all("link", rel="stylesheet")]
-        self.assertIn("_static/revealjs/css/theme/black.css", links)
+        self.assertIn("_static/revealjs3/css/theme/black.css", links)
 
     def test_title(self):  # noqa
         self.assertEqual("sphinx-revealjs", self.soup.title.text)
@@ -51,6 +51,6 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         links = [
             d
             for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].endswith("revealjs/lib/css/zenburn.css")
+            if d["href"].endswith("revealjs3/lib/css/zenburn.css")
         ]
         self.assertEqual(len(links), 1)

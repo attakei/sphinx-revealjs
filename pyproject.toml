@@ -21,7 +21,7 @@ repository = "https://github.com/attakei/sphinx-revealjs"
 license = "Apache-2.0"
 readme = "README.rst"
 include = [
-    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs/**/*",
+    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs3/**/*",
 ]
 
 [tool.poetry.dependencies]
