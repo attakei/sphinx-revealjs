@@ -1,8 +1,14 @@
 """Contexts for passing between objects."""
-from collections import namedtuple
 from typing import List
 
-RevealjsPlugin = namedtuple("RevealjsPlugin", ["src", "options"])
+
+class RevealjsPlugin:
+    """Plugin metadata."""
+
+    def __init__(self, src: str, name: str = None, options: str = None):  # noqa
+        self.src = src
+        self.name = name
+        self.options = options
 
 
 class GoogleFonts(object):
@@ -43,10 +49,12 @@ class RevealjsProjectContext(object):
 
     def __init__(
         self,
+        engine_version: int,
         script_files: List[str] = None,
         script_conf: str = None,
         script_plugins: List[RevealjsPlugin] = None,
     ):  # noqa
+        self.engine_version = engine_version
         self.script_files = script_files or []
         self.script_conf = script_conf
         self.script_plugins = script_plugins or []
