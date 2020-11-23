@@ -9,6 +9,8 @@ from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
 
+REVEALJS_ASSETS = {3: {"js": "revealjs3/js/reveal.js"}}
+
 
 def static_resource_uri(src: str, prefix: str = None) -> str:
     """Build static path of resource."""
@@ -39,8 +41,12 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 self.config.revealjs_google_fonts
             )
         # Create RevealjsProjectContext
+        # TODO: Warning invalid version ranges
+        engine_version = getattr(self.config, "revealjs_engine_version")
+        lib_js = REVEALJS_ASSETS[engine_version]["js"]
         self.revealjs_context = RevealjsProjectContext(
-            [
+            [static_resource_uri(lib_js)]
+            + [  # noqa: W503
                 static_resource_uri(src)
                 for src in getattr(self.config, "revealjs_script_files", [])
             ],
