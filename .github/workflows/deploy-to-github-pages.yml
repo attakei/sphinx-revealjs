@@ -19,8 +19,8 @@ jobs:
           python tools/fetch_revealjs.py
           pip install .
           pip install -r demo/requirements.txt
-          make -C demo revealjs
-          touch demo/_build/revealjs/.nojekyll
+          make -C demo-revealjs3 revealjs
+          touch demo-revealjs3/_build/revealjs/.nojekyll
         env:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
       - name: Deploy to GitHub Pages
