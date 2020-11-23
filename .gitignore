@@ -1,4 +1,4 @@
-demo/_build
+demo*/_build
 
 # Created by https://www.gitignore.io/api/python,virtualenv,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=python,virtualenv,visualstudiocode

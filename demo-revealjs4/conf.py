@@ -27,7 +27,7 @@ html_theme_options = {
 html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
-revealjs_engine_version = 3
+revealjs_engine_version = 4
 revealjs_static_path = ["_static"]
 revealjs_google_fonts = ["M PLUS 1p",]
 revealjs_style_theme = "black"
@@ -42,16 +42,16 @@ revealjs_script_conf = """
 """
 revealjs_script_plugins = [
     {
-        "src": "revealjs3/plugin/notes/notes.js",
-        "options": "{async: true}",
+        "name": "RevaelNotes",
+        "src": "revealjs4/plugin/notes/notes.js",
     },
     {
-        "src": "revealjs3/plugin/highlight/highlight.js",
-        "options": "{async: true, callback: function() { hljs.initHighlightingOnLoad(); }}",
+        "name": "RevaelHighlight",
+        "src": "revealjs4/plugin/highlight/highlight.js",
     },
 ]
 revealjs_css_files = [
-    "revealjs3/lib/css/zenburn.css",
+    "revealjs4/plugin/highlight/zenburn.css",
 ]
 
 # -- Options for HTMLHelp output ---------------------------------------------

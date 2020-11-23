@@ -22,6 +22,7 @@ license = "Apache-2.0"
 readme = "README.rst"
 include = [
     "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs3/**/*",
+    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4/**/*",
 ]
 
 [tool.poetry.dependencies]
