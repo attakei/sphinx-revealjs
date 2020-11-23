@@ -56,6 +56,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         engine_version = getattr(self.config, "revealjs_engine_version")
         lib_js = REVEALJS_ASSETS[engine_version]["js"]
         self.revealjs_context = RevealjsProjectContext(
+            engine_version,
             [static_resource_uri(lib_js)]
             + [  # noqa: W503
                 static_resource_uri(src)
@@ -65,6 +66,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             [
                 RevealjsPlugin(
                     static_resource_uri(plugin["src"]),
+                    plugin.get("name", ""),
                     plugin.get("options", "{}").strip(),
                 )
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])

@@ -24,6 +24,10 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         ]
         self.assertEqual(len(reveal_css), 1)
 
+    def test_pdfcss_not_exists(self):  # noqa
+        self.assertNotIn("print/pdf.css", str(self.soup))
+        self.assertNotIn("print/paper.css", str(self.soup))
+
     def test_refs_all_exists(self):  # noqa
         google_fonts = [
             d
@@ -37,8 +41,8 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         self.assertIn("Reveal.initialize(revealjsConfig);", script.text)
 
     def test_script_sources(self):  # noqa
-        scripts = [s for s in self.soup.find_all("script") if "src" in s.attrs]
-        self.assertEqual(scripts[-1]["src"], "_static/revealjs4/dist/reveal.js")
+        scripts = [s["src"] for s in self.soup.find_all("script") if "src" in s.attrs]
+        self.assertIn("_static/revealjs4/dist/reveal.js", scripts)
 
     def test_stylesheet(self):  # noqa
         links = [l["href"] for l in self.soup.find_all("link", rel="stylesheet")]
@@ -54,3 +58,6 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
             if d["href"].endswith("revealjs4/plugin/highlight/zenburn.css")
         ]
         self.assertEqual(len(links), 1)
+
+    def test_plugin_loaded(self):  # noqa
+        self.assertIn("RevealNotes,RevealHighlight", str(self.soup))
