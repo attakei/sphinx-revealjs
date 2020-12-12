@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 0.12.1
+==========
+
+:date: 2020-12-12
+
+Fixes
+-----
+
+* Restrict effect of ``revealjs_section`` for only one section ( `PR#36 <https://github.com/attakei/sphinx-revealjs/pull/36>`_ )
+
 ver 0.12.0
 ==========
 
