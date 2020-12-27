@@ -1,4 +1,4 @@
-"""Integrationaly tests by demo-revealjs4."""
+"""Integrationaly tests by demo/revealjs4."""
 import unittest
 
 from sphinx_testing import TestApp
@@ -10,7 +10,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
     @classmethod
     def setUpClass(cls):  # noqa
         cls.app = TestApp(
-            srcdir=str(PROJECT_ROOT / "demo-revealjs4"),
+            srcdir=str(PROJECT_ROOT / "demo/revealjs4"),
             buildername="revealjs",
             copy_srcdir_to_tmpdir=True,
         )

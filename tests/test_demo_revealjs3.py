@@ -10,7 +10,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
     @classmethod
     def setUpClass(cls):  # noqa
         cls.app = TestApp(
-            srcdir=str(PROJECT_ROOT / "demo-revealjs3"),
+            srcdir=str(PROJECT_ROOT / "demo/revealjs3"),
             buildername="revealjs",
             copy_srcdir_to_tmpdir=True,
         )
