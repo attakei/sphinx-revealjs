@@ -2,16 +2,18 @@
 Change logs
 ===========
 
-new 0.13.0(not yet)
-===================
+new 1.0(not yet)
+================
 
 New features
 ------------
 
 * Add experimental support for Revealjs 4.x (use 4.0.2)
-* Add new config variables:
 
-  * ``revealjs_engine_version``
+Braking changes
+---------------
+
+* Drop Revealjs 3.x bundle
 
 ver 0.12.1
 ==========
