@@ -14,6 +14,10 @@ Basic Features
 * Syntax highlight for Reveal.js (not used pygments)
 * Customize slides and sections by conf.py or source reST
 
+.. note::
+
+  In update from 0.x to 1.x, it has breaking changes. See :doc:`./migrations`.
+
 Demo
 ====
 
@@ -39,6 +43,7 @@ Contents
    :maxdepth: 1
 
    setup
+   migrations
    configurations
    customize_slide
    customize_sections
