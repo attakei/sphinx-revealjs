@@ -92,10 +92,8 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             confoverrides={
                 "revealjs_script_plugins": [
                     {
-                        "src": "revealjs/plugin/notes/notes.js",
-                        "options": """
-                    {async: true}
-                """,
+                        "name": "RevealNotes",
+                        "src": "revealjs4/plugin/notes/notes.js",
                     }
                 ]
             }
@@ -104,30 +102,11 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
     def test_revealjs_script_plugins(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         script = soup.find_all("script")[-1].text
-        self.assertIn("plugin_0 = {async: true}", script)
-        self.assertIn('plugin_0.src = "_static/revealjs/plugin/notes/notes.js"', script)
-        self.assertIn("revealjsConfig.dependencies.push(plugin_0);", script)
-
-    @with_app(
-        **gen_app_conf(
-            confoverrides={
-                "revealjs_script_plugins": [
-                    {
-                        "src": "revealjs/plugin/notes/notes.js",
-                        "options": "{async: true}",
-                    },
-                    {"src": "revealjs/plugin/highlight/highlight.js"},
-                ]
-            }
-        )
-    )
-    def test_revealjs_script_plugins(self, app: TestApp, status, warning):  # noqa
-        soup = soup_html(app, "index.html")
-        script = soup.find_all("script")[-1].text
-        self.assertIn("plugin_1 = {};", script)
-        self.assertIn(
-            'plugin_1.src = "_static/revealjs/plugin/highlight/highlight.js"', script
-        )
+        self.assertIn("RevealNotes", script)
+        for d in soup.find_all("script"):
+            print(d)
+        scripts = [d["src"] for d in soup.find_all("script") if "src" in d.attrs]
+        self.assertIn("_static/revealjs4/plugin/notes/notes.js", scripts)
 
     @with_app(**gen_app_conf(confoverrides={"revealjs_style_theme": "moon"}))
     def test_revealjs_style_theme(self, app: TestApp, status, warning):  # noqa

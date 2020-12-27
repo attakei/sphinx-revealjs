@@ -10,11 +10,6 @@ from sphinx_revealjs.writers import RevealjsSlideTranslator
 from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
 
 REVEALJS_ASSETS = {
-    3: {
-        "js": "revealjs3/js/reveal.js",
-        "css": "revealjs3/css/reveal.css",
-        "theme": "revealjs3/css/theme",
-    },
     4: {
         "js": "revealjs4/dist/reveal.js",
         "css": "revealjs4/dist/reveal.css",
@@ -52,11 +47,9 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 self.config.revealjs_google_fonts
             )
         # Create RevealjsProjectContext
-        # TODO: Warning invalid version ranges
-        engine_version = getattr(self.config, "revealjs_engine_version")
-        lib_js = REVEALJS_ASSETS[engine_version]["js"]
+        lib_js = REVEALJS_ASSETS[4]["js"]
         self.revealjs_context = RevealjsProjectContext(
-            engine_version,
+            4,
             [static_resource_uri(lib_js)]
             + [  # noqa: W503
                 static_resource_uri(src)
@@ -76,9 +69,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         setattr(self.config, "html_static_path", self.config.revealjs_static_path)
 
     def init_css_files(self) -> None:  # noqa
-        # TODO: Warning invalid version ranges
-        engine_version = getattr(self.config, "revealjs_engine_version")
-        self.add_css_file(REVEALJS_ASSETS[engine_version]["css"])
+        self.add_css_file(REVEALJS_ASSETS[4]["css"])
         for filename in self.get_builder_config("css_files", "revealjs"):
             self.add_css_file(filename)
 
@@ -123,9 +114,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         elif theme.endswith(".css"):
             theme = f"_static/{theme}"
         else:
-            # TODO: Warning invalid version ranges
-            engine_version = getattr(self.config, "revealjs_engine_version")
-            theme_path = REVEALJS_ASSETS[engine_version]["theme"]
+            theme_path = REVEALJS_ASSETS[4]["theme"]
             theme = f"_static/{theme_path}/{theme}.css"
         ctx["css_files"].append(theme)
 

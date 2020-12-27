@@ -8,19 +8,6 @@ You can configure in ``conf.py`` for all presentations.
 Style Configurations
 ====================
 
-revealjs_engine_version
------------------------
-
-:Type: ``int``
-:Optional:
-:Default: ``3``
-:Example: ``4``
-
-Using revealjs major version.
-
-Only ``3`` or ``4`` are enable to accept,
-but does not raise error when assigned other values.
-
 revealjs_static_path
 --------------------
 
