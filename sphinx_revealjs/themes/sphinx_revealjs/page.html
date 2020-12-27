@@ -16,20 +16,6 @@
       }
     </style>
     {% endif %}
-    {% if revealjs.engine_version == 3 %}
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement( "link" );
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        if (window.location.search.match( /print-pdf/gi )) {
-            link.href = "{{ pathto('_static/revealjs3/css/print/pdf.css', 1) }}";
-        } else {
-            link.href = "{{ pathto('_static/revealjs3/css/print/paper.css', 1) }}";
-        }
-        document.getElementsByTagName( "head" )[0].appendChild( link );
-    </script>
-    {% endif %}
 {% endblock %}
 
 {%- block content %}
@@ -41,7 +27,7 @@
     {% for script_file in revealjs.script_files %}
     <script src="{{ pathto(script_file, 1) }}"></script>
     {% endfor %}
-    {% if revealjs.engine_version == 4 %}
+    {% if revealjs.engine.version == 4 %}
       {% for plugin in revealjs.script_plugins -%}
       <script src="{{ pathto(plugin.src, 1) }}"></script>
       {% endfor %}
@@ -55,16 +41,7 @@
         Object.assign(revealjsConfig, {{ conf }});
         {%- endfor %}
         {# Render plugins injection #}
-        {% if revealjs.engine_version == 3 %}
-          revealjsConfig.dependencies = [];
-          {% for plugin in revealjs.script_plugins -%}
-            {% set plugin_var = "plugin_" ~ loop.index0 %}
-            {{ plugin_var }} = {{ plugin.options|default("{}")|trim }};
-            {{ plugin_var }}.src = "{{ plugin.src }}";
-            revealjsConfig.dependencies.push({{  plugin_var }});
-          {%- endfor %}
-        {% endif %}
-        {% if revealjs.engine_version == 4 %}
+        {% if revealjs.engine.version == 4 %}
           revealjsConfig.plugins = [
             {% for plugin in revealjs.script_plugins -%}
             {{ plugin.name }},

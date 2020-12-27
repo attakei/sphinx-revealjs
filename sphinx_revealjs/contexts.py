@@ -1,6 +1,29 @@
 """Contexts for passing between objects."""
 from typing import List
 
+from .utils import static_resource_uri
+
+
+class RevealjsEngine:
+    """Reveal.js core metadata."""
+
+    def __init__(
+        self, version: int, js_path: str, css_path: str, theme_dir: str
+    ):  # noqa
+        self.version = version
+        self.js_path = js_path
+        self.css_path = css_path
+        self.theme_dir = theme_dir
+
+    @classmethod
+    def from_version(cls, version: int = 4):  # noqa
+        return cls(
+            version,
+            "revealjs4/dist/reveal.js",
+            "revealjs4/dist/reveal.css",
+            "revealjs4/dist/theme",
+        )
+
 
 class RevealjsPlugin:
     """Plugin metadata."""
@@ -54,7 +77,11 @@ class RevealjsProjectContext(object):
         script_conf: str = None,
         script_plugins: List[RevealjsPlugin] = None,
     ):  # noqa
-        self.engine_version = engine_version
-        self.script_files = script_files or []
+        self.engine = RevealjsEngine.from_version(engine_version)
         self.script_conf = script_conf
         self.script_plugins = script_plugins or []
+        self._script_files = script_files or []
+
+    @property
+    def script_files(self):  # noqa
+        return [static_resource_uri(self.engine.js_path)] + self._script_files

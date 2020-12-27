@@ -8,22 +8,7 @@ from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
-
-REVEALJS_ASSETS = {
-    4: {
-        "js": "revealjs4/dist/reveal.js",
-        "css": "revealjs4/dist/reveal.css",
-        "theme": "revealjs4/dist/theme",
-    },
-}
-
-
-def static_resource_uri(src: str, prefix: str = None) -> str:
-    """Build static path of resource."""
-    local_prefix = "_static" if prefix is None else prefix
-    if src.startswith("http://") or src.startswith("https://"):
-        return src
-    return f"{local_prefix}/{src}"
+from .utils import static_resource_uri
 
 
 class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
@@ -41,17 +26,14 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         self.google_fonts = GoogleFonts(self.config.revealjs_generic_font)
 
     def init(self):  # noqa
-        super().init()
         if hasattr(self.config, "revealjs_google_fonts"):
             self.google_fonts = self.google_fonts.extend(
                 self.config.revealjs_google_fonts
             )
         # Create RevealjsProjectContext
-        lib_js = REVEALJS_ASSETS[4]["js"]
         self.revealjs_context = RevealjsProjectContext(
             4,
-            [static_resource_uri(lib_js)]
-            + [  # noqa: W503
+            [  # noqa: W503
                 static_resource_uri(src)
                 for src in getattr(self.config, "revealjs_script_files", [])
             ],
@@ -67,9 +49,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         )
         # Hand over builder configs to html builder.
         setattr(self.config, "html_static_path", self.config.revealjs_static_path)
+        super().init()
 
     def init_css_files(self) -> None:  # noqa
-        self.add_css_file(REVEALJS_ASSETS[4]["css"])
+        self.add_css_file(self.revealjs_context.engine.css_path)
         for filename in self.get_builder_config("css_files", "revealjs"):
             self.add_css_file(filename)
 
@@ -114,8 +97,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         elif theme.endswith(".css"):
             theme = f"_static/{theme}"
         else:
-            theme_path = REVEALJS_ASSETS[4]["theme"]
-            theme = f"_static/{theme_path}/{theme}.css"
+            theme = f"_static/{self.revealjs_context.engine.theme_dir}/{theme}.css"
         ctx["css_files"].append(theme)
 
     def configure_fonts(self, ctx: Dict):
