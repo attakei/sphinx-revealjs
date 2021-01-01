@@ -4,7 +4,7 @@ version = "1.0.0.b1"
 description = "Sphinx extension with theme to generate Reveal.js presentation"
 authors = ["Kazuya Takei <myself@attakei.net>"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Framework :: Sphinx",
     "Framework :: Sphinx :: Extension",
     "Framework :: Sphinx :: Theme",
@@ -13,6 +13,7 @@ classifiers = [
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "Topic :: Documentation :: Sphinx",
     "Topic :: Multimedia :: Graphics :: Presentation"
 ]
@@ -21,12 +22,11 @@ repository = "https://github.com/attakei/sphinx-revealjs"
 license = "Apache-2.0"
 readme = "README.rst"
 include = [
-    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs3/**/*",
     "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4/**/*",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6 | ^3.7 | ^3.8"
+python = "^3.6 | ^3.7 | ^3.8 | ^3.9"
 docutils = "*"
 sphinx = "*"
 
