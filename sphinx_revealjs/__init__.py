@@ -1,6 +1,6 @@
 """Root module for sphinx-revealjs."""
 
-__version__ = "0.12.1"
+__version__ = "1.0.0.b1"
 
 
 from sphinx.application import Sphinx
@@ -52,7 +52,7 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_css_files", [], True)
     app.add_config_value("revealjs_google_fonts", [], True)
     app.add_config_value("revealjs_generic_font", "sans-serif", True)
-    app.add_config_value("revealjs_script_files", ["revealjs/js/reveal.js"], True)
+    app.add_config_value("revealjs_script_files", [], True)
     app.add_config_value("revealjs_script_conf", None, True)
     app.add_config_value("revealjs_script_plugins", [], True)
     app.add_html_theme("sphinx_revealjs", str(get_theme_path("sphinx_revealjs")))

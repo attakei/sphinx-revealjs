@@ -73,8 +73,8 @@ revealjs_script_files
 
 :Type: ``List[str]``
 :Optional:
-:Default: ``["revealjs/js/reveal.js"]``
-:Example: ``["revealjs/js/reveal.js", "presentation.js"]``
+:Default: ``[]``
+:Example: ``["presentation.js"]``
 
 List of sources that render as ``script`` tags.
 
@@ -146,14 +146,16 @@ Example:
   .. code-block:: py
 
       revealjs_script_plugins = [
-          "src": "revealjs/plugin/highlight/highlight.js"
+          "src": "revealjs/plugin/highlight/highlight.js",
+          "name": "RevealHighlight",
           "options: """
             {async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-          """
+          """,
       ]
 
   .. code-block:: html
 
+      <!-- For revealjs 3.x -->
       <div>
         <!-- Presentation body -->
       </div>
@@ -164,5 +166,20 @@ Example:
         plugin_0 = {async: true, callback: function() { hljs.initHighlightingOnLoad(); } };
         plugin_0.src = "_static/revealjs/plugin/highlight/highlight.js"
         revealjsConfig.dependencies.push(plugin_0);
+        revealjs.initialize(revealjsConfig);
+      </script>
+
+  .. code-block:: html
+
+      <!-- For revealjs 4.x -->
+      <div>
+        <!-- Presentation body -->
+      </div>
+      <script src="_static/revealjs/js/revealjs.js"></script>
+      <script src="_static/revealjs/plugin/highlight/highlight.js"></script>
+      <!-- here!! -->
+      <script>
+        let revealjsConfig = {};
+        revealjsConfig.plugins = [RevealHighlight,];
         revealjs.initialize(revealjsConfig);
       </script>

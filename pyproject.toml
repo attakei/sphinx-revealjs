@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sphinx-revealjs"
-version = "0.12.1"
+version = "1.0.0.b1"
 description = "Sphinx extension with theme to generate Reveal.js presentation"
 authors = ["Kazuya Takei <myself@attakei.net>"]
 classifiers = [
@@ -21,7 +21,8 @@ repository = "https://github.com/attakei/sphinx-revealjs"
 license = "Apache-2.0"
 readme = "README.rst"
 include = [
-    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs/**/*",
+    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs3/**/*",
+    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4/**/*",
 ]
 
 [tool.poetry.dependencies]

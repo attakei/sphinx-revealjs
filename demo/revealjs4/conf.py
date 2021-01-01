@@ -41,16 +41,16 @@ revealjs_script_conf = """
 """
 revealjs_script_plugins = [
     {
-        "src": "revealjs/plugin/notes/notes.js",
-        "options": "{async: true}",
+        "name": "RevealNotes",
+        "src": "revealjs4/plugin/notes/notes.js",
     },
     {
-        "src": "revealjs/plugin/highlight/highlight.js",
-        "options": "{async: true, callback: function() { hljs.initHighlightingOnLoad(); }}",
+        "name": "RevealHighlight",
+        "src": "revealjs4/plugin/highlight/highlight.js",
     },
 ]
 revealjs_css_files = [
-    "revealjs/lib/css/zenburn.css",
+    "revealjs4/plugin/highlight/zenburn.css",
 ]
 
 # -- Options for HTMLHelp output ---------------------------------------------

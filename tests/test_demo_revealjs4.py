@@ -1,4 +1,4 @@
-"""Integrationaly tests by demo."""
+"""Integrationaly tests by demo/revealjs4."""
 import unittest
 
 from sphinx_testing import TestApp
@@ -10,7 +10,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
     @classmethod
     def setUpClass(cls):  # noqa
         cls.app = TestApp(
-            srcdir=str(PROJECT_ROOT / "demo"),
+            srcdir=str(PROJECT_ROOT / "demo/revealjs4"),
             buildername="revealjs",
             copy_srcdir_to_tmpdir=True,
         )
@@ -20,9 +20,13 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         reveal_css = [
             d
             for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].endswith("revealjs/css/reveal.css")
+            if d["href"].endswith("revealjs4/dist/reveal.css")
         ]
         self.assertEqual(len(reveal_css), 1)
+
+    def test_pdfcss_not_exists(self):  # noqa
+        self.assertNotIn("print/pdf.css", str(self.soup))
+        self.assertNotIn("print/paper.css", str(self.soup))
 
     def test_refs_all_exists(self):  # noqa
         google_fonts = [
@@ -37,12 +41,12 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         self.assertIn("Reveal.initialize(revealjsConfig);", script.text)
 
     def test_script_sources(self):  # noqa
-        scripts = [s for s in self.soup.find_all("script") if "src" in s.attrs]
-        self.assertEqual(scripts[-1]["src"], "_static/revealjs/js/reveal.js")
+        scripts = [s["src"] for s in self.soup.find_all("script") if "src" in s.attrs]
+        self.assertIn("_static/revealjs4/dist/reveal.js", scripts)
 
     def test_stylesheet(self):  # noqa
         links = [l["href"] for l in self.soup.find_all("link", rel="stylesheet")]
-        self.assertIn("_static/revealjs/css/theme/black.css", links)
+        self.assertIn("_static/revealjs4/dist/theme/black.css", links)
 
     def test_title(self):  # noqa
         self.assertEqual("sphinx-revealjs", self.soup.title.text)
@@ -51,6 +55,9 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         links = [
             d
             for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].endswith("revealjs/lib/css/zenburn.css")
+            if d["href"].endswith("revealjs4/plugin/highlight/zenburn.css")
         ]
         self.assertEqual(len(links), 1)
+
+    def test_plugin_loaded(self):  # noqa
+        self.assertIn("RevealNotes,RevealHighlight", str(self.soup))

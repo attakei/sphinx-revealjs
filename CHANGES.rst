@@ -2,6 +2,30 @@
 Change logs
 ===========
 
+new 1.0(not yet)
+================
+
+Breaking changes
+----------------
+
+In this version, ``sphinx-revealjs`` bundle Reveal.js version 4.x,
+and does not supporting to work with Reveal.js 3.x.
+
+If you want to migrate presentation source for this version,
+please see `migration example <./docs/migrations>`_. 
+
+New features
+------------
+
+* Using Revealjs 4.x (use 4.0.2)
+
+  * With supporting multiple presentation management in single documentation
+
+Drop
+----
+
+* Bundle and implements for Revealjs 3.x
+
 ver 0.12.1
 ==========
 

@@ -10,8 +10,8 @@ sphinx-revealjs
 
    *
 
-:Based version: 0.11.0 (pre)
-:Released: 2020-04-17
+:Based version: 1.0.0
+:Released: 2020-12-27
 
 Overview
 ========
@@ -224,6 +224,22 @@ This is support fragment with groups.
    * Second
    * Third
 
+Plugins
+-------
+
+bundled plugins can use just write ``conf.py``
+
+.. code-block:: python
+
+    revealjs_script_plugins = [
+        {
+            "name": "RevealNotes",
+            "src": "revealjs4/plugin/notes/notes.js",
+        },
+    ]
+
+This is used `RevealNotes` plugin, Pleas press `S` key to try it!
+
 Usage
 =====
 
@@ -282,7 +298,7 @@ If you make docs as Reveal.js presentation, you call ``make revealjs``.
 
     $ make revealjs
 
-This presentation is made from ``https://github.com/attakei/sphinx-revealjs/blob/demo/docs/index.rst``.
+This presentation is made from `source <https://github.com/attakei/sphinx-revealjs/blob/master/demo/revealjs4/index.rst>`_.
 
 Other examples
 ==============
