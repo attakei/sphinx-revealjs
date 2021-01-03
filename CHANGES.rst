@@ -2,8 +2,11 @@
 Change logs
 ===========
 
-new 1.0(not yet)
-================
+ver 1.0.0
+=========
+
+:date: 2021-01-03
+:base: Reveal.js 4.1.0
 
 Breaking changes
 ----------------
@@ -17,7 +20,7 @@ please see `migration example <./docs/migrations>`_.
 New features
 ------------
 
-* Using Revealjs 4.x (use 4.0.2)
+* Using Revealjs 4.x (use 4.1.0)
 
   * With supporting multiple presentation management in single documentation
 
