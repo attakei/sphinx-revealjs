@@ -36,7 +36,7 @@ and need update ``revealjs_script_plugins`` .
         },
     ]
 
-* Changed struct from src and options to src and name.
+* Changed structure from src and options to src and name.
 
   * | For 4.x, to use plugin for core,
     | add class name of it not source path,
@@ -50,7 +50,7 @@ MORE: See `Using Plugins from Reveal.js document <https://revealjs.com/plugins/>
 revealjs_css_files
 ------------------
 
-If you use highlight plugin and sepecify bundled stylesheet file,
+If you use highlight plugin and specify bundled stylesheet file,
 change path of stylesheet.
 Style files is migrated to highlight plugin folder.
 
