@@ -11,10 +11,10 @@ sphinx-revealjs
     :target: https://travis-ci.org/attakei/sphinx-revealjs
 
 
-Sphinx extention with theme to generate Reveal.js presentation
+Sphinx extension with theme to generate Reveal.js presentation
 
-Orverview
----------
+Overview
+--------
 
 This extension generate Reveal.js presentation
 from **standard** reStructuredText.
@@ -22,7 +22,7 @@ from **standard** reStructuredText.
 It include theses features.
 
 * Custom builder to translate from reST to reveal.js style HTML
-* Template to be enable to render presentation local imdependent
+* Template to be enable to render presentation local independent
 
 Installation
 ------------
