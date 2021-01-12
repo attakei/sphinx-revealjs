@@ -16,7 +16,7 @@ Demo
 
 .. revealjs_break::
 
-If build is succeed normally, previours section disply only this image with full-size.
+If build is succeed normally, previous section display only this image with full-size.
 
 .. figure:: _static/icon-attakei.jpg
 

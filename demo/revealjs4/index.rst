@@ -94,7 +94,7 @@ code-block as reveal.js code block
 ----------------------------------
 
 
-Direcvite for meta of section
+Directive for meta of section
 =============================
 
 Inject background color
@@ -238,7 +238,7 @@ bundled plugins can use just write ``conf.py``
         },
     ]
 
-This is used `RevealNotes` plugin, Pleas press `S` key to try it!
+This is used `RevealNotes` plugin, Please press `S` key to try it!
 
 Usage
 =====
