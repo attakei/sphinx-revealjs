@@ -21,7 +21,7 @@ Basic Features
 Demo
 ====
 
-* Sourece: `Sphinx document <https://github.com/attakei/sphinx-revealjs/tree/master/demo>`_
+* Source: `Sphinx document <https://github.com/attakei/sphinx-revealjs/tree/master/demo>`_
 * Created: `Reveal.js presentation <https://attakei.github.io/sphinx-revealjs/>`_
 
 .. container:: flex
@@ -56,15 +56,15 @@ Goal of this library is to provide presentation platform
 for self-branding of engineer using Sphinx.
 Using static site hosting service, you can show own presentations to anyone.
 
-Core motivation is that I want to play plesentation by this library.
+Core motivation is that I want to play presentation by this library.
 
-Liceses
-=======
+Licenses
+========
 
-This library is licensed Apache License verion 2.0.
+This library is licensed Apache License version 2.0.
 
 About license of directly dependencies,
-please see each software projects or documententions.
+please see each software projects or documentations.
 
 * docutils:
 

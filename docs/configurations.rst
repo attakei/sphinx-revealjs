@@ -136,7 +136,7 @@ revealjs_script_plugins
 :Optional:
 :Default: ``[]``
 
-List of pulugin configurations.
+List of plugin configurations.
 If this value is set, render ``script`` tag after source script tags.
 
 There are bundled Reveal.js plugins at ``revealjs/plugin``.

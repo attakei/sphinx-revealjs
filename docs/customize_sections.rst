@@ -28,7 +28,7 @@ Write ``revealjs_slide`` directive on directly below of section title header.
 Attributes
 ----------
 
-This direcvite can accept attribute as same as Reveal.js ``section`` tags.
+This directive can accept attribute as same as Reveal.js ``section`` tags.
 
 revealjs_break
 ==============
