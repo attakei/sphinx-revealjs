@@ -1,4 +1,4 @@
-"""Integrationaly tests by demo/revealjs4."""
+"""Integration tests by demo/revealjs4."""
 import unittest
 
 from sphinx_testing import TestApp
