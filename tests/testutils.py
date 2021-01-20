@@ -1,4 +1,4 @@
-"""Test supprto functions."""
+"""Test support functions."""
 from pathlib import Path
 from typing import AnyStr
 
