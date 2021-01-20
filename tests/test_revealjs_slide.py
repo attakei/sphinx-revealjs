@@ -6,7 +6,7 @@ from sphinx_testing import TestApp, with_app
 from testutils import gen_app_conf, soup_html
 
 
-class BuidHtmlTests(unittest.TestCase):  # noqa
+class BuildHtmlTests(unittest.TestCase):  # noqa
     @with_app(**gen_app_conf())
     def test_override_theme(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "with_theme.html")
