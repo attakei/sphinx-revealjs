@@ -41,7 +41,7 @@ sphinx-testing = "^1.0.1"
 beautifulsoup4 = "^4.8.2"
 bumpversion = "^0.5.3"
 sphinxcontrib-gtagjs = "^0.1.1"
-sphinx-rtd-theme = "^0.4.3"
+sphinx-rtd-theme = "^0.5.1"
 black = "^19.10b0"
 
 [build-system]
