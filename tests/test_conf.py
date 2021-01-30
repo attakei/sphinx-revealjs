@@ -106,17 +106,17 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         self.assertIn("_static/revealjs4/plugin/notes/notes.js", scripts)
 
     @with_app(**gen_app_conf(confoverrides={"revealjs_style_theme": "moon"}))
-    def test_revealjs_style_theme(self, app: TestApp, status, warning):  # noqa
+    def test_revealjs_style_theme_builtin(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         links = [
             e
             for e in soup.find_all("link", rel="stylesheet")
-            if "_static/revealjs/css/theme/moon.css" in e["href"]
+            if "_static/revealjs4/dist/theme/moon.css" in e["href"]
         ]
         self.assertEqual(len(links), 1)
 
     @with_app(**gen_app_conf(confoverrides={"revealjs_style_theme": "custom.css"}))
-    def test_revealjs_style_theme(self, app: TestApp, status, warning):  # noqa
+    def test_revealjs_style_theme_custom(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         links = [
             e
