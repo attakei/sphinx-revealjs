@@ -91,7 +91,10 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         **gen_app_conf(
             confoverrides={
                 "revealjs_script_plugins": [
-                    {"name": "RevealNotes", "src": "revealjs4/plugin/notes/notes.js",}
+                    {
+                        "name": "RevealNotes",
+                        "src": "revealjs4/plugin/notes/notes.js",
+                    }
                 ]
             }
         )
