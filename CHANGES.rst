@@ -2,6 +2,18 @@
 Change logs
 ===========
 
+ver 1.0.1
+=========
+
+:date: 2021-01-30
+:base: Reveal.js 4.1.0
+
+Fixes
+-----
+
+- Change order of link tags for css files (#40, #41)
+- Rename test case function names for duplicated (#42, #54)
+
 ver 1.0.0
 =========
 
