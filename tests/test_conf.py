@@ -156,3 +156,46 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         ]
         self.assertEqual(len(links), 1)
         self.assertTrue((app.outdir / "_static/custom.css").exists())
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_static_path": ["_static"],
+                "revealjs_css_files": ["custom.css"],
+            }
+        )
+    )
+    def test_default_theme_css_comes_before_custom_css(
+        self, app: TestApp, status, warning
+    ):
+        soup = soup_html(app, "index.html")
+        stylesheet_href_list = [
+            e["href"] for e in soup.find_all("link", rel="stylesheet")
+        ]
+        default_theme_index = stylesheet_href_list.index(
+            "_static/revealjs4/dist/theme/black.css"
+        )
+        custom_css_index = stylesheet_href_list.index("_static/custom.css")
+        self.assertTrue(default_theme_index < custom_css_index)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_style_theme": "moon",
+                "revealjs_static_path": ["_static"],
+                "revealjs_css_files": ["other_custom.css"],
+            }
+        )
+    )
+    def test_specified_theme_css_comes_before_custom_css(
+        self, app: TestApp, status, warning
+    ):
+        soup = soup_html(app, "index.html")
+        stylesheet_href_list = [
+            e["href"] for e in soup.find_all("link", rel="stylesheet")
+        ]
+        specified_theme_index = stylesheet_href_list.index(
+            "_static/revealjs4/dist/theme/moon.css"
+        )
+        custom_css_index = stylesheet_href_list.index("_static/other_custom.css")
+        self.assertTrue(specified_theme_index < custom_css_index)
