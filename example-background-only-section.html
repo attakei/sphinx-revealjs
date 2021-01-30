@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60720138-7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'UA-60720138-7');
+            
+        </script>
+    
+  <title>sphinx-revealjs example: Background only section</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="_static/revealjs4/dist/theme/black.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/revealjs4/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&amp;display=swap" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="sphinx-revealjs" href="index.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    
+    <style>
+      .reveal *, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+        font-family: 'M PLUS 1p', sans-serif;
+      }
+    </style>
+    
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides">
+            <section >
+<h1>sphinx-revealjs example: Background only section</h1>
+</section>
+<section>
+<section >
+<h2>Main content</h2>
+</section>
+<section >
+<h3>Demo</h3>
+</section>
+<section data-background-image="_static/icon-attakei.jpg" data-background-size="contain">
+</section>
+<section >
+<h3>Demo</h3>
+<p>If build is succeed normally, previous section display only this image with full-size.</p>
+<div class="figure align-default">
+<img alt="_images/icon-attakei.jpg" src="_images/icon-attakei.jpg" />
+</div>
+<pre><code data-trim data-noescape class="rest">
+.. revealjs_break::
+   :notitle:
+   :data-background-image: _static/icon-attakei.jpg
+   :data-background-size: contain</code></pre>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="_static/revealjs4/plugin/highlight/highlight.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, 
+    {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: "slide",
+    }
+);
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
