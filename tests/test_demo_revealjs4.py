@@ -38,7 +38,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
 
     def test_script_conf(self):  # noqa
         script = self.soup.find_all("script")[-1]
-        self.assertIn("Reveal.initialize(revealjsConfig);", script.text)
+        self.assertIn("Reveal.initialize(revealjsConfig);", str(script))
 
     def test_script_sources(self):  # noqa
         scripts = [s["src"] for s in self.soup.find_all("script") if "src" in s.attrs]
@@ -49,7 +49,7 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         self.assertIn("_static/revealjs4/dist/theme/black.css", links)
 
     def test_title(self):  # noqa
-        self.assertEqual("sphinx-revealjs", self.soup.title.text)
+        self.assertEqual("sphinx-revealjs", self.soup.title.string)
 
     def test_has_highlightjs_theme(self):  # noqa
         links = [

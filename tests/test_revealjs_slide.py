@@ -22,7 +22,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             if elm["href"].startswith("https://fonts.googleapis.com")
         ]
         self.assertEqual(len(css_hrefs), 1)
-        styles = "\n".join([e.text for e in soup.find_all("style")])
+        styles = "\n".join([str(e) for e in soup.find_all("style")])
         self.assertIn("'M PLUS 1p'", styles)
 
     @with_app(**gen_app_conf())
@@ -30,7 +30,7 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         soup = soup_html(app, "with_conf.html")
         self.assertIn(
             'Object.assign(revealjsConfig, {"transition": "none"});',
-            soup.find_all("script")[-1].text,
+            str(soup.find_all("script")[-1]),
         )
 
     @with_app(**gen_app_conf())
@@ -38,13 +38,13 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         soup = soup_html(app, "with_conf_content.html")
         self.assertIn(
             "Object.assign(revealjsConfig, {\n",
-            soup.find_all("script")[-1].text,
+            str(soup.find_all("script")[-1]),
         )
         self.assertIn(
             '"transition": "none"\n',
-            soup.find_all("script")[-1].text,
+            str(soup.find_all("script")[-1]),
         )
         self.assertIn(
             "});",
-            soup.find_all("script")[-1].text,
+            str(soup.find_all("script")[-1]),
         )
