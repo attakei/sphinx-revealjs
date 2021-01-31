@@ -174,7 +174,7 @@ pydocstyle = ">=2.1"
 
 [[package]]
 name = "flake8-isort"
-version = "3.0.1"
+version = "4.0.0"
 description = "flake8 plugin that integrates isort ."
 category = "dev"
 optional = false
@@ -182,11 +182,11 @@ python-versions = "*"
 
 [package.dependencies]
 flake8 = ">=3.2.1,<4"
-isort = {version = ">=4.3.5,<5", extras = ["pyproject"]}
+isort = ">=4.3.5,<6"
 testfixtures = ">=6.8.0,<7"
 
 [package.extras]
-test = ["pytest (>=4.0.2,<6)"]
+test = ["pytest (>=4.0.2,<6)", "toml"]
 
 [[package]]
 name = "idna"
@@ -227,9 +227,6 @@ description = "A Python utility / library to sort Python imports."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[package.dependencies]
-toml = {version = "*", optional = true, markers = "extra == \"pyproject\""}
 
 [package.extras]
 pipfile = ["pipreqs", "requirementslib"]
@@ -643,7 +640,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6 | ^3.7 | ^3.8 | ^3.9"
-content-hash = "6ae40d9a4d066128e34c05d9d13b6e05a4dcd9ae6ce4d56e00ed20eedef4be2a"
+content-hash = "9aeaf38207bd1cc5d335cf83b2bff473067114c7323cdc4d0284ffc5e30a5eb4"
 
 [metadata.files]
 alabaster = [
@@ -711,8 +708,8 @@ flake8-docstrings = [
     {file = "flake8_docstrings-1.5.0-py2.py3-none-any.whl", hash = "sha256:a256ba91bc52307bef1de59e2a009c3cf61c3d0952dbe035d6ff7208940c2edc"},
 ]
 flake8-isort = [
-    {file = "flake8-isort-3.0.1.tar.gz", hash = "sha256:5d976da513cc390232ad5a9bb54aee8a092466a15f442d91dfc525834bee727a"},
-    {file = "flake8_isort-3.0.1-py2.py3-none-any.whl", hash = "sha256:df1dd6dd73f6a8b128c9c783356627231783cccc82c13c6dc343d1a5a491699b"},
+    {file = "flake8-isort-4.0.0.tar.gz", hash = "sha256:2b91300f4f1926b396c2c90185844eb1a3d5ec39ea6138832d119da0a208f4d9"},
+    {file = "flake8_isort-4.0.0-py2.py3-none-any.whl", hash = "sha256:729cd6ef9ba3659512dee337687c05d79c78e1215fdf921ed67e5fe46cce2f3c"},
 ]
 idna = [
     {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
