@@ -25,9 +25,9 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         ]
         self.assertEqual(len(link), 1)
         style = soup.find_all("style")[-1]
-        self.assertIn(".reveal", style.text)
-        self.assertIn("Noto Sans JP", style.text)
-        self.assertIn("sans-serif;", style.text)
+        self.assertIn(".reveal", str(style))
+        self.assertIn("Noto Sans JP", str(style))
+        self.assertIn("sans-serif;", str(style))
 
     @with_app(
         **gen_app_conf(
@@ -46,8 +46,8 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         ]
         self.assertEqual(len(link), 1)
         style = soup.find_all("style")[-1]
-        self.assertIn("Noto Sans JP", style.text)
-        self.assertIn("cursive", style.text)
+        self.assertIn("Noto Sans JP", str(style))
+        self.assertIn("cursive", str(style))
 
     @with_app(**gen_app_conf(confoverrides={"revealjs_generic_font": "cursive"}))
     def test_generic_font_only(self, app, status, warning):  # noqa
@@ -84,21 +84,24 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         soup = soup_html(app, "index.html")
         self.assertIn(
             'Object.assign(revealjsConfig, {transition:"none"});',
-            soup.find_all("script")[-1].text,
+            str(soup.find_all("script")[-1]),
         )
 
     @with_app(
         **gen_app_conf(
             confoverrides={
                 "revealjs_script_plugins": [
-                    {"name": "RevealNotes", "src": "revealjs4/plugin/notes/notes.js",}
+                    {
+                        "name": "RevealNotes",
+                        "src": "revealjs4/plugin/notes/notes.js",
+                    }
                 ]
             }
         )
     )
     def test_revealjs_script_plugins(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
-        script = soup.find_all("script")[-1].text
+        script = str(soup.find_all("script")[-1])
         self.assertIn("RevealNotes", script)
         for d in soup.find_all("script"):
             print(d)
