@@ -41,6 +41,8 @@ class RevealjsSlideTranslator(HTML5Translator):
             attrs = meta.attributes_str()
         else:
             attrs = ""
+        if node.attributes.get('ids'):
+            attrs += ' id="{}"'.format(node.attributes['ids'][-1])
         if self.section_level == 1:
             self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
             self._proc_first_on_section = True
@@ -53,7 +55,6 @@ class RevealjsSlideTranslator(HTML5Translator):
         if has_child_sections(node, "section"):
             self._proc_first_on_section = True
             self.body.append("<section>\n")
-
         self.body.append(f"<section {attrs}>\n")
 
     def depart_section(self, node: section):
