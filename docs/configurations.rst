@@ -68,6 +68,17 @@ If you use ``revealjs_google_fonts``, set last of ``font-family`` style.
 Presentation Configurations
 ===========================
 
+revealjs_use_section_ids
+------------------------
+
+:Type: ``boolean``
+:Optional:
+:Default: ``False``
+
+If this is set ``True``,
+inject ``id`` attribute into ``section`` element (parent of headerings).
+This means that change format of internal links (default is numbering style).
+
 revealjs_script_files
 ---------------------
 
