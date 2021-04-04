@@ -2,6 +2,25 @@
 Change logs
 ===========
 
+ver 1.1.0
+=========
+
+:date: 2021-04-04
+:base: Reveal.js 4.1.0
+
+New features
+------------
+
+* Add option to add ``id`` attribute per sections (#59, #61)
+
+  * Supporting label syntax of Sphinx.
+
+Extra
+-----
+
+* Fix dependencies for development environment
+* Add ``package.json`` to notify updates reveal.js by dependabot
+
 ver 1.0.1
 =========
 
