@@ -7,6 +7,12 @@ from testutils import gen_app_conf, soup_html
 
 
 class BuildHtmlTests(unittest.TestCase):  # noqa
+    @with_app(**gen_app_conf())
+    def test_defaults(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        for e in soup.find_all("section"):
+            self.assertNotIn("id", e.attrs)
+
     @with_app(**gen_app_conf(confoverrides={"revealjs_script_files": ["js/test.js"]}))
     def test_script_tags(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
@@ -202,3 +208,17 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
         )
         custom_css_index = stylesheet_href_list.index("_static/other_custom.css")
         self.assertTrue(specified_theme_index < custom_css_index)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_use_section_ids": True,
+            }
+        )
+    )
+    def test_inject_id_to_all_sections(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        for e in soup.find_all("section"):
+            children = set([c.name for c in e.children])
+            if children & {"h1", "h2", "h3"}:
+                self.assertIn("id", e.attrs)
