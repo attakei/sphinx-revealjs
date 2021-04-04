@@ -222,3 +222,18 @@ class BuildHtmlTests(unittest.TestCase):  # noqa
             children = set([c.name for c in e.children])
             if children & {"h1", "h2", "h3"}:
                 self.assertIn("id", e.attrs)
+
+    @with_app(
+        **gen_app_conf(
+            confoverrides={
+                "revealjs_use_section_ids": True,
+            }
+        )
+    )
+    def test_inject_id_to_all_sections_with_label(
+        self, app: TestApp, status, warning
+    ):  # noqa
+        soup = soup_html(app, "with_label.html")
+        h2_section = soup.h2.parent
+        self.assertIn("id", h2_section.attrs)
+        self.assertEqual(h2_section["id"], "override-label")
