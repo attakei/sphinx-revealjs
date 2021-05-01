@@ -66,12 +66,6 @@ I plan to update it at patch-version for catch up when  new Reveal.js version re
 * If Reveal.js updated minor or patch version, sphinx-revealjs update patch version.
 * If Reveal.js updated major version, sphinx-revealjs update minor version with compatible for two versions.
 
-Futures
--------
-
-* Index template as none presentation
-* CDN support
-
 Contributings
 -------------
 
