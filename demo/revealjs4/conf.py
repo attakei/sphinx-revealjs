@@ -12,6 +12,7 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
     "sphinxcontrib.gtagjs"
@@ -51,6 +52,10 @@ revealjs_script_plugins = [
     {
         "name": "RevealHighlight",
         "src": "revealjs4/plugin/highlight/highlight.js",
+    },
+    {
+        "name": "RevealMath",
+        "src": "revealjs4/plugin/math/math.js",
     },
 ]
 revealjs_css_files = [
