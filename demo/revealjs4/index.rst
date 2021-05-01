@@ -240,6 +240,70 @@ bundled plugins can use just write ``conf.py``
 
 This is used `RevealNotes` plugin, Please press `S` key to try it!
 
+Math
+----
+
+Supporting math renderer from sphinx.
+
+Example to use ``sphinx.ext.mathjax`` (recommended)
+
+.. code-block:: rst
+
+    .. math::
+
+        \begin{aligned}
+          \dot{x} & = \sigma(y-x) \\
+          \dot{y} & = \rho x - y - xz \\
+          \dot{z} & = -\beta z + xy
+        \end{aligned}
+
+.. math::
+
+    \begin{aligned}
+      \dot{x} & = \sigma(y-x) \\
+      \dot{y} & = \rho x - y - xz \\
+      \dot{z} & = -\beta z + xy     
+    \end{aligned}
+
+.. revealjs_break::
+
+You can use math plugin of Reveal.js
+
+Source:
+
+.. code-block:: python
+
+    revealjs_script_plugins = [
+        {
+            "name": "RevealMath",
+            "src": "revealjs4/plugin/math/math.js",
+        }
+    ]
+
+.. code-block:: rst
+
+    .. raw:: html
+
+        \[\begin{aligned}
+        \dot{x} &amp; = \sigma(y-x) \\
+        \dot{y} &amp; = \rho x - y - xz \\
+        \dot{z} &amp; = -\beta z + xy
+        \end{aligned} \]
+
+.. revealjs_break::
+
+You can use math plugin of Reveal.js
+
+Output:
+
+.. raw:: html
+
+    \[\begin{aligned}
+    \dot{x} &amp; = \sigma(y-x) \\
+    \dot{y} &amp; = \rho x - y - xz \\
+    \dot{z} &amp; = -\beta z + xy
+    \end{aligned} \]
+
 Usage
 =====
 

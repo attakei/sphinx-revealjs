@@ -11,7 +11,11 @@ version = ""
 release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
-extensions = ["sphinx_revealjs", "sphinxcontrib.gtagjs"]
+extensions = [
+    "sphinx.ext.mathjax",
+    "sphinx_revealjs",
+    "sphinxcontrib.gtagjs"
+]
 templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
@@ -47,6 +51,10 @@ revealjs_script_plugins = [
     {
         "name": "RevealHighlight",
         "src": "revealjs4/plugin/highlight/highlight.js",
+    },
+    {
+        "name": "RevealMath",
+        "src": "revealjs4/plugin/math/math.js",
     },
 ]
 revealjs_css_files = [
