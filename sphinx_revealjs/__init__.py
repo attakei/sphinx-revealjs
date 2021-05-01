@@ -4,6 +4,7 @@ __version__ = "1.1.0"
 
 
 from sphinx.application import Sphinx
+from sphinx.config import Config
 
 from sphinx_revealjs.builders import RevealjsHTMLBuilder
 from sphinx_revealjs.directives import (
@@ -26,8 +27,25 @@ from sphinx_revealjs.writers import (
 )
 
 
+def inherit_extension_nodes(app: Sphinx, config: Config):
+    """
+    Inherit behaviors of nodes from other sphinx extensions.
+
+    .. note::
+
+        I want to use add_node with override option,
+        but sphinx app manage only names of nodes, not class types.
+    """
+    html_trans = app.registry.translation_handlers["html"]
+    rvjs_trans = app.registry.translation_handlers["revealjs"]
+    for n, b in html_trans.items():
+        if n not in rvjs_trans:
+            rvjs_trans[n] = b
+
+
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
+    app.connect("config-inited", inherit_extension_nodes)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_node(
         revealjs_section, html=(not_write, not_write), revealjs=(not_write, not_write)
