@@ -213,8 +213,8 @@ You can hide section title
 Support features
 ================
 
-Fragments
----------
+Fragments(reveal.js)
+--------------------
 
 This is support fragment with groups.
 
@@ -224,8 +224,8 @@ This is support fragment with groups.
    * Second
    * Third
 
-Plugins
--------
+Plugins(reveal.js)
+------------------
 
 bundled plugins can use just write ``conf.py``
 
