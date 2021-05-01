@@ -240,6 +240,11 @@ bundled plugins can use just write ``conf.py``
 
 This is used `RevealNotes` plugin, Please press `S` key to try it!
 
+Render sphinx extensions
+------------------------
+
+.. todo:: This is example todo by ``sphinx.ext.todo`` . render at presentation.
+
 Usage
 =====
 
