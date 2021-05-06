@@ -43,6 +43,12 @@ REVEALJS_SECTION_ATTRIBUTES = {
     # Transition
     "data-transition": directives.unchanged,
     "data-background-transition": directives.unchanged,
+    # Animations
+    "data-auto-animate": lambda x: FlagAttribute(),
+    "data-auto-animate-delay": directives.unchanged,
+    "data-auto-animate-duration": directives.unchanged,
+    "data-auto-animate-easing": directives.unchanged,
+    "data-auto-animate-unmatched": directives.unchanged,
 }
 
 
