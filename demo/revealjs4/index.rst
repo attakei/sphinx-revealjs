@@ -240,12 +240,11 @@ Animate source code highlighting
 .. revealjs_section::
    :data-auto-animate:
 
-Highlight source code per line, using the `emphasize-lines` attribute of the
-`code-block` directive:
+Highlight source code per line, using the `revealjs-code-block` directive:
 
-.. code-block:: console
+.. revealjs-code-block:: console
    :linenos:
-   :emphasize-lines: 1,2
+   :data-line-numbers: 1,2
 
    echo 'First part of my command'
    echo 'Second part of my command'

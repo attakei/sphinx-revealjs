@@ -93,13 +93,13 @@ class RevealjsSlideTranslator(HTML5Translator):
             self.body.append("<pre>")
         self.body.append(f'<code data-trim data-noescape class="{lang}"')
         # use the emphasize-lines directive to create line for line animations
-        if "highlight_args" in node and "hl_lines" in node["highlight_args"]:
-            self.body.append(f"data-line-numbers=\"{'|'.join(map(str,node['highlight_args']['hl_lines']))}\"")
+        if "data-line-numbers" in node:
+            self.body.append(f" data-line-numbers=\"{node['data-line-numbers']}\"")
         else:
             # show line numbers
             if node["linenos"]:
                 self.body.append(" data-line-numbers")
-        self.body.append(" >\n")
+        self.body.append(">")
 
     def depart_literal_block(self, node: literal_block):
         """End ``literal_block``.
