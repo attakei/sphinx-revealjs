@@ -86,11 +86,12 @@ class RevealjsSlideTranslator(HTML5Translator):
         Override base method, and open simply ``pre`` and ``code`` tags.
         """
         lang = node["language"]
-        self.body.append("<pre")
-        # add section id as data-id
+        # add section id as data-id if it is exists
         if isinstance(node.parent, section) and len(node.parent["ids"]):
-            self.body.append(f" data-id=\"{node.parent['ids'][0]}\"")
-        self.body.append(f'><code data-trim data-noescape class="{lang}"')
+            self.body.append(f"<pre data-id=\"{node.parent['ids'][0]}\">")
+        else:
+            self.body.append("<pre>")
+        self.body.append(f'<code data-trim data-noescape class="{lang}"')
         # use the emphasize-lines directive to create line for line animations
         if "highlight_args" in node and "hl_lines" in node["highlight_args"]:
             self.body.append(f"data-line-numbers=\"{'|'.join(map(str,node['highlight_args']['hl_lines']))}\"")
