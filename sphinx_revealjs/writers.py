@@ -87,7 +87,9 @@ class RevealjsSlideTranslator(HTML5Translator):
         """
         lang = node["language"]
         # add section id as data-id if it is exists
-        if isinstance(node.parent, section) and len(node.parent["ids"]):
+        if "data-id" in node:
+            self.body.append(f"<pre data-id=\"{node['data-id']}\">")
+        elif isinstance(node.parent, section) and len(node.parent["ids"]):
             self.body.append(f"<pre data-id=\"{node.parent['ids'][0]}\">")
         else:
             self.body.append("<pre>")

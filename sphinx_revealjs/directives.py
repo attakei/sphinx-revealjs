@@ -115,6 +115,7 @@ class RevealjsFragments(Directive):  # noqa: D101
 class RevealjsCodeBlock(CodeBlock):  # noqa: D101
     option_spec = {
         **CodeBlock.option_spec,
+        "data-id": directives.unchanged,
         "data-line-numbers": directives.unchanged,
     }
 
@@ -122,4 +123,6 @@ class RevealjsCodeBlock(CodeBlock):  # noqa: D101
         nodes = super().run()
         if self.options.get("data-line-numbers"):
             nodes[0]["data-line-numbers"] = self.options.get("data-line-numbers")
+        if self.options.get("data-id"):
+            nodes[0]["data-id"] = self.options.get("data-id")
         return nodes
