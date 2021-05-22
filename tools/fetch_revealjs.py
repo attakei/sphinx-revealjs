@@ -17,7 +17,7 @@ ROOT_DIR = Path(__file__).parent.parent.absolute()
 
 RULES = [
     {
-        "version": "4.1.0",
+        "version": "4.1.1",
         "src": ["dist", "plugin", "LICENSE"],
         "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4",
     }
