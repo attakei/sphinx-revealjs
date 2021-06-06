@@ -2,6 +2,17 @@
 Change logs
 ===========
 
+ver 1.2.0
+=========
+
+:date: 2021-06-06
+:base: Reveal.js 4.1.1 (updated)
+
+New fetures
+-----------
+
+* When builder writes contents from extensions, use same of html builder
+
 ver 1.1.0
 =========
 
