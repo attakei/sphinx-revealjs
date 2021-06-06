@@ -304,6 +304,13 @@ Output:
     \dot{z} &amp; = -\beta z + xy
     \end{aligned} \]
 
+Use other sphinx extensions
+---------------------------
+
+You can use other extensions to render html.
+
+.. todo:: This is example todo by ``sphinx.ext.todo`` . render at presentation.
+
 Usage
 =====
 

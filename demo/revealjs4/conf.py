@@ -13,6 +13,7 @@ release = "2018.10"
 # -- General configuration ---------------------------------------------------
 extensions = [
     "sphinx.ext.mathjax",
+    "sphinx.ext.todo",
     "sphinx_revealjs",
     "sphinxcontrib.gtagjs"
 ]
@@ -99,5 +100,7 @@ epub_title = project
 epub_exclude_files = ["search.html"]
 
 # -- Options for extensions --------------------------------------------------
+todo_include_todos = True
+
 if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
