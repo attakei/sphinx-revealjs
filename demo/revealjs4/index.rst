@@ -227,6 +227,8 @@ Enable animations for each `revealjs_section` and `revealjs_break`:
 .. revealjs_break::
    :data-auto-animate:
 
+Enable animations for each `revealjs_section` and `revealjs_break`:
+
 .. code-block:: console
    :linenos:
 
