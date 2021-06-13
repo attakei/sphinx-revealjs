@@ -2,6 +2,14 @@
 Change logs
 ===========
 
+ver 1.2.1
+=========
+
+:date: 2021-06-13
+:base: Reveal.js 4.1.3 (updated)
+
+(Only update reveal.js)
+
 ver 1.2.0
 =========
 
