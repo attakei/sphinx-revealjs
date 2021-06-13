@@ -248,17 +248,21 @@ Highlight source code per line, using the `revealjs-code-block` directive:
 
    .. revealjs-code-block:: console
       :linenos:
-      :data-line-numbers: 1|2
+      :data-line-numbers: 1|2|3,4
 
       echo 'First part of my command'
       echo 'Second part of my command'
+      echo 'Third part of my command'
+      echo 'Forth part of my command'
 
 .. revealjs-code-block:: console
    :linenos:
-   :data-line-numbers: 1|2
+   :data-line-numbers: 1|2|3,4
 
    echo 'First part of my command'
    echo 'Second part of my command'
+   echo 'Third part of my command'
+   echo 'Forth part of my command'
 
 Support features
 ================
