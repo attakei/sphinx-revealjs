@@ -6,6 +6,7 @@ This script need to run these case.
 * After editable install
 * Before build package archibves
 """
+import json
 import logging
 import shutil
 import sys
@@ -15,50 +16,59 @@ from urllib.request import urlretrieve
 
 ROOT_DIR = Path(__file__).parent.parent.absolute()
 
-RULES = [
-    {
-        "version": "4.1.3",
-        "src": ["dist", "plugin", "LICENSE"],
-        "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4",
-    }
-]
+RULE = {
+    "name": "reveal.js",
+    "src": ["dist", "plugin", "LICENSE"],
+    "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4",
+}
 
 
-def download_release(target: Path, version: str) -> Path:  # noqa: D103
-    target.mkdir(exist_ok=True)
-    url = f"https://github.com/hakimel/reveal.js/archive/{version}.tar.gz"
-    dest = target / f"revealjs-{version}.tgz"
-    if not dest.exists():
-        urlretrieve(url, str(dest))
-    return dest
+def find_package(src: Path, name: str) -> dict:
+    """Pick package file URL from package-lock.json."""
+    package_lock = json.loads(src.read_text())
+    deps = [
+        m
+        for n, m in package_lock.get("dependencies", {}).items()
+        if n == name
+    ]
+    if len(deps) == 0:
+        raise ValueError(f"Invalid name: ({name})")
+    return deps[0]
 
 
 def extract_archive(target: Path) -> Path:  # noqa: D103
+    dest = target.parent / target.stem
     with tarfile.open(str(target)) as tr:
-        dir_name = tr.getmembers()[0].name
-        tr.extractall(str(target.parent))
-        return target.parent / dir_name
+        tr.extractall(str(dest))
+    return dest
 
 
 def main():  # noqa: D103
-    for rule in RULES:
-        downloaded = download_release(ROOT_DIR / "var", rule["version"])
-        extracted = extract_archive(downloaded)
-        dest_base = ROOT_DIR / rule["dest"]
-        dest_base.mkdir(parents=True, exist_ok=True)
-        for src_ in rule["src"]:
-            src = extracted / src_
-            dest = ROOT_DIR / rule["dest"] / src_
-            if dest.exists():
-                shutil.rmtree(dest)
-            if src.is_dir():
-                shutil.copytree(src, dest)
+    package_lock_json = ROOT_DIR / "package-lock.json"
+    package = find_package(package_lock_json, RULE["name"])
+    local_archive = ROOT_DIR / "var" / f"{RULE['name']}-{package['version']}.tgz"
+    if not local_archive.exists():
+        urlretrieve(package["resolved"], local_archive)
+    extracted = extract_archive(local_archive) / "package"
+    dest_base = ROOT_DIR / RULE["dest"]
+    dest_base.mkdir(parents=True, exist_ok=True)
+    for src_ in RULE["src"]:
+        src = extracted / src_
+        dest = ROOT_DIR / RULE["dest"] / src_
+        if dest.exists():
+            if dest.is_file():
+                dest.unlink()
             else:
-                shutil.copy2(src, dest)
+                shutil.rmtree(dest)
+        if src.is_dir():
+            shutil.copytree(src, dest)
+        else:
+            shutil.copy2(src, dest)
 
 
 if __name__ == "__main__":
     if Path.cwd() != ROOT_DIR:
         logging.error("This script can run only project root.")
         sys.exit(1)
+    (ROOT_DIR / "var").mkdir(exist_ok=True)
     main()
