@@ -10,8 +10,8 @@ sphinx-revealjs
 
    *
 
-:Based version: 1.0.0
-:Released: 2020-12-27
+:Based version: 1.3.0
+:Released: 2021-07-11
 
 Overview
 ========

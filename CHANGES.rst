@@ -2,6 +2,24 @@
 Change logs
 ===========
 
+ver 1.3.0
+=========
+
+:date: 2021-07-11
+:base: Reveal.js 4.1.3
+
+New features
+------------
+
+* Support some attributes of sections
+* Add directive ``revealjs-code-block`` to line highlighting for reveal.js
+* Add kebab-case directives for currently snake-case directives
+
+  * `revealjs-slide` <= `revealjs_slie`
+  * `revealjs-section` <= `revealjs_section`
+  * `revealjs-break` <= `revealjs_break`
+  * `revealjs-fragments` <= `revealjs_fragments`
+
 ver 1.2.1
 =========
 
