@@ -6,19 +6,19 @@ Sphinx can manage multiple documents,
 so that |THIS| can build multiple presentation slides.
 
 If you want to configure one presentation from some,
-write ``revealjs_slide`` directive into reST document.
+write ``revealjs-slide`` directive into reST document.
 
 Directive usage
 ===============
 
-Write ``revealjs_slide`` directive on directly below of title header.
+Write ``revealjs-slide`` directive on directly below of title header.
 
 .. code-block:: rst
 
     Presentation title
     ==================
 
-    .. revealjs_slide::
+    .. revealjs-slide::
         :theme: moon
 
     Section

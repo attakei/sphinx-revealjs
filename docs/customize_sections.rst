@@ -4,15 +4,15 @@ Customize sections
 
 To change behavior of sections, |THIS| provide some directives.
 
-revealjs_section
-================
+revealjs-section / revealjs_section
+===================================
 
 To change behavior per section, write directive per section.
 
 Usage
 -----
 
-Write ``revealjs_slide`` directive on directly below of section title header.
+Write ``revealjs-slide`` directive on directly below of section title header.
 
 .. code-block:: rst
 
@@ -22,7 +22,7 @@ Write ``revealjs_slide`` directive on directly below of section title header.
     Section
     -------
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-background-color: #009900
 
 Attributes
@@ -30,16 +30,16 @@ Attributes
 
 This directive can accept attribute as same as Reveal.js ``section`` tags.
 
-revealjs_break
-==============
+revealjs-break / revealjs_break
+===============================
 
 If you want to transition section with keeping title,
-``revealjs_break`` can use.
+``revealjs-break`` can use.
 
 Usage
 -----
 
-Write ``revealjs_break`` to point of want to split section.
+Write ``revealjs-break`` to point of want to split section.
 
 .. code-block:: rst
 
@@ -51,14 +51,14 @@ Write ``revealjs_break`` to point of want to split section.
 
     Content 1
 
-    .. revealjs_break::
+    .. revealjs-break::
 
     Content 2(next slide)
 
 Attributes
 ----------
 
-It accepts attributes as same as ``revealjs_section``.
+It accepts attributes as same as ``revealjs-section``.
 
 And it accepts ``notitle`` as unique feature.
 

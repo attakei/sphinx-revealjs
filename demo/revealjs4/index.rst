@@ -100,48 +100,48 @@ Directive for meta of section
 Inject background color
 -----------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-background-color: #009900
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-background-color: #009900
 
 Inject background image
 -----------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-background-image: _static/icon-attakei.jpg
     :data-background-size: contain
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-background-image: _static/icon-attakei.jpg
         :data-background-size: contain
 
 Inject background video
 -----------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-background-video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-background-video: https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm
 
 Inject background iframe
 ------------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-background-iframe: https://slides.com
     :data-background-interactive:
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-background-iframe: https://slides.com
         :data-background-interactive:
 
@@ -149,36 +149,36 @@ Inject background iframe
 Transition settings(before)
 ---------------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-transition: none
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-transition: none
 
 Transition settings(after)
 --------------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-transition: fade
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-transition: fade
 
 Background image transition
 ---------------------------
 
-.. revealjs_section::
+.. revealjs-section::
     :data-background-image: _static/icon-attakei.jpg
     :data-background-size: contain
     :data-background-transition: zoom
 
 .. code-block:: rest
 
-    .. revealjs_section::
+    .. revealjs-section::
         :data-background-image: _static/icon-attakei.jpg
         :data-background-size: contain
         :data-background-transition: zoom
@@ -189,16 +189,16 @@ Keep title without duplicated written
 
 First section
 
-.. revealjs_break::
+.. revealjs-break::
 
 Second section
 
 .. code-block:: rest
 
-    .. revealjs_break::
+    .. revealjs-break::
 
 
-.. revealjs_break::
+.. revealjs-break::
     :notitle:
 
 Third section.
@@ -207,27 +207,27 @@ You can hide section title
 
 .. code-block:: rest
 
-    .. revealjs_break::
+    .. revealjs-break::
         :notitle:
 
 
 Animate source code transitions
 -------------------------------
 
-.. revealjs_section::
+.. revealjs-section::
    :data-auto-animate:
 
-Enable animations for each `revealjs_section` and `revealjs_break`:
+Enable animations for each `revealjs-section` and `revealjs-break`:
 
 .. code-block:: console
    :linenos:
 
    echo 'First part of my command'
 
-.. revealjs_break::
+.. revealjs-break::
    :data-auto-animate:
 
-Enable animations for each `revealjs_section` and `revealjs_break`:
+Enable animations for each `revealjs-section` and `revealjs-break`:
 
 .. code-block:: console
    :linenos:
@@ -239,7 +239,7 @@ Enable animations for each `revealjs_section` and `revealjs_break`:
 Animate source code highlighting
 --------------------------------
 
-.. revealjs_section::
+.. revealjs-section::
    :data-auto-animate:
 
 Highlight source code per line, using the `revealjs-code-block` directive:
@@ -272,7 +272,15 @@ Fragments(reveal.js)
 
 This is support fragment with groups.
 
-.. revealjs_fragments::
+.. code-block:: rst
+
+   .. revealjs-fragments::
+
+      * First
+      * Second
+      * Third
+
+.. revealjs-fragments::
 
    * First
    * Second
@@ -285,7 +293,7 @@ bundled plugins can use just write ``conf.py``
 
 .. code-block:: python
 
-    revealjs_script_plugins = [
+    revealjs-script_plugins = [
         {
             "name": "RevealNotes",
             "src": "revealjs4/plugin/notes/notes.js",
@@ -319,7 +327,7 @@ Example to use ``sphinx.ext.mathjax`` (recommended)
       \dot{z} & = -\beta z + xy     
     \end{aligned}
 
-.. revealjs_break::
+.. revealjs-break::
 
 You can use math plugin of Reveal.js
 
@@ -327,7 +335,7 @@ Source:
 
 .. code-block:: python
 
-    revealjs_script_plugins = [
+    revealjs-script_plugins = [
         {
             "name": "RevealMath",
             "src": "revealjs4/plugin/math/math.js",
@@ -344,7 +352,7 @@ Source:
         \dot{z} &amp; = -\beta z + xy
         \end{aligned} \]
 
-.. revealjs_break::
+.. revealjs-break::
 
 You can use math plugin of Reveal.js
 

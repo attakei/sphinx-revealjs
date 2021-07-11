@@ -29,8 +29,8 @@ Reference
 
 * https://revealjs.com/code/#line-numbers-%26-highlights
 
-revealjs_fragments
-==================
+revealjs-frabments / revealjs_fragments
+=======================================
 
 .. note::
     There are cases not working regular.
@@ -44,7 +44,7 @@ Write block as directive that you want to present as fragments.
 
 .. code-block:: rst
 
-    .. revealjs_fragments::
+    .. revealjs-fragments::
 
         * First
         * Second

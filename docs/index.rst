@@ -14,9 +14,23 @@ Basic Features
 * Syntax highlight for Reveal.js (not used pygments)
 * Customize slides and sections by conf.py or source reST
 
-.. note::
+Important changes
+=================
 
-  In update from 0.x to 1.x, it has breaking changes. See :doc:`./migrations`.
+1.2.x => 1.3
+------------
+
+Support kebab-case name for all directives.
+You can use ``revealjs-section`` instead of ``revealjs_section``.
+I am planning to remove snake-case directives, but not soon
+(least, keeping until version 2.x).
+
+In document and demo, use kebab-case directive.
+
+0.x => 1.x
+----------
+
+In update from 0.x to 1.x, it has breaking changes. See :doc:`./migrations`.
 
 Demo
 ====
