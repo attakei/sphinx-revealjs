@@ -210,6 +210,60 @@ You can hide section title
     .. revealjs_break::
         :notitle:
 
+
+Animate source code transitions
+-------------------------------
+
+.. revealjs_section::
+   :data-auto-animate:
+
+Enable animations for each `revealjs_section` and `revealjs_break`:
+
+.. code-block:: console
+   :linenos:
+
+   echo 'First part of my command'
+
+.. revealjs_break::
+   :data-auto-animate:
+
+Enable animations for each `revealjs_section` and `revealjs_break`:
+
+.. code-block:: console
+   :linenos:
+
+   echo 'First part of my command'
+   echo 'Second part of my command'
+
+
+Animate source code highlighting
+--------------------------------
+
+.. revealjs_section::
+   :data-auto-animate:
+
+Highlight source code per line, using the `revealjs-code-block` directive:
+
+.. code-block:: rst
+
+   .. revealjs-code-block:: console
+      :linenos:
+      :data-line-numbers: 1|2|3,4
+
+      echo 'First part of my command'
+      echo 'Second part of my command'
+      echo 'Third part of my command'
+      echo 'Forth part of my command'
+
+.. revealjs-code-block:: console
+   :linenos:
+   :data-line-numbers: 1|2|3,4
+
+   echo 'First part of my command'
+   echo 'Second part of my command'
+   echo 'Third part of my command'
+   echo 'Forth part of my command'
+
 Support features
 ================
 

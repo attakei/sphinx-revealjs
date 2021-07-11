@@ -9,6 +9,7 @@ from sphinx.config import Config
 from sphinx_revealjs.builders import RevealjsHTMLBuilder
 from sphinx_revealjs.directives import (
     RevealjsBreak,
+    RevealjsCodeBlock,
     RevealjsFragments,
     RevealjsSection,
     RevealjsSlide,
@@ -65,6 +66,7 @@ def setup(app: Sphinx):
     app.add_directive("revealjs_section", RevealjsSection)
     app.add_directive("revealjs_slide", RevealjsSlide)
     app.add_directive("revealjs_fragments", RevealjsFragments)
+    app.add_directive("revealjs-code-block", RevealjsCodeBlock)
     app.add_config_value("revealjs_use_section_ids", False, True)
     app.add_config_value("revealjs_static_path", [], True)
     app.add_config_value("revealjs_style_theme", "black", True)
