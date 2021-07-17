@@ -2,6 +2,17 @@
 Change logs
 ===========
 
+ver 1.3.1
+=========
+
+:date: 2021-07-17
+:base: Reveal.js 4.1.3
+
+Fixes
+-----
+
+* ``revealjs-fragments`` for paragraph contents (#71)
+
 ver 1.3.0
 =========
 
