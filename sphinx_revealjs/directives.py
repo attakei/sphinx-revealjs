@@ -1,6 +1,7 @@
 """Custom directives for Reveal.js."""
 import json
 
+from docutils.nodes import Sequential
 from docutils.parsers.rst import Directive, directives
 from sphinx.directives.code import CodeBlock
 
@@ -105,8 +106,12 @@ class RevealjsFragments(Directive):  # noqa: D101
         if self.content:
             self.state.nested_parse(self.content, self.content_offset, node)
         # TODO: Parameter ?
-        for child in node.children[0].children:
-            child["classes"].append("fragment")
+        for child in node.children:
+            if not isinstance(child, Sequential):
+                child["classes"].append("fragment")
+                continue
+            for c in child:
+                c["classes"].append("fragment")
         return [
             node,
         ]

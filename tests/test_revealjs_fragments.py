@@ -8,6 +8,13 @@ from testutils import gen_app_conf, soup_html
 
 class BuildHtmlTests(unittest.TestCase):  # noqa
     @with_app(**gen_app_conf())
-    def test_fragments_generate(self, app: TestApp, status, warning):  # noqa
+    def test_list_fragments(self, app: TestApp, status, warning):  # noqa
         soup = soup_html(app, "has_fragments.html")
-        self.assertEqual(len(soup.find_all(attrs={"fragment"})), 3)
+        target = soup.find_all("h3")[0].parent
+        self.assertEqual(len(target.find_all(attrs={"fragment"})), 3)
+
+    @with_app(**gen_app_conf())
+    def test_paragraph_fragments(self, app: TestApp, status, warning):  # noqa
+        soup = soup_html(app, "has_fragments.html")
+        target = soup.find_all("h3")[1].parent
+        self.assertEqual(len(target.find_all(attrs={"fragment"})), 2)
