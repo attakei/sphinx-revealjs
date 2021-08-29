@@ -1,0 +1,54 @@
+{%- extends "layout.html" %}
+
+{%- block htmltitle %}
+  <title>{{ title|striptags|e }}</title>
+{%- endblock %}
+
+{%- block extrahead %}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {# Google Fonts #}
+    {% if google_fonts.has_fonts %}
+    <style>
+      .reveal *, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+        font-family: {{ google_fonts.font_family }};
+      }
+    </style>
+    {% endif %}
+{% endblock %}
+
+{%- block content %}
+    <div class="reveal">
+        <div class="slides">
+            {{ body }}
+        </div>
+    </div>
+    {% for script_file in revealjs.script_files %}
+    <script src="{{ pathto(script_file, 1) }}"></script>
+    {% endfor %}
+    {% if revealjs.engine.version == 4 %}
+      {% for plugin in revealjs.script_plugins -%}
+      <script src="{{ pathto(plugin.src, 1) }}"></script>
+      {% endfor %}
+    {% endif %}
+    <script>
+        var revealjsConfig = new Object();
+        {% if revealjs.script_conf -%}
+        Object.assign(revealjsConfig, {{ revealjs.script_conf }});
+        {%- endif %}
+        {% for conf in revealjs_page_confs -%}
+        Object.assign(revealjsConfig, {{ conf }});
+        {%- endfor %}
+        {# Render plugins injection #}
+        {% if revealjs.engine.version == 4 %}
+          revealjsConfig.plugins = [
+            {% for plugin in revealjs.script_plugins -%}
+            {{ plugin.name }},
+            {%- endfor %}
+          ];
+        {% endif %}
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+{% endblock %}
