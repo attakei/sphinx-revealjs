@@ -10,6 +10,9 @@ sphinx-revealjs
 .. image:: https://travis-ci.org/attakei/sphinx-revealjs.svg?branch=master
     :target: https://travis-ci.org/attakei/sphinx-revealjs
 
+.. image:: https://readthedocs.org/projects/sphinx-revealjs/badge/?version=latest
+    :target: https://sphinx-revealjs.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 Sphinx extension with theme to generate Reveal.js presentation
 
@@ -23,6 +26,8 @@ It include theses features.
 
 * Custom builder to translate from reST to reveal.js style HTML
 * Template to be enable to render presentation local independent
+
+For more information, refer to the `the documentation <https://sphinx-revealjs.readthedocs.io/en/latest/>`_.
 
 Installation
 ------------
