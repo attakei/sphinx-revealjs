@@ -31,4 +31,4 @@ jobs:
         poetry run doc8 docs/
     - name: Test with nosetests
       run: |
-        poetry run nosetests tests/
+        poetry run pytest
