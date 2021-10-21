@@ -1,63 +1,81 @@
 """Integration tests by demo/revealjs4."""
-import unittest
+from pathlib import Path
 
-from sphinx_testing import TestApp
+import pytest
 
-from testutils import PROJECT_ROOT, soup_html
+from testutils import soup_html
+
+PROJECT_ROOT = Path(__file__).parent.parent
 
 
-class DemoMakeTesting(unittest.TestCase):  # noqa
-    @classmethod
-    def setUpClass(cls):  # noqa
-        cls.app = TestApp(
-            srcdir=str(PROJECT_ROOT / "demo/revealjs4"),
-            buildername="revealjs",
-            copy_srcdir_to_tmpdir=True,
-        )
-        cls.soup = soup_html(cls.app, "index.html")
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_has_revealcss(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    reveal_css = [
+        d
+        for d in soup.find_all("link", rel="stylesheet")
+        if d["href"].endswith("revealjs4/dist/reveal.css")
+    ]
+    assert len(reveal_css) == 1
 
-    def test_has_revealcss(self):  # noqa
-        reveal_css = [
-            d
-            for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].endswith("revealjs4/dist/reveal.css")
-        ]
-        self.assertEqual(len(reveal_css), 1)
 
-    def test_pdfcss_not_exists(self):  # noqa
-        self.assertNotIn("print/pdf.css", str(self.soup))
-        self.assertNotIn("print/paper.css", str(self.soup))
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_pdfcss_not_exists(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    assert "print/pdf.css" not in str(soup)
+    assert "print/paper.css" not in str(soup)
 
-    def test_refs_all_exists(self):  # noqa
-        google_fonts = [
-            d
-            for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].startswith("https://fonts.googleapis.com")
-        ]
-        self.assertEqual(len(google_fonts), 1)
 
-    def test_script_conf(self):  # noqa
-        script = self.soup.find_all("script")[-1]
-        self.assertIn("Reveal.initialize(revealjsConfig);", str(script))
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_refs_all_exists(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    google_fonts = [
+        d
+        for d in soup.find_all("link", rel="stylesheet")
+        if d["href"].startswith("https://fonts.googleapis.com")
+    ]
+    assert len(google_fonts) == 1
 
-    def test_script_sources(self):  # noqa
-        scripts = [s["src"] for s in self.soup.find_all("script") if "src" in s.attrs]
-        self.assertIn("_static/revealjs4/dist/reveal.js", scripts)
 
-    def test_stylesheet(self):  # noqa
-        links = [l["href"] for l in self.soup.find_all("link", rel="stylesheet")]
-        self.assertIn("_static/revealjs4/dist/theme/black.css", links)
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_script_conf(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    script = soup.find_all("script")[-1]
+    assert "Reveal.initialize(revealjsConfig);" in str(script)
 
-    def test_title(self):  # noqa
-        self.assertEqual("sphinx-revealjs", self.soup.title.string)
 
-    def test_has_highlightjs_theme(self):  # noqa
-        links = [
-            d
-            for d in self.soup.find_all("link", rel="stylesheet")
-            if d["href"].endswith("revealjs4/plugin/highlight/zenburn.css")
-        ]
-        self.assertEqual(len(links), 1)
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_script_sources(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    scripts = [s["src"] for s in soup.find_all("script") if "src" in s.attrs]
+    assert "_static/revealjs4/dist/reveal.js" in scripts
 
-    def test_plugin_loaded(self):  # noqa
-        self.assertIn("RevealNotes,RevealHighlight", str(self.soup))
+
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_stylesheet(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    links = [link["href"] for link in soup.find_all("link", rel="stylesheet")]
+    assert "_static/revealjs4/dist/theme/black.css" in links
+
+
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_title(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    assert "sphinx-revealjs" == soup.title.string
+
+
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_has_highlightjs_theme(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    links = [
+        d
+        for d in soup.find_all("link", rel="stylesheet")
+        if d["href"].endswith("revealjs4/plugin/highlight/zenburn.css")
+    ]
+    assert len(links) == 1
+
+
+@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_plugin_loaded(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    assert "RevealNotes,RevealHighlight" in str(soup)

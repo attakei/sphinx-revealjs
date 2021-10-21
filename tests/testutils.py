@@ -1,24 +1,11 @@
 """Test support functions."""
-from pathlib import Path
 from typing import AnyStr
 
 from bs4 import BeautifulSoup
-from sphinx_testing import TestApp
-
-TEST_ROOT = Path(__file__).parent
-
-PROJECT_ROOT = TEST_ROOT.parent
+from sphinx.testing.util import SphinxTestApp
 
 
-def gen_app_conf(**kwargs: dict) -> dict:
-    """Create TestApp configuration."""
-    kwargs["buildername"] = "revealjs"
-    kwargs["srcdir"] = str(TEST_ROOT / "testdocs")
-    kwargs["copy_srcdir_to_tmpdir"] = True
-    return kwargs
-
-
-def soup_html(app: TestApp, path: str) -> BeautifulSoup:
+def soup_html(app: SphinxTestApp, path: str) -> BeautifulSoup:
     """Build application and parse content."""
     app.build()
     html: AnyStr = (app.outdir / path).read_text()
