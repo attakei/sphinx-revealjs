@@ -15,20 +15,6 @@ def test_defaults(app, status, warning):  # noqa
     "revealjs",
     testroot="misc",
     freshenv=True,
-    confoverrides={"revealjs_script_files": ["js/test.js"]},
-)
-def test_script_tags(app, status, warning):  # noqa
-    soup = soup_html(app, "index.html")
-    elements = [
-        e for e in soup.find_all("script") if e.get("src") == "_static/js/test.js"
-    ]
-    assert len(elements) == 1
-
-
-@pytest.mark.sphinx(
-    "revealjs",
-    testroot="misc",
-    freshenv=True,
     confoverrides={"revealjs_google_fonts": ["Noto Sans JP"]},
 )
 def test_google_fonts(app, status, warning):  # noqa
