@@ -26,8 +26,8 @@ jobs:
         poetry run python tools/fetch_revealjs.py
     - name: Lint sources and docs
       run: |
-        poetry run flake8 sphinx_revealjs/
         poetry run black --check sphinx_revealjs/ tests/
+        poetry run flake8 sphinx_revealjs/ tests/
         poetry run doc8 docs/
     - name: Test with nosetests
       run: |

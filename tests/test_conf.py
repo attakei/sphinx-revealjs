@@ -215,7 +215,7 @@ def test_revealjs_css_files_local(app, status, warning):  # noqa
         "revealjs_css_files": ["custom.css"],
     },
 )
-def test_default_theme_css_comes_before_custom_css(app, status, warning):
+def test_default_theme_css_comes_before_custom_css(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     default_theme_index = stylesheet_href_list.index(
@@ -234,7 +234,7 @@ def test_default_theme_css_comes_before_custom_css(app, status, warning):
         "revealjs_css_files": ["other_custom.css"],
     },
 )
-def test_specified_theme_css_comes_before_custom_css(app, status, warning):
+def test_specified_theme_css_comes_before_custom_css(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     specified_theme_index = stylesheet_href_list.index(

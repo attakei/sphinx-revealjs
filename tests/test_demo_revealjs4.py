@@ -5,7 +5,6 @@ import pytest
 
 from testutils import soup_html
 
-
 PROJECT_ROOT = Path(__file__).parent.parent
 
 
@@ -55,7 +54,7 @@ def test_script_sources(app, status, warning):  # noqa
 @pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
 def test_stylesheet(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
-    links = [l["href"] for l in soup.find_all("link", rel="stylesheet")]
+    links = [link["href"] for link in soup.find_all("link", rel="stylesheet")]
     assert "_static/revealjs4/dist/theme/black.css" in links
 
 
