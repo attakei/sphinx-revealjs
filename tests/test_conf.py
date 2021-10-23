@@ -1,6 +1,5 @@
 """Build tests for configuration parameters."""
 import pytest
-
 from testutils import soup_html
 
 
