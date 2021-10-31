@@ -207,6 +207,8 @@ def test_unuse_html_js_files(app, status, warning):  # noqa
         "script", src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
     )
     assert elm is None
+    assert soup.find("script", src="_static/jquery.js") is None
+    assert soup.find("script", src="_static/underscore.js") is None
 
 
 @pytest.mark.sphinx(
