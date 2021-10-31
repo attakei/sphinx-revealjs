@@ -191,6 +191,7 @@ def test_revealjs_js_files(app, status, warning):  # noqa
     assert elm is not None
 
 
+# TODO: Unsupport 2.x
 @pytest.mark.sphinx(
     "revealjs",
     testroot="misc",
@@ -200,8 +201,33 @@ def test_revealjs_js_files(app, status, warning):  # noqa
         ]
     },
 )
-def test_unref_html_js_files(app, status, warning):  # noqa
+def test_support_html_js_files(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
+    elm = soup.find(
+        "script", src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+    )
+    assert elm is not None
+
+
+# TODO: Unsupport 2.x
+@pytest.mark.sphinx(
+    "revealjs",
+    testroot="misc",
+    confoverrides={
+        "html_js_files": [
+            "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+        ],
+        "revealjs_js_files": [
+            "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js"
+        ],
+    },
+)
+def test_priority_html_and_revealjs_js_files(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    elm = soup.find(
+        "script", src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js"
+    )
+    assert elm is not None
     elm = soup.find(
         "script", src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
     )

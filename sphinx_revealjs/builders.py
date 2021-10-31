@@ -148,5 +148,10 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
             except Exception:
                 logger.warning(__("invalid js_file: %r, ignored"), entry)
                 continue
-
-    config.revealjs_js_files = revealjs_js_files  # type: ignore
+    # Use html_js_files for backward compatibility
+    if revealjs_js_files:
+        config.revealjs_js_files = revealjs_js_files  # type: ignore
+    else:
+        config.revealjs_js_files = config.html_js_files
+    print(config.revealjs_js_files)
+    print(config.html_js_files)
