@@ -11,6 +11,7 @@ New features
 ------------
 
 * Add ``revealjs_js_files`` for ``conf.py`` to set JS file. (#77)
+* ``revealjs_script_conf`` accepts dict types (#56)
 
 ver 1.3.1
 =========
