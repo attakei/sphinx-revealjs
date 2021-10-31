@@ -117,15 +117,17 @@ Example:
 revealjs_script_conf
 --------------------
 
-:Type: ``str``
+:Type: ``str or dict``
 :Optional:
 :Default: ``None``
 
-Raw JavaScript code for configuration of Reveal.js.
+Configuration of Reveal.js presentation.
+This value is used as options of ``Reveal.initialize`` in output files.
 
-If this value is set, render ``script`` tag after source script tags.
+* If value is string type, handle as raw javascript code.
+* If value is dict object, convert to json string at internal.
 
-Example:
+Example 1: case of str
 
   .. code-block:: py
 
@@ -151,6 +153,31 @@ Example:
         });
         revealjs.initialize(revealjsConfig);
       </script>
+
+
+Example 2: case of dict
+
+  .. code-block:: py
+
+      revealjs_script_conf = {
+          "controls": False,
+          "transition": "zoom",
+      }
+
+  .. code-block:: html
+
+      <div>
+        <!-- Presentation body -->
+      </div>
+      <script src="_static/revealjs/js/revealjs.js"></script>
+      <!-- here!! -->
+      <script>
+        let revealjsConfig = {};
+        revealjsConfig = Object.assign(revealjsConfig, JSON.parse('{"controls": false, "transition": "zoom"}'));
+        revealjs.initialize(revealjsConfig);
+      </script>
+
+example 1 and 2 are behaving same.
 
 revealjs_script_plugins
 -----------------------
