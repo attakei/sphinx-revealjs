@@ -2,6 +2,16 @@
 Change logs
 ===========
 
+ver 1.4 (Future)
+================
+
+:base: Reveal.js 4.1.3
+
+New features
+------------
+
+* Add ``revealjs_js_files`` for ``conf.py`` to set JS file. (#77)
+
 ver 1.3.1
 =========
 
