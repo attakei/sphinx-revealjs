@@ -1,14 +1,20 @@
 """Definition for sphinx custom builder."""
 import copy
+import logging
 from typing import Any, Dict, List, Tuple
 
+from sphinx.application import Sphinx
 from sphinx.builders.html import StandaloneHTMLBuilder
+from sphinx.config import Config
+from sphinx.locale import __
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
 from .utils import static_resource_uri
+
+logger = logging.getLogger(__name__)
 
 
 class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
@@ -123,3 +129,24 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         if self.revealjs_slide.content:
             configs.append(self.revealjs_slide.content)
         return configs
+
+
+def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
+    """
+    Convert string styled html_js_files to tuple styled one.
+
+    Original is :py:func:`sphinx.builders.html.convert_html_js_files`.
+    """
+    revealjs_js_files = []  # type: List[Tuple[str, Dict]]
+    for entry in config.revealjs_js_files:
+        if isinstance(entry, str):
+            revealjs_js_files.append((entry, {}))
+        else:
+            try:
+                filename, attrs = entry
+                revealjs_js_files.append((filename, attrs))
+            except Exception:
+                logger.warning(__("invalid js_file: %r, ignored"), entry)
+                continue
+
+    config.revealjs_js_files = revealjs_js_files  # type: ignore

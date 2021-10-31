@@ -178,6 +178,40 @@ def test_revealjs_css_files(app, status, warning):  # noqa
     "revealjs",
     testroot="misc",
     confoverrides={
+        "revealjs_js_files": [
+            "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+        ]
+    },
+)
+def test_revealjs_js_files(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    elm = soup.find(
+        "script", src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+    )
+    assert elm is not None
+
+
+@pytest.mark.sphinx(
+    "revealjs",
+    testroot="misc",
+    confoverrides={
+        "html_js_files": [
+            "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+        ]
+    },
+)
+def test_unref_html_js_files(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    elm = soup.find(
+        "script", src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+    )
+    assert elm is None
+
+
+@pytest.mark.sphinx(
+    "revealjs",
+    testroot="misc",
+    confoverrides={
         "revealjs_static_path": ["_static"],
         "revealjs_css_files": ["custom.css"],
     },
