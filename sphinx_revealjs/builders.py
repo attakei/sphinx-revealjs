@@ -153,5 +153,3 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
         config.revealjs_js_files = revealjs_js_files  # type: ignore
     else:
         config.revealjs_js_files = config.html_js_files
-    print(config.revealjs_js_files)
-    print(config.html_js_files)
