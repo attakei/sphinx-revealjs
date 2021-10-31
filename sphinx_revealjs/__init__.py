@@ -6,7 +6,7 @@ __version__ = "1.3.1"
 from sphinx.application import Sphinx
 from sphinx.config import Config
 
-from sphinx_revealjs.builders import RevealjsHTMLBuilder
+from sphinx_revealjs.builders import RevealjsHTMLBuilder, convert_reveal_js_files
 from sphinx_revealjs.directives import (
     RevealjsBreak,
     RevealjsCodeBlock,
@@ -47,6 +47,8 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
     app.connect("config-inited", inherit_extension_nodes)
+    # After convert_html_js_files
+    app.connect("config-inited", convert_reveal_js_files, priority=810)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_node(
         revealjs_section, html=(not_write, not_write), revealjs=(not_write, not_write)
@@ -74,6 +76,7 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_use_section_ids", False, True)
     app.add_config_value("revealjs_static_path", [], True)
     app.add_config_value("revealjs_style_theme", "black", True)
+    app.add_config_value("revealjs_js_files", [], True)
     app.add_config_value("revealjs_css_files", [], True)
     app.add_config_value("revealjs_google_fonts", [], True)
     app.add_config_value("revealjs_generic_font", "sans-serif", True)
