@@ -114,8 +114,9 @@ def test_revealjs_script_conf(app, status, warning):  # noqa
 )
 def test_revealjs_script_conf_as_dict(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
-    assert 'Object.assign(revealjsConfig, JSON.parse(\'{"transition": "none"}\'));' in str(
-        soup.find_all("script")[-1]
+    assert (
+        'Object.assign(revealjsConfig, JSON.parse(\'{"transition": "none"}\'));'
+        in str(soup.find_all("script")[-1])
     )
 
 
