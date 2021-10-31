@@ -18,6 +18,18 @@ revealjs_static_path
 
 List of static files directory ( same as ``html_static_path`` )
 
+revealjs_js_files
+-----------------
+
+:Type: ``list``
+:Optional:
+:Default: ``[]`` (empty)
+:Example: ``["custom.js"]``
+
+List of using custom css (same of ``html_js_files`` ).
+
+When you want to use JS that does not related revealjs, can use this.
+
 revealjs_css_files
 ------------------
 
