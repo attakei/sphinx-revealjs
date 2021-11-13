@@ -2,16 +2,22 @@
 Change logs
 ===========
 
-ver 1.4 (Future)
-================
+ver 1.4.0
+=========
 
-:base: Reveal.js 4.1.3
+:Date: 2021-11-13
+:Reveal.js: v4.2.0 **(updated)**
 
 New features
 ------------
 
 * Add ``revealjs_js_files`` for ``conf.py`` to set JS file. (#77)
 * ``revealjs_script_conf`` accepts dict types (#56)
+
+Extra
+-----
+
+* Change test codes from nose to py.test
 
 ver 1.3.1
 =========
