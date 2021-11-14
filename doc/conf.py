@@ -36,8 +36,7 @@ html_css_files = ["custom.css"]
 htmlhelp_basename = "sphinx-revealjsdoc"
 
 # -- Options for LaTeX output ------------------------------------------------
-latex_elements = {
-}
+latex_elements = {}
 latex_documents = [
     (
         master_doc,
@@ -73,7 +72,16 @@ epub_exclude_files = ["search.html"]
 # -- Extension configuration -------------------------------------------------
 # For sphinx.ext.intersphinx
 intersphinx_mapping = {
-    "sphinx": ("https://www.sphinx-doc.org", (None, "en/stable/objects.inv")),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
 # For sphinx.ext.todo
 todo_include_todos = True
+
+
+def setup(app):
+    app.add_object_type(
+        "confval",
+        "confval",
+        objname="configuration value",
+        indextemplate="pair: %s; configuration value",
+    )

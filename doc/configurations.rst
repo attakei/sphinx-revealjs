@@ -16,7 +16,7 @@ revealjs_static_path
 :Default: ``[]`` (empty)
 :Example: ``["_static"]``
 
-List of static files directory ( same as ``html_static_path`` )
+List of static files directory ( same as :confval:`sphinx:html_static_path` )
 
 revealjs_js_files
 -----------------
@@ -26,7 +26,7 @@ revealjs_js_files
 :Default: ``[]`` (empty)
 :Example: ``["custom.js"]``
 
-List of using custom css (same of ``html_js_files`` ).
+List of using custom css (same as :confval:`sphinx:html_js_files` ).
 
 When you want to use JS that does not related revealjs, can use this.
 
@@ -38,7 +38,7 @@ revealjs_css_files
 :Default: ``[]`` (empty)
 :Example: ``["custom.css"]``
 
-List of using custom css (same of ``html_css_files`` ).
+List of using custom css (same as :confval:`sphinx:html_css_files` ).
 
 If you want to customize presentation by CSS, write external css and use it.
 
