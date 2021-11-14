@@ -14,6 +14,7 @@ release = __version__
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
 ]
 templates_path = ["_templates"]
@@ -70,5 +71,9 @@ epub_title = project
 epub_exclude_files = ["search.html"]
 
 # -- Extension configuration -------------------------------------------------
+# For sphinx.ext.intersphinx
+intersphinx_mapping = {
+    "sphinx": ("https://www.sphinx-doc.org", (None, "en/stable/objects.inv")),
+}
 # For sphinx.ext.todo
 todo_include_todos = True
