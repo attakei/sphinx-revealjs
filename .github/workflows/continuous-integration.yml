@@ -24,11 +24,11 @@ jobs:
         python -m pip install poetry
         poetry install
         poetry run python tools/fetch_revealjs.py
-    - name: Lint sources and docs
+    - name: Lint sources and doc
       run: |
         poetry run black --check sphinx_revealjs/ tests/
         poetry run flake8 sphinx_revealjs/ tests/
-        poetry run doc8 docs/
+        poetry run doc8 doc/
     - name: Test with nosetests
       run: |
         poetry run pytest
