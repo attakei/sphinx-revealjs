@@ -21,9 +21,9 @@ Style Configurations
    :Type: ``list``
    :Default: ``[]`` (empty)
    :Example: ``["custom.js"]``
-   
+
    List of using custom css (same as :confval:`sphinx:html_js_files` ).
-   
+
    When you want to use JS that does not related revealjs, can use this.
 
 .. confval:: revealjs_css_files
@@ -31,9 +31,9 @@ Style Configurations
    :Type: ``list``
    :Default: ``[]`` (empty)
    :Example: ``["custom.css"]``
-   
+
    List of using custom css (same as :confval:`sphinx:html_css_files` ).
-   
+
    If you want to customize presentation by CSS, write external css and use it.
 
 .. confval:: revealjs_style_theme
@@ -41,18 +41,18 @@ Style Configurations
    :Type: ``str``
    :Default: ``black``
    :Example: ``moon``, ``custom.css``
-   
+
    Theme name of stylesheet for Reveal.js.
-   
+
    * | If value does not have suffix ``.css``,
      | use bundled Reveal.js theme(included ``revealjs/css/theme``).
-   
+
 .. confval:: revealjs_google_fonts
 
    :Type: ``dict``
    :Default: ``[]``
    :Example: ``[]``
-   
+
    List of using fonts from `Google Fonts <https://fonts.google.com/>`_.
    If this value is set, render ``link`` and ``style`` tags into html.
 
@@ -61,7 +61,7 @@ Style Configurations
    :Type: ``str``
    :Default: ``sans-serif``
    :Example: ``serif``, ``monospace``
-   
+
    If you use ``revealjs_google_fonts``, set last of ``font-family`` style.
 
 Presentation Configurations
@@ -71,7 +71,7 @@ Presentation Configurations
 
    :Type: ``boolean``
    :Default: ``False``
-   
+
    If this is set ``True``,
    inject ``id`` attribute into ``section`` element (parent of headerings).
    This means that change format of internal links (default is numbering style).
@@ -81,15 +81,15 @@ Presentation Configurations
    :Type: ``List[str]``
    :Default: ``[]``
    :Example: ``["presentation.js"]``
-   
+
    List of sources that render as ``script`` tags.
-   
+
    There is bundled Reveal.js script at ``revealjs/js/reveal.js``.
-   
+
    Example:
-   
+
    .. code-block:: html
- 
+
       <div>
         <!-- Presentation body -->
       </div>
@@ -101,26 +101,26 @@ Presentation Configurations
 
    :Type: ``str or dict``
    :Default: ``None``
-   
+
    Configuration of Reveal.js presentation.
    This value is used as options of ``Reveal.initialize`` in output files.
-   
+
    * If value is string type, handle as raw javascript code.
    * If value is dict object, convert to json string at internal.
-   
+
    Example 1: case of str
-   
+
    .. code-block:: py
- 
+
       revealjs_script_conf = """
       {
           controls: false,
           transition: 'zoom',
       }
       """
- 
+
    .. code-block:: html
- 
+
       <div>
         <!-- Presentation body -->
       </div>
@@ -134,18 +134,18 @@ Presentation Configurations
         });
         revealjs.initialize(revealjsConfig);
       </script>
-   
+
    Example 2: case of dict
-   
+
    .. code-block:: py
- 
+
       revealjs_script_conf = {
           "controls": False,
           "transition": "zoom",
       }
- 
+
    .. code-block:: html
- 
+
       <div>
         <!-- Presentation body -->
       </div>
@@ -156,50 +156,30 @@ Presentation Configurations
         revealjsConfig = Object.assign(revealjsConfig, JSON.parse('{"controls": false, "transition": "zoom"}'));
         revealjs.initialize(revealjsConfig);
       </script>
-   
+
    example 1 and 2 are behaving same.
 
 .. confval:: revealjs_script_plugins
 
    :Type: ``List[Dict]``
    :Default: ``[]``
-   
+
    List of plugin configurations.
    If this value is set, render ``script`` tag after source script tags.
-   
+
    There are bundled Reveal.js plugins at ``revealjs/plugin``.
-   
+
    Example:
-   
+
    .. code-block:: py
-   
+
       revealjs_script_plugins = [
           "src": "revealjs/plugin/highlight/highlight.js",
           "name": "RevealHighlight",
-          "options: """
-            {async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-          """,
       ]
-   
+
    .. code-block:: html
-   
-      <!-- For revealjs 3.x -->
-      <div>
-        <!-- Presentation body -->
-      </div>
-      <script src="_static/revealjs/js/revealjs.js"></script>
-      <!-- here!! -->
-      <script>
-        let revealjsConfig = {};
-        plugin_0 = {async: true, callback: function() { hljs.initHighlightingOnLoad(); } };
-        plugin_0.src = "_static/revealjs/plugin/highlight/highlight.js"
-        revealjsConfig.dependencies.push(plugin_0);
-        revealjs.initialize(revealjsConfig);
-      </script>
-   
-   .. code-block:: html
-   
-      <!-- For revealjs 4.x -->
+
       <div>
         <!-- Presentation body -->
       </div>
