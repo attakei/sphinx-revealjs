@@ -4,63 +4,65 @@ Customize sections
 
 To change behavior of sections, |THIS| provide some directives.
 
-revealjs-section / revealjs_section
-===================================
+.. rst:directive:: revealjs-section
 
-To change behavior per section, write directive per section.
+   To change behavior per section, write directive per section.
 
-Usage
------
+   .. rst:directive:option:: data-XXX
 
-Write ``revealjs-slide`` directive on directly below of section title header.
+      This directive can accept attribute as same as Reveal.js ``section`` tags.
 
-.. code-block:: rst
+   Usage:
 
-    Title
-    =====
+   Write ``revealjs-slide`` directive on directly below of section title header.
 
-    Section
-    -------
+   .. code-block:: rst
 
-    .. revealjs-section::
-        :data-background-color: #009900
+      Title
+      =====
 
-Attributes
-----------
+      Section
+      -------
 
-This directive can accept attribute as same as Reveal.js ``section`` tags.
+      .. revealjs-section::
+         :data-background-color: #009900
 
-revealjs-break / revealjs_break
-===============================
+.. rst:directive:: revealjs_section
 
-If you want to transition section with keeping title,
-``revealjs-break`` can use.
+   Alias of ``revealjs-section`` for backward compatibility.
 
-Usage
------
 
-Write ``revealjs-break`` to point of want to split section.
+.. rst:directive:: revealjs-break
 
-.. code-block:: rst
+   If you want to transition section with keeping title,
+   ``revealjs-break`` can use.
 
-    Title
-    =====
+   Usage:
 
-    Section
-    -------
+   Write ``revealjs-break`` to point of want to split section.
 
-    Content 1
+   .. code-block:: rst
 
-    .. revealjs-break::
+       Title
+       =====
 
-    Content 2(next slide)
+       Section
+       -------
 
-Attributes
-----------
+       Content 1
 
-It accepts attributes as same as ``revealjs-section``.
+       .. revealjs-break::
 
-And it accepts ``notitle`` as unique feature.
+       Content 2(next slide)
 
-notitle
-  If it is set in directive, next section page does not display title.
+   .. rst:directive:option:: data-XXX
+
+      It accepts attributes as same as ``revealjs-section``.
+
+   .. rst:directive:option:: notitle
+
+      If it is set in directive, next section page does not display title.
+
+.. rst:directive:: revealjs_break
+
+   Alias of ``revealjs-breaK`` For backward compatibility.

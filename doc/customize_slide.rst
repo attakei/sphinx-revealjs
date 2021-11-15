@@ -8,44 +8,42 @@ so that |THIS| can build multiple presentation slides.
 If you want to configure one presentation from some,
 write ``revealjs-slide`` directive into reST document.
 
-Directive usage
-===============
+.. rst:directive:: revealjs-slide
 
-Write ``revealjs-slide`` directive on directly below of title header.
+   Write ``revealjs-slide`` directive on directly below of title header.
 
-.. code-block:: rst
+   .. note::
 
-    Presentation title
-    ==================
+      Directive based customize has options less than conf based
+      because implementation restrict.
 
-    .. revealjs-slide::
-        :theme: moon
+   .. rst:directive:option:: theme
+      :type: string
 
-    Section
-    -------
+      Override ``revealjs_style_theme``.
 
-    Content
+   .. rst:directive:option:: google_font
+      :type: string
 
+      Override ``revealjs_google_fonts``, but it can specify only one.
 
-Directive attributes
-====================
+   .. rst:directive:option:: conf
+      :type: JSON-string or no-value
 
-.. note::
+      Override ``revealjs_script_conf``, but single line only.
 
-    Directive based customize has options less than conf based
-    because implementation restrict.
+   Usage:
 
-theme
------
+   .. code-block:: rst
 
-Override ``revealjs_style_theme``.
+      Presentation title
+      ==================
 
-google_font
------------
+      .. revealjs-slide::
+         :theme: moon
 
-Override ``revealjs_google_fonts``, but it can specify only one.
+      Section
+      -------
 
-conf
-----
+      Content
 
-Override ``revealjs_script_conf``, but single line only.
