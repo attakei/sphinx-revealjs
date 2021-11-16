@@ -5,107 +5,76 @@ Configurations
 |THIS| can build multiple presentations.
 You can configure in ``conf.py`` for all presentations.
 
+Basic configurations
+====================
+
+.. confval:: revealjs_static_path
+
+   :Type: ``list``
+   :Default: ``[]`` (empty)
+   :Example: ``["_static"]``
+
+   List of static files directory ( same as :confval:`sphinx:html_static_path` )
+
+.. confval:: revealjs_js_files
+
+   :Type: ``list``
+   :Default: ``[]`` (empty)
+   :Example: ``["custom.js"]``
+
+   List of using custom css (same as :confval:`sphinx:html_js_files` ).
+
+   When you want to use JS that does not related revealjs, can use this.
+
+.. confval:: revealjs_css_files
+
+   :Type: ``list``
+   :Default: ``[]`` (empty)
+   :Example: ``["custom.css"]``
+
+   List of using custom css (same as :confval:`sphinx:html_css_files` ).
+
+   If you want to customize presentation by CSS, write external css and use it.
+
 Style Configurations
 ====================
 
-revealjs_static_path
---------------------
+.. confval:: revealjs_style_theme
 
-:Type: ``list``
-:Optional:
-:Default: ``[]`` (empty)
-:Example: ``["_static"]``
+   :Type: ``str``
+   :Default: ``black``
+   :Example: ``moon``, ``custom.css``
 
-List of static files directory ( same as ``html_static_path`` )
+   Theme name of stylesheet for Reveal.js.
 
-revealjs_js_files
------------------
-
-:Type: ``list``
-:Optional:
-:Default: ``[]`` (empty)
-:Example: ``["custom.js"]``
-
-List of using custom css (same of ``html_js_files`` ).
-
-When you want to use JS that does not related revealjs, can use this.
-
-revealjs_css_files
-------------------
-
-:Type: ``list``
-:Optional:
-:Default: ``[]`` (empty)
-:Example: ``["custom.css"]``
-
-List of using custom css (same of ``html_css_files`` ).
-
-If you want to customize presentation by CSS, write external css and use it.
-
-revealjs_style_theme
---------------------
-
-:Type: ``str``
-:Optional:
-:Default: ``black``
-:Example: ``moon``, ``custom.css``
-
-Theme name of stylesheet for Reveal.js.
-
-* | If value does not have suffix ``.css``,
-  | use bundled Reveal.js theme(included ``revealjs/css/theme``).
-
-revealjs_google_fonts
----------------------
-
-:Type: ``dict``
-:Optional:
-:Default: ``[]``
-:Example: ``[]``
-
-List of using fonts from `Google Fonts <https://fonts.google.com/>`_.
-If this value is set, render ``link`` and ``style`` tags into html.
-
-revealjs_generic_font
----------------------
-
-:Type: ``str``
-:Optional:
-:Default: ``sans-serif``
-:Example: ``serif``, ``monospace``
-
-If you use ``revealjs_google_fonts``, set last of ``font-family`` style.
-
+   * | If value does not have suffix ``.css``,
+     | use bundled Reveal.js theme(included ``revealjs/css/theme``).
 
 Presentation Configurations
 ===========================
 
-revealjs_use_section_ids
-------------------------
+.. confval:: revealjs_use_section_ids
 
-:Type: ``boolean``
-:Optional:
-:Default: ``False``
+   :Type: ``boolean``
+   :Default: ``False``
 
-If this is set ``True``,
-inject ``id`` attribute into ``section`` element (parent of headerings).
-This means that change format of internal links (default is numbering style).
+   If this is set ``True``,
+   inject ``id`` attribute into ``section`` element (parent of headerings).
+   This means that change format of internal links (default is numbering style).
 
-revealjs_script_files
----------------------
+.. confval:: revealjs_script_files
 
-:Type: ``List[str]``
-:Optional:
-:Default: ``[]``
-:Example: ``["presentation.js"]``
+   :Type: ``List[str]``
+   :Default: ``[]``
+   :Example: ``["presentation.js"]``
 
-List of sources that render as ``script`` tags.
+   List of sources that render as ``script`` tags.
 
-There is bundled Reveal.js script at ``revealjs/js/reveal.js``.
+   There is bundled Reveal.js script at ``revealjs/js/reveal.js``.
 
-Example:
+   Example:
 
-  .. code-block:: html
+   .. code-block:: html
 
       <div>
         <!-- Presentation body -->
@@ -114,22 +83,20 @@ Example:
       <script src="_static/revealjs/js/revealjs.js"></script>
       <script src="_static/presentation.js"></script>
 
-revealjs_script_conf
---------------------
+.. confval:: revealjs_script_conf
 
-:Type: ``str or dict``
-:Optional:
-:Default: ``None``
+   :Type: ``str or dict``
+   :Default: ``None``
 
-Configuration of Reveal.js presentation.
-This value is used as options of ``Reveal.initialize`` in output files.
+   Configuration of Reveal.js presentation.
+   This value is used as options of ``Reveal.initialize`` in output files.
 
-* If value is string type, handle as raw javascript code.
-* If value is dict object, convert to json string at internal.
+   * If value is string type, handle as raw javascript code.
+   * If value is dict object, convert to json string at internal.
 
-Example 1: case of str
+   Example 1: case of str
 
-  .. code-block:: py
+   .. code-block:: py
 
       revealjs_script_conf = """
       {
@@ -138,7 +105,7 @@ Example 1: case of str
       }
       """
 
-  .. code-block:: html
+   .. code-block:: html
 
       <div>
         <!-- Presentation body -->
@@ -154,17 +121,16 @@ Example 1: case of str
         revealjs.initialize(revealjsConfig);
       </script>
 
+   Example 2: case of dict
 
-Example 2: case of dict
-
-  .. code-block:: py
+   .. code-block:: py
 
       revealjs_script_conf = {
           "controls": False,
           "transition": "zoom",
       }
 
-  .. code-block:: html
+   .. code-block:: html
 
       <div>
         <!-- Presentation body -->
@@ -177,51 +143,29 @@ Example 2: case of dict
         revealjs.initialize(revealjsConfig);
       </script>
 
-example 1 and 2 are behaving same.
+   example 1 and 2 are behaving same.
 
-revealjs_script_plugins
------------------------
+.. confval:: revealjs_script_plugins
 
-:Type: ``List[Dict]``
-:Optional:
-:Default: ``[]``
+   :Type: ``List[Dict]``
+   :Default: ``[]``
 
-List of plugin configurations.
-If this value is set, render ``script`` tag after source script tags.
+   List of plugin configurations.
+   If this value is set, render ``script`` tag after source script tags.
 
-There are bundled Reveal.js plugins at ``revealjs/plugin``.
+   There are bundled Reveal.js plugins at ``revealjs/plugin``.
 
-Example:
+   Example:
 
-  .. code-block:: py
+   .. code-block:: py
 
       revealjs_script_plugins = [
           "src": "revealjs/plugin/highlight/highlight.js",
           "name": "RevealHighlight",
-          "options: """
-            {async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-          """,
       ]
 
-  .. code-block:: html
+   .. code-block:: html
 
-      <!-- For revealjs 3.x -->
-      <div>
-        <!-- Presentation body -->
-      </div>
-      <script src="_static/revealjs/js/revealjs.js"></script>
-      <!-- here!! -->
-      <script>
-        let revealjsConfig = {};
-        plugin_0 = {async: true, callback: function() { hljs.initHighlightingOnLoad(); } };
-        plugin_0.src = "_static/revealjs/plugin/highlight/highlight.js"
-        revealjsConfig.dependencies.push(plugin_0);
-        revealjs.initialize(revealjsConfig);
-      </script>
-
-  .. code-block:: html
-
-      <!-- For revealjs 4.x -->
       <div>
         <!-- Presentation body -->
       </div>
@@ -233,3 +177,23 @@ Example:
         revealjsConfig.plugins = [RevealHighlight,];
         revealjs.initialize(revealjsConfig);
       </script>
+
+Font configurations
+===================
+
+.. confval:: revealjs_google_fonts
+
+   :Type: ``dict``
+   :Default: ``[]``
+   :Example: ``[]``
+
+   List of using fonts from `Google Fonts <https://fonts.google.com/>`_.
+   If this value is set, render ``link`` and ``style`` tags into html.
+
+.. confval:: revealjs_generic_font
+
+   :Type: ``str``
+   :Default: ``sans-serif``
+   :Example: ``serif``, ``monospace``
+
+   If you use ``revealjs_google_fonts``, set last of ``font-family`` style.
