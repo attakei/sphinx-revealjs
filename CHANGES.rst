@@ -2,6 +2,17 @@
 Change logs
 ===========
 
+ver 1.4.1
+=========
+
+:Date: 2021-11-16
+:Reveal.js: v4.2.0 **(updated)**
+
+Fixes
+-----
+
+* Replace reveal.js to use right bundle version.
+
 ver 1.4.0
 =========
 
