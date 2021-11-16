@@ -54,14 +54,12 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    setup
    migrations
    configurations
-   customize_slide
-   customize_sections
-   content_directives
+   directives
 
 Concept and motivation
 ======================
