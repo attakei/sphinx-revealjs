@@ -5,7 +5,7 @@ Configurations
 |THIS| can build multiple presentations.
 You can configure in ``conf.py`` for all presentations.
 
-Style Configurations
+Basic configurations
 ====================
 
 .. confval:: revealjs_static_path
@@ -36,6 +36,9 @@ Style Configurations
 
    If you want to customize presentation by CSS, write external css and use it.
 
+Style Configurations
+====================
+
 .. confval:: revealjs_style_theme
 
    :Type: ``str``
@@ -46,23 +49,6 @@ Style Configurations
 
    * | If value does not have suffix ``.css``,
      | use bundled Reveal.js theme(included ``revealjs/css/theme``).
-
-.. confval:: revealjs_google_fonts
-
-   :Type: ``dict``
-   :Default: ``[]``
-   :Example: ``[]``
-
-   List of using fonts from `Google Fonts <https://fonts.google.com/>`_.
-   If this value is set, render ``link`` and ``style`` tags into html.
-
-.. confval:: revealjs_generic_font
-
-   :Type: ``str``
-   :Default: ``sans-serif``
-   :Example: ``serif``, ``monospace``
-
-   If you use ``revealjs_google_fonts``, set last of ``font-family`` style.
 
 Presentation Configurations
 ===========================
@@ -191,3 +177,23 @@ Presentation Configurations
         revealjsConfig.plugins = [RevealHighlight,];
         revealjs.initialize(revealjsConfig);
       </script>
+
+Font configurations
+===================
+
+.. confval:: revealjs_google_fonts
+
+   :Type: ``dict``
+   :Default: ``[]``
+   :Example: ``[]``
+
+   List of using fonts from `Google Fonts <https://fonts.google.com/>`_.
+   If this value is set, render ``link`` and ``style`` tags into html.
+
+.. confval:: revealjs_generic_font
+
+   :Type: ``str``
+   :Default: ``sans-serif``
+   :Example: ``serif``, ``monospace``
+
+   If you use ``revealjs_google_fonts``, set last of ``font-family`` style.
