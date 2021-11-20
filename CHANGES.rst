@@ -2,6 +2,22 @@
 Changelog
 =========
 
+ver 1.4.3
+=========
+
+:Date: 2021-11-20
+:Reveal.js: v4.2.0
+
+(None updates for features)
+
+Extra
+-----
+
+* Update classifiers of PyPI
+
+  * Fix key of license
+  * Add other keys
+
 ver 1.4.2
 =========
 

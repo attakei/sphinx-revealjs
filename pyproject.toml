@@ -1,22 +1,32 @@
 [tool.poetry]
 name = "sphinx-revealjs"
-version = "1.4.2"
+version = "1.4.3"
 description = "Sphinx extension with theme to generate Reveal.js presentation"
 authors = ["Kazuya Takei <myself@attakei.net>"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Environment :: Web Environment",
     "Framework :: Sphinx",
     "Framework :: Sphinx :: Extension",
     "Framework :: Sphinx :: Theme",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Topic :: Documentation :: Sphinx",
-    "Topic :: Multimedia :: Graphics :: Presentation"
+    "Topic :: Internet :: WWW/HTTP :: Site Management",
+    "Topic :: Multimedia :: Graphics :: Presentation",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing :: Markup :: HTML",
 ]
 homepage = "https://github.com/attakei/sphinx-revealjs"
 repository = "https://github.com/attakei/sphinx-revealjs"
