@@ -1,6 +1,5 @@
 """Build tests for writing directives."""
 import pytest
-
 from testutils import soup_html
 
 
