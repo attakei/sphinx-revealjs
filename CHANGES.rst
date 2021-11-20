@@ -2,6 +2,20 @@
 Change logs
 ===========
 
+ver 1.4.2
+=========
+
+:Date: 2021-11-20
+:Reveal.js: v4.2.0
+
+(None updates for features)
+
+Extra
+-----
+
+* Update test matrix of GitHub Actions to confirm that this supports python 3.10
+* Update classifiers of PyPI because test cases passed under Python 3.10 and Sphinx 4.x
+
 ver 1.4.1
 =========
 
