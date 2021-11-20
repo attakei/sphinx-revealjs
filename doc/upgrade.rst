@@ -1,9 +1,9 @@
 ===============
-Migration guide
+Upgrading guide
 ===============
 
-To 0.x -> 1.x
-=============
+To 1.x from 0.x
+===============
 
 From version 1.x, this bundle Reveal.js 4.x, and implement for it.
 Due it, documentations for old version does not work to build correctly.
