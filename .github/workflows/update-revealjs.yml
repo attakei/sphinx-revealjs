@@ -2,8 +2,7 @@ name: Check for update reveal.js
 
 on:
   schedule:
-    # TODO: Too short schedule
-    - cron: '0,30 * * * *'
+    - cron: '30 0 * * 1'
 
 jobs:
   update-revealjs:
