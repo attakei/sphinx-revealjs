@@ -27,7 +27,7 @@ It include theses features.
 * Custom builder to translate from reST to reveal.js style HTML
 * Template to be enable to render presentation local independent
 
-For more information, refer to the `the documentation <https://sphinx-revealjs.readthedocs.io/en/latest/>`_.
+For more information, refer to `the documentation <https://sphinx-revealjs.readthedocs.io/>`_.
 
 Installation
 ------------
@@ -66,7 +66,7 @@ Policy for following to Reveal.js version
 -----------------------------------------
 
 This is implemented based Reveal.js.
-I plan to update it at patch-version for catch up when  new Reveal.js version released.
+I plan to update it at patch-version for catch up when new Reveal.js version released.
 
 * If Reveal.js updated minor or patch version, sphinx-revealjs update patch version.
 * If Reveal.js updated major version, sphinx-revealjs update minor version with compatible for two versions.
