@@ -30,7 +30,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: Changelog is https://github.com/attakei/sphinx-revealjs/blob/${{ github.ref }}/CHANGES.rst
+          body: Changelog is https://github.com/attakei/sphinx-revealjs/blob/${{ github.ref_name }}/CHANGES.rst
           draft: false
           prerelease: false
       - name: Upload sdist to GitHub
