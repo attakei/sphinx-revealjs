@@ -46,3 +46,7 @@ class revealjs_slide(nodes.Structural, nodes.Element):  # noqa: D101
 
 class revealjs_fragments(nodes.Structural, nodes.Element):  # noqa: D101
     pass
+
+
+class revealjs_grid(nodes.General, nodes.Element):  # noqa: D101
+    pass

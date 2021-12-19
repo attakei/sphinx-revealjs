@@ -2,7 +2,7 @@
 from docutils.nodes import Element, comment, literal_block, section
 from sphinx.writers.html5 import HTML5Translator
 
-from .nodes import revealjs_break
+from .nodes import revealjs_break, revealjs_grid
 
 
 def has_child_sections(node: Element, name: str):
@@ -135,3 +135,34 @@ def depart_revealjs_break(self, node: revealjs_break):
         self.body.append(title.children[0])
         self.body.append(f"</h{self.section_level}>")
         self.body.append("\n")
+
+
+def visit_revealjs_grid(self, node: revealjs_grid):  # noqa: D103
+    import string
+
+    styles = {
+        "position": "fixed",
+    }
+    if "bg" in node.attributes:
+        styles["background-color"] = node.attributes["bg"]
+    if "drag" in node.attributes:
+        x, y = node.attributes["drag"].split()
+        styles["width"] = x if x[-1] not in string.digits else f"{x}%"
+        styles["height"] = y if y[-1] not in string.digits else f"{y}%"
+    if "drop" in node.attributes:
+        x, y = node.attributes["drop"].split()
+        if x[0] == "-":
+            styles["right"] = x[1:] if x[-1] not in string.digits else f"{x[1:]}%"
+        else:
+            styles["left"] = x if x[-1] not in string.digits else f"{x}%"
+        if y[0] == "-":
+            styles["bottom"] = y[1:] if y[-1] not in string.digits else f"{y[1:]}%"
+        else:
+            styles["top"] = y if y[-1] not in string.digits else f"{y}%"
+    style = "; ".join([f"{k}: {v}" for k, v in styles.items()])
+    style = f'style="{style}"'
+    self.body.append(f"<div {style}>")
+
+
+def depart_revealjs_grid(self, node: revealjs_grid):  # noqa: D103
+    self.body.append("</div>\n")

@@ -9,6 +9,7 @@ from sphinx_revealjs.nodes import (
     FlagAttribute,
     revealjs_break,
     revealjs_fragments,
+    revealjs_grid,
     revealjs_section,
     revealjs_slide,
 )
@@ -131,3 +132,21 @@ class RevealjsCodeBlock(CodeBlock):  # noqa: D101
         if self.options.get("data-id"):
             nodes[0]["data-id"] = self.options.get("data-id")
         return nodes
+
+
+class RevealjsGrid(Directive):  # noqa: D101
+    has_content = True
+    option_spec = {
+        "drag": directives.unchanged,
+        "drop": directives.unchanged,
+        "bg": directives.unchanged,
+    }
+
+    def run(self):  # noqa: D102
+        node = revealjs_grid()
+        node.attributes = self.options
+        node.content = "\n".join(self.content or [])
+        self.state.nested_parse(self.content, self.content_offset, node)
+        return [
+            node,
+        ]

@@ -11,20 +11,24 @@ from sphinx_revealjs.directives import (
     RevealjsBreak,
     RevealjsCodeBlock,
     RevealjsFragments,
+    RevealjsGrid,
     RevealjsSection,
     RevealjsSlide,
 )
 from sphinx_revealjs.nodes import (
     revealjs_break,
     revealjs_fragments,
+    revealjs_grid,
     revealjs_section,
     revealjs_slide,
 )
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
     depart_revealjs_break,
+    depart_revealjs_grid,
     not_write,
     visit_revealjs_break,
+    visit_revealjs_grid,
 )
 
 
@@ -59,6 +63,11 @@ def setup(app: Sphinx):
         revealjs=(visit_revealjs_break, depart_revealjs_break),
     )
     app.add_node(
+        revealjs_grid,
+        html=(not_write, not_write),
+        revealjs=(visit_revealjs_grid, depart_revealjs_grid),
+    )
+    app.add_node(
         revealjs_slide, html=(not_write, not_write), revealjs=(not_write, not_write)
     )
     app.add_node(
@@ -73,6 +82,7 @@ def setup(app: Sphinx):
     app.add_directive("revealjs-slide", RevealjsSlide)
     app.add_directive("revealjs-fragments", RevealjsFragments)
     app.add_directive("revealjs-code-block", RevealjsCodeBlock)
+    app.add_directive("revealjs-grid", RevealjsGrid)
     app.add_config_value("revealjs_use_section_ids", False, True)
     app.add_config_value("revealjs_static_path", [], True)
     app.add_config_value("revealjs_style_theme", "black", True)
