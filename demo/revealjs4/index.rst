@@ -10,8 +10,8 @@ sphinx-revealjs
 
    *
 
-:Based version: 1.3.0
-:Released: 2021-07-11
+:Based version: 1.4.4
+:Released: 2022-01-09
 
 Overview
 ========
@@ -92,6 +92,24 @@ To:
 
 code-block as reveal.js code block
 ----------------------------------
+
+From:
+
+.. code-block:: rst
+
+   .. code-block:: php
+
+      <?php
+
+      phpinfo();
+
+To:
+
+.. code-block:: php
+
+   <?php
+
+   phpinfo();
 
 
 Directive for meta of section
@@ -293,7 +311,7 @@ bundled plugins can use just write ``conf.py``
 
 .. code-block:: python
 
-    revealjs-script_plugins = [
+    revealjs_script_plugins = [
         {
             "name": "RevealNotes",
             "src": "revealjs4/plugin/notes/notes.js",
@@ -335,7 +353,7 @@ Source:
 
 .. code-block:: python
 
-    revealjs-script_plugins = [
+    revealjs_script_plugins = [
         {
             "name": "RevealMath",
             "src": "revealjs4/plugin/math/math.js",
