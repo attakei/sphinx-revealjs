@@ -53,6 +53,7 @@ Contents
    directives
    tips
    contributing
+   examples
    changes
    versioning-policy
 
