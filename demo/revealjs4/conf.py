@@ -58,6 +58,7 @@ revealjs_script_plugins = [
 ]
 revealjs_css_files = [
     "revealjs4/plugin/highlight/zenburn.css",
+    "custom.css",
 ]
 
 # -- Options for HTMLHelp output ---------------------------------------------

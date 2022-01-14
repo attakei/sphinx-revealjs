@@ -37,39 +37,43 @@ Adjust section structure
 
 From:
 
-.. code-block:: rest
+.. container:: adjust-section-structure
 
-    Title
-    =====
-
-    First section
-    -------------
-
-        Content 1
-        ^^^^^^^^^
-
-        Content 2
-        ^^^^^^^^^
+   .. code-block:: rest
+   
+       Title
+       =====
+   
+       First section
+       -------------
+   
+           Content 1
+           ^^^^^^^^^
+   
+           Content 2
+           ^^^^^^^^^
 
 To:
 
-.. code-block:: html
+.. container:: adjust-section-structure
 
-    <section>
-        <h1>Title</h1>
-    </section>
-    <section>
-        <section>
-            <h2>First section</h2>
-        </section>
-        <section>
-            <h3>Content 1</h3>
-        </section>
-        <section>
-            <h3>Content 2</h3>
-        </section>
-    </section>
-
+   .. code-block:: html
+   
+       <section>
+           <h1>Title</h1>
+       </section>
+       <section>
+           <section>
+               <h2>First section</h2>
+           </section>
+           <section>
+               <h3>Content 1</h3>
+           </section>
+           <section>
+               <h3>Content 2</h3>
+           </section>
+       </section>
+   
 
 reStructuredText comments are used as speaker notes
 ---------------------------------------------------
