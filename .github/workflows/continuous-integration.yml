@@ -34,7 +34,7 @@ jobs:
       run: |
         poetry run black --check sphinx_revealjs/ tests/
         poetry run flake8 sphinx_revealjs/ tests/
-        poetry run doc8 doc/
+        poetry run doc8 --max-line-length=119 doc/
     - name: Test with nosetests
       run: |
         poetry run pytest
