@@ -1,8 +1,9 @@
-name: Check for update reveal.js
+name: Check updates of reveal.js
 
 on:
   schedule:
     - cron: '30 0 * * 1'
+  workflow_dispatch:
 
 jobs:
   update-revealjs:
@@ -15,7 +16,7 @@ jobs:
           version=`jq < package-lock.json '.dependencies."reveal.js".version' -r`
           echo "::set-output name=revealjs_current::${version}"
           npm i
-          npm update
+          npm update -S
           version=`jq < package-lock.json '.dependencies."reveal.js".version' -r`
           echo "::set-output name=revealjs_updated::${version}"
       - name: Create Pull Request
