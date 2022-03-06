@@ -51,6 +51,7 @@ Contents
    upgrade
    configurations
    directives
+   examples
    changes
 
 Licenses
