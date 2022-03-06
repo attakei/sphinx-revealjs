@@ -1,4 +1,4 @@
-name: Upload packages to TestPyPI
+name: Release package as post version to TestPyPI
 
 on:
   push:
