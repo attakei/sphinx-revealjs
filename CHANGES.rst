@@ -5,7 +5,7 @@ Changelog
 ver 1.4.5
 =========
 
-:date: 2022-3-06
+:date: 2022-03-06
 :base: Reveal.js 4.3.0 (updated)
 
 (Only update reveal.js)
