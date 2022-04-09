@@ -50,3 +50,9 @@ Files are generated to **revealjs** folder.
 .. code-block:: shell
 
    $ make revealjs
+
+You can generate all pages as ``index.html`` to use ``dirrevealjs``.
+
+.. code-block:: console
+
+   make dirrevealjs
