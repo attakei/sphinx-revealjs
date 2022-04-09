@@ -6,7 +6,11 @@ __version__ = "1.4.6"
 from sphinx.application import Sphinx
 from sphinx.config import Config
 
-from sphinx_revealjs.builders import RevealjsHTMLBuilder, convert_reveal_js_files
+from sphinx_revealjs.builders import (
+    DirectoryRevealjsHTMLBuilder,
+    RevealjsHTMLBuilder,
+    convert_reveal_js_files,
+)
 from sphinx_revealjs.directives import (
     RevealjsBreak,
     RevealjsCodeBlock,
@@ -50,6 +54,7 @@ def setup(app: Sphinx):
     # After convert_html_js_files
     app.connect("config-inited", convert_reveal_js_files, priority=810)
     app.add_builder(RevealjsHTMLBuilder)
+    app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
         revealjs_section, html=(not_write, not_write), revealjs=(not_write, not_write)
     )

@@ -2,6 +2,7 @@
 from pathlib import Path
 
 import pytest
+from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -78,3 +79,11 @@ def test_has_highlightjs_theme(app, status, warning):  # noqa
 def test_plugin_loaded(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     assert "RevealNotes,RevealHighlight" in str(soup)
+
+
+@pytest.mark.sphinx("dirrevealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
+def test_dirrevealjs(app: SphinxTestApp, status, warning):  # noqa
+    app.build()
+    assert Path(app.outdir / "index.html").exists()
+    assert not Path(app.outdir / "example-background-only-section.html").exists()
+    assert Path(app.outdir / "example-background-only-section/index.html").exists()
