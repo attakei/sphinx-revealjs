@@ -181,6 +181,12 @@ Presentation Configurations
 Font configurations
 ===================
 
+.. note::
+
+   These configurations will be dropped when version 2.x.
+
+   You can use raw CSS or `googlefonts-markup <https://pypi.org/project/googlefonts-markup/>`_ instead of these.
+
 .. confval:: revealjs_google_fonts
 
    :Type: ``dict``
