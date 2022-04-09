@@ -64,6 +64,7 @@ def setup(app: Sphinx):
     app.add_node(
         revealjs_fragments, html=(not_write, not_write), revealjs=(not_write, not_write)
     )
+    # TODO: Remove undersocored directives by v2.0.0
     app.add_directive("revealjs_break", RevealjsBreak)
     app.add_directive("revealjs_section", RevealjsSection)
     app.add_directive("revealjs_slide", RevealjsSlide)
