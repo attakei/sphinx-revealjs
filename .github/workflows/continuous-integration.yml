@@ -33,7 +33,7 @@ jobs:
         poetry run python tools/fetch_revealjs.py
     - name: Lint sources and doc
       run: |
-        poetry run black --check sphinx_revealjs/ tests/
+        poetry run black --check .
         poetry run flake8 sphinx_revealjs/ tests/
         poetry run doc8 --max-line-length=119 doc/
     - name: Test with nosetests

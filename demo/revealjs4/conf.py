@@ -15,7 +15,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
-    "sphinxcontrib.gtagjs"
+    "sphinxcontrib.gtagjs",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -33,7 +33,9 @@ html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
 revealjs_static_path = ["_static"]
-revealjs_google_fonts = ["M PLUS 1p",]
+revealjs_google_fonts = [
+    "M PLUS 1p",
+]
 revealjs_style_theme = "black"
 revealjs_script_conf = {
     "controls": True,
