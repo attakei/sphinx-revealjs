@@ -11,7 +11,7 @@ Current development environment
 -------------------------------
 
 * Python: ``3.9``
-* Sphinx: ``2.4.4``
+* Sphinx: ``3.5.4``
 
 
 Installation

@@ -35,15 +35,13 @@ html_static_path = ["_static"]
 revealjs_static_path = ["_static"]
 revealjs_google_fonts = ["M PLUS 1p",]
 revealjs_style_theme = "black"
-revealjs_script_conf = """
-    {
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        transition: "slide",
-    }
-"""
+revealjs_script_conf = {
+    "controls": True,
+    "progress": True,
+    "history": True,
+    "center": True,
+    "transition": "slide",
+}
 revealjs_script_plugins = [
     {
         "name": "RevealNotes",
@@ -60,6 +58,7 @@ revealjs_script_plugins = [
 ]
 revealjs_css_files = [
     "revealjs4/plugin/highlight/zenburn.css",
+    "custom.css",
 ]
 
 # -- Options for HTMLHelp output ---------------------------------------------

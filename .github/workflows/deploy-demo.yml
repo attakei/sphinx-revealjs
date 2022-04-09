@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy demo presentation
 
 on:
   push:
@@ -9,15 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
         with:
           python-version: 3.7
       - name: Make demo page
         run: |
-          python -m pip install --upgrade pip
-          python tools/fetch_revealjs.py
-          pip install .
           pip install -r demo/revealjs4/requirements.txt
           make -C demo/revealjs4 revealjs
           touch demo/revealjs4/_build/revealjs/.nojekyll

@@ -14,24 +14,6 @@ Basic Features
 * Syntax highlight for Reveal.js (not used pygments)
 * Customize slides and sections by conf.py or source reST
 
-Important changes
-=================
-
-1.2.x => 1.3
-------------
-
-Support kebab-case name for all directives.
-You can use ``revealjs-section`` instead of ``revealjs_section``.
-I am planning to remove snake-case directives, but not soon
-(least, keeping until version 2.x).
-
-In document and demo, use kebab-case directive.
-
-0.x => 1.x
-----------
-
-In update from 0.x to 1.x, it has breaking changes. See :doc:`./migrations`.
-
 Demo
 ====
 
@@ -50,19 +32,6 @@ Demo
     .. figure:: _static/screenshot-revealjs.png
         :alt: Screenshot of Reveal.js slide
 
-Contents
-========
-
-.. toctree::
-   :maxdepth: 1
-
-   setup
-   migrations
-   configurations
-   customize_slide
-   customize_sections
-   content_directives
-
 Concept and motivation
 ======================
 
@@ -71,6 +40,19 @@ for self-branding of engineer using Sphinx.
 Using static site hosting service, you can show own presentations to anyone.
 
 Core motivation is that I want to play presentation by this library.
+
+Contents
+========
+
+.. toctree::
+   :maxdepth: 2
+
+   setup
+   upgrade
+   configurations
+   directives
+   examples
+   changes
 
 Licenses
 ========

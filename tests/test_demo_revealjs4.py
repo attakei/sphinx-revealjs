@@ -2,7 +2,6 @@
 from pathlib import Path
 
 import pytest
-
 from testutils import soup_html
 
 PROJECT_ROOT = Path(__file__).parent.parent

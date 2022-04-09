@@ -1,16 +1,88 @@
-===========
-Change logs
-===========
+=========
+Changelog
+=========
 
-ver 1.4 (Future)
-================
+ver 1.4.6
+=========
 
-:base: Reveal.js 4.1.3
+:date: 2022-03-26
+:base: Reveal.js 4.3.1 (updated)
+
+(Only update reveal.js)
+
+ver 1.4.5
+=========
+
+:date: 2022-03-06
+:base: Reveal.js 4.3.0 (updated)
+
+(Only update reveal.js)
+
+ver 1.4.4
+=========
+
+:date: 2021-12-12
+:base: Reveal.js 4.2.1 (updated)
+
+(Only update reveal.js)
+
+ver 1.4.3
+=========
+
+:Date: 2021-11-20
+:Reveal.js: v4.2.0
+
+(None updates for features)
+
+Extra
+-----
+
+* Update classifiers of PyPI
+
+  * Fix key of license
+  * Add other keys
+
+ver 1.4.2
+=========
+
+:Date: 2021-11-20
+:Reveal.js: v4.2.0
+
+(None updates for features)
+
+Extra
+-----
+
+* Update test matrix of GitHub Actions to confirm that this supports python 3.10
+* Update classifiers of PyPI because test cases passed under Python 3.10 and Sphinx 4.x
+
+ver 1.4.1
+=========
+
+:Date: 2021-11-16
+:Reveal.js: v4.2.0 **(updated)**
+
+Fixes
+-----
+
+* Replace reveal.js to use right bundle version.
+
+ver 1.4.0
+=========
+
+:Date: 2021-11-13
+:Reveal.js: v4.2.0 **(updated)**
 
 New features
 ------------
 
 * Add ``revealjs_js_files`` for ``conf.py`` to set JS file. (#77)
+* ``revealjs_script_conf`` accepts dict types (#56)
+
+Extra
+-----
+
+* Change test codes from nose to py.test
 
 ver 1.3.1
 =========

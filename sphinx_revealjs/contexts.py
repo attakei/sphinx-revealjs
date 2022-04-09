@@ -1,5 +1,6 @@
 """Contexts for passing between objects."""
-from typing import List
+import json
+from typing import Dict, List, Union
 
 from .utils import static_resource_uri
 
@@ -74,11 +75,14 @@ class RevealjsProjectContext(object):
         self,
         engine_version: int,
         script_files: List[str] = None,
-        script_conf: str = None,
+        script_conf: Union[str, Dict] = None,
         script_plugins: List[RevealjsPlugin] = None,
     ):  # noqa
         self.engine = RevealjsEngine.from_version(engine_version)
-        self.script_conf = script_conf
+        if isinstance(script_conf, str):
+            self.script_conf = script_conf
+        else:
+            self.script_conf = f"JSON.parse('{json.dumps(script_conf)}')"
         self.script_plugins = script_plugins or []
         self._script_files = script_files or []
 

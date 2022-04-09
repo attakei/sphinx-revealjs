@@ -10,8 +10,8 @@ sphinx-revealjs
 
    *
 
-:Based version: 1.3.0
-:Released: 2021-07-11
+:Based version: 1.4.4
+:Released: 2022-01-09
 
 Overview
 ========
@@ -37,39 +37,43 @@ Adjust section structure
 
 From:
 
-.. code-block:: rest
+.. container:: adjust-section-structure
 
-    Title
-    =====
-
-    First section
-    -------------
-
-        Content 1
-        ^^^^^^^^^
-
-        Content 2
-        ^^^^^^^^^
+   .. code-block:: rest
+   
+       Title
+       =====
+   
+       First section
+       -------------
+   
+           Content 1
+           ^^^^^^^^^
+   
+           Content 2
+           ^^^^^^^^^
 
 To:
 
-.. code-block:: html
+.. container:: adjust-section-structure
 
-    <section>
-        <h1>Title</h1>
-    </section>
-    <section>
-        <section>
-            <h2>First section</h2>
-        </section>
-        <section>
-            <h3>Content 1</h3>
-        </section>
-        <section>
-            <h3>Content 2</h3>
-        </section>
-    </section>
-
+   .. code-block:: html
+   
+       <section>
+           <h1>Title</h1>
+       </section>
+       <section>
+           <section>
+               <h2>First section</h2>
+           </section>
+           <section>
+               <h3>Content 1</h3>
+           </section>
+           <section>
+               <h3>Content 2</h3>
+           </section>
+       </section>
+   
 
 reStructuredText comments are used as speaker notes
 ---------------------------------------------------
@@ -92,6 +96,24 @@ To:
 
 code-block as reveal.js code block
 ----------------------------------
+
+From:
+
+.. code-block:: rst
+
+   .. code-block:: php
+
+      <?php
+
+      phpinfo();
+
+To:
+
+.. code-block:: php
+
+   <?php
+
+   phpinfo();
 
 
 Directive for meta of section
@@ -293,7 +315,7 @@ bundled plugins can use just write ``conf.py``
 
 .. code-block:: python
 
-    revealjs-script_plugins = [
+    revealjs_script_plugins = [
         {
             "name": "RevealNotes",
             "src": "revealjs4/plugin/notes/notes.js",
@@ -335,7 +357,7 @@ Source:
 
 .. code-block:: python
 
-    revealjs-script_plugins = [
+    revealjs_script_plugins = [
         {
             "name": "RevealMath",
             "src": "revealjs4/plugin/math/math.js",

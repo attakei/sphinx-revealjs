@@ -1,6 +1,5 @@
 """Build tests for configuration parameters."""
 import pytest
-
 from testutils import soup_html
 
 
@@ -104,6 +103,19 @@ def test_revealjs_script_conf(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     assert 'Object.assign(revealjsConfig, {transition:"none"});' in str(
         soup.find_all("script")[-1]
+    )
+
+
+@pytest.mark.sphinx(
+    "revealjs",
+    testroot="misc",
+    confoverrides={"revealjs_script_conf": {"transition": "none"}},
+)
+def test_revealjs_script_conf_as_dict(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    assert (
+        'Object.assign(revealjsConfig, JSON.parse(\'{"transition": "none"}\'));'
+        in str(soup.find_all("script")[-1])
     )
 
 

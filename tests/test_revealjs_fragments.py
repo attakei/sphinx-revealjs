@@ -1,6 +1,5 @@
 """Test cases for ``revealjs_fragments`` directive."""
 import pytest
-
 from testutils import soup_html
 
 

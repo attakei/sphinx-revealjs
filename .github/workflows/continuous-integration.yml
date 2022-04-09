@@ -3,6 +3,7 @@ name: Continuous Integration
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,24 +12,30 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8]
-
+        python-version: [3.6, 3.7, 3.8, 3.9, '3.10']
+        sphinx-version: ['>=3.0.0,<4.0.0', '>=4.0.0,<5.0.0']
+        exclude:
+          # Old major version does not support python 3.10
+          - python-version: '3.10'
+            sphinx-version: '>=3.0.0,<4.0.0'
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
+        architecture: x64
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         python -m pip install poetry
         poetry install
+        .venv/bin/pip install 'Sphinx${{ matrix.sphinx-version }}'
         poetry run python tools/fetch_revealjs.py
-    - name: Lint sources and docs
+    - name: Lint sources and doc
       run: |
         poetry run black --check sphinx_revealjs/ tests/
         poetry run flake8 sphinx_revealjs/ tests/
-        poetry run doc8 docs/
+        poetry run doc8 --max-line-length=119 doc/
     - name: Test with nosetests
       run: |
         poetry run pytest
