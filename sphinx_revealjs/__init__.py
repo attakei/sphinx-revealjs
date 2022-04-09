@@ -47,8 +47,7 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
     app.connect("config-inited", inherit_extension_nodes)
-    # After convert_html_js_files
-    app.connect("config-inited", convert_reveal_js_files, priority=810)
+    app.connect("config-inited", convert_reveal_js_files)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_node(
         revealjs_section, html=(not_write, not_write), revealjs=(not_write, not_write)

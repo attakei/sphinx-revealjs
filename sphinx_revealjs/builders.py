@@ -62,6 +62,13 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         for filename in self.get_builder_config("css_files", "revealjs"):
             self.add_css_file(filename)
 
+    def init_js_files(self) -> None:  # noqa
+        for filename, attrs in self.app.registry.js_files:
+            self.add_js_file(filename, **attrs)
+
+        for filename, attrs in self.get_builder_config("js_files", "revealjs"):
+            self.add_js_file(filename, **attrs)
+
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).
 
@@ -148,8 +155,4 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
             except Exception:
                 logger.warning(__("invalid js_file: %r, ignored"), entry)
                 continue
-    # Use html_js_files for backward compatibility
-    if revealjs_js_files:
-        config.revealjs_js_files = revealjs_js_files  # type: ignore
-    else:
-        config.revealjs_js_files = config.html_js_files
+    config.revealjs_js_files = revealjs_js_files  # type: ignore
