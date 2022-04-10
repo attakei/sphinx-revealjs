@@ -2,6 +2,7 @@
 
 __version__ = "1.4.6"
 
+import sys
 
 from sphinx.application import Sphinx
 from sphinx.config import Config
@@ -73,6 +74,10 @@ def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
 
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
+    if sys.version_info.minor <= 7:
+        logger.info(
+            "NOTICE: New features of ver-2.x will be possibility to support not-fully for python 3.6"  # noqa
+        )
     app.connect("config-inited", inherit_extension_nodes)
     # After convert_html_js_files
     app.connect("config-inited", convert_reveal_js_files, priority=810)
