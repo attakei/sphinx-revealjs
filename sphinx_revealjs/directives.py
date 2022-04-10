@@ -4,6 +4,7 @@ import json
 from docutils.nodes import Sequential
 from docutils.parsers.rst import Directive, directives
 from sphinx.directives.code import CodeBlock
+from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (
     FlagAttribute,
@@ -12,6 +13,9 @@ from sphinx_revealjs.nodes import (
     revealjs_section,
     revealjs_slide,
 )
+from sphinx_revealjs.utils import deprecated_message
+
+logger = logging.getLogger(__name__)
 
 
 def raw_json(argument):
@@ -73,6 +77,11 @@ class RevealjsBreak(Directive):  # noqa: D101
     )
 
     def run(self):  # noqa: D102
+        # TODO: Remove by v2.0.0
+        if self.name == "revealjs_break":
+            logger.info(
+                deprecated_message("v2", "'revealjs_break'", "'revealjs-break'")
+            )
         node = revealjs_break()
         node.attributes = self.options
         return [
@@ -90,6 +99,11 @@ class RevealjsSlide(Directive):  # noqa: D101
     }
 
     def run(self):  # noqa: D102
+        # TODO: Remove by v2.0.0
+        if self.name == "revealjs_slide":
+            logger.info(
+                deprecated_message("v2", "'revealjs_slide'", "'revealjs-slide'")
+            )
         node = revealjs_slide()
         node.attributes = self.options
         node.content = "\n".join(self.content or [])
@@ -102,6 +116,11 @@ class RevealjsFragments(Directive):  # noqa: D101
     has_content = True
 
     def run(self):  # noqa: D102
+        # TODO: Remove by v2.0.0
+        if self.name == "revealjs_fragments":
+            logger.info(
+                deprecated_message("v2", "'revealjs_fragments'", "'revealjs-fragments'")
+            )
         node = revealjs_fragments()
         if self.content:
             self.state.nested_parse(self.content, self.content_offset, node)

@@ -84,6 +84,9 @@ If you want to change behavior of sections, use these directives.
 
    Alias of ``revealjs-section`` for backward compatibility.
 
+   .. note::
+
+      This will be dropped when version 2.x
 
 .. rst:directive:: revealjs-break
 
@@ -119,6 +122,10 @@ If you want to change behavior of sections, use these directives.
 .. rst:directive:: revealjs_break
 
    Alias of ``revealjs-breaK`` For backward compatibility.
+
+   .. note::
+
+      This will be dropped when version 2.x
 
 For interactive contents
 ========================
@@ -171,3 +178,6 @@ For interactive contents
 
    Alias of ``revealjs-fragments`` for backward compatibility.
 
+   .. note::
+
+      This will be dropped when version 2.x

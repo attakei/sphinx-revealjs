@@ -2,9 +2,11 @@
 
 __version__ = "1.4.6"
 
+import sys
 
 from sphinx.application import Sphinx
 from sphinx.config import Config
+from sphinx.util import logging
 
 from sphinx_revealjs.builders import (
     DirectoryRevealjsHTMLBuilder,
@@ -25,11 +27,14 @@ from sphinx_revealjs.nodes import (
     revealjs_slide,
 )
 from sphinx_revealjs.themes import get_theme_path
+from sphinx_revealjs.utils import deprecated_message
 from sphinx_revealjs.writers import (
     depart_revealjs_break,
     not_write,
     visit_revealjs_break,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def inherit_extension_nodes(app: Sphinx, config: Config):
@@ -48,11 +53,39 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
             rvjs_trans[n] = b
 
 
+def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
+    if config.revealjs_google_fonts:
+        logger.info(
+            deprecated_message(
+                "v2", "config:revealjs_google_fonts", "package:googlefonts-markup"
+            )
+        )
+    if config.revealjs_generic_font == "sans-serif":
+        logger.info(
+            deprecated_message(
+                "v2", "config:revealjs_generic_font", "adding custom CSS"
+            )
+        )
+    if len(config.html_js_files) > len(config.revealjs_js_files):
+        logger.info(
+            deprecated_message(
+                "v2",
+                "Supporting config:html_js_files",
+                "config:revealjs_js_files",
+            )
+        )
+
+
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
+    if sys.version_info.minor <= 7:
+        logger.info(
+            "NOTICE: New features of ver-2.x will be possibility to support not-fully for python 3.6"  # noqa
+        )
     app.connect("config-inited", inherit_extension_nodes)
     # After convert_html_js_files
     app.connect("config-inited", convert_reveal_js_files, priority=810)
+    app.connect("config-inited", notify_deprecated_config)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
@@ -69,6 +102,7 @@ def setup(app: Sphinx):
     app.add_node(
         revealjs_fragments, html=(not_write, not_write), revealjs=(not_write, not_write)
     )
+    # TODO: Remove undersocored directives by v2.0.0
     app.add_directive("revealjs_break", RevealjsBreak)
     app.add_directive("revealjs_section", RevealjsSection)
     app.add_directive("revealjs_slide", RevealjsSlide)
