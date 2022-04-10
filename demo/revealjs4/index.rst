@@ -10,7 +10,7 @@ sphinx-revealjs
 
    *
 
-:Based version: 1.4.6
+:Based version: 1.5.0
 :Demo updated: 2022-01-09
 
 Overview

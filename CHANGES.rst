@@ -2,6 +2,27 @@
 Changelog
 =========
 
+ver 1.5.0
+=========
+
+:date: 2022-04-11
+:base: Reveal.js 4.3.1
+
+Features
+--------
+
+* Add ``dirrevealjs`` builder to generate all pages as ``index.html``
+
+Deprecated
+----------
+
+Mark as deprecated(logging.info) to drop at version 2.x
+
+* Snake-cased directive ( ``revealjs_slide``, ``revealjs_section`` and ``revealjs_break`` )
+* CSS Font configurations ( ``revealjs_google_fonts`` and ``revealjs_generic_font`` )
+* Passing values from ``html_js_files`` to ``revealjs_js_files``
+* Full-support for Python 3.6.x
+
 ver 1.4.6
 =========
 
