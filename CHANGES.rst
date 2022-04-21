@@ -2,6 +2,22 @@
 Changelog
 =========
 
+ver 1.5.1
+=========
+
+:date: 2022-04-21
+:base: Reveal.js 4.3.1
+
+Fixes
+-----
+
+* Add ``role="main"`` into ``page.html`` for searching by Sphinx (#102)
+
+Misc
+----
+
+* Add documentation link into metadata (PyPI)
+
 ver 1.5.0
 =========
 
