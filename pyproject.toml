@@ -1,8 +1,13 @@
 [tool.poetry]
 name = "sphinx-revealjs"
-version = "1.4.6"
+version = "1.5.1"
 description = "Sphinx extension with theme to generate Reveal.js presentation"
+license = "Apache-2.0"
 authors = ["Kazuya Takei <myself@attakei.net>"]
+readme = "README.rst"
+homepage = "https://github.com/attakei/sphinx-revealjs"
+repository = "https://github.com/attakei/sphinx-revealjs"
+documentation = "https://sphinx-revealjs.readthedocs.io/"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
@@ -28,10 +33,6 @@ classifiers = [
     "Topic :: Software Development :: Documentation",
     "Topic :: Text Processing :: Markup :: HTML",
 ]
-homepage = "https://github.com/attakei/sphinx-revealjs"
-repository = "https://github.com/attakei/sphinx-revealjs"
-license = "Apache-2.0"
-readme = "README.rst"
 include = [
     "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4/**/*",
 ]

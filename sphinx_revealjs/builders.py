@@ -4,6 +4,7 @@ import logging
 from typing import Any, Dict, List, Tuple
 
 from sphinx.application import Sphinx
+from sphinx.builders.dirhtml import DirectoryHTMLBuilder
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.config import Config
 from sphinx.locale import __
@@ -136,6 +137,16 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         if self.revealjs_slide.content:
             configs.append(self.revealjs_slide.content)
         return configs
+
+
+class DirectoryRevealjsHTMLBuilder(DirectoryHTMLBuilder, RevealjsHTMLBuilder):
+    """
+    Custom RevealjsHTMLBuilder to generate all HTML pages as ``index.html``.
+
+    This does not have specific features, only inherit base builders.
+    """
+
+    name = "dirrevealjs"
 
 
 def convert_reveal_js_files(app: Sphinx, config: Config) -> None:

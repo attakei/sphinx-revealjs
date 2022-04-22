@@ -7,3 +7,7 @@ def static_resource_uri(src: str, prefix: str = None) -> str:
     if src.startswith("http://") or src.startswith("https://"):
         return src
     return f"{local_prefix}/{src}"
+
+
+def deprecated_message(version: str, frm: str, to: str) -> str:  # noqa: D103
+    return f"DEPRECATED: {frm} will drop by {version}, pleas use {to}"

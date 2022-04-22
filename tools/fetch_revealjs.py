@@ -26,11 +26,7 @@ RULE = {
 def find_package(src: Path, name: str) -> dict:
     """Pick package file URL from package-lock.json."""
     package_lock = json.loads(src.read_text())
-    deps = [
-        m
-        for n, m in package_lock.get("dependencies", {}).items()
-        if n == name
-    ]
+    deps = [m for n, m in package_lock.get("dependencies", {}).items() if n == name]
     if len(deps) == 0:
         raise ValueError(f"Invalid name: ({name})")
     return deps[0]
