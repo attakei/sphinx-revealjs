@@ -66,14 +66,6 @@ def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
                 "v2", "config:revealjs_generic_font", "adding custom CSS"
             )
         )
-    if len(config.html_js_files) > len(config.revealjs_js_files):
-        logger.info(
-            deprecated_message(
-                "v2",
-                "Supporting config:html_js_files",
-                "config:revealjs_js_files",
-            )
-        )
 
 
 def setup(app: Sphinx):
