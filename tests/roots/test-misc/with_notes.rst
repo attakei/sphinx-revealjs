@@ -2,6 +2,8 @@
 Test presentation
 =================
 
+.. This comment write only revealjs_notes_from_comments is True
+
 Sample
 ======
 

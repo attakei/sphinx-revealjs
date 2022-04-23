@@ -22,3 +22,12 @@ def test_no_out_by_html(app, status, warning):  # noqa
     soup = soup_html(app, "with_notes.html")
     notes = soup.find_all("aside", {"class": "notes"})
     assert len(notes) == 0
+
+
+@pytest.mark.sphinx(
+    "revealjs", testroot="misc", confoverrides={"revealjs_notes_from_comments": True}
+)
+def test_write_with_comments(app, status, warning):  # noqa
+    soup = soup_html(app, "with_notes.html")
+    notes = soup.find_all("aside", {"class": "notes"})
+    assert len(notes) == 2

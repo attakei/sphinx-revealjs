@@ -40,6 +40,7 @@ def depart_revaljs_notes(self: SphinxTranslator, nodes: revealjs_notes):  # noqa
 def setup(app: Sphinx):  # noqa: D103
     app.add_node(revealjs_notes, html=(visit_revealjs_notes, depart_revaljs_notes))
     app.add_directive("revealjs-notes", RevealjsNotes)
+    app.add_config_value("revealjs_notes_from_comments", False, "env")
     return {
         "version": __version__,
         "env_version": 2,
