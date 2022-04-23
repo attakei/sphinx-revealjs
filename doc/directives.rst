@@ -127,6 +127,21 @@ If you want to change behavior of sections, use these directives.
 
       This will be dropped when version 2.x
 
+.. rst:directive:: revealjs-notes
+
+   Directive for `Speaker View of Reveal.js plugin <https://revealjs.com/speaker-view/>`_.
+
+   Content of this write into ``<aside>`` element with ``class="notes"``.
+
+   .. code-block:: rst
+
+      Some slide
+      ==========
+
+      .. revealjs-notes::
+
+         Shhh, these are your private notes
+
 For interactive contents
 ========================
 
