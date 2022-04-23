@@ -23,16 +23,16 @@ class RevealjsNotes(BaseAdmonition, SphinxDirective):  # noqa: D101
             return [node]
 
 
-def visit_revealjs_notes(self: SphinxTranslator, nodes: revealjs_notes):  # noqa: D103
+def visit_revealjs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
-        self.visit_admonition(nodes)
+        self.visit_admonition(node)
         return
     self.body.append('<aside class="notes">')
 
 
-def depart_revaljs_notes(self: SphinxTranslator, nodes: revealjs_notes):  # noqa: D103
+def depart_revaljs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
-        self.depart_admonition(nodes)
+        self.depart_admonition(node)
         return
     self.body.append("</aside>")
 
