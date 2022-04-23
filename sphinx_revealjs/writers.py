@@ -1,5 +1,5 @@
 """Custom write module."""
-from docutils.nodes import Element, comment, literal_block, section, SkipNode
+from docutils.nodes import Element, SkipNode, comment, literal_block, section
 from sphinx.writers.html5 import HTML5Translator
 
 from .nodes import revealjs_break
