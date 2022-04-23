@@ -8,6 +8,7 @@ def test_write_to_aside_by_revealjs(app, status, warning):  # noqa
     soup = soup_html(app, "with_notes.html")
     notes = soup.find_all("aside", {"class": "notes"})
     assert len(notes) == 1
+    assert len(notes[0]) == 1
 
 
 @pytest.mark.sphinx("dirrevealjs", testroot="misc")

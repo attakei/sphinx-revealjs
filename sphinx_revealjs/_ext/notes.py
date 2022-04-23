@@ -27,14 +27,14 @@ def visit_revealjs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa:
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.visit_admonition(node)
         return
-    self.body.append('<aside class="notes">')
+    self.body.append(f'<aside class="notes">{node.astext()}</aside>')
+    raise nodes.SkipNode
 
 
 def depart_revaljs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.depart_admonition(node)
         return
-    self.body.append("</aside>")
 
 
 def setup(app: Sphinx):  # noqa: D103
