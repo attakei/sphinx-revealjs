@@ -38,3 +38,19 @@ class Test_RevealjsCode:  # noqa
         code_tag = soup.find_all("code")[1]
         assert "php" in code_tag.attrs["class"]
         assert "data-line-numbers" in code_tag.attrs
+
+
+class Test_RevealjsBreak:  # noqa
+    @pytest.mark.sphinx("revealjs", testroot="misc")
+    def test_on_revealjs_builder(self, app, status, warning):  # noqa
+        soup = soup_html(app, "has-break.html")
+        sec2 = soup.find_all("section")[1]
+        # title, content1, content2 (splitted)
+        assert len(sec2.find_all("section")) == 3
+
+    @pytest.mark.sphinx("dirrevealjs", testroot="misc")
+    def test_on_dirrevealjs_builder(self, app, status, warning):  # noqa
+        soup = soup_html(app, "has-break/index.html")
+        sec2 = soup.find_all("section")[1]
+        # title, content1, content2 (splitted)
+        assert len(sec2.find_all("section")) == 3
