@@ -1,6 +1,6 @@
 """Root module for sphinx-revealjs."""
 
-__version__ = "1.5.1"
+__version__ = "1.5.2"
 
 import sys
 
@@ -47,21 +47,25 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
         but sphinx app manage only names of nodes, not class types.
     """
     html_trans = app.registry.translation_handlers["html"]
-    rvjs_trans = app.registry.translation_handlers["revealjs"]
+    revealjs_trans = app.registry.translation_handlers["revealjs"]
+    dirrevealjs_trans = app.registry.translation_handlers["dirrevealjs"]
     for n, b in html_trans.items():
-        if n not in rvjs_trans:
-            rvjs_trans[n] = b
+        if n not in revealjs_trans:
+            revealjs_trans[n] = b
+    for n, b in revealjs_trans.items():
+        if n not in dirrevealjs_trans:
+            dirrevealjs_trans[n] = b
 
 
 def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
     if config.revealjs_google_fonts:
-        logger.info(
+        logger.warning(
             deprecated_message(
                 "v2", "config:revealjs_google_fonts", "package:googlefonts-markup"
             )
         )
     if config.revealjs_generic_font == "sans-serif":
-        logger.info(
+        logger.warning(
             deprecated_message(
                 "v2", "config:revealjs_generic_font", "adding custom CSS"
             )
@@ -86,6 +90,7 @@ def setup(app: Sphinx):
         revealjs_break,
         html=(not_write, not_write),
         revealjs=(visit_revealjs_break, depart_revealjs_break),
+        dirrevealjs=(visit_revealjs_break, depart_revealjs_break),
     )
     app.add_node(
         revealjs_slide, html=(not_write, not_write), revealjs=(not_write, not_write)

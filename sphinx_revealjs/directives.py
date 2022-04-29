@@ -79,7 +79,7 @@ class RevealjsBreak(Directive):  # noqa: D101
     def run(self):  # noqa: D102
         # TODO: Remove by v2.0.0
         if self.name == "revealjs_break":
-            logger.info(
+            logger.warning(
                 deprecated_message("v2", "'revealjs_break'", "'revealjs-break'")
             )
         node = revealjs_break()
@@ -101,7 +101,7 @@ class RevealjsSlide(Directive):  # noqa: D101
     def run(self):  # noqa: D102
         # TODO: Remove by v2.0.0
         if self.name == "revealjs_slide":
-            logger.info(
+            logger.warning(
                 deprecated_message("v2", "'revealjs_slide'", "'revealjs-slide'")
             )
         node = revealjs_slide()
@@ -118,7 +118,7 @@ class RevealjsFragments(Directive):  # noqa: D101
     def run(self):  # noqa: D102
         # TODO: Remove by v2.0.0
         if self.name == "revealjs_fragments":
-            logger.info(
+            logger.warning(
                 deprecated_message("v2", "'revealjs_fragments'", "'revealjs-fragments'")
             )
         node = revealjs_fragments()
