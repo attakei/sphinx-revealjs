@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sphinx-revealjs"
-version = "1.5.2"
+version = "2.0.0.dev1"
 description = "Sphinx extension with theme to generate Reveal.js presentation"
 license = "Apache-2.0"
 authors = ["Kazuya Takei <myself@attakei.net>"]
