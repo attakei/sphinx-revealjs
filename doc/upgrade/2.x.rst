@@ -4,3 +4,21 @@ Upgrading from 1.x to 2.x
 
 From 2.x, some features are removed because splitted other extensions or duplicated behaviors.
 If you want to use new version by documentation using 1.x, you should upgrade project files.
+
+Directives
+==========
+
+|THIS| defines kebab-cased directives only, and removed snake-cesed directives.
+You must replace cases to run by 2.x.
+
++------------------------+------------------------+
+| Before                 | After                  |
++========================+========================+
+| ``revealjs_break``     | ``revealjs-break``     |
++------------------------+------------------------+
+| ``revealjs_fragments`` | ``revealjs-fragments`` |
++------------------------+------------------------+
+| ``revealjs_section``   | ``revealjs-section``   |
++------------------------+------------------------+
+| ``revealjs_slide``     | ``revealjs-slide``     |
++------------------------+------------------------+
