@@ -11,6 +11,7 @@ ver 2.0.0
 Features
 --------
 
-Dropped
--------
+Deleted feaures
+---------------
 
+* Remove snake-cesed directives
