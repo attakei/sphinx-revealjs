@@ -8,7 +8,7 @@ Sample
 List fragments
 --------------
 
-.. revealjs_fragments::
+.. revealjs-fragments::
 
    * First
    * Second

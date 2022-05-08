@@ -2,7 +2,7 @@
 Test presentation
 =================
 
-.. revealjs_slide::
+.. revealjs-slide::
     :google_font: M PLUS 1p
 
 Sample
