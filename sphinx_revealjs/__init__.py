@@ -27,7 +27,6 @@ from sphinx_revealjs.nodes import (
     revealjs_slide,
 )
 from sphinx_revealjs.themes import get_theme_path
-from sphinx_revealjs.utils import deprecated_message
 from sphinx_revealjs.writers import (
     depart_revealjs_break,
     not_write,
@@ -58,7 +57,7 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 
 
 def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
-    """This func does not work. But keep for next deprecated."""
+    """Do not work. But it keep for next deprecated."""
     pass
 
 
