@@ -12,7 +12,7 @@ from sphinx.locale import __
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
-from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
+from .contexts import RevealjsPlugin, RevealjsProjectContext
 from .utils import static_resource_uri
 
 logger = logging.getLogger(__name__)
@@ -30,13 +30,8 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
         self.revealjs_slide = None
-        self.google_fonts = GoogleFonts(self.config.revealjs_generic_font)
 
     def init(self):  # noqa
-        if hasattr(self.config, "revealjs_google_fonts"):
-            self.google_fonts = self.google_fonts.extend(
-                self.config.revealjs_google_fonts
-            )
         # Create RevealjsProjectContext
         self.revealjs_context = RevealjsProjectContext(
             4,
@@ -95,7 +90,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
     ) -> None:  # noqa
         self.configure_theme(ctx)
-        self.configure_fonts(ctx)
         ctx["revealjs_page_confs"] = self.configure_page_script_conf()
 
     def configure_theme(self, ctx: Dict):
@@ -116,17 +110,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         # index 1: theme css file path
         # index 2 or later: other css files
         ctx["css_files"].insert(1, theme)
-
-    def configure_fonts(self, ctx: Dict):
-        """Find and add google-fonts settins from conf and directive."""
-        # Injection Google Font css
-        fonts = self.google_fonts
-        if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
-            fonts = fonts.extend(
-                self.revealjs_slide.attributes["google_font"].split(",")
-            )
-        ctx["google_fonts"] = fonts
-        ctx["css_files"] += fonts.css_files
 
     def configure_page_script_conf(self) -> List[str]:  # noqa
         if not self.revealjs_slide:

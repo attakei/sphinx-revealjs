@@ -58,18 +58,8 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 
 
 def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
-    if config.revealjs_google_fonts:
-        logger.warning(
-            deprecated_message(
-                "v2", "config:revealjs_google_fonts", "package:googlefonts-markup"
-            )
-        )
-    if config.revealjs_generic_font == "sans-serif":
-        logger.warning(
-            deprecated_message(
-                "v2", "config:revealjs_generic_font", "adding custom CSS"
-            )
-        )
+    """This func does not work. But keep for next deprecated."""
+    pass
 
 
 def setup(app: Sphinx):
@@ -108,8 +98,6 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_style_theme", "black", True)
     app.add_config_value("revealjs_js_files", [], True)
     app.add_config_value("revealjs_css_files", [], True)
-    app.add_config_value("revealjs_google_fonts", [], True)
-    app.add_config_value("revealjs_generic_font", "sans-serif", True)
     app.add_config_value("revealjs_script_files", [], True)
     app.add_config_value("revealjs_script_conf", None, True)
     app.add_config_value("revealjs_script_plugins", [], True)
