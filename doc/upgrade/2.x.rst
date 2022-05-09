@@ -5,6 +5,20 @@ Upgrading from 1.x to 2.x
 From 2.x, some features are removed because splitted other extensions or duplicated behaviors.
 If you want to use new version by documentation using 1.x, you should upgrade project files.
 
+Configurations
+==============
+
+html_js_files/revealjs_js_files
+-------------------------------
+
+|THIS| does not ref ``html_js_files`` as list of additional JavaScript files.
+It refer only ``revealjs_js_files``.
+
+You must do one of these.
+
+* Copy needy values of ``html_js_files`` to ``revealjs_js_files``
+* Sync ``html_js_files`` to ``revealjs_js_files`` (ex: ``revealjs_js_files = html_js_files``)
+
 Directives
 ==========
 
