@@ -160,8 +160,10 @@ Presentation Configurations
    .. code-block:: py
 
       revealjs_script_plugins = [
-          "src": "revealjs/plugin/highlight/highlight.js",
-          "name": "RevealHighlight",
+          {
+              "src": "revealjs4/plugin/highlight/highlight.js",
+              "name": "RevealHighlight",
+          },
       ]
 
    .. code-block:: html
