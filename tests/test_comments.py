@@ -10,11 +10,7 @@ def test_ignore_comment_at_default_config(app, status, warning):  # noqa
 
 
 @pytest.mark.sphinx(
-    "revealjs",
-    testroot="misc",
-    confoverrides={
-        "revealjs_notes_from_comments": True
-    }
+    "revealjs", testroot="misc", confoverrides={"revealjs_notes_from_comments": True}
 )
 def test_comment_as_notes(app, status, warning):  # noqa
     soup = soup_html(app, "with_commented_notes.html")
