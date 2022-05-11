@@ -1,4 +1,6 @@
 """Internal extension for Speaker view or Reveal.js."""
+import html
+
 from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 from sphinx.application import Sphinx
@@ -27,7 +29,7 @@ def visit_revealjs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa:
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.visit_admonition(node)
         return
-    self.body.append(f'<aside class="notes">{node.astext()}</aside>')
+    self.body.append(f'<aside class="notes">{html.escape(node.astext())}</aside>')
     raise nodes.SkipNode
 
 

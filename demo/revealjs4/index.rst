@@ -103,7 +103,7 @@ Use directive for speaker notes
 
 .. revealjs-notes::
 
-   Content outputs into "aside" element,
+   Content outputs into <aside> element,
    and you can see as speaker-notes.
 
 From:
@@ -112,7 +112,7 @@ From:
 
     .. revealjs-notes::
 
-       Content outputs into "aside" element,
+       Content outputs into <aside> element,
        and you can see as speaker-notes.
 
 To:
@@ -121,7 +121,7 @@ To:
 
     <section>
       <aside class="notes">
-        Content outputs into "aside" element, and you can see as speaker-notes.
+        Content outputs into <aside> element, and you can see as speaker-notes.
       </aside>
     </section>
 
