@@ -27,17 +27,6 @@ def test_pdfcss_not_exists(app, status, warning):  # noqa
 
 
 @pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
-def test_refs_all_exists(app, status, warning):  # noqa
-    soup = soup_html(app, "index.html")
-    google_fonts = [
-        d
-        for d in soup.find_all("link", rel="stylesheet")
-        if d["href"].startswith("https://fonts.googleapis.com")
-    ]
-    assert len(google_fonts) == 1
-
-
-@pytest.mark.sphinx("revealjs", testroot=PROJECT_ROOT / "demo/revealjs4")
 def test_script_conf(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     script = soup.find_all("script")[-1]

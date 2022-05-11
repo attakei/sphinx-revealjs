@@ -14,60 +14,6 @@ def test_defaults(app, status, warning):  # noqa
     "revealjs",
     testroot="misc",
     freshenv=True,
-    confoverrides={"revealjs_google_fonts": ["Noto Sans JP"]},
-)
-def test_google_fonts(app, status, warning):  # noqa
-    soup = soup_html(app, "index.html")
-    link = [
-        e
-        for e in soup.find_all("link", rel="stylesheet")
-        if e["href"].startswith("https://fonts.googleapis.com/css2")
-    ]
-    assert len(link) == 1
-    style = soup.find_all("style")[-1]
-    assert ".reveal" in str(style)
-    assert "Noto Sans JP" in str(style)
-    assert "sans-serif;" in str(style)
-
-
-@pytest.mark.sphinx(
-    "revealjs",
-    testroot="misc",
-    freshenv=True,
-    confoverrides={
-        "revealjs_google_fonts": ["Noto Sans JP"],
-        "revealjs_generic_font": "cursive",
-    },
-)
-def test_google_fonts_with_generic(app, status, warning):  # noqa
-    soup = soup_html(app, "index.html")
-    link = [
-        e
-        for e in soup.find_all("link", rel="stylesheet")
-        if e["href"].startswith("https://fonts.googleapi")
-    ]
-    assert len(link) == 1
-    style = soup.find_all("style")[-1]
-    assert "Noto Sans JP" in str(style)
-    assert "cursive" in str(style)
-
-
-@pytest.mark.sphinx(
-    "revealjs",
-    testroot="misc",
-    freshenv=True,
-    confoverrides={"revealjs_generic_font": "cursive"},
-)
-def test_generic_font_only(app, status, warning):  # noqa
-    soup = soup_html(app, "index.html")
-    styles = soup.find_all("style")
-    assert len(styles) == 0
-
-
-@pytest.mark.sphinx(
-    "revealjs",
-    testroot="misc",
-    freshenv=True,
     confoverrides={"revealjs_script_files": ["js/test.js"]},
 )
 def test_script_tags(app, status, warning):  # noqa

@@ -2,7 +2,7 @@
 Test presentation
 =================
 
-.. revealjs_slide::
+.. revealjs-slide::
     :theme: custom.css
 
 Sample

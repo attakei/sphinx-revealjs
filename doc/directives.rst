@@ -80,14 +80,6 @@ If you want to change behavior of sections, use these directives.
       .. revealjs-section::
          :data-background-color: #009900
 
-.. rst:directive:: revealjs_section
-
-   Alias of ``revealjs-section`` for backward compatibility.
-
-   .. note::
-
-      This will be dropped when version 2.x
-
 .. rst:directive:: revealjs-break
 
    If you want to transition section with keeping title,
@@ -118,29 +110,6 @@ If you want to change behavior of sections, use these directives.
    .. rst:directive:option:: notitle
 
       If it is set in directive, next section page does not display title.
-
-.. rst:directive:: revealjs_break
-
-   Alias of ``revealjs-breaK`` For backward compatibility.
-
-   .. note::
-
-      This will be dropped when version 2.x
-
-.. rst:directive:: revealjs-notes
-
-   Directive for `Speaker View of Reveal.js plugin <https://revealjs.com/speaker-view/>`_.
-
-   Content of this write into ``<aside>`` element with ``class="notes"``.
-
-   .. code-block:: rst
-
-      Some slide
-      ==========
-
-      .. revealjs-notes::
-
-         Shhh, these are your private notes
 
 For interactive contents
 ========================
@@ -188,11 +157,3 @@ For interactive contents
          * Third
 
    See `demo <https://attakei.github.io/sphinx-revealjs/#/5/1>`_
-
-.. rst:directive:: revealjs_fragments
-
-   Alias of ``revealjs-fragments`` for backward compatibility.
-
-   .. note::
-
-      This will be dropped when version 2.x

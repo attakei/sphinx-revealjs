@@ -2,13 +2,14 @@
 Test presentation
 =================
 
-.. revealjs_slide::
-    :google_font: M PLUS 1p
-
 Sample
 ======
 
 Head
 ----
 
-content
+content 1
+
+.. revealjs-break::
+
+content 2

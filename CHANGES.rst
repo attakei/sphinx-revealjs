@@ -2,6 +2,27 @@
 Changelog
 =========
 
+ver 1.5.2
+=========
+
+:date: 2022-04-29
+:base: Reveal.js 4.3.1
+
+Fixes
+-----
+
+* Work ``revealjs-break`` directive in ``dirrevealjs`` builder (#109)
+* Inherit behavior of any nodes from ``html`` builder to ``dirrevealjs`` builder (#108)
+
+Deprecated
+----------
+
+Mark as deprecated(logging.warning) to drop at version 2.x (updated from v1.5.0)
+
+* Snake-cased directive ( ``revealjs_slide``, ``revealjs_section`` and ``revealjs_break`` )
+* CSS Font configurations ( ``revealjs_google_fonts`` and ``revealjs_generic_font`` )
+* Passing values from ``html_js_files`` to ``revealjs_js_files``
+
 ver 1.5.1
 =========
 
