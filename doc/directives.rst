@@ -157,3 +157,23 @@ For interactive contents
          * Third
 
    See `demo <https://attakei.github.io/sphinx-revealjs/#/5/1>`_
+
+.. rst:directive:: revealjs-notes
+
+   When you write this section, inner text are as content of `Speaker View <https://revealjs.com/speaker-view/>`_.
+
+   If you write some directives on same-level, Reveal.js uses first direcrive only.
+
+   .. note::
+
+      You must be careful for comment block when you set :confval:`revealjs_notes_from_comments` in ``conf.py``.
+      Reveal.js recoginzes first ``<aside>`` element as content of speaker-view,
+      so you may not see directive content as notes.
+
+   Example:
+
+   .. code-block:: rst
+
+      .. revealjs-notes::
+
+         This content output into <aside> element on <section>.
