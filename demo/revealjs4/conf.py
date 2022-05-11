@@ -59,6 +59,7 @@ revealjs_css_files = [
     "revealjs4/plugin/highlight/zenburn.css",
     "custom.css",
 ]
+revealjs_notes_from_comments = True
 
 # -- Options for HTMLHelp output ---------------------------------------------
 htmlhelp_basename = "sphinx-revealjsdoc"
