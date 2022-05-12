@@ -178,6 +178,13 @@ Presentation Configurations
         revealjs.initialize(revealjsConfig);
       </script>
 
+.. confval:: revealjs_notes_from_comments
+
+   :Type: boolean
+   :Default: False
+
+   If this is set `True`, builder writes notes section from comment block.
+
 Font configurations
 ===================
 

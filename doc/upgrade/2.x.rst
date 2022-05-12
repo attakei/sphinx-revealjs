@@ -65,6 +65,41 @@ You need to create custom theme per presentations.
    .. revealjs-slide::
       :theme: "css/theme-for-this-presentation.css"
 
+Speaker Views
+=============
+
+New configration :confval:`revealjs_notes_from_comments` are defined.
+But, because default values is ``False``, your presentation not write speaker-note when you upgrade |THIS|
+
+Replace reveajs-notes(recommended)
+----------------------------------
+
+You can replace :rst:dir:`revealjs-notes` from comment-block.
+And you can use comment-block as COMMENT(does not write as content from source).
+
+Before:
+
+.. code-block:: rst
+
+   .. This is 1.x style speaker-view content
+
+After:
+
+.. code-block:: rst
+
+   .. revealjs-notes::
+
+      This is 1.x style speaker-view content
+
+Configuration for compatible behaviors
+--------------------------------------
+
+You can set ``True`` :confval:`revealjs_notes_from_comments` to use behaviors of ver 1.x.
+
+.. code-block:: python
+
+   revealjs_notes_from_comments = Ture
+
 Configurations
 ==============
 

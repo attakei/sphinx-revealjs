@@ -78,6 +78,8 @@ To:
 reStructuredText comments are used as speaker notes
 ---------------------------------------------------
 
+.. This is comment in reStructuredText
+
 From:
 
 .. code-block:: rest
@@ -91,6 +93,35 @@ To:
     <section>
       <aside class="notes">
         This is comment in reStructuredText
+      </aside>
+    </section>
+
+**NOTE:** You must set revealjs_notes_from_comments
+
+Use directive for speaker notes
+-------------------------------
+
+.. revealjs-notes::
+
+   Content outputs into <aside> element,
+   and you can see as speaker-notes.
+
+From:
+
+.. code-block:: rest
+
+    .. revealjs-notes::
+
+       Content outputs into <aside> element,
+       and you can see as speaker-notes.
+
+To:
+
+.. code-block:: html
+
+    <section>
+      <aside class="notes">
+        Content outputs into <aside> element, and you can see as speaker-notes.
       </aside>
     </section>
 
