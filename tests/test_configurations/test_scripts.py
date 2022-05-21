@@ -4,7 +4,7 @@ from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
 
 
-class TestForRevealjsScriptFiles:
+class TestForRevealjsScriptFiles:  # noqa
     @pytest.mark.sphinx(
         "revealjs",
         testroot="for-config",
@@ -34,7 +34,7 @@ class TestForRevealjsScriptFiles:
         assert len(elements) == 1
 
 
-class TestForRevealjsScriptConfig:
+class TestForRevealjsScriptConfig:  # noqa
     @pytest.mark.sphinx(
         "revealjs",
         testroot="for-config",

@@ -4,7 +4,7 @@ from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
 
 
-class TestForRevealjsCssFiles:
+class TestForRevealjsCssFiles:  # noqa
     @pytest.mark.sphinx(
         "revealjs",
         testroot="for-config",
@@ -38,7 +38,7 @@ class TestForRevealjsCssFiles:
         assert (app.outdir / "_static/custom.css").exists()
 
 
-class TestForRevealjsJsFiles:
+class TestForRevealjsJsFiles:  # noqa
     @pytest.mark.sphinx(
         "revealjs",
         testroot="for-config",

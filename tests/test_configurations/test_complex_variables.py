@@ -12,7 +12,9 @@ from testutils import soup_html
         "revealjs_css_files": ["custom.css"],
     },
 )
-def test_default_theme_css_comes_before_custom_css(app: SphinxTestApp, status, warning):  # noqa
+def test_default_theme_css_comes_before_custom_css(
+    app: SphinxTestApp, status, warning
+):  # noqa
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     default_theme_index = stylesheet_href_list.index(
@@ -31,7 +33,9 @@ def test_default_theme_css_comes_before_custom_css(app: SphinxTestApp, status, w
         "revealjs_css_files": ["other_custom.css"],
     },
 )
-def test_specified_theme_css_comes_before_custom_css(app: SphinxTestApp, status, warning):  # noqa
+def test_specified_theme_css_comes_before_custom_css(
+    app: SphinxTestApp, status, warning
+):  # noqa
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     specified_theme_index = stylesheet_href_list.index(
