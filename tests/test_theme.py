@@ -1,4 +1,4 @@
-"""Test cases for builtin theme"""
+"""Test cases for builtin theme."""
 import pytest
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
