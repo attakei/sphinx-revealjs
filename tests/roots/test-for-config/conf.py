@@ -3,3 +3,8 @@
 extensions = [
     "sphinx_revealjs",
 ]
+
+# To skip toctree
+rst_prolog = """
+:orphan:
+"""
