@@ -29,8 +29,12 @@ def raw_json(argument):
 
 
 REVEALJS_SECTION_ATTRIBUTES = {
+    # Markup / Slide State
+    "data-state": directives.unchanged,
     # Backgrounds / Color Backgrounds
     "data-background-color": directives.unchanged,
+    # Backgrounds / Gradient Backgrounds
+    "data-background-gradient": directives.unchanged,
     # Backgrounds / Image Backgrounds
     "data-background-image": directives.unchanged,
     "data-background-position": directives.unchanged,
@@ -45,8 +49,11 @@ REVEALJS_SECTION_ATTRIBUTES = {
     # Backgrounds / Iframe Backgrounds
     "data-background-iframe": directives.unchanged,
     "data-background-interactive": lambda x: FlagAttribute(),
+    # Slide Visibility
+    "data-visibility": directives.unchanged,
     # Transitions
     "data-transition": directives.unchanged,
+    "data-transition-speed": directives.unchanged,
     "data-background-transition": directives.unchanged,
     # Auto-Animate
     "data-auto-animate": lambda x: FlagAttribute(),
@@ -54,6 +61,10 @@ REVEALJS_SECTION_ATTRIBUTES = {
     "data-auto-animate-duration": directives.unchanged,
     "data-auto-animate-easing": directives.unchanged,
     "data-auto-animate-unmatched": directives.unchanged,
+    "data-auto-animate-id": lambda x: FlagAttribute(),
+    "data-auto-animate-restart": lambda x: FlagAttribute(),
+    # Auto-Slide / Slide Timing
+    "data-autoslide": lambda x: FlagAttribute(),
 }
 
 
