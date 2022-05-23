@@ -26,6 +26,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     name = "revealjs"
     default_translator_class = RevealjsSlideTranslator
+    search = False
 
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
