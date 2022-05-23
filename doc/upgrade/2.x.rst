@@ -114,6 +114,12 @@ You must do one of these.
 * Copy needy values of ``html_js_files`` to ``revealjs_js_files``
 * Sync ``html_js_files`` to ``revealjs_js_files`` (ex: ``revealjs_js_files = html_js_files``)
 
+revealjs_use_index
+------------------
+
+|THIS| does not generate ``genindex.html`` (list of in vals) on default.
+If you want ``genindex.html`` for Reveal.js builder, you muse set ``True``.
+
 Directives
 ==========
 

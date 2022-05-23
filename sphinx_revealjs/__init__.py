@@ -93,6 +93,7 @@ def setup(app: Sphinx):
     app.add_directive("revealjs-fragments", RevealjsFragments)
     app.add_directive("revealjs-code-block", RevealjsCodeBlock)
     app.add_config_value("revealjs_use_section_ids", False, True)
+    app.add_config_value("revealjs_use_index", False, "env")
     app.add_config_value("revealjs_static_path", [], True)
     app.add_config_value("revealjs_style_theme", "black", True)
     app.add_config_value("revealjs_js_files", [], True)

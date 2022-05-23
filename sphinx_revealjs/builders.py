@@ -26,6 +26,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     name = "revealjs"
     default_translator_class = RevealjsSlideTranslator
+    search = False
 
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
@@ -52,6 +53,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         # Hand over builder configs to html builder.
         setattr(self.config, "html_static_path", self.config.revealjs_static_path)
         super().init()
+        self.use_index = self.get_builder_config("use_index", "revealjs")
 
     def init_css_files(self) -> None:  # noqa
         self.add_css_file(self.revealjs_context.engine.css_path)

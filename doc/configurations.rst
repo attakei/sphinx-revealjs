@@ -36,6 +36,13 @@ Basic configurations
 
    If you want to customize presentation by CSS, write external css and use it.
 
+.. confval:: revealjs_use_index
+
+   :Type: ``bool``
+   :Default: ``False``
+
+   Flag that does builder generate ``genindex.html`` (same as :confval:`sphinx:html_use_index` ).
+
 Style Configurations
 ====================
 
