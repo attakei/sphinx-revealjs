@@ -20,6 +20,11 @@ Added Features
 
   * BREAKING CHANGE: Default value is False. You must set ``True`` explicitly to use as same as ver 1.x
 
+Fixes
+-----
+
+* Register ``data-XXX`` attributes into ``revealjs-section`` and ``revealjs-break`` from https://revealjs.com/
+
 Deleted feaures
 ---------------
 
