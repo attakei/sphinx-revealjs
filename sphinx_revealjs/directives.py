@@ -29,31 +29,42 @@ def raw_json(argument):
 
 
 REVEALJS_SECTION_ATTRIBUTES = {
-    # Color backgrounds
+    # Markup / Slide State
+    "data-state": directives.unchanged,
+    # Backgrounds / Color Backgrounds
     "data-background-color": directives.unchanged,
-    # Image backgrounds
+    # Backgrounds / Gradient Backgrounds
+    "data-background-gradient": directives.unchanged,
+    # Backgrounds / Image Backgrounds
     "data-background-image": directives.unchanged,
     "data-background-position": directives.unchanged,
     "data-background-repeat": directives.unchanged,
-    # Video backgrounds
+    # Backgrounds / Video Backgrounds
     "data-background-video": directives.unchanged,
     "data-background-video-loop": directives.unchanged,
     "data-background-video-muted": directives.unchanged,
-    # Image/Video backgrounds
+    # Backgrounds / Image and Video Backgrounds
     "data-background-size": directives.unchanged,
     "data-background-opacity": directives.unchanged,
-    # Iframe backgrounds
+    # Backgrounds / Iframe Backgrounds
     "data-background-iframe": directives.unchanged,
     "data-background-interactive": lambda x: FlagAttribute(),
-    # Transition
+    # Slide Visibility
+    "data-visibility": directives.unchanged,
+    # Transitions
     "data-transition": directives.unchanged,
+    "data-transition-speed": directives.unchanged,
     "data-background-transition": directives.unchanged,
-    # Animations
+    # Auto-Animate
     "data-auto-animate": lambda x: FlagAttribute(),
     "data-auto-animate-delay": directives.unchanged,
     "data-auto-animate-duration": directives.unchanged,
     "data-auto-animate-easing": directives.unchanged,
     "data-auto-animate-unmatched": directives.unchanged,
+    "data-auto-animate-id": directives.unchanged,
+    "data-auto-animate-restart": lambda x: FlagAttribute(),
+    # Auto-Slide / Slide Timing
+    "data-autoslide": directives.unchanged,
 }
 
 
