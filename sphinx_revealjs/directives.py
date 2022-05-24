@@ -61,10 +61,10 @@ REVEALJS_SECTION_ATTRIBUTES = {
     "data-auto-animate-duration": directives.unchanged,
     "data-auto-animate-easing": directives.unchanged,
     "data-auto-animate-unmatched": directives.unchanged,
-    "data-auto-animate-id": lambda x: FlagAttribute(),
+    "data-auto-animate-id": directives.unchanged,
     "data-auto-animate-restart": lambda x: FlagAttribute(),
     # Auto-Slide / Slide Timing
-    "data-autoslide": lambda x: FlagAttribute(),
+    "data-autoslide": directives.unchanged,
 }
 
 
