@@ -3,7 +3,6 @@ import json
 
 from docutils.nodes import Sequential
 from docutils.parsers.rst import Directive, directives
-from sphinx.directives.code import CodeBlock
 from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (
@@ -129,19 +128,3 @@ class RevealjsFragments(Directive):  # noqa: D101
         return [
             node,
         ]
-
-
-class RevealjsCodeBlock(CodeBlock):  # noqa: D101
-    option_spec = {
-        **CodeBlock.option_spec,
-        "data-id": directives.unchanged,
-        "data-line-numbers": directives.unchanged,
-    }
-
-    def run(self):  # noqa: D102
-        nodes = super().run()
-        if self.options.get("data-line-numbers"):
-            nodes[0]["data-line-numbers"] = self.options.get("data-line-numbers")
-        if self.options.get("data-id"):
-            nodes[0]["data-id"] = self.options.get("data-id")
-        return nodes
