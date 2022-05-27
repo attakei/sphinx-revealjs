@@ -40,16 +40,16 @@ From:
 .. container:: adjust-section-structure
 
    .. code-block:: rest
-   
+
        Title
        =====
-   
+
        First section
        -------------
-   
+
            Content 1
            ^^^^^^^^^
-   
+
            Content 2
            ^^^^^^^^^
 
@@ -58,7 +58,7 @@ To:
 .. container:: adjust-section-structure
 
    .. code-block:: html
-   
+
        <section>
            <h1>Title</h1>
        </section>
@@ -73,7 +73,6 @@ To:
                <h3>Content 2</h3>
            </section>
        </section>
-   
 
 reStructuredText comments are used as speaker notes
 ---------------------------------------------------
@@ -377,7 +376,7 @@ Example to use ``sphinx.ext.mathjax`` (recommended)
     \begin{aligned}
       \dot{x} & = \sigma(y-x) \\
       \dot{y} & = \rho x - y - xz \\
-      \dot{z} & = -\beta z + xy     
+      \dot{z} & = -\beta z + xy
     \end{aligned}
 
 .. revealjs-break::
