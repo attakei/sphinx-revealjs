@@ -37,7 +37,7 @@ jobs:
         run: |
           poetry run black --check .
           poetry run flake8 .
-          poetry run doc8 --max-line-length=119 doc/
+          poetry run doc8 .
       - name: Test with nosetests
         run: |
           poetry run pytest
