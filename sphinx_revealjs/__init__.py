@@ -93,19 +93,44 @@ def setup(app: Sphinx):
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
-        revealjs_section, html=(not_write, not_write), revealjs=(not_write, not_write)
+        revealjs_section,
+        html=(not_write, not_write),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
+        revealjs=(not_write, not_write),
+        dirrevealjs=(not_write, not_write),
     )
     app.add_node(
         revealjs_break,
         html=(not_write, not_write),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
         revealjs=(visit_revealjs_break, depart_revealjs_break),
         dirrevealjs=(visit_revealjs_break, depart_revealjs_break),
     )
     app.add_node(
-        revealjs_slide, html=(not_write, not_write), revealjs=(not_write, not_write)
+        revealjs_slide,
+        html=(not_write, not_write),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
+        revealjs=(not_write, not_write),
+        dirrevealjs=(not_write, not_write),
     )
     app.add_node(
-        revealjs_fragments, html=(not_write, not_write), revealjs=(not_write, not_write)
+        revealjs_fragments,
+        html=(not_write, not_write),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
+        revealjs=(not_write, not_write),
+        dirrevealjs=(not_write, not_write),
     )
     # TODO: Remove undersocored directives by v2.0.0
     app.add_directive("revealjs_break", RevealjsBreak)
