@@ -9,6 +9,7 @@ from sphinx.util.docutils import SphinxTranslator
 
 from .. import __version__
 from ..builders import RevealjsHTMLBuilder
+from ..writers import not_write
 
 
 class revealjs_notes(nodes.Admonition, nodes.Element):  # noqa: D101
@@ -40,7 +41,16 @@ def depart_revaljs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa:
 
 
 def setup(app: Sphinx):  # noqa: D103
-    app.add_node(revealjs_notes, html=(visit_revealjs_notes, depart_revaljs_notes))
+    app.add_node(
+        revealjs_notes,
+        html=(visit_revealjs_notes, depart_revaljs_notes),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
+        revealjs=(visit_revealjs_notes, depart_revaljs_notes),
+        dirrevealjs=(visit_revealjs_notes, depart_revaljs_notes),
+    )
     app.add_directive("revealjs-notes", RevealjsNotes)
     app.add_config_value("revealjs_notes_from_comments", False, "env")
     return {
