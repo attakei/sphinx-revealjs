@@ -2,6 +2,17 @@
 Changelog
 =========
 
+ver 1.5.3
+=========
+
+:date: 2022-06-02
+:base: Reveal.js 4.3.1
+
+Fixes
+-----
+
+* All nodes for ``sphinx-revealjs`` does not write anything when none revealjs builder works.
+
 ver 1.5.2
 =========
 
