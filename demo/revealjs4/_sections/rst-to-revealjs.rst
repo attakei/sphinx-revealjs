@@ -9,25 +9,25 @@ reST structure to Reveal.js sections
    .. container:: half
 
       From:
- 
+
       .. code-block:: rst
- 
+
           Title
           =====
- 
+
           First section
           -------------
 
           Content 1
           ^^^^^^^^^
- 
+
           Content 2
           ^^^^^^^^^
 
    .. container:: half
 
       To:
- 
+
       .. code-block:: html
 
           <section>
@@ -58,18 +58,18 @@ Using built-in directives
 
          Sub section
          -----------
- 
+
          Content
          ^^^^^^^
 
          .. image:: ./your-image.png
- 
+
    .. container:: half
- 
+
       To:
- 
+
       .. code-block:: html
- 
+
          <section>
            <section>
               <h2>First section</h2>
@@ -95,7 +95,7 @@ Using custom directives of Sphinx extensions
          https://twitter.com/attakei/status/1517152841550376961
 
       ``oembed`` is custom directive from `sphinxcontrib-oembed <https://github.com/attakei-lab/sphinxcontrib-oembed>`_
-      
+
    .. container:: half
 
       To:
