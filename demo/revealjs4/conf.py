@@ -16,12 +16,13 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_revealjs",
     "sphinxcontrib.gtagjs",
+    "sphinxcontrib.oembed",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
 language = None
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "_sections"]
 pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
@@ -33,7 +34,7 @@ html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
 revealjs_static_path = ["_static"]
-revealjs_style_theme = "black"
+revealjs_style_theme = "moon"
 revealjs_script_conf = {
     "controls": True,
     "progress": True,

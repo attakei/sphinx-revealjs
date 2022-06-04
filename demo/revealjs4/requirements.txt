@@ -1,2 +1,3 @@
 sphinx-revealjs
 sphinxcontrib-gtagjs
+--find-links=https://github.com/attakei-lab/sphinxcontrib-oembed/releases sphinxcontrib-oembed
