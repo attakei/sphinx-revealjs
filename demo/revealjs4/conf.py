@@ -15,15 +15,16 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
+    "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.oembed",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
-language = None
+language = "en"
 locale_dirs = ["_locales"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "_sections"]
+exclude_patterns = [".venv", "_build", "Thumbs.db", ".DS_Store", "_sections"]
 pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
@@ -105,3 +106,5 @@ todo_include_todos = True
 
 if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
+
+budoux_targets = ["h1", "h2", "h3"]
