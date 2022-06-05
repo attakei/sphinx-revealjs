@@ -121,7 +121,7 @@ msgid ""
 msgstr ""
 "``sphinx-revealjs`` は専用のビルダーとして ``revealjs`` を提供しています。"
 "もしプレゼンテーションとして出力したい場合は、"
-"``make revealjs``と実行するだけで生成できます。"
+"``make revealjs`` と実行するだけで生成できます。"
 
 #: ../../_sections/standard-usage.rst:60
 msgid ""
