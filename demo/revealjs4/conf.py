@@ -40,7 +40,6 @@ revealjs_style_theme = "moon"
 revealjs_script_conf = {
     "controls": True,
     "progress": True,
-    "history": True,
     "center": True,
     "transition": "slide",
 }
