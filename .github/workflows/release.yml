@@ -6,53 +6,93 @@ on:
       - 'v*.*.*'
 
 jobs:
+  # Build and configure package(s)
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - run: pipx install poetry
+      - uses: actions/setup-python@v3
         with:
           architecture: x64
-          python-version: 3.9
+          python-version: '3.10'
+          cache: 'poetry'
       - name: Build packages
-        id: build_package
         run: |
-          python -m pip install poetry
+          poetry env use "3.10"
           python tools/fetch_revealjs.py
           poetry build
+      - name: Store filepath
+        id: store-filepath
+        run: |
           echo ::set-output name=targz::$(basename $(ls dist/*tar.gz))
           echo ::set-output name=wheel::$(basename $(ls dist/*whl))
-      - name: Create release on GitHub
-        id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v3
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: Changelog is https://github.com/attakei/sphinx-revealjs/blob/${{ github.ref_name }}/CHANGES.rst
-          draft: false
-          prerelease: false
-      - name: Upload sdist to GitHub
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: dist-packages
+          path: dist
+    outputs:
+      package-targz: ${{ steps.store-filepath.outputs.targz }}
+      package-wheel: ${{ steps.store-filepath.outputs.wheel }}
+  # Collect information from tagged release
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check stage from tag
+        id: parse-tag
+        run: |
+          echo ::set-output name=is-core-release::$(echo ${{ github.ref_name }} | grep '^v[0-9]\+\.[0-9]\+\.[0-9]\+$'|wc -l)
+    outputs:
+      is-prerelease: ${{ steps.parse-tag.outputs.is-core-release != '1' }}
+      is-release: ${{ steps.parse-tag.outputs.is-core-release == '1' }}
+  publish-pypi:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - prepare
+    if: success() && ${{ needs.prepare.outputs.is-release }}
+    steps:
+      - uses: actions/download-artifact@v3
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/${{ steps.build_package.outputs.targz }}
-          asset_name: ${{ steps.build_package.outputs.targz }}
-          asset_content_type: application/gzip
-      - name: Upload wheel to GitHub
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/${{ steps.build_package.outputs.wheel }}
-          asset_name: ${{ steps.build_package.outputs.wheel }}
-          asset_content_type: application/zip
+          name: dist-packages
+          path: dist/
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
+  github-releases:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - prepare
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist-packages
+          path: dist/
+      - name: Create release on GitHub
+        id: create-release
+        uses: actions/create-release@latest
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: You can see changes from `CHANGE.rst` or related files on root of repository.
+          draft: false
+          prerelease: ${{ needs.prepare.outputs.is-prerelease }}
+      - name: Upload sdist to GitHub
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: dist/${{ needs.build.outputs.package-targz }}
+          asset_name: ${{ needs.build.outputs.package-targz }}
+          asset_content_type: application/gzip
+      - name: Upload wheel to GitHub
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: dist/${{ needs.build.outputs.package-wheel }}
+          asset_name: ${{ needs.build.outputs.package-wheel }}
+          asset_content_type: application/zip

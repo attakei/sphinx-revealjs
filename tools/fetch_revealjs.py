@@ -1,4 +1,4 @@
-#!/use/bin/env python
+#!/usr/bin/env python
 """Fetch and sync reveal.js resources.
 
 This script need to run these case.

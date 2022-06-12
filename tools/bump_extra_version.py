@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Bump post version writer."""
 import argparse
 import configparser
@@ -8,19 +9,21 @@ parser = argparse.ArgumentParser()
 parser.add_argument("release_type", choices=["post", "dev"], default="post")
 
 
-def calc_pre(release_type: str):
+def calc_pre(release_type: str) -> str:
+    """Generate post version number from timestamp."""
     cur = datetime.now()
     return f"{release_type}{int(cur.timestamp())}"
 
 
-def bump_file(fpath, current_version, next_version):
+def bump_file(fpath: Path, current_version: str, next_version: str):
+    """Change version string not using bump2version."""
     with fpath.open() as fp:
         raw = fp.read()
     with fpath.open("w") as fp:
         fp.write(raw.replace(current_version, next_version))
 
 
-def main(args):
+def main(args):  # noqa
     setup_cfg = configparser.ConfigParser()
     setup_cfg.read("setup.cfg")
     current_version = setup_cfg.get("bumpversion", "current_version")

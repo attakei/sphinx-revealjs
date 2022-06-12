@@ -36,6 +36,13 @@ Basic configurations
 
    If you want to customize presentation by CSS, write external css and use it.
 
+.. confval:: revealjs_use_index
+
+   :Type: ``bool``
+   :Default: ``False``
+
+   Flag that does builder generate ``genindex.html`` (same as :confval:`sphinx:html_use_index` ).
+
 Style Configurations
 ====================
 
@@ -179,6 +186,13 @@ Presentation Configurations
         revealjsConfig.plugins = [RevealHighlight,];
         revealjs.initialize(revealjsConfig);
       </script>
+
+.. confval:: revealjs_notes_from_comments
+
+   :Type: boolean
+   :Default: False
+
+   If this is set `True`, builder writes notes section from comment block.
 
 Font configurations
 ===================

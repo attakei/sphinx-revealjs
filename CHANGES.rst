@@ -245,7 +245,7 @@ In this version, ``sphinx-revealjs`` bundle Reveal.js version 4.x,
 and does not supporting to work with Reveal.js 3.x.
 
 If you want to migrate presentation source for this version,
-please see `migration example <./docs/migrations>`_. 
+please see `migration example <./docs/migrations>`_.
 
 New features
 ------------

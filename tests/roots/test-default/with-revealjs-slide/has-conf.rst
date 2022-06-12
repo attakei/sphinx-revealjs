@@ -2,7 +2,7 @@
 Test presentation
 =================
 
-.. revealjs_slide::
+.. revealjs-slide::
     :conf: {"transition": "none"}
 
 Sample

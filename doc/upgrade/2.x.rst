@@ -1,0 +1,139 @@
+=========================
+Upgrading from 1.x to 2.x
+=========================
+
+From 2.x, some features are removed because splitted other extensions or duplicated behaviors.
+If you want to use new version by documentation using 1.x, you should upgrade project files.
+
+Fonts
+=====
+
+|THIS| does not support font configuration features to provide features as "Presentation tools".
+
+If you want to use Google Fonts
+-------------------------------
+
+You can add CSS URL into ``revealjs_css_files`` directly.
+
+.. code-block:: python
+
+   revealjs_css_files = [
+       "https://fonts.googleapis.com/css2?family=Noto+Sans+JP",
+       "css/custom.css",
+   ]
+
+Example of ``css/custom.css``.
+
+.. code-block:: css
+
+   .reveal *, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+       font-family: 'Noto Sans JP', sans-serif;
+   }
+
+Use googlefonts-markup
+----------------------
+
+If you want to write only font-family, use `googlefonts-markup <https://pypi.org/project/googlefonts-markup/>`_.
+
+.. code-block:: python
+
+   from googlefonts_markup import Font
+
+   revealjs_css_files = [
+       Font(family_name="Noto Sans JP").css_url(),
+       "css/custom.css",
+   ]
+
+Change using Google Fonts per presentations
+-------------------------------------------
+
+You need to create custom theme per presentations.
+
+.. code-block:: python
+
+   # Define default theme
+   revealjs_style_theme = "black"
+
+.. code-block:: rst
+
+   =====
+   Title
+   =====
+
+   .. Set `revealjs-slide/theme` to override theme
+
+   .. revealjs-slide::
+      :theme: "css/theme-for-this-presentation.css"
+
+Speaker Views
+=============
+
+New configration :confval:`revealjs_notes_from_comments` are defined.
+But, because default values is ``False``, your presentation not write speaker-note when you upgrade |THIS|
+
+Replace reveajs-notes(recommended)
+----------------------------------
+
+You can replace :rst:dir:`revealjs-notes` from comment-block.
+And you can use comment-block as COMMENT(does not write as content from source).
+
+Before:
+
+.. code-block:: rst
+
+   .. This is 1.x style speaker-view content
+
+After:
+
+.. code-block:: rst
+
+   .. revealjs-notes::
+
+      This is 1.x style speaker-view content
+
+Configuration for compatible behaviors
+--------------------------------------
+
+You can set ``True`` :confval:`revealjs_notes_from_comments` to use behaviors of ver 1.x.
+
+.. code-block:: python
+
+   revealjs_notes_from_comments = Ture
+
+Configurations
+==============
+
+html_js_files/revealjs_js_files
+-------------------------------
+
+|THIS| does not ref ``html_js_files`` as list of additional JavaScript files.
+It refer only ``revealjs_js_files``.
+
+You must do one of these.
+
+* Copy needy values of ``html_js_files`` to ``revealjs_js_files``
+* Sync ``html_js_files`` to ``revealjs_js_files`` (ex: ``revealjs_js_files = html_js_files``)
+
+revealjs_use_index
+------------------
+
+|THIS| does not generate ``genindex.html`` (list of in vals) on default.
+If you want ``genindex.html`` for Reveal.js builder, you muse set ``True``.
+
+Directives
+==========
+
+|THIS| defines kebab-cased directives only, and removed snake-cesed directives.
+You must replace cases to run by 2.x.
+
++------------------------+------------------------+
+| Before                 | After                  |
++========================+========================+
+| ``revealjs_break``     | ``revealjs-break``     |
++------------------------+------------------------+
+| ``revealjs_fragments`` | ``revealjs-fragments`` |
++------------------------+------------------------+
+| ``revealjs_section``   | ``revealjs-section``   |
++------------------------+------------------------+
+| ``revealjs_slide``     | ``revealjs-slide``     |
++------------------------+------------------------+

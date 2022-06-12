@@ -3,7 +3,6 @@ import json
 
 from docutils.nodes import Sequential
 from docutils.parsers.rst import Directive, directives
-from sphinx.directives.code import CodeBlock
 from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (
@@ -13,7 +12,6 @@ from sphinx_revealjs.nodes import (
     revealjs_section,
     revealjs_slide,
 )
-from sphinx_revealjs.utils import deprecated_message
 
 logger = logging.getLogger(__name__)
 
@@ -30,31 +28,42 @@ def raw_json(argument):
 
 
 REVEALJS_SECTION_ATTRIBUTES = {
-    # Color backgrounds
+    # Markup / Slide State
+    "data-state": directives.unchanged,
+    # Backgrounds / Color Backgrounds
     "data-background-color": directives.unchanged,
-    # Image backgrounds
+    # Backgrounds / Gradient Backgrounds
+    "data-background-gradient": directives.unchanged,
+    # Backgrounds / Image Backgrounds
     "data-background-image": directives.unchanged,
     "data-background-position": directives.unchanged,
     "data-background-repeat": directives.unchanged,
-    # Video backgrounds
+    # Backgrounds / Video Backgrounds
     "data-background-video": directives.unchanged,
     "data-background-video-loop": directives.unchanged,
     "data-background-video-muted": directives.unchanged,
-    # Image/Video backgrounds
+    # Backgrounds / Image and Video Backgrounds
     "data-background-size": directives.unchanged,
     "data-background-opacity": directives.unchanged,
-    # Iframe backgrounds
+    # Backgrounds / Iframe Backgrounds
     "data-background-iframe": directives.unchanged,
     "data-background-interactive": lambda x: FlagAttribute(),
-    # Transition
+    # Slide Visibility
+    "data-visibility": directives.unchanged,
+    # Transitions
     "data-transition": directives.unchanged,
+    "data-transition-speed": directives.unchanged,
     "data-background-transition": directives.unchanged,
-    # Animations
+    # Auto-Animate
     "data-auto-animate": lambda x: FlagAttribute(),
     "data-auto-animate-delay": directives.unchanged,
     "data-auto-animate-duration": directives.unchanged,
     "data-auto-animate-easing": directives.unchanged,
     "data-auto-animate-unmatched": directives.unchanged,
+    "data-auto-animate-id": directives.unchanged,
+    "data-auto-animate-restart": lambda x: FlagAttribute(),
+    # Auto-Slide / Slide Timing
+    "data-autoslide": directives.unchanged,
 }
 
 
@@ -77,11 +86,6 @@ class RevealjsBreak(Directive):  # noqa: D101
     )
 
     def run(self):  # noqa: D102
-        # TODO: Remove by v2.0.0
-        if self.name == "revealjs_break":
-            logger.warning(
-                deprecated_message("v2", "'revealjs_break'", "'revealjs-break'")
-            )
         node = revealjs_break()
         node.attributes = self.options
         return [
@@ -99,11 +103,6 @@ class RevealjsSlide(Directive):  # noqa: D101
     }
 
     def run(self):  # noqa: D102
-        # TODO: Remove by v2.0.0
-        if self.name == "revealjs_slide":
-            logger.warning(
-                deprecated_message("v2", "'revealjs_slide'", "'revealjs-slide'")
-            )
         node = revealjs_slide()
         node.attributes = self.options
         node.content = "\n".join(self.content or [])
@@ -116,11 +115,6 @@ class RevealjsFragments(Directive):  # noqa: D101
     has_content = True
 
     def run(self):  # noqa: D102
-        # TODO: Remove by v2.0.0
-        if self.name == "revealjs_fragments":
-            logger.warning(
-                deprecated_message("v2", "'revealjs_fragments'", "'revealjs-fragments'")
-            )
         node = revealjs_fragments()
         if self.content:
             self.state.nested_parse(self.content, self.content_offset, node)
@@ -134,19 +128,3 @@ class RevealjsFragments(Directive):  # noqa: D101
         return [
             node,
         ]
-
-
-class RevealjsCodeBlock(CodeBlock):  # noqa: D101
-    option_spec = {
-        **CodeBlock.option_spec,
-        "data-id": directives.unchanged,
-        "data-line-numbers": directives.unchanged,
-    }
-
-    def run(self):  # noqa: D102
-        nodes = super().run()
-        if self.options.get("data-line-numbers"):
-            nodes[0]["data-line-numbers"] = self.options.get("data-line-numbers")
-        if self.options.get("data-id"):
-            nodes[0]["data-id"] = self.options.get("data-id")
-        return nodes

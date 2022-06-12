@@ -10,8 +10,8 @@ Requirements
 Current development environment
 -------------------------------
 
-* Python: ``3.9``
-* Sphinx: ``3.5.4``
+* Python: ``3.10.4``
+* Sphinx: ``4.3.2``
 
 
 Installation

@@ -12,7 +12,7 @@ from sphinx.locale import __
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
-from .contexts import GoogleFonts, RevealjsPlugin, RevealjsProjectContext
+from .contexts import RevealjsPlugin, RevealjsProjectContext
 from .utils import static_resource_uri
 
 logger = logging.getLogger(__name__)
@@ -26,17 +26,13 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     name = "revealjs"
     default_translator_class = RevealjsSlideTranslator
+    search = False
 
     def __init__(self, app):  # noqa: D107
         super().__init__(app)
         self.revealjs_slide = None
-        self.google_fonts = GoogleFonts(self.config.revealjs_generic_font)
 
     def init(self):  # noqa
-        if hasattr(self.config, "revealjs_google_fonts"):
-            self.google_fonts = self.google_fonts.extend(
-                self.config.revealjs_google_fonts
-            )
         # Create RevealjsProjectContext
         self.revealjs_context = RevealjsProjectContext(
             4,
@@ -57,11 +53,19 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         # Hand over builder configs to html builder.
         setattr(self.config, "html_static_path", self.config.revealjs_static_path)
         super().init()
+        self.use_index = self.get_builder_config("use_index", "revealjs")
 
     def init_css_files(self) -> None:  # noqa
         self.add_css_file(self.revealjs_context.engine.css_path)
         for filename in self.get_builder_config("css_files", "revealjs"):
             self.add_css_file(filename)
+
+    def init_js_files(self) -> None:  # noqa
+        for filename, attrs in self.app.registry.js_files:
+            self.add_js_file(filename, **attrs)
+
+        for filename, attrs in self.get_builder_config("js_files", "revealjs"):
+            self.add_js_file(filename, **attrs)
 
     def get_theme_config(self) -> Tuple[str, Dict]:
         """Find and return configuration about theme (name and option params).
@@ -88,7 +92,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
     ) -> None:  # noqa
         self.configure_theme(ctx)
-        self.configure_fonts(ctx)
         ctx["revealjs_page_confs"] = self.configure_page_script_conf()
 
     def configure_theme(self, ctx: Dict):
@@ -109,17 +112,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         # index 1: theme css file path
         # index 2 or later: other css files
         ctx["css_files"].insert(1, theme)
-
-    def configure_fonts(self, ctx: Dict):
-        """Find and add google-fonts settins from conf and directive."""
-        # Injection Google Font css
-        fonts = self.google_fonts
-        if self.revealjs_slide and "google_font" in self.revealjs_slide.attributes:
-            fonts = fonts.extend(
-                self.revealjs_slide.attributes["google_font"].split(",")
-            )
-        ctx["google_fonts"] = fonts
-        ctx["css_files"] += fonts.css_files
 
     def configure_page_script_conf(self) -> List[str]:  # noqa
         if not self.revealjs_slide:
@@ -159,8 +151,4 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
             except Exception:
                 logger.warning(__("invalid js_file: %r, ignored"), entry)
                 continue
-    # Use html_js_files for backward compatibility
-    if revealjs_js_files:
-        config.revealjs_js_files = revealjs_js_files  # type: ignore
-    else:
-        config.revealjs_js_files = config.html_js_files
+    config.revealjs_js_files = revealjs_js_files  # type: ignore

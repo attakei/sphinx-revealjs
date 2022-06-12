@@ -15,13 +15,16 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
+    "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
+    "sphinxcontrib.oembed",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
-language = None
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+language = "en"
+locale_dirs = ["_locales"]
+exclude_patterns = [".venv", "_build", "Thumbs.db", ".DS_Store", "_sections"]
 pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
@@ -33,14 +36,10 @@ html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
 revealjs_static_path = ["_static"]
-revealjs_google_fonts = [
-    "M PLUS 1p",
-]
-revealjs_style_theme = "black"
+revealjs_style_theme = "moon"
 revealjs_script_conf = {
     "controls": True,
     "progress": True,
-    "history": True,
     "center": True,
     "transition": "slide",
 }
@@ -62,6 +61,7 @@ revealjs_css_files = [
     "revealjs4/plugin/highlight/zenburn.css",
     "custom.css",
 ]
+revealjs_notes_from_comments = True
 
 # -- Options for HTMLHelp output ---------------------------------------------
 htmlhelp_basename = "sphinx-revealjsdoc"
@@ -105,3 +105,5 @@ todo_include_todos = True
 
 if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
+
+budoux_targets = ["h1", "h2", "h3"]

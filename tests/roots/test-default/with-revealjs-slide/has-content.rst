@@ -2,8 +2,11 @@
 Test presentation
 =================
 
-.. revealjs_slide::
-    :google_font: M PLUS 1p
+.. revealjs-slide::
+
+    {
+      "transition": "none"
+    }
 
 Sample
 ======

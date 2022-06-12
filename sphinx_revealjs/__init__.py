@@ -1,6 +1,6 @@
 """Root module for sphinx-revealjs."""
 
-__version__ = "1.5.3"
+__version__ = "2.0.0b3"
 
 import sys
 
@@ -15,7 +15,6 @@ from sphinx_revealjs.builders import (
 )
 from sphinx_revealjs.directives import (
     RevealjsBreak,
-    RevealjsCodeBlock,
     RevealjsFragments,
     RevealjsSection,
     RevealjsSlide,
@@ -27,7 +26,6 @@ from sphinx_revealjs.nodes import (
     revealjs_slide,
 )
 from sphinx_revealjs.themes import get_theme_path
-from sphinx_revealjs.utils import deprecated_message
 from sphinx_revealjs.writers import (
     depart_revealjs_break,
     not_write,
@@ -58,26 +56,8 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 
 
 def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
-    if config.revealjs_google_fonts:
-        logger.warning(
-            deprecated_message(
-                "v2", "config:revealjs_google_fonts", "package:googlefonts-markup"
-            )
-        )
-    if config.revealjs_generic_font == "sans-serif":
-        logger.warning(
-            deprecated_message(
-                "v2", "config:revealjs_generic_font", "adding custom CSS"
-            )
-        )
-    if len(config.html_js_files) > len(config.revealjs_js_files):
-        logger.warning(
-            deprecated_message(
-                "v2",
-                "Supporting config:html_js_files",
-                "config:revealjs_js_files",
-            )
-        )
+    """Do not work. But it keep for next deprecated."""
+    pass
 
 
 def setup(app: Sphinx):
@@ -87,8 +67,7 @@ def setup(app: Sphinx):
             "NOTICE: New features of ver-2.x will be possibility to support not-fully for python 3.6"  # noqa
         )
     app.connect("config-inited", inherit_extension_nodes)
-    # After convert_html_js_files
-    app.connect("config-inited", convert_reveal_js_files, priority=810)
+    app.connect("config-inited", convert_reveal_js_files)
     app.connect("config-inited", notify_deprecated_config)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
@@ -132,27 +111,22 @@ def setup(app: Sphinx):
         revealjs=(not_write, not_write),
         dirrevealjs=(not_write, not_write),
     )
-    # TODO: Remove undersocored directives by v2.0.0
-    app.add_directive("revealjs_break", RevealjsBreak)
-    app.add_directive("revealjs_section", RevealjsSection)
-    app.add_directive("revealjs_slide", RevealjsSlide)
-    app.add_directive("revealjs_fragments", RevealjsFragments)
     app.add_directive("revealjs-section", RevealjsSection)
     app.add_directive("revealjs-break", RevealjsBreak)
     app.add_directive("revealjs-slide", RevealjsSlide)
     app.add_directive("revealjs-fragments", RevealjsFragments)
-    app.add_directive("revealjs-code-block", RevealjsCodeBlock)
     app.add_config_value("revealjs_use_section_ids", False, True)
+    app.add_config_value("revealjs_use_index", False, "env")
     app.add_config_value("revealjs_static_path", [], True)
     app.add_config_value("revealjs_style_theme", "black", True)
     app.add_config_value("revealjs_js_files", [], True)
     app.add_config_value("revealjs_css_files", [], True)
-    app.add_config_value("revealjs_google_fonts", [], True)
-    app.add_config_value("revealjs_generic_font", "sans-serif", True)
     app.add_config_value("revealjs_script_files", [], True)
     app.add_config_value("revealjs_script_conf", None, True)
     app.add_config_value("revealjs_script_plugins", [], True)
     app.add_html_theme("sphinx_revealjs", str(get_theme_path("sphinx_revealjs")))
+    app.setup_extension("sphinx_revealjs._ext.code_block")
+    app.setup_extension("sphinx_revealjs._ext.notes")
     return {
         "version": __version__,
         "env_version": 1,

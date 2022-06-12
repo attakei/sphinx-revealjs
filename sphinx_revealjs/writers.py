@@ -1,5 +1,5 @@
 """Custom write module."""
-from docutils.nodes import Element, comment, literal_block, section
+from docutils.nodes import Element, SkipNode, comment, literal_block, section
 from sphinx.writers.html5 import HTML5Translator
 
 from .nodes import revealjs_break
@@ -71,14 +71,18 @@ class RevealjsSlideTranslator(HTML5Translator):
 
         comment node render as speaker note.
         """
-        self.body.append('<aside class="notes">\n')
+        if self.builder.app.config.revealjs_notes_from_comments:
+            self.body.append('<aside class="notes">\n')
+        else:
+            raise SkipNode
 
     def depart_comment(self, node: comment):
         """End ``comment`` node.
 
         Close speaker note.
         """
-        self.body.append("</aside>\n")
+        if self.builder.app.config.revealjs_notes_from_comments:
+            self.body.append("</aside>\n")
 
     def visit_literal_block(self, node: literal_block):
         """Begin ``literal_block`` .
