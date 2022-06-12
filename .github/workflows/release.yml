@@ -20,6 +20,7 @@ jobs:
       - name: Build packages
         run: |
           poetry env use "3.10"
+          python tools/fetch_revealjs.py
           poetry build
       - name: Store filepath
         id: store-filepath
