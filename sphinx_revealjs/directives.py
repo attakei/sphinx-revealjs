@@ -1,14 +1,12 @@
 """Custom directives for Reveal.js."""
 import json
 
-from docutils.nodes import Sequential
 from docutils.parsers.rst import Directive, directives
 from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (
     FlagAttribute,
     revealjs_break,
-    revealjs_fragments,
     revealjs_section,
     revealjs_slide,
 )
@@ -106,25 +104,6 @@ class RevealjsSlide(Directive):  # noqa: D101
         node = revealjs_slide()
         node.attributes = self.options
         node.content = "\n".join(self.content or [])
-        return [
-            node,
-        ]
-
-
-class RevealjsFragments(Directive):  # noqa: D101
-    has_content = True
-
-    def run(self):  # noqa: D102
-        node = revealjs_fragments()
-        if self.content:
-            self.state.nested_parse(self.content, self.content_offset, node)
-        # TODO: Parameter ?
-        for child in node.children:
-            if not isinstance(child, Sequential):
-                child["classes"].append("fragment")
-                continue
-            for c in child:
-                c["classes"].append("fragment")
         return [
             node,
         ]

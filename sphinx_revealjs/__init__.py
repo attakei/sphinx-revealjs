@@ -13,18 +13,8 @@ from sphinx_revealjs.builders import (
     RevealjsHTMLBuilder,
     convert_reveal_js_files,
 )
-from sphinx_revealjs.directives import (
-    RevealjsBreak,
-    RevealjsFragments,
-    RevealjsSection,
-    RevealjsSlide,
-)
-from sphinx_revealjs.nodes import (
-    revealjs_break,
-    revealjs_fragments,
-    revealjs_section,
-    revealjs_slide,
-)
+from sphinx_revealjs.directives import RevealjsBreak, RevealjsSection, RevealjsSlide
+from sphinx_revealjs.nodes import revealjs_break, revealjs_section, revealjs_slide
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
     depart_revealjs_break,
@@ -101,20 +91,9 @@ def setup(app: Sphinx):
         revealjs=(not_write, not_write),
         dirrevealjs=(not_write, not_write),
     )
-    app.add_node(
-        revealjs_fragments,
-        html=(not_write, not_write),
-        latex=(not_write, not_write),
-        text=(not_write, not_write),
-        man=(not_write, not_write),
-        texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
-    )
-    app.add_directive("revealjs-section", RevealjsSection)
     app.add_directive("revealjs-break", RevealjsBreak)
     app.add_directive("revealjs-slide", RevealjsSlide)
-    app.add_directive("revealjs-fragments", RevealjsFragments)
+    app.add_directive("revealjs-section", RevealjsSection)
     app.add_config_value("revealjs_use_section_ids", False, True)
     app.add_config_value("revealjs_use_index", False, "env")
     app.add_config_value("revealjs_static_path", [], True)
@@ -126,6 +105,7 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_script_plugins", [], True)
     app.add_html_theme("sphinx_revealjs", str(get_theme_path("sphinx_revealjs")))
     app.setup_extension("sphinx_revealjs._ext.code_block")
+    app.setup_extension("sphinx_revealjs._ext.fragments")
     app.setup_extension("sphinx_revealjs._ext.notes")
     return {
         "version": __version__,

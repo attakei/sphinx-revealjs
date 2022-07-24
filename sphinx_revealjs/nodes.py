@@ -42,7 +42,3 @@ class revealjs_break(
 
 class revealjs_slide(nodes.Structural, nodes.Element):  # noqa: D101
     pass
-
-
-class revealjs_fragments(nodes.Structural, nodes.Element):  # noqa: D101
-    pass
