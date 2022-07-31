@@ -3,10 +3,12 @@ import copy
 import logging
 from typing import Any, Dict, List, Tuple
 
+from sphinx import version_info as sphinx_versoin
 from sphinx.application import Sphinx
 from sphinx.builders.dirhtml import DirectoryHTMLBuilder
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.config import Config
+from sphinx.environment import BuildEnvironment
 from sphinx.locale import __
 
 from sphinx_revealjs.directives import raw_json
@@ -28,8 +30,12 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     default_translator_class = RevealjsSlideTranslator
     search = False
 
-    def __init__(self, app):  # noqa: D107
-        super().__init__(app)
+    def __init__(self, app, env: BuildEnvironment = None):  # noqa: D107
+        # TODO: Remove it if this not need support Sphinx 4.x and older
+        if sphinx_versoin[0] < 5:
+            super().__init__(app)
+        else:
+            super().__init__(app, env)
         self.revealjs_slide = None
 
     def init(self):  # noqa
