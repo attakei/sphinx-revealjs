@@ -31,8 +31,8 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     search = False
 
     def __init__(self, app, env: BuildEnvironment = None):  # noqa: D107
-        # TODO: Remove it if this not need support Sphinx 4.x and older
-        if sphinx_versoin[0] < 5:
+        # TODO: Remove it if this not need support Sphinx 5.1.0 and older
+        if sphinx_versoin[0] <= 4 or sphinx_versoin[:2] == (5, 0):
             super().__init__(app)
         else:
             super().__init__(app, env)
