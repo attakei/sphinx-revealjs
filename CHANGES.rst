@@ -2,6 +2,17 @@
 Changelog
 =========
 
+ver 2.0.1
+=========
+
+:date: 2022-08-02
+:base: Reveal.js 4.3.1
+
+Fixes
+-----
+
+* Custom builders accept ``app`` and ``env`` (optional) in initialize function
+
 ver 2.0.0
 =========
 
