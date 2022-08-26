@@ -31,9 +31,6 @@ pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "alabaster"
-html_theme_options = {
-    "revealjs_theme": "league",
-}
 html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
