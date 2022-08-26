@@ -108,9 +108,7 @@ budoux_targets = ["h1", "h2", "h3"]
 
 sass_src_dir = "_sass"
 sass_out_dir = "_static"
-sass_targets = {
- "custom.scss": "custom.css"
-}
+sass_targets = {"custom.scss": "custom.css"}
 sass_include_paths = [
-  get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
+    get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
 ]
