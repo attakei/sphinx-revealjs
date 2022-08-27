@@ -52,6 +52,7 @@ Contents
    configurations
    directives
    examples
+   contributing
    changes
 
 Licenses
