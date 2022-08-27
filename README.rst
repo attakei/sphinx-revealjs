@@ -85,6 +85,8 @@ If you use from GitHub and editable mode, Run ``tools/fetch_revealjs.py`` after 
     $ poetry install
     $ poetry run python tools/fetch_revealjs.py
 
+For more information, See `CONTRIBUTING.rst <./CONTRIBUTING.rst>`_ and `"contributing" <https://sphinx-revealjs.readthedocs.io/en/stable/contributing/>`_ page in documentation.
+
 Copyright
 ---------
 
