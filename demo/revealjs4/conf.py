@@ -2,6 +2,7 @@
 
 # -- Path setup --------------------------------------------------------------
 import os
+from sphinx_revealjs.themes import get_theme_path
 
 # -- Project information -----------------------------------------------------
 project = "sphinx-revealjs"
@@ -18,6 +19,7 @@ extensions = [
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.oembed",
+    "sphinxcontrib.sass",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -29,14 +31,11 @@ pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "alabaster"
-html_theme_options = {
-    "revealjs_theme": "league",
-}
 html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
 revealjs_static_path = ["_static"]
-revealjs_style_theme = "moon"
+revealjs_style_theme = "custom.css"
 revealjs_script_conf = {
     "controls": True,
     "progress": True,
@@ -59,7 +58,6 @@ revealjs_script_plugins = [
 ]
 revealjs_css_files = [
     "revealjs4/plugin/highlight/zenburn.css",
-    "custom.css",
 ]
 revealjs_notes_from_comments = True
 
@@ -107,3 +105,10 @@ if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
 
 budoux_targets = ["h1", "h2", "h3"]
+
+sass_src_dir = "_sass"
+sass_out_dir = "_static"
+sass_targets = {"custom.scss": "custom.css"}
+sass_include_paths = [
+    get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
+]
