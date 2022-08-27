@@ -2,6 +2,22 @@
 Changelog
 =========
 
+ver 2.1.0
+=========
+
+:date: 2022-08-28
+:base: Reveal.js 4.3.1
+
+Added Features
+--------------
+
+* Package includes SCSS sources of revealjs bundled-themes
+
+Extra
+-----
+
+* Use pre-commit
+
 ver 2.0.1
 =========
 
