@@ -51,7 +51,7 @@ Contents
    upgrade
    configurations
    directives
-   examples
+   tips
    contributing
    changes
 
