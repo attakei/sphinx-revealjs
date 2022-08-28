@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60720138-7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'UA-60720138-7');
+            
+        </script>
+    
+  <title>Introduction of sphinx-revealjs</title>
+    <link rel="stylesheet" type="text/css" href="_static/revealjs4/dist/reveal.css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/revealjs4/plugin/highlight/zenburn.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section>
+<h1 style="word-break: keep-all; overflow-wrap: break-word;">Introduction of sphinx-revealjs<wbr/></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Based version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2.1.0</p>
+</dd>
+<dt class="field-even">Demo updated<span class="colon">:</span></dt>
+<dd class="field-even"><p>2022-06-03</p>
+</dd>
+</dl>
+</section>
+<section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Overview<wbr/></h2>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">What is this?<wbr/></h3>
+<p>Sphinx extension to build Reveal.js presentation</p>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Features<wbr/></h3>
+<aside class="notes">
+This is reST comment. At default, does not write.</aside>
+<ul class="simple">
+<li><p>Convert sections from reStructuredText directly</p></li>
+<li><p>Support customize sections</p></li>
+<li><p>Support using plugins</p></li>
+<li><p>Support Sphinx extensions</p></li>
+<li><p>Select theme from default themes</p></li>
+</ul>
+</section>
+</section>
+<section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Standard usage<wbr/></h2>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Installation<wbr/></h3>
+<p>You can install stable version of <code class="docutils literal notranslate"><span class="pre">sphinx-revealjs</span></code> from PyPI.</p>
+<pre data-id="installation"><code class="console" data-noescape="" data-trim="">pip install sphinx-revealjs</code></pre>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Set up<wbr/></h3>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> to use this extension</p>
+<pre data-id="set-up"><code class="python" data-noescape="" data-trim="">extensions = [
+    "sphinx_revealjs",
+]</code></pre>
+<p>You can customize behabior. Please see <a class="reference external" href="https://sphinx-revealjs.readthedocs.io/en/latest/configurations.html">documentation</a>.</p>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Write source<wbr/></h3>
+<p>Write plain reStructuredText.</p>
+<pre data-id="write-source"><code class="rst" data-noescape="" data-trim="">My Reveal.js presentation
+=========================
+
+Agenda
+------
+
+* Author
+* Feature
+
+Author: Who am I
+================
+
+Own self promotion
+
+Content
+=======</code></pre>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Build presentation<wbr/></h3>
+<p>This extension has custom builder name <code class="docutils literal notranslate"><span class="pre">revealjs</span></code>.
+If you make docs as Reveal.js presentation, you call <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">revealjs</span></code>.</p>
+<pre data-id="build-presentation"><code class="console" data-noescape="" data-trim="">make revealjs</code></pre>
+<p>This presentation is made from <a class="reference external" href="https://github.com/attakei/sphinx-revealjs/blob/master/demo/revealjs4/index.rst">source</a>.</p>
+</section>
+</section>
+<section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Convert reStructuredText to Reveal.js<wbr/></h2>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">reST structure to Reveal.js sections<wbr/></h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p>From:</p>
+<pre><code class="rst" data-noescape="" data-trim="">Title
+=====
+
+First section
+-------------
+
+Content 1
+^^^^^^^^^
+
+Content 2
+^^^^^^^^^</code></pre>
+</div>
+<div class="half docutils container">
+<p>To:</p>
+<pre><code class="html" data-noescape="" data-trim="">&lt;section&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+&lt;/section&gt;
+&lt;section&gt;
+    &lt;section&gt;
+        &lt;h2&gt;First section&lt;/h2&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Content 1&lt;/h3&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Content 2&lt;/h3&gt;
+    &lt;/section&gt;
+&lt;/section&gt;</code></pre>
+</div>
+</div>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Using built-in directives<wbr/></h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p>From:</p>
+<pre><code class="rst" data-noescape="" data-trim="">Sub section
+-----------
+
+Content
+^^^^^^^
+
+.. image:: ./your-image.png</code></pre>
+</div>
+<div class="half docutils container">
+<p>To:</p>
+<pre><code class="html" data-noescape="" data-trim="">&lt;section&gt;
+  &lt;section&gt;
+     &lt;h2&gt;First section&lt;/h2&gt;
+  &lt;/section&gt;
+  &lt;section&gt;
+     &lt;h3&gt;Content 1&lt;/h3&gt;
+     &lt;img src="_images/your-image.png"&gt;
+  &lt;/section&gt;
+&lt;/section&gt;</code></pre>
+</div>
+</div>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Using custom directives of Sphinx extensions<wbr/></h3>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p>From:</p>
+<pre><code class="rst" data-noescape="" data-trim="">.. oembed:: \
+https://twitter.com/attakei/status/1517152841550376961</code></pre>
+<p><code class="docutils literal notranslate"><span class="pre">oembed</span></code> is custom directive from <a class="reference external" href="https://github.com/attakei-lab/sphinxcontrib-oembed">sphinxcontrib-oembed</a></p>
+</div>
+<div class="half docutils container">
+<p>To:</p>
+<blockquote class="twitter-tweet"><p dir="ltr" lang="en">Now, sphinx-revealjs v1.5.1 is released (fixed template and modify project links).<br/>Thank you for usings, feedbacks, suggestions and collaborations!<a href="https://t.co/dr0rFNdg9z">https://t.co/dr0rFNdg9z</a></p>— kAZUYA tAKEI (@attakei) <a href="https://twitter.com/attakei/status/1517152841550376961?ref_src=twsrc%5Etfw">April 21, 2022</a></blockquote>
+<script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+</div>
+</div>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Comments of reST<wbr/></h3>
+<aside class="notes">
+This comment in reST are not out into html</aside>
+<div class="flex-container docutils container">
+<div class="half docutils container">
+<p>From:</p>
+<pre><code class="rst" data-noescape="" data-trim="">Title
+=====
+
+First section
+-------------
+
+.. This is comment</code></pre>
+</div>
+<div class="half docutils container">
+<p>To:</p>
+<pre><code class="html" data-noescape="" data-trim="">&lt;section&gt;
+  &lt;h1&gt;Title&lt;/h1&gt;
+&lt;/section&gt;
+&lt;section&gt;
+  &lt;section&gt;
+    &lt;h2&gt;First section&lt;/h2&gt;
+  &lt;/section&gt;
+&lt;/section&gt;</code></pre>
+</div>
+</div>
+<p>Comments of reST are not written into output files by default settings.</p>
+</section>
+</section>
+<section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Customize section behavior<wbr/></h2>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Description<wbr/></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-revealjs</span></code> provides custom directives to customize behavior of sections.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">revealjs-section</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revealjs-break</span></code></p></li>
+</ul>
+<p>Showing part of examples.</p>
+</section>
+<section data-background-color="#009900">
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Change background color<wbr/></h3>
+<pre data-id="change-background-color"><code class="rst" data-noescape="" data-trim="">.. revealjs-section::
+   :data-background-color: #009900</code></pre>
+</section>
+<section data-background-image="_static/icon-attakei.jpg" data-background-size="contain">
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Set background image<wbr/></h3>
+<pre data-id="set-background-image"><code class="rst" data-noescape="" data-trim="">.. revealjs-section::
+   :data-background-image: _static/icon-attakei.jpg
+   :data-background-size: contain</code></pre>
+</section>
+<section data-transition="none">
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Change transition(before)<wbr/></h3>
+<pre data-id="change-transition-before"><code class="rst" data-noescape="" data-trim="">.. revealjs-section::
+   :data-transition: none</code></pre>
+</section>
+<section data-transition="concave">
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Change transition(after)<wbr/></h3>
+<pre data-id="change-transition-after"><code class="rst" data-noescape="" data-trim="">.. revealjs-section::
+   :data-transition: concave</code></pre>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Non-title section<wbr/></h3>
+<p>First</p>
+<pre data-id="non-title-section"><code class="rst" data-noescape="" data-trim="">Keep title without duplicated written
+-------------------------------------
+
+First
+
+.. revealjs-break::
+   :notitle:
+
+Second</code></pre>
+</section>
+<section>
+<p>Second</p>
+<pre data-id="non-title-section"><code class="rst" data-noescape="" data-trim="">Keep title without duplicated written
+-------------------------------------
+
+First
+
+.. revealjs-break::
+   :notitle:
+
+Second</code></pre>
+</section>
+</section>
+<section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Interactive content<wbr/></h2>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Description<wbr/></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-revealjs</span></code> provides directives to show some interactive contents.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">revealjs-section</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revealjs-break</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revealjs-fragments</span></code></p></li>
+</ul>
+<p>Showing part of examples.</p>
+</section>
+<section data-auto-animate="">
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Animate source code transitions<wbr/></h3>
+<p>Enable animations for each <cite>revealjs-section</cite> and <cite>revealjs-break</cite>:</p>
+<pre data-id="animate-source-code-transitions"><code class="console" data-line-numbers="" data-noescape="" data-trim="">echo 'First part of my command'</code></pre>
+</section>
+<section data-auto-animate="">
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Animate source code transitions<wbr/></h3>
+<p>Enable animations for each <cite>revealjs-section</cite> and <cite>revealjs-break</cite>:</p>
+<pre data-id="animate-source-code-transitions"><code class="console" data-line-numbers="" data-noescape="" data-trim="">echo 'First part of my command'
+echo 'Second part of my command'</code></pre>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Fragments<wbr/></h3>
+<p>This is support fragment with groups.</p>
+<pre data-id="fragments"><code class="rst" data-noescape="" data-trim="">.. revealjs-fragments::
+
+   * First
+   * Second
+   * Third</code></pre>
+<ul class="simple">
+<li class="fragment"><p>First</p></li>
+<li class="fragment"><p>Second</p></li>
+<li class="fragment"><p>Third</p></li>
+</ul>
+</section>
+</section>
+<section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Using Reveal.js plugins<wbr/></h2>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Description<wbr/></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-revealjs</span></code> can use Reveal.js plugins by <code class="docutils literal notranslate"><span class="pre">revealjs_script_plugins</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p>
+<pre data-id="id2"><code class="python" data-noescape="" data-trim="">revealjs_script_plugins = [
+    {
+        "name": "RevealMath",
+        "src": "revealjs4/plugin/math/math.js",
+    },
+]</code></pre>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Code highlighting<wbr/></h3>
+<pre data-id="code-highlighting"><code class="python" data-noescape="" data-trim="">revealjs_script_plugins = [
+    {
+        "name": "RevealHighlight",
+        "src": "revealjs4/plugin/highlight/highlight.js",
+    },
+]</code></pre>
+<p>These codes are highlighting by <code class="docutils literal notranslate"><span class="pre">RevealHighlight</span></code> plugin.</p>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Code highlighting<wbr/></h3>
+<pre data-id="code-highlighting"><code class="rst" data-line-numbers="1|2" data-noescape="" data-trim="">.. revealjs-code-block:: rst
+   :data-line-numbers: 1|2</code></pre>
+<p>In this section, line-level highlighting works.</p>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Speaker notes<wbr/></h3>
+<pre data-id="speaker-notes"><code class="python" data-noescape="" data-trim="">revealjs_script_plugins = [
+    {
+        "name": "RevealNotes",
+        "src": "revealjs4/plugin/notes/notes.js",
+    },
+]</code></pre>
+<p>This is used <code class="docutils literal notranslate"><span class="pre">RevealNotes</span></code> plugin, Please press <code class="docutils literal notranslate"><span class="pre">S</span></code> key to try it!</p>
+</section>
+<section>
+<h3 style="word-break: keep-all; overflow-wrap: break-word;">Speaker notes<wbr/></h3>
+<aside class="notes">In this section, showing message from notes.</aside><pre data-id="speaker-notes"><code class="rst" data-noescape="" data-trim="">.. revealjs-notes::
+
+   In this section, showing message from notes.</code></pre>
+</section>
+</section>
+<section>
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">Enjoy writing reST as presentation<wbr/></h2>
+<p>Please star!</p>
+<!-- Place this tag where you want the button to render. -->
+<a aria-label="Star attakei/sphinx-revealjs on GitHub" class="github-button" data-icon="octicon-star" data-show-count="true" data-size="large" href="https://github.com/attakei/sphinx-revealjs">Star</a>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async="" defer="" src="https://buttons.github.io/buttons.js"></script></section>
+
+        </div>
+    </div>
+    
+    <script src="_static/revealjs4/dist/reveal.js"></script>
+    
+    
+      <script src="_static/revealjs4/plugin/notes/notes.js"></script>
+      <script src="_static/revealjs4/plugin/highlight/highlight.js"></script>
+      <script src="_static/revealjs4/plugin/math/math.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, JSON.parse('{"controls": true, "progress": true, "center": true, "transition": "slide"}'));
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealNotes,RevealHighlight,RevealMath,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
