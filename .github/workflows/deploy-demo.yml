@@ -5,6 +5,15 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,8 +29,17 @@ jobs:
           touch demo/revealjs4/_build/revealjs/.nojekyll
         env:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
-      - name: Deploy to GitHub Pages
-        uses: ftnext/action-push-ghpages@v1.0.0
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          build_dir: demo/revealjs4/_build/revealjs/
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: demo/revealjs4/_build/revealjs/
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
