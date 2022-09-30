@@ -123,7 +123,6 @@ msgstr ""
 "を提供しています。もしプレゼンテーションとして出力したい場合は、``make revealjs`` と実行するだけで生成できます。"
 
 #: ../../_sections/standard-usage.rst:60
-#, fuzzy
 msgid ""
 "This presentation is made from `source <https://github.com/attakei"
 "/sphinx-revealjs/blob/master/demo/revealjs4/index.rst>`_."
@@ -294,7 +293,6 @@ msgid "You can use ``code-block`` and ``literalinclude`` for code highlighting."
 msgstr "``code-block`` と ``literalinclude`` はそのまま使えます。"
 
 #: ../../_sections/using-plugins.rst:52
-#, fuzzy
 msgid "Using ``revealjs-code-block``, line-level highlighting works."
 msgstr "``revealjs-code-block`` であれば、行単位のハイライトなども機能します。"
 
@@ -323,10 +321,4 @@ msgstr "reStructuredTextでのプレゼンテーションをぜひ体験して�
 #: ../../main.rst:38
 msgid "Please star!"
 msgstr ""
-
-#~ msgid "2.0.0b2"
-#~ msgstr ""
-
-#~ msgid "You can include other file by ``revealjs-literalinclude``."
-#~ msgstr ""
 
