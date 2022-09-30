@@ -54,3 +54,33 @@ This is support fragment with groups.
    * First
    * Second
    * Third
+
+.. revealjs-break::
+
+Using ``container`` directive, you can work stack layouting.
+
+.. code-block:: rst
+
+   .. container:: r-stack
+
+      .. revealjs-fragments::
+
+         .. image:: https://placekitten.com/450/300
+
+         .. image:: https://placekitten.com/300/450
+
+         .. image:: https://placekitten.com/400/400
+
+.. revealjs-break::
+
+Using ``container`` directive, you can work stack layouting.
+
+.. container:: r-stack
+
+   .. revealjs-fragments::
+
+      .. image:: https://placekitten.com/450/300
+
+      .. image:: https://placekitten.com/300/450
+
+      .. image:: https://placekitten.com/400/400

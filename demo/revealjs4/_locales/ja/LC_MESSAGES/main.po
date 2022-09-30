@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx-revealjs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-30 20:17+0900\n"
+"POT-Creation-Date: 2022-10-01 01:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -267,6 +267,11 @@ msgstr "表示対象のグループに対して、Fragments表示を組み込め
 #: ../../_sections/interactive-content.rst:56
 msgid "Third"
 msgstr ""
+
+#: ../../_sections/interactive-content.rst:60
+#: ../../_sections/interactive-content.rst:76
+msgid "Using ``container`` directive, you can work stack layouting."
+msgstr "``container`` ディレクティブを使うことで、Fragmentsを重ねて表示させることが出来ます。"
 
 #: ../../_sections/using-plugins.rst:2
 msgid "Using Reveal.js plugins"
