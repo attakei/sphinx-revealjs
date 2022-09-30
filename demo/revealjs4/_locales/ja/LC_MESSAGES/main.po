@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx-revealjs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-05 01:07+0900\n"
+"POT-Creation-Date: 2022-09-30 20:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: ../../main.rst:3
+#: ../../main.rst:5
 msgid "Introduction of sphinx-revealjs"
 msgstr "sphinx-revealjsの紹介"
 
@@ -26,51 +26,51 @@ msgstr "sphinx-revealjsの紹介"
 msgid "Based version"
 msgstr ""
 
-#: ../../main.rst:5
-msgid "2.0.0b2"
+#: ../../main.rst:7
+msgid "2.1.0"
 msgstr ""
 
 #: ../../main.rst
 msgid "Demo updated"
 msgstr ""
 
-#: ../../main.rst:6
+#: ../../main.rst:8
 msgid "2022-06-03"
 msgstr ""
 
-#: ../../main.rst:9
+#: ../../main.rst:11
 msgid "Overview"
 msgstr "基本的な説明"
 
-#: ../../main.rst:12
+#: ../../main.rst:14
 msgid "What is this?"
 msgstr "これはなにか"
 
-#: ../../main.rst:14
+#: ../../main.rst:16
 msgid "Sphinx extension to build Reveal.js presentation"
 msgstr "SphinxドキュメンテーションからReveal.jsプレゼンテーションを生成するための拡張ライブラリです。"
 
-#: ../../main.rst:17
+#: ../../main.rst:19
 msgid "Features"
 msgstr "主な機能"
 
-#: ../../main.rst:21
+#: ../../main.rst:23
 msgid "Convert sections from reStructuredText directly"
 msgstr "reStructuredTextの文法構造からReveal.jsのセクション構造を生成"
 
-#: ../../main.rst:22
+#: ../../main.rst:24
 msgid "Support customize sections"
 msgstr "セクションのカスタマイズ機能"
 
-#: ../../main.rst:23
+#: ../../main.rst:25
 msgid "Support using plugins"
 msgstr "Reveal.js向けのプラグイン組み込み"
 
-#: ../../main.rst:24
+#: ../../main.rst:26
 msgid "Support Sphinx extensions"
 msgstr "Sphinx拡張の利用"
 
-#: ../../main.rst:25
+#: ../../main.rst:27
 msgid "Select theme from default themes"
 msgstr "組み込みのテーマ切り替え"
 
@@ -99,8 +99,8 @@ msgid ""
 "You can customize behabior. Please see `documentation <https://sphinx-"
 "revealjs.readthedocs.io/en/latest/configurations.html>`_."
 msgstr ""
-"設定の調整なども可能です。"
-"細かい設定は `ドキュメンテーション <https://sphinx-revealjs.readthedocs.io/en/lates/configurations.html>`_ を参照してください。"
+"設定の調整なども可能です。細かい設定は `ドキュメンテーション <https://sphinx-"
+"revealjs.readthedocs.io/en/lates/configurations.html>`_ を参照してください。"
 
 #: ../../_sections/standard-usage.rst:27
 msgid "Write source"
@@ -119,16 +119,17 @@ msgid ""
 "This extension has custom builder name ``revealjs``. If you make docs as "
 "Reveal.js presentation, you call ``make revealjs``."
 msgstr ""
-"``sphinx-revealjs`` は専用のビルダーとして ``revealjs`` を提供しています。"
-"もしプレゼンテーションとして出力したい場合は、"
-"``make revealjs`` と実行するだけで生成できます。"
+"``sphinx-revealjs`` は専用のビルダーとして ``revealjs`` "
+"を提供しています。もしプレゼンテーションとして出力したい場合は、``make revealjs`` と実行するだけで生成できます。"
 
 #: ../../_sections/standard-usage.rst:60
+#, fuzzy
 msgid ""
 "This presentation is made from `source <https://github.com/attakei"
-"/sphinx-revealjs/blob/master/demo/revealjs4/main.rst>`_."
-msgstr "このプレゼンテーション自体も `このソース <https://github.com/attakei"
-"/sphinx-revealjs/blob/master/demo/revealjs4/main.rst>`_ から生成されています。"
+"/sphinx-revealjs/blob/master/demo/revealjs4/index.rst>`_."
+msgstr ""
+"このプレゼンテーション自体も `このソース <https://github.com/attakei/sphinx-"
+"revealjs/blob/master/demo/revealjs4/main.rst>`_ から生成されています。"
 
 #: ../../_sections/rst-to-revealjs.rst:2
 msgid "Convert reStructuredText to Reveal.js"
@@ -277,8 +278,8 @@ msgid ""
 "``sphinx-revealjs`` can use Reveal.js plugins by "
 "``revealjs_script_plugins`` in ``conf.py``"
 msgstr ""
-"``sphinx-revealjs`` は ``conf.py`` 内で ``revealjs_script_plugins`` を記述することで、"
-"Reveal.jsのプラグインを利用することが出来ます。"
+"``sphinx-revealjs`` は ``conf.py`` 内で ``revealjs_script_plugins`` "
+"を記述することで、Reveal.jsのプラグインを利用することが出来ます。"
 
 #: ../../_sections/using-plugins.rst:19
 msgid "Code highlighting"
@@ -289,28 +290,43 @@ msgid "These codes are highlighting by ``RevealHighlight`` plugin."
 msgstr "``RevealHighlight`` プラグインを利用することで、コードブロックのシンタックスハイライトが可能です。"
 
 #: ../../_sections/using-plugins.rst:40
-msgid "In this section, line-level highlighting works."
-msgstr "このセクションでは、行レベルのハイライトを例示しています。"
+msgid "You can use ``code-block`` and ``literalinclude`` for code highlighting."
+msgstr "``code-block`` と ``literalinclude`` はそのまま使えます。"
 
-#: ../../_sections/using-plugins.rst:43
+#: ../../_sections/using-plugins.rst:52
+#, fuzzy
+msgid "Using ``revealjs-code-block``, line-level highlighting works."
+msgstr "``revealjs-code-block`` であれば、行単位のハイライトなども機能します。"
+
+#: ../../_sections/using-plugins.rst:61
+msgid ""
+"You can include other file with step-by-step highlighting by ``revealjs-"
+"literalinclude``."
+msgstr "``revealjs-literalinclude`` も同様に使えます。"
+
+#: ../../_sections/using-plugins.rst:64
 msgid "Speaker notes"
 msgstr "スピーカーノート"
 
-#: ../../_sections/using-plugins.rst:54
+#: ../../_sections/using-plugins.rst:75
 msgid "This is used ``RevealNotes`` plugin, Please press ``S`` key to try it!"
-msgstr ""
-"``RevealNotes`` プラグインを利用することで、スピーカーノートを使えます。 "
-"キーボードの ``S`` を押して試してください。"
+msgstr "``RevealNotes`` プラグインを利用することで、スピーカーノートを使えます。 キーボードの ``S`` を押して試してください。"
 
-#: ../../_sections/using-plugins.rst:60
+#: ../../_sections/using-plugins.rst:81
 msgid "In this section, showing message from notes."
 msgstr "このセクションでは、スピーカーノート限定のメッセージが表示できることを例示しています。"
 
-#: ../../main.rst:34
+#: ../../main.rst:36
 msgid "Enjoy writing reST as presentation"
 msgstr "reStructuredTextでのプレゼンテーションをぜひ体験してみてください。"
 
-#: ../../main.rst:36
+#: ../../main.rst:38
 msgid "Please star!"
 msgstr ""
+
+#~ msgid "2.0.0b2"
+#~ msgstr ""
+
+#~ msgid "You can include other file by ``revealjs-literalinclude``."
+#~ msgstr ""
 

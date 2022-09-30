@@ -31,13 +31,34 @@ These codes are highlighting by ``RevealHighlight`` plugin.
 
 .. revealjs-break::
 
+.. code-block:: rst
+
+   .. code-block:: python
+
+      print("hello world")
+
+You can use ``code-block`` and ``literalinclude`` for code highlighting.
+
+.. revealjs-break::
+
 .. revealjs-code-block:: rst
    :data-line-numbers: 1|2
 
    .. revealjs-code-block:: rst
       :data-line-numbers: 1|2
 
-In this section, line-level highlighting works.
+      print("hello world")
+
+Using ``revealjs-code-block``, line-level highlighting works.
+
+.. revealjs-break::
+
+.. revealjs-literalinclude:: ./conf.py
+   :language: python
+   :lines: 45-58
+   :data-line-numbers: 2-5|6-9|10-13
+
+You can include other file with step-by-step highlighting by ``revealjs-literalinclude``.
 
 Speaker notes
 -------------

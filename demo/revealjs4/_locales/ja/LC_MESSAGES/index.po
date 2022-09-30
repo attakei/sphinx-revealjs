@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx-revealjs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-05 01:51+0900\n"
+"POT-Creation-Date: 2022-09-30 20:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid "Index of demo"
 msgstr ""
 
 #: ../../index.rst:5
-msgid "`EN <./introduction-en.html>`_ / `JA <./introduction-ja.html>`_"
+msgid "`EN <./main-en.html>`_ / `JA <./main-ja.html>`_"
 msgstr ""
 
 #~ msgid "Introduction of sphinx-revealjs"
@@ -250,5 +250,8 @@ msgstr ""
 #~ msgstr "reStructuredTextでのプレゼンテーションをぜひ体験してみてください。"
 
 #~ msgid "Please star!"
+#~ msgstr ""
+
+#~ msgid "`EN <./introduction-en.html>`_ / `JA <./introduction-ja.html>`_"
 #~ msgstr ""
 
