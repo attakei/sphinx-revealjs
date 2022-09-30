@@ -135,6 +135,31 @@ For interactive contents
          def hello():
              print("world")
 
+.. rst:directive:: revealjs-literalinclude
+
+   This is extends of :rst:dir:`literalinclude` direcrive for presentation.
+
+   If you want to use ``data-line-number`` attributes in literalinclude.
+
+   .. rst:directive:option:: data-line-numbers
+      :type: string or no value
+
+      Code highlighting pattern. See `Reveal.js document <https://revealjs.com/code/#line-numbers-%26-highlights>`_
+
+   Example:
+
+   .. code-block:: rst
+
+      .. revealjs-literalinclude:: conf.py
+         :language: python
+         :lines: 2-5,9-13
+         :data-line-numbers: 3|8,9
+
+   .. note::
+
+      ``data-line-numbers`` effects to displayed sources.
+      You should set values by line numbers from display.
+
 .. rst:directive:: revealjs-fragments
 
    .. note::
