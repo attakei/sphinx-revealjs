@@ -2,6 +2,18 @@
 Changelog
 =========
 
+ver 2.2.0
+=========
+
+:date: 2022-10-01
+:base: Reveal.js 4.3.1
+
+Added features
+--------------
+
+* Add ``revealjs-literalinclude`` that is extends of ``literalinclude`` for ``data-line-numbers``.
+  It is likely ``revealjs-code-block``.
+
 ver 2.1.0
 =========
 
