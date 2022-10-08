@@ -40,6 +40,6 @@ jobs:
           poetry run black --check .
           poetry run flake8 .
           poetry run doc8 .
-      - name: Test with nosetests
+      - name: Run tests
         run: |
           poetry run pytest
