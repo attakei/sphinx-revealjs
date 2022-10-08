@@ -4,6 +4,7 @@ __version__ = "2.3.0"
 
 import sys
 
+from sphinx import version_info as sphinx_version_info
 from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx.util import logging
@@ -66,6 +67,8 @@ def setup(app: Sphinx):
         logger.info(
             "NOTICE: New features of ver-2.x will be possibility to support not-fully for python 3.6"  # noqa
         )
+    if sphinx_version_info[0] < 4:
+        logger.info("NOTICE: New major version will be supported Sphinx <4.0")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
     app.connect("config-inited", notify_deprecated_config)
