@@ -254,7 +254,7 @@ msgstr "コードブロックのアニメ表示"
 #: ../../_sections/interactive-content.rst:21
 #: ../../_sections/interactive-content.rst:31
 msgid "Enable animations for each `revealjs-section` and `revealjs-break`:"
-msgstr "``revealjs-section``や ``revealjs-break`` を用いてアニメーションの設定が可能です。"
+msgstr "``revealjs-section`` や ``revealjs-break`` を用いてアニメーションの設定が可能です。"
 
 #: ../../_sections/interactive-content.rst:40
 msgid "Fragments"
