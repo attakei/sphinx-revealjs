@@ -27,7 +27,6 @@ jobs:
         run: |
           pip install -r demo/revealjs4/requirements.txt
           make -C demo/revealjs4 demo
-          touch demo/revealjs4/_build/revealjs/.nojekyll
         env:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
       - name: Upload artifact

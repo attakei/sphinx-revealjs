@@ -13,6 +13,7 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "sphinx.ext.githubpages",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
