@@ -7,9 +7,6 @@ sphinx-revealjs
 .. image:: https://github.com/attakei/sphinx-revealjs/workflows/main.yml/badge.svg
     :target: https://github.com/attakei/sphinx-revealjs/actions
 
-.. image:: https://travis-ci.org/attakei/sphinx-revealjs.svg?branch=master
-    :target: https://travis-ci.org/attakei/sphinx-revealjs
-
 .. image:: https://readthedocs.org/projects/sphinx-revealjs/badge/?version=latest
     :target: https://sphinx-revealjs.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
