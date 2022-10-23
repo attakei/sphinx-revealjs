@@ -4,7 +4,7 @@ sphinx-revealjs
 .. image:: https://img.shields.io/pypi/v/sphinx-revealjs.svg
     :target: https://pypi.org/project/sphinx-revealjs/
 
-.. image:: https://github.com/attakei/sphinx-revealjs/workflows/Testings/badge.svg
+.. image:: https://github.com/attakei/sphinx-revealjs/workflows/main.yml/badge.svg
     :target: https://github.com/attakei/sphinx-revealjs/actions
 
 .. image:: https://travis-ci.org/attakei/sphinx-revealjs.svg?branch=master
