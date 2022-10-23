@@ -2,6 +2,17 @@
 Changelog
 =========
 
+ver 2.3.0
+=========
+
+:date: 2022-10-23
+:base: Reveal.js 4.4.0 (updated)
+
+Updated Features
+----------------
+
+* Support data-background-gradient correctly (already defined, but not working at older Reveal.js)
+
 ver 2.2.0
 =========
 
