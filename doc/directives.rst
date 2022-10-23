@@ -64,6 +64,12 @@ If you want to change behavior of sections, use these directives.
    .. rst:directive:option:: data-XXX
 
       This directive can accept attribute as same as Reveal.js ``section`` tags.
+      For more information, please see `Reveal.js documentation <https://revealjs.com/>`_.
+
+      .. note::
+
+         This may be not completed all attributes for Reveal.js.
+         If you find missing attribute, pleas post issues or pull-requests into GitHub.
 
    Usage:
 

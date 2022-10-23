@@ -22,6 +22,14 @@ Change background color
    .. revealjs-section::
       :data-background-color: #009900
 
+.. revealjs-break::
+   :data-background-gradient: linear-gradient(to bottom, #283b95, #17b2c3)
+
+.. code-block:: rst
+
+   .. revealjs-section::
+      :data-background-gradient: linear-gradient(to bottom, #283b95, #17b2c3)
+
 Set background image
 --------------------
 
