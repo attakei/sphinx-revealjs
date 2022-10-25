@@ -1,4 +1,4 @@
-"""This configuration is cases for efault behavior."""
+"""This configuration is cases for default behavior."""
 extensions = [
     "sphinx_revealjs",
 ]
