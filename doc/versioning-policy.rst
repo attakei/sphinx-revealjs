@@ -14,21 +14,24 @@ Base rules
 * Update major version with:
 
   * Drop or changed configuration variables
-  * Drop supporing dependencies
-  * Change major version of Reveal.js
+  * Have big changes of generated contents by new Reveal.js
+  * Breaking changes for setup-level requirements
 
 * Update minor version with:
 
-  * Mark deprecated warning
-  * Add features (include inner extensions)
+  * Update marks for deprecated (wraning level)
+  * Add new features (include inner extensions)
   * Add supporing dependencies
+  * Drop supporing dependencies (not change setup-level)
+  * Change major version of Reveal.js, but it need not update as major version
+  * Change minor version of Reveal.js
+  * Change compononents by misc reasons
 
 * Update patch version with:
 
   * Mark deprecated notice
   * Fixed bugs
-  * Change minor or patch version of Reveal.js
-  * Change dependent packages without breaking-changes of itself
+  * Change patch version of Reveal.js
 
 Following dependencies
 ======================
@@ -41,13 +44,31 @@ CPython
 **"Living"** means that it have not published last security-only releases.
 **"Not living"** means that it is finished to published security-only releases.
 
-At first of every year, I release major version with:
-
-* Remove "Not living" version from matrix of GitHub Actions
-* Add mark deprecated warning
+#. Wnen some version of CPython released "last security-only release",
+   |THIS| will release with marks deprecated notice-level at upcoming (patch version).
+#. When |THIS| releases new minor version after 2 month from version with marked deprecated notice,
+   this will drop old versions from everywhere and depricated warning (minor versoin).
+#. If |THIS| must only use specify version,
+   this will set ``python_requires`` and release new versoin (major or minor version).
 
 Sphinx
 ------
 
+(TBD)
+
 Reveal.js
 ---------
+
+|THIS| bundles stable version.
+
+#. When Reveal.js is released as patch version,
+   |THIS| bundles new version and releases as patch version at upcoming.
+#. When Reveal.js is released as patch version,
+   |THIS| bundles new version and releases as minor version at upcoming.
+   It is possibility to include adding options for new version.
+#. When Reveal.js is released as major version,
+   I will check compatibility for configuration of extension.
+
+  * If I have decise to need breaking change, |THIS| will release as major version.
+  * if it need not change or only add configuration, |THIS| will release as minor versoin.
+    |THIS| bundles new version and releases as patch version at upcoming.
