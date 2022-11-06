@@ -40,6 +40,7 @@ include = [
 python = "^3.6 | ^3.7 | ^3.8 | ^3.9 | ^3.10"
 docutils = "*"
 sphinx = "*"
+packaging = "*"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
