@@ -1,4 +1,4 @@
-"""Test cases for generating giles."""
+"""Test cases for generating files."""
 from pathlib import Path
 
 import pytest
