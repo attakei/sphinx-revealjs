@@ -54,6 +54,7 @@ Contents
    tips
    contributing
    changes
+   versioning-policy
 
 Licenses
 ========
