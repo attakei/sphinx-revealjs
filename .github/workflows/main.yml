@@ -36,19 +36,15 @@ jobs:
             sphinx-version: '>=3.0.0,<4.0.0'
     steps:
       - uses: actions/checkout@v3
-      - run: pipx install 'poetry<1.2'
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           architecture: x64
           python-version: ${{ matrix.python-version }}
-          cache: poetry
       - name: Install dependencies
         run: |
-          poetry env use "${{ matrix.python-version }}"
-          poetry install
-          .venv/bin/pip install 'Sphinx${{ matrix.sphinx-version }}'
-          poetry run python tools/fetch_revealjs.py
+          python tools/fetch_revealjs.py
+          pip install '.[test]'
       - name: Run tests
         run: |
-          poetry run pytest
+          pytest
