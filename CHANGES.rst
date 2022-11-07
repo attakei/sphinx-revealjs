@@ -2,6 +2,12 @@
 Changelog
 =========
 
+ver 2.4.0
+=========
+
+:date: future
+:base: Reveal.js 4.4.0
+
 ver 2.3.0
 =========
 
