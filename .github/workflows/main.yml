@@ -8,8 +8,20 @@ on:
     - cron: '30 0 * * 1'
 
 jobs:
-  build:
-
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          architecture: x64
+          python-version: '3.10'
+      - name: Lint by pre-commit
+        run: |
+          pip install pre-commit
+          pre-commit run --all-files
+  test:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -37,11 +49,6 @@ jobs:
           poetry install
           .venv/bin/pip install 'Sphinx${{ matrix.sphinx-version }}'
           poetry run python tools/fetch_revealjs.py
-      - name: Lint sources and doc
-        run: |
-          poetry run black --check .
-          poetry run flake8 .
-          poetry run doc8 .
       - name: Run tests
         run: |
           poetry run pytest
