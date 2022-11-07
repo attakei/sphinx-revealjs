@@ -38,8 +38,7 @@ logger = logging.getLogger(__name__)
 
 
 def inherit_extension_nodes(app: Sphinx, config: Config):
-    """
-    Inherit behaviors of nodes from other sphinx extensions.
+    """Inherit behaviors of nodes from other sphinx extensions.
 
     .. note::
 
