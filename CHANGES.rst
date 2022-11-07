@@ -8,6 +8,23 @@ ver 2.4.0
 :date: future
 :base: Reveal.js 4.4.0
 
+Deprecated
+----------
+
+* Output warning when using it by Python 3.6
+
+Change supportings
+------------------
+
+* Add Python 3.11 into supportings
+* Drop Python 3.6 from supportings
+
+Develoment environment
+----------------------
+
+* Hooks of ``pre-commit`` are using as standard lintings.
+  In GitHub Actions, ``lint`` is running ``pre-commit``.
+
 ver 2.3.0
 =========
 
