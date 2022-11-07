@@ -14,7 +14,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, '3.10', '3.11']
+        python-version: [3.7, 3.8, 3.9, '3.10', '3.11']
         sphinx-version: ['>=3.0.0,<4.0.0', '>=4.0.0,<5.0.0', '>=5.0.0,<5.1.0', '>=5.1.0,<6.0.0']
         exclude:
           # Old major version does not support python>=3.10
