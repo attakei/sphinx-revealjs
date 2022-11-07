@@ -131,8 +131,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
 
 class DirectoryRevealjsHTMLBuilder(DirectoryHTMLBuilder, RevealjsHTMLBuilder):
-    """
-    Custom RevealjsHTMLBuilder to generate all HTML pages as ``index.html``.
+    """Custom RevealjsHTMLBuilder to generate all HTML pages as ``index.html``.
 
     This does not have specific features, only inherit base builders.
     """
@@ -141,8 +140,7 @@ class DirectoryRevealjsHTMLBuilder(DirectoryHTMLBuilder, RevealjsHTMLBuilder):
 
 
 def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
-    """
-    Convert string styled html_js_files to tuple styled one.
+    """Convert string styled html_js_files to tuple styled one.
 
     Original is :py:func:`sphinx.builders.html.convert_html_js_files`.
     """
