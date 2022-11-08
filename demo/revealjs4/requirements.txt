@@ -1,5 +1,0 @@
-sphinx-revealjs
-sphinxcontrib-gtagjs
-sphinxcontrib-budoux
-sphinxcontrib-oembed
-sphinxcontrib-sass
