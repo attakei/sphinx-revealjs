@@ -11,17 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: pipx install 'poetry<1.2'
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           architecture: x64
           python-version: '3.10'
-          cache: 'poetry'
       - name: Build packages
         run: |
-          poetry env use "3.10"
           python tools/fetch_revealjs.py
-          poetry build
+          pip install flit
+          flit build
       - name: Store filepath
         id: store-filepath
         run: |
