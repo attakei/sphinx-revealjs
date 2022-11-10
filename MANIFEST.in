@@ -1,5 +1,0 @@
-include README.rst
-include MANIFEST.in
-recursive-include docs *
-recursive-include sphinx_revealjs *
-recursive-exclude sphinx_revealjs *.pyc
