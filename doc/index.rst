@@ -51,6 +51,7 @@ Contents
    upgrade
    configurations
    directives
+   extensions/index
    tips
    contributing
    changes
