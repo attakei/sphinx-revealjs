@@ -57,4 +57,4 @@ If you make docs as Reveal.js presentation, you call ``make revealjs``.
 
    make revealjs
 
-This presentation is made from `source <https://github.com/attakei/sphinx-revealjs/blob/master/demo/revealjs4/index.rst>`_.
+This presentation is made from `source <https://github.com/attakei/sphinx-revealjs/blob/master/demo/index.rst>`_.

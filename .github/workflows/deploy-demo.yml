@@ -27,13 +27,13 @@ jobs:
         run: |
           python tools/fetch_revealjs.py
           pip install ".[demo]"
-          make -C demo/revealjs4 demo
+          make -C demo demo
         env:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: demo/revealjs4/_build/revealjs/
+          path: demo/_build/revealjs/
   deploy:
     needs: build
     runs-on: ubuntu-latest

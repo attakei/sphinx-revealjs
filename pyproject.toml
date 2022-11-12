@@ -73,7 +73,7 @@ include = [
     "tools",
 ]
 exclude = [
-    "demo/revealjs4/_build",
+    "demo/_build",
     "doc/_build",
 ]
 

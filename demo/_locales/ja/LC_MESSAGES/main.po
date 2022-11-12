@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx-revealjs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-01 01:17+0900\n"
+"POT-Creation-Date: 2022-11-11 02:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.11.0\n"
 
 #: ../../main.rst:5
 msgid "Introduction of sphinx-revealjs"
@@ -27,7 +27,7 @@ msgid "Based version"
 msgstr ""
 
 #: ../../main.rst:7
-msgid "2.1.0"
+msgid "2.3.0"
 msgstr ""
 
 #: ../../main.rst
@@ -123,9 +123,10 @@ msgstr ""
 "を提供しています。もしプレゼンテーションとして出力したい場合は、``make revealjs`` と実行するだけで生成できます。"
 
 #: ../../_sections/standard-usage.rst:60
+#, fuzzy
 msgid ""
 "This presentation is made from `source <https://github.com/attakei"
-"/sphinx-revealjs/blob/master/demo/revealjs4/index.rst>`_."
+"/sphinx-revealjs/blob/master/demo/index.rst>`_."
 msgstr ""
 "このプレゼンテーション自体も `このソース <https://github.com/attakei/sphinx-"
 "revealjs/blob/master/demo/revealjs4/main.rst>`_ から生成されています。"
@@ -209,28 +210,28 @@ msgstr "ここからは、いくつかの例を紹介します。"
 msgid "Change background color"
 msgstr "背景色の変更"
 
-#: ../../_sections/customize-section.rst:26
+#: ../../_sections/customize-section.rst:34
 msgid "Set background image"
 msgstr "背景に画像の差し込み"
 
-#: ../../_sections/customize-section.rst:39
+#: ../../_sections/customize-section.rst:47
 msgid "Change transition(before)"
 msgstr "セクション間の切り替えの動き(1)"
 
-#: ../../_sections/customize-section.rst:50
+#: ../../_sections/customize-section.rst:58
 msgid "Change transition(after)"
 msgstr "セクション間の切り替えの動き(2)"
 
-#: ../../_sections/customize-section.rst:61
+#: ../../_sections/customize-section.rst:69
 msgid "Non-title section"
 msgstr "タイトルを持たないセクション"
 
-#: ../../_sections/customize-section.rst:63
+#: ../../_sections/customize-section.rst:71
 #: ../../_sections/interactive-content.rst:54
 msgid "First"
 msgstr ""
 
-#: ../../_sections/customize-section.rst:80
+#: ../../_sections/customize-section.rst:88
 #: ../../_sections/interactive-content.rst:55
 msgid "Second"
 msgstr ""
@@ -326,4 +327,7 @@ msgstr "reStructuredTextでのプレゼンテーションをぜひ体験して�
 #: ../../main.rst:38
 msgid "Please star!"
 msgstr ""
+
+#~ msgid "2.1.0"
+#~ msgstr ""
 

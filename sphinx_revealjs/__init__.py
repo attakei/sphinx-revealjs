@@ -56,9 +56,11 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
             dirrevealjs_trans[n] = b
 
 
-def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
+def notify_deprecated(app: Sphinx, config: Config):  # noqa: D103
     """Do not work. But it keep for next deprecated."""
-    pass
+    logger.info(
+        "NOTICE: For next major version, path of Revealjs will change to other."
+    )
 
 
 def setup(app: Sphinx):
@@ -71,7 +73,7 @@ def setup(app: Sphinx):
 
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
-    app.connect("config-inited", notify_deprecated_config)
+    app.connect("config-inited", notify_deprecated)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
