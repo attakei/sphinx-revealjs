@@ -8,10 +8,18 @@ ver 2.4.0
 :date: future
 :base: Reveal.js 4.4.0
 
+Changes
+-------
+
+* Demo documentation are changed from ``demo/revealjs4`` to ``demo``.
+
 Deprecated
 ----------
 
 * Output warning when using it by Python 3.6
+* Mark notice level deprecated
+
+  * Change directory for contents of Reveal.js
 
 Change supportings
 ------------------
@@ -24,6 +32,7 @@ Develoment environment
 
 * Hooks of ``pre-commit`` are using as standard lintings.
   In GitHub Actions, ``lint`` is running ``pre-commit``.
+* Use Flit as building library instead of Poetry.
 
 ver 2.3.0
 =========
