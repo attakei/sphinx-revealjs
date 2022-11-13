@@ -41,6 +41,7 @@ revealjs_style_theme = "custom.css"
 revealjs_script_conf = {
     "controls": True,
     "progress": True,
+    "hash": True,
     "center": True,
     "transition": "slide",
 }
