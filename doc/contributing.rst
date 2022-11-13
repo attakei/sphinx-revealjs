@@ -29,7 +29,3 @@ After you clone forked Git repository, run commands to set up.
    pre-commit install
    python -m venv venv
    venv/bin/pip install -e '.[test]'
-
-.. important::
-
-   There are difference versions from Poetry and pre-commit.

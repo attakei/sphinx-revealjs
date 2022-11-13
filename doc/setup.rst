@@ -5,13 +5,13 @@ Setup
 Requirements
 ============
 
-|THIS| requires Python 3.6+ and Sphinx.
+|THIS| requires Python 3.6+ (recommended 3.7+) and Sphinx.
 
 Current development environment
 -------------------------------
 
-* Python: ``3.10.4``
-* Sphinx: ``4.3.2``
+* Python: ``3.10.x``
+* Sphinx: ``5.3.0``
 
 
 Installation
