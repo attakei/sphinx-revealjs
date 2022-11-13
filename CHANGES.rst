@@ -8,6 +8,11 @@ ver 2.4.0
 :date: future
 :base: Reveal.js 4.4.0
 
+Added features
+--------------
+
+* Add ``data-ln-start-from`` into ``revealjs-code-block`` and ``revealjs-literalinclude``.
+
 Changes
 -------
 

@@ -60,6 +60,33 @@ Using ``revealjs-code-block``, line-level highlighting works.
 
 You can include other file with step-by-step highlighting by ``revealjs-literalinclude``.
 
+.. revealjs-break::
+
+.. code-block:: rst
+
+   .. revealjs-code-block:: python
+      :data-ln-start-from: 47
+
+.. revealjs-code-block:: python
+   :data-ln-start-from: 47
+
+   revealjs_script_plugins = [
+       {
+           "name": "RevealHighlight",
+           "src": "revealjs4/plugin/highlight/highlight.js",
+       },
+   ]
+
+You can use ``data-ln-start-from`` for display line numbers from specify value.
+
+.. revealjs-break::
+
+.. revealjs-literalinclude:: ./conf.py
+   :data-ln-start-from: 47
+   :lines: 47-60
+
+``revealjs-literalinclude`` can use it too.
+
 Speaker notes
 -------------
 

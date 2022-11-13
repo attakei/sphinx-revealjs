@@ -11,6 +11,7 @@ class RevealjsCodeBlock(CodeBlock):  # noqa: D101
         **CodeBlock.option_spec,
         "data-id": directives.unchanged,
         "data-line-numbers": directives.unchanged,
+        "data-ln-start-from": directives.unchanged,
     }
 
     def run(self):  # noqa: D102
@@ -19,6 +20,8 @@ class RevealjsCodeBlock(CodeBlock):  # noqa: D101
             nodes[0]["data-line-numbers"] = self.options.get("data-line-numbers")
         if self.options.get("data-id"):
             nodes[0]["data-id"] = self.options.get("data-id")
+        if self.options.get("data-ln-start-from"):
+            nodes[0]["data-ln-start-from"] = self.options.get("data-ln-start-from")
         return nodes
 
 
@@ -33,6 +36,7 @@ class RevealjsLiteralInclude(LiteralInclude):
         **LiteralInclude.option_spec,
         "data-id": directives.unchanged,
         "data-line-numbers": directives.unchanged,
+        "data-ln-start-from": directives.unchanged,
     }
 
     def run(self):  # noqa: D102
@@ -41,6 +45,8 @@ class RevealjsLiteralInclude(LiteralInclude):
             nodes[0]["data-line-numbers"] = self.options.get("data-line-numbers")
         if self.options.get("data-id"):
             nodes[0]["data-id"] = self.options.get("data-id")
+        if self.options.get("data-ln-start-from"):
+            nodes[0]["data-ln-start-from"] = self.options.get("data-ln-start-from")
         return nodes
 
 

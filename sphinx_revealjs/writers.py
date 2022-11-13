@@ -105,6 +105,10 @@ class RevealjsSlideTranslator(HTML5Translator):
             # show line numbers
             if node["linenos"]:
                 self.body.append(" data-line-numbers")
+        if "data-ln-start-from" in node:
+            self.body.append(f" data-ln-start-from=\"{node['data-ln-start-from']}\"")
+            if "data-line-numbers" not in node:
+                self.body.append(" data-line-numbers")
         self.body.append(">")
 
     def depart_literal_block(self, node: literal_block):
