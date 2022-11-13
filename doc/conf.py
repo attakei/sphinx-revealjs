@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import re
 from pathlib import Path
 
 from sphinx_revealjs import __version__
