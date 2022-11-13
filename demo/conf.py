@@ -2,6 +2,7 @@
 
 # -- Path setup --------------------------------------------------------------
 import os
+
 from sphinx_revealjs.themes import get_theme_path
 
 # -- Project information -----------------------------------------------------

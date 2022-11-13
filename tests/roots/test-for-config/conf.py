@@ -1,5 +1,4 @@
-"""This configuration is cases for changing conf.py
-"""
+"""Configuration is cases for changing conf.py."""
 extensions = [
     "sphinx_revealjs",
 ]

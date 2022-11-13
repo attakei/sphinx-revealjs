@@ -124,7 +124,7 @@ For interactive contents
 
    This is extends of :rst:dir:`code-block` direcrive for presentation.
 
-   If you want to use ``data-line-number`` attributes in code-block.
+   If you want to use custom attributes in code-block.
 
    .. rst:directive:option:: data-line-numbers
       :type: string or no value
@@ -141,30 +141,28 @@ For interactive contents
          def hello():
              print("world")
 
+   .. rst:directive:option:: data-ln-start-from
+      :type: integer
+
+      Set number of first-line in code block.
+      When this is assigned, display line numbers even if ``data-line-numbers`` is not set.
+
+   .. code-block:: rst
+
+      .. revealjs-code-block:: python
+         :data-ln-start-from: 3
+
+         print(datetime.datetime.now())
+
+      Please see `Reveal.js document <https://revealjs.com/code/#line-number-offset-4.2.0>`_.
+
 .. rst:directive:: revealjs-literalinclude
 
    This is extends of :rst:dir:`literalinclude` direcrive for presentation.
 
-   If you want to use ``data-line-number`` attributes in literalinclude.
+   If you want to use custom attributes in literalinclude.
 
-   .. rst:directive:option:: data-line-numbers
-      :type: string or no value
-
-      Code highlighting pattern. See `Reveal.js document <https://revealjs.com/code/#line-numbers-%26-highlights>`_
-
-   Example:
-
-   .. code-block:: rst
-
-      .. revealjs-literalinclude:: conf.py
-         :language: python
-         :lines: 2-5,9-13
-         :data-line-numbers: 3|8,9
-
-   .. note::
-
-      ``data-line-numbers`` effects to displayed sources.
-      You should set values by line numbers from display.
+   External attributes are same from :rst:dir:`revealjs-code-block`.
 
 .. rst:directive:: revealjs-fragments
 

@@ -1,8 +1,0 @@
-{
-  "restructuredtext.confPath": "${workspaceFolder}/docs",
-  "python.pythonPath": ".venv/bin/python",
-  "python.terminal.activateEnvironment": false,
-  "files.associations": {
-    "*.html": "jinja"
-  }
-}

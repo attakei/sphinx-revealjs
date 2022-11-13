@@ -11,13 +11,17 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile demo
+.PHONY: help Makefile demo intl
 
 demo:
 	@$(SPHINXBUILD) -M revealjs "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) -D language="ja"
 	mv $(BUILDDIR)/revealjs/main.html $(BUILDDIR)/revealjs/main-ja.html
 	@$(SPHINXBUILD) -M revealjs "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	mv $(BUILDDIR)/revealjs/main.html $(BUILDDIR)/revealjs/main-en.html
+
+intl:
+	@$(SPHINXBUILD) -M gettext "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	sphinx-intl update --language=ja
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

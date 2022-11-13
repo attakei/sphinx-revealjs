@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 from pathlib import Path
+
 from sphinx_revealjs import __version__
 
 PROJ_ROOT = Path(__file__).parents[1]

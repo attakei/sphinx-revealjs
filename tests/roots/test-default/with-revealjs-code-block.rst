@@ -21,3 +21,9 @@ Head
    function hello() {
        print("world");
    }
+
+.. revealjs-code-block:: toml
+   :data-ln-start-from: 5
+
+   [project]
+   name = "sphinx-revealjs"

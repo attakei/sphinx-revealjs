@@ -4,6 +4,8 @@ __version__ = "2.3.0"
 
 import sys
 
+from packaging.specifiers import SpecifierSet
+from packaging.version import parse
 from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx.util import logging
@@ -36,8 +38,7 @@ logger = logging.getLogger(__name__)
 
 
 def inherit_extension_nodes(app: Sphinx, config: Config):
-    """
-    Inherit behaviors of nodes from other sphinx extensions.
+    """Inherit behaviors of nodes from other sphinx extensions.
 
     .. note::
 
@@ -55,20 +56,24 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
             dirrevealjs_trans[n] = b
 
 
-def notify_deprecated_config(app: Sphinx, config: Config):  # noqa: D103
+def notify_deprecated(app: Sphinx, config: Config):  # noqa: D103
     """Do not work. But it keep for next deprecated."""
-    pass
+    logger.info(
+        "NOTICE: For next major version, path of Revealjs will change to other."
+    )
 
 
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
-    if sys.version_info.minor <= 7:
-        logger.info(
-            "NOTICE: New features of ver-2.x will be possibility to support not-fully for python 3.6"  # noqa
-        )
+    # Message deprecated
+    python_support = SpecifierSet(">=3.7.0")
+    python_version = parse(sys.version.split(" ")[0])
+    if python_version not in python_support:
+        logger.warning("You are using not supported version Python.")
+
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
-    app.connect("config-inited", notify_deprecated_config)
+    app.connect("config-inited", notify_deprecated)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(

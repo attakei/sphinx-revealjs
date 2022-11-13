@@ -8,38 +8,58 @@ on:
     - cron: '30 0 * * 1'
 
 jobs:
-  build:
-
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          architecture: x64
+          python-version: '3.10'
+      - name: Lint by pre-commit
+        run: |
+          pip install pre-commit
+          pre-commit run --all-files
+  test:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, '3.10']
+        python-version: [3.7, 3.8, 3.9, '3.10', '3.11']
         sphinx-version: ['>=3.0.0,<4.0.0', '>=4.0.0,<5.0.0', '>=5.0.0,<5.1.0', '>=5.1.0,<6.0.0']
         exclude:
-          # Old major version does not support python 3.10
+          # Old major version does not support python>=3.10
           - python-version: '3.10'
+            sphinx-version: '>=3.0.0,<4.0.0'
+          - python-version: '3.11'
             sphinx-version: '>=3.0.0,<4.0.0'
     steps:
       - uses: actions/checkout@v3
-      - run: pipx install 'poetry<1.2'
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           architecture: x64
           python-version: ${{ matrix.python-version }}
-          cache: poetry
       - name: Install dependencies
         run: |
-          poetry env use "${{ matrix.python-version }}"
-          poetry install
-          .venv/bin/pip install 'Sphinx${{ matrix.sphinx-version }}'
-          poetry run python tools/fetch_revealjs.py
-      - name: Lint sources and doc
-        run: |
-          poetry run black --check .
-          poetry run flake8 .
-          poetry run doc8 .
+          python tools/fetch_revealjs.py
+          pip install '.[test]'
       - name: Run tests
         run: |
-          poetry run pytest
+          pytest
+  buildtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          architecture: x64
+          python-version: '3.10'
+      - name: Build
+        run: |
+          pip install flit
+          python tools/fetch_revealjs.py
+          flit build
+          ls -l dist
