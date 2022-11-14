@@ -5,7 +5,7 @@ Changelog
 ver 2.4.0
 =========
 
-:date: future
+:date: 2022-11-13
 :base: Reveal.js 4.4.0
 
 Added features
