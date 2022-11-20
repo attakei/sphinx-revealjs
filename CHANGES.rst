@@ -2,6 +2,19 @@
 Changelog
 =========
 
+ver 2.4.1
+=========
+
+:date: 2022-11-20
+:base: Reveal.js 4.4.0
+
+(None updates for features)
+
+Extra
+-----
+
+* Fix badge of readme
+
 ver 2.4.0
 =========
 
