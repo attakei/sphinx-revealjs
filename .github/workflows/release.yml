@@ -77,7 +77,8 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           release_name: Release ${{ github.ref_name }}
-          body: You can see changes from `CHANGE.rst` or related files on root of repository.
+          body: |
+            To know update details, please see [Changelog](https://sphinx-revealjs.readthedocs.io/en/stable/changes/) of documentation.
           draft: false
           prerelease: ${{ needs.prepare.outputs.is-prerelease }}
       - name: Upload sdist to GitHub
