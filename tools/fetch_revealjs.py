@@ -6,6 +6,7 @@ This script need to run these case.
 * After editable install
 * Before build package archibves
 """
+import argparse
 import json
 import logging
 import shutil
@@ -56,13 +57,19 @@ def extract_archive(source: Path, dest: Path, targets: Dict[str, str]):  # noqa:
         func(extract_dir / s, dest / d)
 
 
-def main():  # noqa: D103
+def main(args: argparse.Namespace):  # noqa: D103
+    dest = Path(RULE["dest"])
+    if dest.exists() and not args.force:
+        print("Dest directory is already exists")
+        sys.exit(1)
+    elif args.force:
+        shutil.rmtree(dest)
     package_lock_json = ROOT_DIR / "package-lock.json"
     package = find_package(package_lock_json, RULE["name"])
     local_archive = ROOT_DIR / "var" / f"{RULE['name']}-{package['version']}.tgz"
     if not local_archive.exists():
         urlretrieve(package["resolved"], local_archive)
-    extract_archive(local_archive, Path() / RULE["dest"], RULE["targets"])
+    extract_archive(local_archive, dest, RULE["targets"])
 
 
 if __name__ == "__main__":
@@ -70,4 +77,7 @@ if __name__ == "__main__":
         logging.error("This script can run only project root.")
         sys.exit(1)
     (ROOT_DIR / "var").mkdir(exist_ok=True)
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--force", action="store_true", default=False)
+    args = parser.parse_args()
+    main(args)
