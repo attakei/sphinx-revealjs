@@ -2,6 +2,20 @@
 Changelog
 =========
 
+ver 2.4.2
+=========
+
+:date: future
+:base: Reveal.js 4.4.0
+
+Miscellaneous
+-------------
+
+* Extract only target files from archive of Reveal.js.
+
+  * Contain files are not changed
+  * It is for CVE-2007-4559
+
 ver 2.4.1
 =========
 

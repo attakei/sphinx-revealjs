@@ -6,19 +6,27 @@ This script need to run these case.
 * After editable install
 * Before build package archibves
 """
+import argparse
 import json
 import logging
 import shutil
 import sys
 import tarfile
+import tempfile
 from pathlib import Path
+from typing import Dict
 from urllib.request import urlretrieve
 
 ROOT_DIR = Path(__file__).parent.parent.absolute()
 
 RULE = {
     "name": "reveal.js",
-    "src": ["css", "dist", "plugin", "LICENSE"],
+    "targets": {
+        "package/css": "css",
+        "package/dist": "dist",
+        "package/plugin": "plugin",
+        "package/LICENSE": "LICENSE",
+    },
     "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4",
 }
 
@@ -32,34 +40,36 @@ def find_package(src: Path, name: str) -> dict:
     return deps[0]
 
 
-def extract_archive(target: Path) -> Path:  # noqa: D103
-    dest = target.parent / target.stem
-    with tarfile.open(str(target)) as tr:
-        tr.extractall(str(dest))
-    return dest
+def extract_archive(source: Path, dest: Path, targets: Dict[str, str]):  # noqa: D103
+    extract_dir = Path(tempfile.mkdtemp())
+    with tarfile.open(str(source)) as tr:
+        for trf in tr.getmembers():
+            is_target = False
+            for name in targets.keys():
+                if trf.name.startswith(f"{name}"):
+                    is_target = True
+                    continue
+            if not is_target:
+                continue
+            tr.extract(trf, extract_dir)
+    for s, d in targets.items():
+        func = shutil.copytree if (extract_dir / s).is_dir() else shutil.copyfile
+        func(extract_dir / s, dest / d)
 
 
-def main():  # noqa: D103
+def main(args: argparse.Namespace):  # noqa: D103
+    dest = Path(RULE["dest"])
+    if dest.exists() and not args.force:
+        print("Dest directory is already exists")
+        sys.exit(1)
+    elif args.force:
+        shutil.rmtree(dest)
     package_lock_json = ROOT_DIR / "package-lock.json"
     package = find_package(package_lock_json, RULE["name"])
     local_archive = ROOT_DIR / "var" / f"{RULE['name']}-{package['version']}.tgz"
     if not local_archive.exists():
         urlretrieve(package["resolved"], local_archive)
-    extracted = extract_archive(local_archive) / "package"
-    dest_base = ROOT_DIR / RULE["dest"]
-    dest_base.mkdir(parents=True, exist_ok=True)
-    for src_ in RULE["src"]:
-        src = extracted / src_
-        dest = ROOT_DIR / RULE["dest"] / src_
-        if dest.exists():
-            if dest.is_file():
-                dest.unlink()
-            else:
-                shutil.rmtree(dest)
-        if src.is_dir():
-            shutil.copytree(src, dest)
-        else:
-            shutil.copy2(src, dest)
+    extract_archive(local_archive, dest, RULE["targets"])
 
 
 if __name__ == "__main__":
@@ -67,4 +77,7 @@ if __name__ == "__main__":
         logging.error("This script can run only project root.")
         sys.exit(1)
     (ROOT_DIR / "var").mkdir(exist_ok=True)
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--force", action="store_true", default=False)
+    args = parser.parse_args()
+    main(args)
