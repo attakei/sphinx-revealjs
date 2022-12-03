@@ -11,14 +11,21 @@ import logging
 import shutil
 import sys
 import tarfile
+import tempfile
 from pathlib import Path
+from typing import Dict
 from urllib.request import urlretrieve
 
 ROOT_DIR = Path(__file__).parent.parent.absolute()
 
 RULE = {
     "name": "reveal.js",
-    "src": ["css", "dist", "plugin", "LICENSE"],
+    "targets": {
+        "package/css": "css",
+        "package/dist": "dist",
+        "package/plugin": "plugin",
+        "package/LICENSE": "LICENSE",
+    },
     "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs4",
 }
 
@@ -32,11 +39,21 @@ def find_package(src: Path, name: str) -> dict:
     return deps[0]
 
 
-def extract_archive(target: Path) -> Path:  # noqa: D103
-    dest = target.parent / target.stem
-    with tarfile.open(str(target)) as tr:
-        tr.extractall(str(dest))
-    return dest
+def extract_archive(source: Path, dest: Path, targets: Dict[str, str]):  # noqa: D103
+    extract_dir = Path(tempfile.mkdtemp())
+    with tarfile.open(str(source)) as tr:
+        for trf in tr.getmembers():
+            is_target = False
+            for name in targets.keys():
+                if trf.name.startswith(f"{name}"):
+                    is_target = True
+                    continue
+            if not is_target:
+                continue
+            tr.extract(trf, extract_dir)
+    for s, d in targets.items():
+        func = shutil.copytree if (extract_dir / s).is_dir() else shutil.copyfile
+        func(extract_dir / s, dest / d)
 
 
 def main():  # noqa: D103
@@ -45,21 +62,7 @@ def main():  # noqa: D103
     local_archive = ROOT_DIR / "var" / f"{RULE['name']}-{package['version']}.tgz"
     if not local_archive.exists():
         urlretrieve(package["resolved"], local_archive)
-    extracted = extract_archive(local_archive) / "package"
-    dest_base = ROOT_DIR / RULE["dest"]
-    dest_base.mkdir(parents=True, exist_ok=True)
-    for src_ in RULE["src"]:
-        src = extracted / src_
-        dest = ROOT_DIR / RULE["dest"] / src_
-        if dest.exists():
-            if dest.is_file():
-                dest.unlink()
-            else:
-                shutil.rmtree(dest)
-        if src.is_dir():
-            shutil.copytree(src, dest)
-        else:
-            shutil.copy2(src, dest)
+    extract_archive(local_archive, Path() / RULE["dest"], RULE["targets"])
 
 
 if __name__ == "__main__":
