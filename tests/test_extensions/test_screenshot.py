@@ -2,6 +2,7 @@
 import magic
 import pytest
 from sphinx.testing.util import SphinxTestApp
+from testutils import soup_html
 
 
 @pytest.mark.sphinx(
@@ -14,3 +15,5 @@ def test_not_generate_screenshot(app: SphinxTestApp, status, warning):  # noqa
     image_path = app.outdir / "_images/ogp/index.png"
     assert image_path.exists()
     assert magic.from_file(image_path, mime=True) == "image/png"
+    soup = soup_html(app, "index.html")
+    assert soup.find("meta", {"property": "og:image"})

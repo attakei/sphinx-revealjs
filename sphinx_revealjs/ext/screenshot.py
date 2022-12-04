@@ -4,11 +4,12 @@ This is optional extension.
 You need install extra and configure to use it.
 """
 from pathlib import Path
-from typing import Set
+from typing import Any, Dict, Set
 
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 from sphinx.errors import ExtensionError
+from sphinx.util.docutils import nodes
 from sphinx.util.logging import getLogger
 
 try:
@@ -23,7 +24,7 @@ except ImportError:
 from .. import __version__ as core_version
 
 logger = getLogger(__name__)
-_targets = set()
+_targets: Dict[str, str] = dict()
 
 
 def collect_screenshot_targets(
@@ -34,8 +35,23 @@ def collect_screenshot_targets(
     removed: Set[str],
 ):
     global _targets
-    _targets = added.union(changed)
+    for docname in added:
+        _targets[docname] = f"{app.config.revealjs_screenshot_url}/{docname}.png"
+    for docname in changed:
+        _targets[docname] = f"{app.config.revealjs_screenshot_url}/{docname}.png"
     return []
+
+
+def insert_og_image(
+    app: Sphinx,
+    pagename: str,
+    templatename: str,
+    context: Dict[str, Any],
+    doctree: nodes.document,
+):
+    image_url = f"{app.config.revealjs_screenshot_url_root}/{_targets[pagename]}"
+    context.setdefault("metatags", "")
+    context["metatags"] += f'\n<meta property="og:image" content="{image_url}" >'
 
 
 def generate_screenshots(app: Sphinx, exception: Exception):
@@ -43,9 +59,8 @@ def generate_screenshots(app: Sphinx, exception: Exception):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page()
-        for docname in _targets:
+        for docname, image_url in _targets.items():
             page_path = Path(app.outdir) / app.builder.get_target_uri(docname)
-            image_url = f"{app.config.revealjs_screenshot_url}/{docname}.png"
             image_path = Path(app.outdir) / image_url
             page.goto(f"file://{page_path}")
             page.screenshot(path=image_path)
@@ -53,8 +68,10 @@ def generate_screenshots(app: Sphinx, exception: Exception):
 
 def setup(app: Sphinx):
     """Entryoint."""
+    app.add_config_value("revealjs_screenshot_url_root", "http://localhost:8000", "env")
     app.add_config_value("revealjs_screenshot_url", "_images/ogp", "env")
     app.connect("env-get-outdated", collect_screenshot_targets)
+    app.connect("html-page-context", insert_og_image)
     app.connect("build-finished", generate_screenshots)
     return {
         "version": core_version,
