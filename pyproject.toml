@@ -41,6 +41,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+screenshot = [
+    "playwright",
+]
 test = [
     "BeautifulSoup4 >=4.9.3,<5",
     "pytest >=6.2.5,<7",
