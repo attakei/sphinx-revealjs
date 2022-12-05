@@ -35,6 +35,7 @@ def collect_screenshot_targets(
     removed: Set[str],
 ):
     global _targets
+    _targets = {}
     for docname in added:
         _targets[docname] = f"{app.config.revealjs_screenshot_url}/{docname}.png"
     for docname in changed:
