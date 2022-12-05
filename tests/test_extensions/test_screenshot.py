@@ -8,6 +8,7 @@ from testutils import soup_html
 @pytest.mark.sphinx(
     "revealjs",
     testroot="default",
+    freshenv=True,
     confoverrides={"extensions": ["sphinx_revealjs", "sphinx_revealjs.ext.screenshot"]},
 )
 def test_generate_screenshot(app: SphinxTestApp, status, warning):  # noqa
@@ -31,3 +32,15 @@ def test_skip_included(app: SphinxTestApp, status, warning):  # noqa
     app.build()
     image_path = app.outdir / "_images/ogp/content.png"
     assert not image_path.exists()
+
+
+@pytest.mark.sphinx(
+    "dirrevealjs",
+    testroot="default",
+    freshenv=True,
+    confoverrides={
+        "extensions": ["sphinx_revealjs", "sphinx_revealjs.ext.screenshot"],
+    },
+)
+def test_dirrevealjs(app: SphinxTestApp, status, warning):  # noqa
+    app.build()

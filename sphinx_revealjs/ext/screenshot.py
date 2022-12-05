@@ -66,6 +66,8 @@ def generate_screenshots(app: Sphinx, exception: Exception):
             if matcher(docname):
                 continue
             page_path = Path(app.outdir) / app.builder.get_target_uri(docname)
+            if page_path.is_dir():
+                page_path = page_path / "index.html"
             image_path = Path(app.outdir) / image_url
             page.goto(f"file://{page_path}")
             page.screenshot(path=image_path)
