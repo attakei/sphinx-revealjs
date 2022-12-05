@@ -11,6 +11,7 @@ from sphinx.environment import BuildEnvironment
 from sphinx.errors import ExtensionError
 from sphinx.util.docutils import nodes
 from sphinx.util.logging import getLogger
+from sphinx.util.matching import Matcher
 
 try:
     from playwright.sync_api import sync_playwright
@@ -60,7 +61,10 @@ def generate_screenshots(app: Sphinx, exception: Exception):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page()
+        matcher = Matcher(app.config.revealjs_screenshot_excludes)
         for docname, image_url in _targets.items():
+            if matcher(docname):
+                continue
             page_path = Path(app.outdir) / app.builder.get_target_uri(docname)
             image_path = Path(app.outdir) / image_url
             page.goto(f"file://{page_path}")
@@ -71,6 +75,7 @@ def setup(app: Sphinx):
     """Entryoint."""
     app.add_config_value("revealjs_screenshot_url_root", "http://localhost:8000", "env")
     app.add_config_value("revealjs_screenshot_url", "_images/ogp", "env")
+    app.add_config_value("revealjs_screenshot_excludes", [], "env")
     app.connect("env-get-outdated", collect_screenshot_targets)
     app.connect("html-page-context", insert_og_image)
     app.connect("build-finished", generate_screenshots)
