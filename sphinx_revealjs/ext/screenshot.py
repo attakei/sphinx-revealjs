@@ -3,15 +3,20 @@
 This is optional extension.
 You need install extra and configure to use it.
 """
+import copy
+import json
 from pathlib import Path
 from typing import Any, Dict, Set
 
 from sphinx.application import Sphinx
+from sphinx.config import Config
 from sphinx.environment import BuildEnvironment
 from sphinx.errors import ExtensionError
 from sphinx.util.docutils import nodes
 from sphinx.util.logging import getLogger
 from sphinx.util.matching import Matcher
+
+from ..nodes import revealjs_slide
 
 try:
     from playwright.sync_api import sync_playwright
@@ -24,8 +29,35 @@ except ImportError:
 
 from .. import __version__ as core_version
 
+DEFAULT_VIEWPORT_SIZE = {
+    "width": 640,
+    "height": 480,
+}
+
 logger = getLogger(__name__)
 _targets: Dict[str, str] = dict()
+
+
+def calc_viewport(config: Config, doctree: nodes.document) -> Dict[str, int]:
+    """Configure viewport for capturing screen."""
+    viewport = copy.deepcopy(DEFAULT_VIEWPORT_SIZE)
+    # Override by conf.py
+    if config.revealjs_script_conf:
+        if "width" in config.revealjs_script_conf:
+            viewport["width"] = config.revealjs_script_conf["width"]
+        if "height" in config.revealjs_script_conf:
+            viewport["height"] = config.revealjs_script_conf["height"]
+    # Override by revealjs-slide directive
+    slide_nodes = list(doctree.findall(revealjs_slide))
+    if slide_nodes:
+        node = slide_nodes[0]
+        if "conf" in node.attributes:
+            conf = json.loads(node.attributes["conf"])
+            if "width" in conf:
+                viewport["width"] = conf["width"]
+            if "height" in conf:
+                viewport["height"] = conf["height"]
+    return viewport
 
 
 def collect_screenshot_targets(
@@ -69,6 +101,9 @@ def generate_screenshots(app: Sphinx, exception: Exception):
             if page_path.is_dir():
                 page_path = page_path / "index.html"
             image_path = Path(app.outdir) / image_url
+            page.set_viewport_size(
+                calc_viewport(app.config, app.env.get_doctree(docname))
+            )
             page.goto(f"file://{page_path}")
             page.screenshot(path=image_path)
 

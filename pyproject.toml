@@ -46,6 +46,7 @@ screenshot = [
 ]
 test = [
     "BeautifulSoup4 >=4.9.3,<5",
+    "Pillow",
     "pytest >=6.2.5,<7",
     "python-magic",
 ]
