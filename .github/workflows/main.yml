@@ -43,7 +43,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python tools/fetch_revealjs.py
+          python -m sphinx_revealjs
           pip install '.[test]'
       - name: Run tests
         run: |
@@ -60,6 +60,6 @@ jobs:
       - name: Build
         run: |
           pip install flit
-          python tools/fetch_revealjs.py
+          python -m sphinx_revealjs
           flit build
           ls -l dist
