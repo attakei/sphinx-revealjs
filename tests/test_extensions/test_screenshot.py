@@ -19,8 +19,8 @@ def test_generate_screenshot(app: SphinxTestApp, status, warning):  # noqa
     assert magic.from_file(image_path, mime=True) == "image/png"
     with Image.open(image_path) as img:
         width, height = img.size
-        assert width == 640
-        assert height == 480
+        assert width == 960
+        assert height == 700
     soup = soup_html(app, "index.html")
     assert soup.find("meta", {"property": "og:image"})
 
@@ -59,8 +59,8 @@ def test_customize_size_by_directive(app: SphinxTestApp, status, warning):  # no
     app.build()
     with Image.open(app.outdir / "_images/ogp/index.png") as img:
         width, height = img.size
-        assert width == 640
-        assert height == 480
+        assert width == 960
+        assert height == 700
     with Image.open(app.outdir / "_images/ogp/custom.png") as img:
         width, height = img.size
         assert width == 1280
