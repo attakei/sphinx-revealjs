@@ -118,6 +118,9 @@ sass_include_paths = [
     get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
 ]
 
-
 # sphinxext-opengraph
 ogp_site_url = os.environ["DEMO_URL_BASE"]
+ogp_custom_meta_tags = [
+    '<meta name="twitter:card" content="summary_large_image" />',
+    '<meta name="twitter:site" content="@attakei" />',
+]
