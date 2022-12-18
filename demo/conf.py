@@ -23,6 +23,7 @@ extensions = [
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.oembed",
     "sphinxcontrib.sass",
+    "sphinxext.opengraph",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -117,4 +118,6 @@ sass_include_paths = [
     get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
 ]
 
-revealjs_screenshot_url = os.environ["DEMO_URL_BASE"]
+
+# sphinxext-opengraph
+ogp_site_url = os.environ["DEMO_URL_BASE"]

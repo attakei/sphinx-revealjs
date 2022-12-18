@@ -60,6 +60,7 @@ demo = [
     "sphinxcontrib-budoux",
     "sphinxcontrib-oembed",
     "sphinxcontrib-sass",
+    "sphinxext-opengraph",
 ]
 
 [project.urls]
