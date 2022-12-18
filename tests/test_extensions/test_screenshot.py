@@ -3,7 +3,6 @@ import magic
 import pytest
 from PIL import Image
 from sphinx.testing.util import SphinxTestApp
-from testutils import soup_html
 
 
 @pytest.mark.sphinx(
@@ -80,18 +79,3 @@ def test_customize_size_by_conf(app: SphinxTestApp, status, warning):  # noqa
         width, height = img.size
         assert width == 1280
         assert height == 720
-
-
-@pytest.mark.sphinx(
-    "revealjs",
-    testroot="default",
-    freshenv=True,
-    confoverrides={
-        "extensions": ["sphinx_revealjs", "sphinx_revealjs.ext.screenshot"],
-        "revealjs_screenshot_urlbase": "http://localhost:8000",
-    },
-)
-def test_inject_og_image(app: SphinxTestApp, status, warning):  # noqa
-    app.build()
-    soup = soup_html(app, "index.html")
-    assert soup.find("meta", {"property": "og:image"})
