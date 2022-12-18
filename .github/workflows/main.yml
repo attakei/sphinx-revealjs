@@ -44,7 +44,8 @@ jobs:
       - name: Install dependencies
         run: |
           python tools/fetch_revealjs.py
-          pip install '.[test]'
+          pip install '.[screenshot,test]'
+          playwright install
       - name: Run tests
         run: |
           pytest

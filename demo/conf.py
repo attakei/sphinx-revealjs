@@ -18,6 +18,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
+    "sphinx_revealjs.ext.screenshot",
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.oembed",
@@ -115,3 +116,5 @@ sass_targets = {"custom.scss": "custom.css"}
 sass_include_paths = [
     get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
 ]
+
+revealjs_screenshot_url = os.environ["DEMO_URL_BASE"]

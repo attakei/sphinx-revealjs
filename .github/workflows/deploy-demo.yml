@@ -26,10 +26,12 @@ jobs:
       - name: Make demo page
         run: |
           python tools/fetch_revealjs.py
-          pip install ".[demo]"
+          pip install ".[screenshot,demo]"
+          playwright install
           make -C demo demo
         env:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
+          DEMO_URL_BASE: "https://attakei.github.io/sphinx-revealjs"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

@@ -51,6 +51,7 @@ Contents
    upgrade
    configurations
    directives
+   optional-extensions
    tips
    contributing
    changes

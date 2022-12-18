@@ -41,11 +41,17 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+screenshot = [
+    "playwright",
+]
 test = [
     "BeautifulSoup4 >=4.9.3,<5",
+    "Pillow",
     "pytest >=6.2.5,<7",
+    "python-magic",
 ]
 doc = [
+    "sphinx-autobuild ==2021.3.14",
     "sphinx-rtd-theme >=0.5.1,<0.6",
 ]
 demo = [
