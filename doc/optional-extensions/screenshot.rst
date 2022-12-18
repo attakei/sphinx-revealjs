@@ -8,7 +8,7 @@ Overview
 ========
 
 Generate screenshot first section of presentations by Playwright.
-Screenshots are used as OGP Image contents.
+Screenshots can use as OGP Image contents.
 
 .. warning::
 
@@ -26,20 +26,38 @@ This extension need Playwright and browser component.
    pip install 'sphinx-revealjs[screenshot]'
    playwright install
 
+Usage
+=====
+
+When addning extention into your ``conf.py``, this generates screenshots per pages.
+You can set image path into ``:og:image:`` field of sphinxext-opengraph_ in advance.
+
+Example
+-------
+
+.. code-block:: python
+   :caption: conf.py
+
+   extensions = [
+       "sphinx_revealjs",
+       "sphinx_revealjs.ext.screenshot",
+       "sphinxext.opengraph",
+   ]
+
+.. code-block:: rst
+   :caption: sample-slide.rst
+
+   :og:image: /_images/ogp/sample-slide.png
+
+   Sample title
+   ============
+
 Configuration
 =============
 
 All Configuration names are prefixed ``revealjs_screenshot_``.
 
-.. confval:: revealjs_screenshot_url
-
-   :Type: ``str``
-   :Default: ``"http://localhost:8000"``
-   :Example: ``"https://attakei.github.io/sphinx-revealjs"``
-
-   Prefix of images' URL. This is used attribute of ``og:image`` meta-tag.
-
-.. confval:: revealjs_screenshot_path
+.. confval:: revealjs_screenshot_outdir
 
    :Type: ``str``
    :Default: ``"_images/ogp"``
@@ -72,3 +90,12 @@ This values are used viewport of presentation.
 
 * If you want to change all sizes, you can set :confval:`revealjs_script_conf`.
 * If you want to change per docs, you can set :rst:dir:`revealjs-slide` directive.
+
+Note
+====
+
+Currently, I reccomend using sphinxext-opengraph_ to add ogp metatags (it is useful).
+I delegate behavior about opengraph, and |THIS| does not have feature to generate ogp tags.
+
+
+.. _sphinxext-opengraph: https://pypi.org/project/sphinxext-opengraph/
