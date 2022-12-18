@@ -2,11 +2,17 @@
 Changelog
 =========
 
-ver 2.4.2
+ver 2.5.0
 =========
 
-:date: future
+:date: 2022-12-18
 :base: Reveal.js 4.4.0
+
+Features
+--------
+
+* Add optional extension ``sphinx_revealjs.ext.screenshot``.
+  See `doc <https://sphinx-revealjs.readthedocs.io/en/latest/optional-extensions/screenshot/>`_ for detail.
 
 Miscellaneous
 -------------
