@@ -3,7 +3,6 @@ import magic
 import pytest
 from PIL import Image
 from sphinx.testing.util import SphinxTestApp
-from testutils import soup_html
 
 
 @pytest.mark.sphinx(
@@ -21,8 +20,6 @@ def test_generate_screenshot(app: SphinxTestApp, status, warning):  # noqa
         width, height = img.size
         assert width == 960
         assert height == 700
-    soup = soup_html(app, "index.html")
-    assert soup.find("meta", {"property": "og:image"})
 
 
 @pytest.mark.sphinx(
