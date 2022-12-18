@@ -47,7 +47,7 @@ Example
 .. code-block:: rst
    :caption: sample-slide.rst
 
-   :og:image: /_images/ogp/sample-slide.png
+   :og:image: ./_images/ogp/sample-slide.png
 
    Sample title
    ============
