@@ -51,6 +51,8 @@ def insert_og_image(
     context: Dict[str, Any],
     doctree: nodes.document,
 ):
+    if not app.config.revealjs_screenshot_urlbase:
+        return
     image_url = f"{app.config.revealjs_screenshot_urlbase}/{_targets[pagename]}"
     context.setdefault("metatags", "")
     context["metatags"] += f'\n<meta property="og:image" content="{image_url}" >'
@@ -77,7 +79,7 @@ def generate_screenshots(app: Sphinx, exception: Exception):
 
 def setup(app: Sphinx):
     """Entryoint."""
-    app.add_config_value("revealjs_screenshot_urlbase", "http://localhost:8000", "env")
+    app.add_config_value("revealjs_screenshot_urlbase", None, "env")
     app.add_config_value("revealjs_screenshot_outdir", "_images/ogp", "env")
     app.add_config_value("revealjs_screenshot_excludes", [], "env")
     app.connect("env-get-outdated", collect_screenshot_targets)
