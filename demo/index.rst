@@ -2,6 +2,6 @@
 Index of demo
 =============
 
-`EN <./main-en.html>`_
+`EN <./main.html>`_
 /
 `JA <./main-ja.html>`_

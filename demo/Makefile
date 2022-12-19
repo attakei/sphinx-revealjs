@@ -17,7 +17,6 @@ demo:
 	@$(SPHINXBUILD) -M revealjs "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) -D language="ja"
 	mv $(BUILDDIR)/revealjs/main.html $(BUILDDIR)/revealjs/main-ja.html
 	@$(SPHINXBUILD) -M revealjs "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	mv $(BUILDDIR)/revealjs/main.html $(BUILDDIR)/revealjs/main-en.html
 
 intl:
 	@$(SPHINXBUILD) -M gettext "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
