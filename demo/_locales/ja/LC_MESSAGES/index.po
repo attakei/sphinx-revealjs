@@ -1,28 +1,338 @@
-# SOME DESCRIPTIVE TITLE.
+# Locale for Japanese.
 # Copyright (C) 2018, Kazuya Takei
 # This file is distributed under the same license as the sphinx-revealjs
 # package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
-msgid ""
-msgstr ""
 "Project-Id-Version: sphinx-revealjs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-30 20:09+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2022-12-20 01:30+0900\n"
+"PO-Revision-Date: 2022-12-20 01:30+0900\n"
+"Last-Translator: Kazuya Takei <myself@attakei.net>\n"
+"Language-Team: Kazuya Takei <myself@attakei.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.11.0\n"
 
-#: ../../index.rst:3
-msgid "Index of demo"
+#: ../../index.rst:8
+msgid "Introduction of sphinx-revealjs"
+msgstr "sphinx-revealjsの紹介"
+
+#: ../../index.rst
+msgid "Based version"
 msgstr ""
 
-#: ../../index.rst:5
-msgid "`EN <./main-en.html>`_ / `JA <./main-ja.html>`_"
+#: ../../index.rst:10
+msgid "2.5.0"
+msgstr ""
+
+#: ../../index.rst
+msgid "Demo updated"
+msgstr ""
+
+#: ../../index.rst:11
+msgid "2022-11-13"
+msgstr ""
+
+#: ../../index.rst:14
+msgid "Overview"
+msgstr "基本的な説明"
+
+#: ../../index.rst:17
+msgid "What is this?"
+msgstr "これはなにか"
+
+#: ../../index.rst:19
+msgid "Sphinx extension to build Reveal.js presentation"
+msgstr "SphinxドキュメンテーションからReveal.jsプレゼンテーションを生成するための拡張ライブラリです。"
+
+#: ../../index.rst:22
+msgid "Features"
+msgstr "主な機能"
+
+#: ../../index.rst:26
+msgid "Convert sections from reStructuredText directly"
+msgstr "reStructuredTextの文法構造からReveal.jsのセクション構造を生成"
+
+#: ../../index.rst:27
+msgid "Support customize sections"
+msgstr "セクションのカスタマイズ機能"
+
+#: ../../index.rst:28
+msgid "Support using plugins"
+msgstr "Reveal.js向けのプラグイン組み込み"
+
+#: ../../index.rst:29
+msgid "Support Sphinx extensions"
+msgstr "Sphinx拡張の利用"
+
+#: ../../index.rst:30
+msgid "Select theme from default themes"
+msgstr "組み込みのテーマ切り替え"
+
+#: ../../_sections/standard-usage.rst:2
+msgid "Standard usage"
+msgstr "基本的な使い方"
+
+#: ../../_sections/standard-usage.rst:5
+msgid "Installation"
+msgstr "インストール"
+
+#: ../../_sections/standard-usage.rst:7
+msgid "You can install stable version of ``sphinx-revealjs`` from PyPI."
+msgstr "``sphinx-revealjs`` はPyPIに登録されているため、pipコマンドで安定版のインストールが可能です"
+
+#: ../../_sections/standard-usage.rst:14
+msgid "Set up"
+msgstr "セットアップ"
+
+#: ../../_sections/standard-usage.rst:16
+msgid "Edit ``conf.py`` to use this extension"
+msgstr "``conf.py`` を編集して拡張を有効にするだけで使えます。"
+
+#: ../../_sections/standard-usage.rst:24
+msgid ""
+"You can customize behabior. Please see `documentation <https://sphinx-"
+"revealjs.readthedocs.io/en/latest/configurations.html>`_."
+msgstr ""
+"設定の調整なども可能です。細かい設定は `ドキュメンテーション <https://sphinx-"
+"revealjs.readthedocs.io/en/lates/configurations.html>`_ を参照してください。"
+
+#: ../../_sections/standard-usage.rst:27
+msgid "Write source"
+msgstr "ソースを作成"
+
+#: ../../_sections/standard-usage.rst:29
+msgid "Write plain reStructuredText."
+msgstr "標準的なreStructuredText記法で作成してください。"
+
+#: ../../_sections/standard-usage.rst:51
+msgid "Build presentation"
+msgstr "ビルドする"
+
+#: ../../_sections/standard-usage.rst:53
+msgid ""
+"This extension has custom builder name ``revealjs``. If you make docs as "
+"Reveal.js presentation, you call ``make revealjs``."
+msgstr ""
+"``sphinx-revealjs`` は専用のビルダーとして ``revealjs`` "
+"を提供しています。もしプレゼンテーションとして出力したい場合は、``make revealjs`` と実行するだけで生成できます。"
+
+#: ../../_sections/standard-usage.rst:60
+msgid ""
+"This presentation is made from `source <https://github.com/attakei"
+"/sphinx-revealjs/blob/master/demo/index.rst>`_."
+msgstr ""
+"このプレゼンテーション自体も `このソース <https://github.com/attakei/sphinx-"
+"revealjs/blob/master/demo/index.rst>`_ から生成されています。"
+
+#: ../../_sections/rst-to-revealjs.rst:2
+msgid "Convert reStructuredText to Reveal.js"
+msgstr "reStructuredTextからReveal.jsへの変換"
+
+#: ../../_sections/rst-to-revealjs.rst:5
+msgid "reST structure to Reveal.js sections"
+msgstr "reSTの構造が、そのままReveal.jsのセクション構造に"
+
+#: ../../_sections/rst-to-revealjs.rst:11
+#: ../../_sections/rst-to-revealjs.rst:55
+#: ../../_sections/rst-to-revealjs.rst:90
+#: ../../_sections/rst-to-revealjs.rst:114
+msgid "From:"
+msgstr "入力:"
+
+#: ../../_sections/rst-to-revealjs.rst:29
+#: ../../_sections/rst-to-revealjs.rst:69
+#: ../../_sections/rst-to-revealjs.rst:101
+#: ../../_sections/rst-to-revealjs.rst:128
+msgid "To:"
+msgstr "出力:"
+
+#: ../../_sections/rst-to-revealjs.rst:49
+msgid "Using built-in directives"
+msgstr "標準ディレティブが利用可能"
+
+#: ../../_sections/rst-to-revealjs.rst:84
+msgid "Using custom directives of Sphinx extensions"
+msgstr "Sphinx拡張によるディレクティブも利用可能"
+
+#: ../../_sections/rst-to-revealjs.rst:97
+msgid ""
+"``oembed`` is custom directive from `sphinxcontrib-oembed "
+"<https://github.com/attakei-lab/sphinxcontrib-oembed>`_"
+msgstr "``oembed`` は、 `sphinxcontrib-oembed "
+"<https://github.com/attakei-lab/sphinxcontrib-oembed>`_"
+"` で導入可能な独自ディレクティブです。"
+
+#: ../../_sections/rst-to-revealjs.rst:106
+msgid "Comments of reST"
+msgstr "reSTのコメント"
+
+#: ../../_sections/rst-to-revealjs.rst:141
+msgid "Comments of reST are not written into output files by default settings."
+msgstr "reSTのコメントは、デフォルトの設定では出力されません。"
+
+#: ../../_sections/customize-section.rst:2
+msgid "Customize section behavior"
+msgstr "セクションの挙動をカスタマイズする"
+
+#: ../../_sections/customize-section.rst:5
+#: ../../_sections/interactive-content.rst:5
+#: ../../_sections/using-plugins.rst:5
+msgid "Description"
+msgstr "概要"
+
+#: ../../_sections/customize-section.rst:7
+msgid ""
+"``sphinx-revealjs`` provides custom directives to customize behavior of "
+"sections."
+msgstr "``sphinx-revealjs`` はセクション単位での挙動設定をするためのディレクティブを用意しています。"
+
+#: ../../_sections/customize-section.rst:9
+#: ../../_sections/interactive-content.rst:9
+msgid "``revealjs-section``"
+msgstr ""
+
+#: ../../_sections/customize-section.rst:10
+#: ../../_sections/interactive-content.rst:10
+msgid "``revealjs-break``"
+msgstr ""
+
+#: ../../_sections/customize-section.rst:12
+#: ../../_sections/interactive-content.rst:13
+msgid "Showing part of examples."
+msgstr "ここからは、いくつかの例を紹介します。"
+
+#: ../../_sections/customize-section.rst:15
+msgid "Change background color"
+msgstr "背景色の変更"
+
+#: ../../_sections/customize-section.rst:34
+msgid "Set background image"
+msgstr "背景に画像の差し込み"
+
+#: ../../_sections/customize-section.rst:47
+msgid "Change transition(before)"
+msgstr "セクション間の切り替えの動き(1)"
+
+#: ../../_sections/customize-section.rst:58
+msgid "Change transition(after)"
+msgstr "セクション間の切り替えの動き(2)"
+
+#: ../../_sections/customize-section.rst:69
+msgid "Non-title section"
+msgstr "タイトルを持たないセクション"
+
+#: ../../_sections/customize-section.rst:71
+#: ../../_sections/interactive-content.rst:54
+msgid "First"
+msgstr ""
+
+#: ../../_sections/customize-section.rst:88
+#: ../../_sections/interactive-content.rst:55
+msgid "Second"
+msgstr ""
+
+#: ../../_sections/interactive-content.rst:2
+msgid "Interactive content"
+msgstr "インタラクティブな内容"
+
+#: ../../_sections/interactive-content.rst:7
+msgid "``sphinx-revealjs`` provides directives to show some interactive contents."
+msgstr "``sphinx-revealjs`` はインタラクティブなプレゼンテーションを提供するためのディレクティブも用意しています。"
+
+#: ../../_sections/interactive-content.rst:11
+msgid "``revealjs-fragments``"
+msgstr ""
+
+#: ../../_sections/interactive-content.rst:16
+msgid "Animate source code transitions"
+msgstr "コードブロックのアニメ表示"
+
+#: ../../_sections/interactive-content.rst:21
+#: ../../_sections/interactive-content.rst:31
+msgid "Enable animations for each `revealjs-section` and `revealjs-break`:"
+msgstr "``revealjs-section`` や ``revealjs-break`` を用いてアニメーションの設定が可能です。"
+
+#: ../../_sections/interactive-content.rst:40
+msgid "Fragments"
+msgstr ""
+
+#: ../../_sections/interactive-content.rst:42
+msgid "This is support fragment with groups."
+msgstr "表示対象のグループに対して、Fragments表示を組み込めます。"
+
+#: ../../_sections/interactive-content.rst:56
+msgid "Third"
+msgstr ""
+
+#: ../../_sections/interactive-content.rst:60
+#: ../../_sections/interactive-content.rst:76
+msgid "Using ``container`` directive, you can work stack layouting."
+msgstr "``container`` ディレクティブを使うことで、Fragmentsを重ねて表示させることが出来ます。"
+
+#: ../../_sections/using-plugins.rst:2
+msgid "Using Reveal.js plugins"
+msgstr "Reveal.jsプラグインの利用"
+
+#: ../../_sections/using-plugins.rst:7
+msgid ""
+"``sphinx-revealjs`` can use Reveal.js plugins by "
+"``revealjs_script_plugins`` in ``conf.py``"
+msgstr ""
+"``sphinx-revealjs`` は ``conf.py`` 内で ``revealjs_script_plugins`` "
+"を記述することで、Reveal.jsのプラグインを利用することが出来ます。"
+
+#: ../../_sections/using-plugins.rst:19
+msgid "Code highlighting"
+msgstr "コードのハイライト"
+
+#: ../../_sections/using-plugins.rst:30
+msgid "These codes are highlighting by ``RevealHighlight`` plugin."
+msgstr "``RevealHighlight`` プラグインを利用することで、コードブロックのシンタックスハイライトが可能です。"
+
+#: ../../_sections/using-plugins.rst:40
+msgid "You can use ``code-block`` and ``literalinclude`` for code highlighting."
+msgstr "``code-block`` と ``literalinclude`` はそのまま使えます。"
+
+#: ../../_sections/using-plugins.rst:52
+msgid "Using ``revealjs-code-block``, line-level highlighting works."
+msgstr "``revealjs-code-block`` であれば、行単位のハイライトなども機能します。"
+
+#: ../../_sections/using-plugins.rst:61
+msgid ""
+"You can include other file with step-by-step highlighting by ``revealjs-"
+"literalinclude``."
+msgstr "``revealjs-literalinclude`` も同様に使えます。"
+
+#: ../../_sections/using-plugins.rst:80
+msgid ""
+"You can use ``data-ln-start-from`` for display line numbers from specify "
+"value."
+msgstr "``data-ln-start-from`` を使うことで、行番号の開始値を調整できます。"
+
+#: ../../_sections/using-plugins.rst:88
+msgid "``revealjs-literalinclude`` can use it too."
+msgstr "``revealjs-literalinclude`` も同様に使えます。"
+
+#: ../../_sections/using-plugins.rst:91
+msgid "Speaker notes"
+msgstr "スピーカーノート"
+
+#: ../../_sections/using-plugins.rst:102
+msgid "This is used ``RevealNotes`` plugin, Please press ``S`` key to try it!"
+msgstr "``RevealNotes`` プラグインを利用することで、スピーカーノートを使えます。 キーボードの ``S`` を押して試してください。"
+
+#: ../../_sections/using-plugins.rst:108
+msgid "In this section, showing message from notes."
+msgstr "このセクションでは、スピーカーノート限定のメッセージが表示できることを例示しています。"
+
+#: ../../index.rst:39
+msgid "Enjoy writing reST as presentation"
+msgstr "reStructuredTextでのプレゼンテーションをぜひ体験してみてください。"
+
+#: ../../index.rst:41
+msgid "Please star!"
 msgstr ""
 
