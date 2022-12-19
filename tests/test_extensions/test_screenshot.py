@@ -79,3 +79,13 @@ def test_customize_size_by_conf(app: SphinxTestApp, status, warning):  # noqa
         width, height = img.size
         assert width == 1280
         assert height == 720
+
+
+@pytest.mark.sphinx(
+    "html",
+    testroot="viewports",
+)
+def test_work_in_html_builder(app: SphinxTestApp, status, warning):  # noqa
+    app.build()
+    image_path = app.outdir / "_images/ogp/index.png"
+    assert not image_path.exists()
