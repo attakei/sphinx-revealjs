@@ -1,6 +1,7 @@
 :orphan:
 :og:image: ./_images/ogp/main.png
 :og:image:alt: Title section for demo presentation
+:og:description: Demo presentation of sphnx-revealjs
 
 ===============================
 Introduction of sphinx-revealjs
