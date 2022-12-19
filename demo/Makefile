@@ -14,9 +14,10 @@ help:
 .PHONY: help Makefile demo intl
 
 demo:
-	@$(SPHINXBUILD) -M revealjs "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) -D language="ja"
-	mv $(BUILDDIR)/revealjs/main.html $(BUILDDIR)/revealjs/main-ja.html
-	@$(SPHINXBUILD) -M revealjs "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@$(SPHINXBUILD) -b revealjs "$(SOURCEDIR)" "$(BUILDDIR)/revealjs/ja" $(SPHINXOPTS) $(O) -D language="ja"
+	@$(SPHINXBUILD) -b revealjs "$(SOURCEDIR)" "$(BUILDDIR)/revealjs/en" $(SPHINXOPTS) $(O)
+	./gen-index.py $(BUILDDIR)/revealjs
+	touch $(BUILDDIR)/revealjs/.nojekyll
 
 intl:
 	@$(SPHINXBUILD) -M gettext "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

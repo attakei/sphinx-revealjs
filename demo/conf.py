@@ -2,6 +2,7 @@
 
 # -- Path setup --------------------------------------------------------------
 import os
+from urllib.parse import urljoin
 
 from sphinx_revealjs.themes import get_theme_path
 
@@ -14,7 +15,6 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
-    "sphinx.ext.githubpages",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
@@ -119,7 +119,10 @@ sass_include_paths = [
 ]
 
 # sphinxext-opengraph
-ogp_site_url = os.environ.get("DEMO_URL_BASE", "http://localhost:8000")
+ogp_site_url = urljoin(
+    os.environ.get("DEMO_URL_BASE", "http://localhost:8000/"), f"{language}/"
+)
+print(ogp_site_url)
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="summary_large_image" />',
     '<meta name="twitter:site" content="@attakei" />',

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Demo for sphinx-revealjs</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+  </head>
+  <body>
+    <h1>Index of demo for sphinx-revealjs</h1>
+    <ul>
+      {% for lang in languages -%}
+      <li><a href="./{{ lang }}/">{{ lang }}</li>
+      {%- endfor %}
+    </ul>
+  </body>
+</html>
