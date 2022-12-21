@@ -119,11 +119,17 @@ sass_include_paths = [
 ]
 
 # sphinxext-opengraph
-ogp_site_url = urljoin(
-    os.environ.get("DEMO_URL_BASE", "http://localhost:8000/"), f"{language}/"
-)
-print(ogp_site_url)
+ogp_site_url = os.environ.get("DEMO_URL_BASE", "http://localhost:8000/")
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="summary_large_image" />',
     '<meta name="twitter:site" content="@attakei" />',
 ]
+
+
+def update_ogp(app, config):
+    print(config.ogp_site_url, config.language)
+    config.ogp_site_url = urljoin(config.ogp_site_url, f"{config.language}/")
+
+
+def setup(app):
+    app.connect("config-inited", update_ogp)

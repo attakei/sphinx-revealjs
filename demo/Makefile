@@ -14,10 +14,10 @@ help:
 .PHONY: help Makefile demo intl
 
 demo:
-	@$(SPHINXBUILD) -b revealjs "$(SOURCEDIR)" "$(BUILDDIR)/revealjs/ja" $(SPHINXOPTS) $(O) -D language="ja"
-	@$(SPHINXBUILD) -b revealjs "$(SOURCEDIR)" "$(BUILDDIR)/revealjs/en" $(SPHINXOPTS) $(O)
-	./gen-index.py $(BUILDDIR)/revealjs
-	touch $(BUILDDIR)/revealjs/.nojekyll
+	@$(SPHINXBUILD) -b dirrevealjs "$(SOURCEDIR)" "$(BUILDDIR)/demo/ja" $(SPHINXOPTS) $(O) -D language="ja"
+	@$(SPHINXBUILD) -b dirrevealjs "$(SOURCEDIR)" "$(BUILDDIR)/demo/en" $(SPHINXOPTS) $(O)
+	./gen-index.py $(BUILDDIR)/demo
+	touch $(BUILDDIR)/demo/.nojekyll
 
 intl:
 	@$(SPHINXBUILD) -M gettext "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

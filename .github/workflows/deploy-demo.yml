@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: demo/_build/revealjs/
+          path: demo/_build/demo/
   deploy:
     needs: build
     runs-on: ubuntu-latest
