@@ -10,11 +10,10 @@ Overview
 Generate screenshot first section of presentations by Playwright.
 Screenshots can use as OGP Image contents.
 
-.. warning::
+.. note::
 
-   This generates screenshots ALWAYS when it set in ``extensions``.
-   If you are going to run multiple builder without ``revealjs`` and ``dirrevealjs``,
-   you need configure to work only when builder is ``revealjs`` or ``dirrevealjs``.
+   This extension generates screenshots only when your running builder is ``revealjs`` or ``dirrevealjs``.
+   Even if you run other builder with this in extensions, any screenshot are not generated.
 
 Installation
 ============
