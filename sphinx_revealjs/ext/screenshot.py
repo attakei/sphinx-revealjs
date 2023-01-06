@@ -12,6 +12,8 @@ from sphinx.errors import ExtensionError
 from sphinx.util.logging import getLogger
 from sphinx.util.matching import Matcher
 
+from ..builders import RevealjsHTMLBuilder
+
 try:
     from playwright.sync_api import sync_playwright
 except ImportError:
@@ -62,12 +64,17 @@ def generate_screenshots(app: Sphinx, exception: Exception):
             page.screenshot(path=image_path)
 
 
+def connect_extension_events(app: Sphinx):
+    if isinstance(app.builder, RevealjsHTMLBuilder):
+        app.connect("env-get-outdated", collect_screenshot_targets)
+        app.connect("build-finished", generate_screenshots)
+
+
 def setup(app: Sphinx):
     """Entryoint."""
     app.add_config_value("revealjs_screenshot_outdir", "_images/ogp", "env")
     app.add_config_value("revealjs_screenshot_excludes", [], "env")
-    app.connect("env-get-outdated", collect_screenshot_targets)
-    app.connect("build-finished", generate_screenshots)
+    app.connect("builder-inited", connect_extension_events)
     return {
         "version": core_version,
         "env_version": 1,
