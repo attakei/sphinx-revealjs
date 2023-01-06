@@ -2,6 +2,25 @@
 Changelog
 =========
 
+ver 2.5.1
+=========
+
+:date: 2023-01-07
+:base: Reveal.js 4.4.0
+
+Fixes
+-----
+
+* ``sphinx_revealjs.ext.screenshot`` works only revealjs based builders.
+
+Miscellaneous
+-------------
+
+* Update demo
+
+  * Use ``sphinx_revealjs.ext.screenshot`` and ``sphinxext-opengraph``
+  * Change structure for i18n
+
 ver 2.5.0
 =========
 
