@@ -13,11 +13,11 @@ jobs:
       - name: Try update package.json
         id: checked
         run: |
-          version=`jq < package-lock.json '.dependencies."reveal.js".version' -r`
+          version=`jq < npm-shrinkwrap.json '.packages."node_modules/reveal.js".version' -r`
           echo "::set-output name=revealjs_current::${version}"
           npm i
           npm update -S
-          version=`jq < package-lock.json '.dependencies."reveal.js".version' -r`
+          version=`jq < npm-shrinkwrap.json '.packages."node_modules/reveal.js".version' -r`
           echo "::set-output name=revealjs_updated::${version}"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
