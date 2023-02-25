@@ -34,7 +34,8 @@ RULE = {
 def find_package(src: Path, name: str) -> dict:
     """Pick package file URL from package-lock.json."""
     package_lock = json.loads(src.read_text())
-    deps = [m for n, m in package_lock.get("dependencies", {}).items() if n == name]
+    package_name = f"node_modules/{name}"
+    deps = [m for n, m in package_lock.get("packages", {}).items() if n == package_name]
     if len(deps) == 0:
         raise ValueError(f"Invalid name: ({name})")
     return deps[0]
@@ -64,8 +65,8 @@ def main(args: argparse.Namespace):  # noqa: D103
         sys.exit(1)
     elif args.force:
         shutil.rmtree(dest)
-    package_lock_json = ROOT_DIR / "package-lock.json"
-    package = find_package(package_lock_json, RULE["name"])
+    lockfile_json = ROOT_DIR / "npm-shrinkwrap.json"
+    package = find_package(lockfile_json, RULE["name"])
     local_archive = ROOT_DIR / "var" / f"{RULE['name']}-{package['version']}.tgz"
     if not local_archive.exists():
         urlretrieve(package["resolved"], local_archive)
