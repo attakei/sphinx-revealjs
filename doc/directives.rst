@@ -173,6 +173,14 @@ For interactive contents
    Inject ``fragment`` attribute into objects.
    Referer to `"Fragments" from Reveal.js <https://revealjs.com/fragments/>`_
 
+   You can see `demo <https://attakei.github.io/sphinx-revealjs/en/#/5/1>`_ to know usage.
+
+   .. rst:directive:option:: custom-effect
+      :type: string
+
+      When it is set, inject as custom class.
+      You can customize behavior of fragments transitions with CSS.
+
    Example:
 
    Write block as directive that you want to present as fragments.
@@ -184,8 +192,6 @@ For interactive contents
          * First
          * Second
          * Third
-
-   See `demo <https://attakei.github.io/sphinx-revealjs/#/5/1>`_
 
 .. rst:directive:: revealjs-notes
 
