@@ -114,6 +114,10 @@ class RevealjsSlide(Directive):  # noqa: D101
 class RevealjsFragments(Directive):  # noqa: D101
     has_content = True
 
+    option_spec = {
+        "custom-effect": directives.unchanged,
+    }
+
     def run(self):  # noqa: D102
         node = revealjs_fragments()
         if self.content:
@@ -122,9 +126,13 @@ class RevealjsFragments(Directive):  # noqa: D101
         for child in node.children:
             if not isinstance(child, Sequential):
                 child["classes"].append("fragment")
+                if "custom-effect" in self.options:
+                    child["classes"] += ["custom", self.options["custom-effect"]]
                 continue
             for c in child:
                 c["classes"].append("fragment")
+                if "custom-effect" in self.options:
+                    c["classes"] += ["custom", self.options["custom-effect"]]
         return [
             node,
         ]

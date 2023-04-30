@@ -22,3 +22,13 @@ Paragraph fragments
    Hello world
 
    This is sphinx-revealjs
+
+Custom fragments
+----------------
+
+.. revealjs-fragments::
+   :custom-effect: blur
+
+   * First
+   * Second
+   * Third
