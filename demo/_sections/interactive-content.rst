@@ -57,6 +57,49 @@ This is support fragment with groups.
 
 .. revealjs-break::
 
+You can customize behavior of fragments.
+
+.. code-block:: rst
+
+   .. revealjs-fragments::
+      :custom-effect: blur
+
+      * First
+      * Second
+      * Third
+
+.. code-block:: css
+
+   // For custom effect of fragments
+   .fragment.blur {
+     filter: blur(5px);
+   }
+   .fragment.blur.visible {
+     filter: none;
+   }
+
+.. revealjs-break::
+
+You can customize behavior of fragments.
+
+.. code-block:: rst
+
+   .. revealjs-fragments::
+      :custom-effect: blur
+
+      * First
+      * Second
+      * Third
+
+.. revealjs-fragments::
+   :custom-effect: blur
+
+   * First
+   * Second
+   * Third
+
+.. revealjs-break::
+
 Using ``container`` directive, you can work stack layouting.
 
 .. code-block:: rst
