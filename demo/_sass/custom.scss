@@ -62,3 +62,11 @@ html * {
     font-family: monospace;
   }
 }
+
+// For custom effect of fragments
+.fragment.blur {
+  filter: blur(5px);
+}
+.fragment.blur.visible {
+  filter: none;
+}
