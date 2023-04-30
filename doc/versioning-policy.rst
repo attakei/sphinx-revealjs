@@ -63,7 +63,7 @@ Reveal.js
 
 #. When Reveal.js is released as patch version,
    |THIS| bundles new version and releases as patch version at upcoming.
-#. When Reveal.js is released as patch version,
+#. When Reveal.js is released as minor version,
    |THIS| bundles new version and releases as minor version at upcoming.
    It is possibility to include adding options for new version.
 #. When Reveal.js is released as major version,
