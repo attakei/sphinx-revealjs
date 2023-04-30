@@ -2,6 +2,24 @@
 Changelog
 =========
 
+ver 2.6.0
+=========
+
+:date: 2023-04-30 JST
+:base: Reveal.js 4.5.0 (updated)
+
+Features
+--------
+
+* Support custom fragments of Reveal.js 4.5.0 or greater.
+
+  * Include demo updating.
+
+Miscellaneous
+-------------
+
+* Checked Sphinx 7.x compatiblity.
+
 ver 2.5.1
 =========
 
