@@ -6,13 +6,13 @@
     "": {
       "name": "sphinx-revealjs",
       "dependencies": {
-        "reveal.js": "^4.5.0"
+        "reveal.js": "^4.6.1"
       }
     },
     "node_modules/reveal.js": {
-      "version": "4.5.0",
-      "resolved": "https://registry.npmjs.org/reveal.js/-/reveal.js-4.5.0.tgz",
-      "integrity": "sha512-Lx1hUWhJR7Y7ScQNyGt7TFzxeviDAswK2B0cn9RwbPZogTMRgS8+FTr+/12KNHOegjvWKH0H0EGwBARNDPTgWQ==",
+      "version": "4.6.1",
+      "resolved": "https://registry.npmjs.org/reveal.js/-/reveal.js-4.6.1.tgz",
+      "integrity": "sha512-1CW0auaXNPmwmvQ7TwpszwVxMi2Xr5cTS3J3EBC/HHgbPF32Dn7aiu/LKWDOGjMbaDwKQiGmfqcoGQ74HUHCMw==",
       "engines": {
         "node": ">=10.0.0"
       }
