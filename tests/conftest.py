@@ -12,9 +12,7 @@ collect_ignore = ["roots"]
 
 def pytest_configure(config: Config):  # noqa
     for name, klass in inspect.getmembers(deprecation, inspect.isclass):
-        if not issubclass(klass, DeprecationWarning) and not issubclass(
-            klass, PendingDeprecationWarning
-        ):
+        if not issubclass(klass, DeprecationWarning):
             continue
         config.addinivalue_line(
             "filterwarnings", f"error::{klass.__module__}.{klass.__name__}"
