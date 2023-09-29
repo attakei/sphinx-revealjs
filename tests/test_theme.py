@@ -1,4 +1,6 @@
 """Test cases for builtin theme."""
+from urllib.parse import urlparse
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
@@ -10,7 +12,7 @@ def test_has_revealcss(app: SphinxTestApp, status, warning):  # noqa
     reveal_css = [
         d
         for d in soup.find_all("link", rel="stylesheet")
-        if d["href"].endswith("dist/reveal.css")
+        if urlparse(d["href"]).path.endswith("dist/reveal.css")
     ]
     assert len(reveal_css) == 1
 
