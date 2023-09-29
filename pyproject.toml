@@ -51,6 +51,7 @@ test = [
     "python-magic",
 ]
 doc = [
+    "Sphinx ==5.*",  # For readthedocs (pass --upgrade-strategy only-if-needed)
     "sphinx-autobuild ==2021.3.14",
     "sphinx-rtd-theme >=0.5.1,<0.6",
 ]
