@@ -2,6 +2,17 @@
 Changelog
 =========
 
+ver 2.7.1
+=========
+
+:date: 2023-09-29 JST
+:base: Reveal.js 4.6.1
+
+Miscellaneous
+-------------
+
+* Lock Sphinx version for documentation
+
 ver 2.7.0
 =========
 
