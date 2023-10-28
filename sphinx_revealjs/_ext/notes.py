@@ -1,8 +1,8 @@
 """Internal extension for Speaker view or Reveal.js."""
 import html
 
-from docutils import nodes
-from docutils.parsers.rst.directives.admonitions import BaseAdmonition
+from docutils import nodes  # type: ignore
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition  # type: ignore
 from sphinx.application import Sphinx
 from sphinx.directives import SphinxDirective
 from sphinx.util.docutils import SphinxTranslator
