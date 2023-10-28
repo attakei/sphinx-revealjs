@@ -18,6 +18,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
+    "sphinx_revealjs.ext.footnotes",
     "sphinx_revealjs.ext.screenshot",
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
