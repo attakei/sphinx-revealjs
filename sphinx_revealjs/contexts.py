@@ -1,6 +1,6 @@
 """Contexts for passing between objects."""
 import json
-from typing import Dict, List, Union
+from typing import Dict, List, Optional, Union
 
 from .utils import static_resource_uri
 
@@ -29,7 +29,9 @@ class RevealjsEngine:
 class RevealjsPlugin:
     """Plugin metadata."""
 
-    def __init__(self, src: str, name: str = None, options: str = None):  # noqa
+    def __init__(
+        self, src: str, name: Optional[str] = None, options: Optional[str] = None
+    ):  # noqa
         self.src = src
         self.name = name
         self.options = options
@@ -41,9 +43,9 @@ class RevealjsProjectContext(object):
     def __init__(
         self,
         engine_version: int,
-        script_files: List[str] = None,
-        script_conf: Union[str, Dict] = None,
-        script_plugins: List[RevealjsPlugin] = None,
+        script_files: Optional[List[str]] = None,
+        script_conf: Optional[Union[str, Dict]] = None,
+        script_plugins: Optional[List[RevealjsPlugin]] = None,
     ):  # noqa
         self.engine = RevealjsEngine.from_version(engine_version)
         if isinstance(script_conf, str):

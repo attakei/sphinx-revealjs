@@ -55,22 +55,22 @@ def extract_archive(source: Path, dest: Path, targets: Dict[str, str]):  # noqa:
             tr.extract(trf, extract_dir)
     for s, d in targets.items():
         func = shutil.copytree if (extract_dir / s).is_dir() else shutil.copyfile
-        func(extract_dir / s, dest / d)
+        func(extract_dir / s, dest / d)  # type: ignore
 
 
 def main(args: argparse.Namespace):  # noqa: D103
-    dest = Path(RULE["dest"])
+    dest = Path(RULE["dest"])  # type: ignore
     if dest.exists() and not args.force:
         print("Dest directory is already exists")
         sys.exit(1)
     elif args.force:
         shutil.rmtree(dest)
     lockfile_json = ROOT_DIR / "npm-shrinkwrap.json"
-    package = find_package(lockfile_json, RULE["name"])
+    package = find_package(lockfile_json, RULE["name"])  # type: ignore
     local_archive = ROOT_DIR / "var" / f"{RULE['name']}-{package['version']}.tgz"
     if not local_archive.exists():
         urlretrieve(package["resolved"], local_archive)
-    extract_archive(local_archive, dest, RULE["targets"])
+    extract_archive(local_archive, dest, RULE["targets"])  # type: ignore
 
 
 if __name__ == "__main__":
