@@ -2,6 +2,25 @@
 Changelog
 =========
 
+ver 2.8.0
+=========
+
+:date: 2023-10-29 JST
+:base: Reveal.js 4.6.1
+
+Features
+--------
+
+* Add custom event "revealjs:ready-for-writing" (internal)
+* Add optional extension ``sphinx_revealjs.ext.footnotes``.
+  See `doc <https://sphinx-revealjs.readthedocs.io/en/stable/optional-extensions/footnotes/>`_ for detail.
+
+Miscellaneous
+-------------
+
+* Checked works on Python 3.12
+* Use MyPy for type check
+
 ver 2.7.1
 =========
 
