@@ -129,6 +129,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             configs.append(self.revealjs_slide.content)
         return configs
 
+    def prepare_writing(self, docnames: set[str]):
+        super().prepare_writing((docnames))
+        self.events.emit("revealjs:ready-for-writing", self.globalcontext)
+
 
 class DirectoryRevealjsHTMLBuilder(DirectoryHTMLBuilder, RevealjsHTMLBuilder):
     """Custom RevealjsHTMLBuilder to generate all HTML pages as ``index.html``.
