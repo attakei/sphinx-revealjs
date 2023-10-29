@@ -71,6 +71,7 @@ def setup(app: Sphinx):
     if python_version not in python_support:
         logger.warning("You are using not supported version Python.")
 
+    app.add_event("revealjs:ready-for-writing")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
     app.connect("config-inited", notify_deprecated)

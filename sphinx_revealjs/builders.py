@@ -1,7 +1,7 @@
 """Definition for sphinx custom builder."""
 import copy
 import logging
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Set, Tuple
 
 from sphinx import version_info as sphinx_versoin
 from sphinx.application import Sphinx
@@ -128,6 +128,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         if self.revealjs_slide.content:
             configs.append(self.revealjs_slide.content)
         return configs
+
+    def prepare_writing(self, docnames: Set[str]):
+        super().prepare_writing((docnames))
+        self.events.emit("revealjs:ready-for-writing", self.globalcontext)
 
 
 class DirectoryRevealjsHTMLBuilder(DirectoryHTMLBuilder, RevealjsHTMLBuilder):

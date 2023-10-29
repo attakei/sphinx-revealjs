@@ -1,0 +1,22 @@
+/**
+ * Customize layout of footnotes.
+ */
+a.footnote-reference {
+  font-size: {{ revealjs_footnotes.ref_font_size }};
+  vertical-align: top;
+}
+
+aside.footnote-list {
+  position: fixed;
+  bottom: 0;
+  font-size: {{ revealjs_footnotes.font_size }};
+  width: 100%;
+}
+
+aside.footnote > span {
+  float: left;
+}
+aside.footnote p {
+  text-align: left;
+  padding-left: 2rem;
+}
