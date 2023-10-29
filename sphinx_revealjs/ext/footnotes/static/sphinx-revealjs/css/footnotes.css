@@ -1,0 +1,22 @@
+/**
+ * Customize layout of footnotes.
+ */
+a.footnote-reference {
+  font-size: 70%;
+  vertical-align: top;
+}
+
+aside.footnote-list {
+  position: fixed;
+  bottom: 0;
+  font-size: 50%;
+  width: 100%;
+}
+
+aside.footnote > span {
+  float: left;
+}
+aside.footnote p {
+  text-align: left;
+  padding-left: 2rem;
+}
