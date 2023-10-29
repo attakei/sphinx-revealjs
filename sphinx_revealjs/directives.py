@@ -1,8 +1,8 @@
 """Custom directives for Reveal.js."""
 import json
 
-from docutils.nodes import Sequential
-from docutils.parsers.rst import Directive, directives
+from docutils.nodes import Sequential  # type: ignore
+from docutils.parsers.rst import Directive, directives  # type:ignore
 from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (

@@ -1,5 +1,5 @@
 """Custom docutils nodes for Reveal.js."""
-from docutils import nodes
+from docutils import nodes  # type: ignore
 
 
 class FlagAttribute(object):
