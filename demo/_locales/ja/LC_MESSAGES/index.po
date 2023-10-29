@@ -1,19 +1,21 @@
-# Locale for Japanese.
-# Copyright (C) 2018, Kazuya Takei
-# This file is distributed under the same license as the sphinx-revealjs
-# package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# Translations template for PROJECT.
+# Copyright (C) 2023 Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs package.
+# Kazuya Takei <myself@attakei.net>, 2023.
 #
-"Project-Id-Version: sphinx-revealjs \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-20 01:30+0900\n"
-"PO-Revision-Date: 2022-12-20 01:30+0900\n"
-"Last-Translator: Kazuya Takei <myself@attakei.net>\n"
-"Language-Team: Kazuya Takei <myself@attakei.net>\n"
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-10-29 16:43+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.12.1\n"
 
 #: ../../index.rst:8
 msgid "Introduction of sphinx-revealjs"
@@ -24,7 +26,7 @@ msgid "Based version"
 msgstr ""
 
 #: ../../index.rst:10
-msgid "2.5.0"
+msgid "2.8.0"
 msgstr ""
 
 #: ../../index.rst
@@ -127,6 +129,21 @@ msgstr ""
 "このプレゼンテーション自体も `このソース <https://github.com/attakei/sphinx-"
 "revealjs/blob/master/demo/index.rst>`_ から生成されています。"
 
+#: ../../_sections/standard-usage.rst:63
+msgid "Footnotes"
+msgstr "脚注"
+
+#: ../../_sections/standard-usage.rst:65
+msgid ""
+"You can set footnotes. footnotes are rendered on tail of slide by using "
+"internal-extension. [#]_"
+msgstr ""
+"脚注記法を用いることが出来ます。内部拡張を利用することで、脚注の出力位置をスライド下部に調整することが出来ます。 [#]_"
+
+#: ../../_sections/standard-usage.rst:67
+msgid "This is footnote."
+msgstr "これは脚注のテキストです。"
+
 #: ../../_sections/rst-to-revealjs.rst:2
 msgid "Convert reStructuredText to Reveal.js"
 msgstr "reStructuredTextからReveal.jsへの変換"
@@ -161,9 +178,9 @@ msgstr "Sphinx拡張によるディレクティブも利用可能"
 msgid ""
 "``oembed`` is custom directive from `sphinxcontrib-oembed "
 "<https://github.com/attakei-lab/sphinxcontrib-oembed>`_"
-msgstr "``oembed`` は、 `sphinxcontrib-oembed "
-"<https://github.com/attakei-lab/sphinxcontrib-oembed>`_"
-"` で導入可能な独自ディレクティブです。"
+msgstr ""
+"``oembed`` は、 `sphinxcontrib-oembed <https://github.com/attakei-lab"
+"/sphinxcontrib-oembed>`_` で導入可能な独自ディレクティブです。"
 
 #: ../../_sections/rst-to-revealjs.rst:106
 msgid "Comments of reST"
@@ -226,11 +243,13 @@ msgstr "タイトルを持たないセクション"
 
 #: ../../_sections/customize-section.rst:71
 #: ../../_sections/interactive-content.rst:54
+#: ../../_sections/interactive-content.rst:97
 msgid "First"
 msgstr ""
 
 #: ../../_sections/customize-section.rst:88
 #: ../../_sections/interactive-content.rst:55
+#: ../../_sections/interactive-content.rst:98
 msgid "Second"
 msgstr ""
 
@@ -264,11 +283,17 @@ msgid "This is support fragment with groups."
 msgstr "表示対象のグループに対して、Fragments表示を組み込めます。"
 
 #: ../../_sections/interactive-content.rst:56
+#: ../../_sections/interactive-content.rst:99
 msgid "Third"
 msgstr ""
 
 #: ../../_sections/interactive-content.rst:60
-#: ../../_sections/interactive-content.rst:76
+#: ../../_sections/interactive-content.rst:83
+msgid "You can customize behavior of fragments."
+msgstr ""
+
+#: ../../_sections/interactive-content.rst:103
+#: ../../_sections/interactive-content.rst:119
 msgid "Using ``container`` directive, you can work stack layouting."
 msgstr "``container`` ディレクティブを使うことで、Fragmentsを重ねて表示させることが出来ます。"
 
@@ -335,4 +360,7 @@ msgstr "reStructuredTextでのプレゼンテーションをぜひ体験して�
 #: ../../index.rst:41
 msgid "Please star!"
 msgstr ""
+
+#~ msgid "2.5.0"
+#~ msgstr ""
 
