@@ -2,14 +2,14 @@
  * Customize layout of footnotes.
  */
 a.footnote-reference {
-  font-size: 70%;
+  font-size: {{ revealjs_footnotes.ref_font_size }};
   vertical-align: top;
 }
 
 aside.footnote-list {
   position: fixed;
   bottom: 0;
-  font-size: 50%;
+  font-size: {{ revealjs_footnotes.font_size }};
   width: 100%;
 }
 

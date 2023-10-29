@@ -44,3 +44,19 @@ Configuration
 =============
 
 All Configuration names are prefixed ``revealjs_footnotes_``.
+
+.. confval:: revealjs_footnotes_font_size
+
+   :Type: ``str``
+   :Default: ``50%``
+   :Example: ``60%``
+
+   Font-size of rendered footnote contents.
+
+.. confval:: revealjs_footnotes_ref_font_size
+
+   :Type: ``str``
+   :Default: ``70%``
+   :Example: ``60%``
+
+   Font-size of rendered footnote's referer text.
