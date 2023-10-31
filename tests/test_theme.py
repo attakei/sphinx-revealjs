@@ -28,11 +28,11 @@ def test_script_conf(app: SphinxTestApp, status, warning):  # noqa
 def test_script_sources(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     scripts = [s["src"] for s in soup.find_all("script") if "src" in s.attrs]
-    assert "_static/revealjs4/dist/reveal.js" in scripts
+    assert "_static/revealjs/dist/reveal.js" in scripts
 
 
 @pytest.mark.sphinx("revealjs", testroot="default")
 def test_stylesheet(app, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     links = [link["href"] for link in soup.find_all("link", rel="stylesheet")]
-    assert "_static/revealjs4/dist/theme/black.css" in links
+    assert "_static/revealjs/dist/theme/black.css" in links

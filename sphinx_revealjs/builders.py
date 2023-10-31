@@ -114,7 +114,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             theme = f"_static/{theme}"
         else:
             theme = f"_static/{self.revealjs_context.engine.theme_dir}/{theme}.css"
-        # index 0: "_static/revealjs4/dist/reveal.css"
+        # index 0: "_static/revealjs/dist/reveal.css"
         # index 1: theme css file path
         # index 2 or later: other css files
         ctx["css_files"].insert(1, theme)

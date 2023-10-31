@@ -66,7 +66,7 @@ class TestForRevealjsScriptConfig:  # noqa
         "revealjs_script_plugins": [
             {
                 "name": "RevealNotes",
-                "src": "revealjs4/plugin/notes/notes.js",
+                "src": "revealjs/plugin/notes/notes.js",
             }
         ]
     },
@@ -78,5 +78,5 @@ def test_revealjs_script_plugins(app: SphinxTestApp, status, warning):  # noqa
     for d in soup.find_all("script"):
         print(d)
     scripts = [d["src"] for d in soup.find_all("script") if "src" in d.attrs]
-    assert "_static/revealjs4/plugin/notes/notes.js" in scripts
+    assert "_static/revealjs/plugin/notes/notes.js" in scripts
     assert "RevealNotes" in str(soup)
