@@ -40,13 +40,18 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def init(self):  # noqa
         # Create RevealjsProjectContext
+        script_conf = getattr(self.config, "revealjs_script_conf")
+        if not script_conf:
+            script_conf = {}
+        if isinstance(script_conf, dict):
+            script_conf.setdefault("scrollActivationWidth", None)
         self.revealjs_context = RevealjsProjectContext(
             4,
             [  # noqa: W503
                 static_resource_uri(src)
                 for src in getattr(self.config, "revealjs_script_files", [])
             ],
-            getattr(self.config, "revealjs_script_conf", None),
+            script_conf,
             [
                 RevealjsPlugin(
                     static_resource_uri(plugin["src"]),
