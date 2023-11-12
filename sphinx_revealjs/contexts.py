@@ -2,7 +2,11 @@
 import json
 from typing import Dict, List, Optional, Union
 
+from sphinx.util import logging
+
 from .utils import static_resource_uri
+
+logger = logging.getLogger(__name__)
 
 
 class RevealjsEngine:
@@ -49,6 +53,9 @@ class RevealjsProjectContext(object):
     ):  # noqa
         self.engine = RevealjsEngine.from_version(engine_version)
         if isinstance(script_conf, str):
+            logger.warning(
+                "For next major version, revealjs_script_conf accepts only dict",
+            )
             self.script_conf = script_conf
         else:
             self.script_conf = f"JSON.parse('{json.dumps(script_conf)}')"
