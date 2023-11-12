@@ -101,6 +101,14 @@ Presentation Configurations
    * If value is string type, handle as raw javascript code.
    * If value is dict object, convert to json string at internal.
 
+   .. note::
+
+      For behavior compatibility,
+      it appends ``{"scrollActivationWidth": None}`` as default configuration
+      when value is dict object or is not set.
+
+      See it: https://github.com/hakimel/reveal.js/releases/tag/5.0.0
+
    Example 1: case of str
 
    .. code-block:: py
@@ -146,7 +154,7 @@ Presentation Configurations
       <!-- here!! -->
       <script>
         let revealjsConfig = {};
-        revealjsConfig = Object.assign(revealjsConfig, JSON.parse('{"controls": false, "transition": "zoom"}'));
+        revealjsConfig = Object.assign(revealjsConfig, JSON.parse('{"controls": false, "transition": "zoom", "scrollActivationWidth": null}'));
         revealjs.initialize(revealjsConfig);
       </script>
 

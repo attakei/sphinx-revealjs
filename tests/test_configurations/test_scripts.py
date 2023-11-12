@@ -54,7 +54,18 @@ class TestForRevealjsScriptConfig:  # noqa
     def test_using_as_dict(self, app: SphinxTestApp, status, warning):  # noqa
         soup = soup_html(app, "index.html")
         assert (
-            'Object.assign(revealjsConfig, JSON.parse(\'{"transition": "none"}\'));'
+            'Object.assign(revealjsConfig, JSON.parse(\'{"transition": "none", "scrollActivationWidth": null}\'));'  # noqa: E501
+            in str(soup.find_all("script")[-1])
+        )
+
+    @pytest.mark.sphinx(
+        "revealjs",
+        testroot="for-config",
+    )
+    def test_not_use(self, app: SphinxTestApp, status, warning):  # noqa
+        soup = soup_html(app, "index.html")
+        assert (
+            "Object.assign(revealjsConfig, JSON.parse('{\"scrollActivationWidth\": null}'));"  # noqa: E501
             in str(soup.find_all("script")[-1])
         )
 
