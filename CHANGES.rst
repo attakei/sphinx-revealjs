@@ -2,6 +2,25 @@
 Changelog
 =========
 
+ver 2.9.0
+=========
+
+:date: 2023-11-19 JST
+:base: Reveal.js 5.0.2 (updated)
+
+.. note:: This is for last minor update for v2.x
+
+Features
+--------
+
+* Set default configuration to disable scroll-view mode for compatiblity.
+
+Miscellaneous
+-------------
+
+* Update translations.
+* Add logging for deprecated.
+
 ver 2.8.0
 =========
 

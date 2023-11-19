@@ -7,7 +7,7 @@
 Introduction of sphinx-revealjs
 ===============================
 
-:Based version: 2.8.0
+:Based version: 2.9.0
 :Demo updated: 2022-11-13
 
 Overview
