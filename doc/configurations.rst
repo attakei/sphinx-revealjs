@@ -176,7 +176,7 @@ Presentation Configurations
 
       revealjs_script_plugins = [
           {
-              "src": "revealjs4/plugin/highlight/highlight.js",
+              "src": "revealjs/plugin/highlight/highlight.js",
               "name": "RevealHighlight",
           },
       ]

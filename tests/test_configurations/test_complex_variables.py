@@ -18,7 +18,7 @@ def test_default_theme_css_comes_before_custom_css(
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     default_theme_index = stylesheet_href_list.index(
-        "_static/revealjs4/dist/theme/black.css"
+        "_static/revealjs/dist/theme/black.css"
     )
     custom_css_index = stylesheet_href_list.index("_static/custom.css")
     assert default_theme_index < custom_css_index
@@ -39,7 +39,7 @@ def test_specified_theme_css_comes_before_custom_css(
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     specified_theme_index = stylesheet_href_list.index(
-        "_static/revealjs4/dist/theme/moon.css"
+        "_static/revealjs/dist/theme/moon.css"
     )
     custom_css_index = stylesheet_href_list.index("_static/other_custom.css")
     assert specified_theme_index < custom_css_index

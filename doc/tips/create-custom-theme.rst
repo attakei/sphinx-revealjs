@@ -51,7 +51,7 @@ Compile source.
    source = Path("_sass/custom.scss").read_text()
    css = sass.compile(
        string=source,
-       include_paths=[str(get_theme_path() / "static/revealjs4/css/theme")]
+       include_paths=[str(get_theme_path() / "static/revealjs/css/theme")]
    )
    Path("_static/custom.css").write_text(css)
 
@@ -88,7 +88,7 @@ You can use `sphinxcontrib-sass`_ to simplify.
    sass_out_dir = "_static"
    sass_targets = {"custom.scss": "custom.css"}
    sass_include_paths = [
-       get_theme_path("sphinx_revealjs") / "static" / "revealjs4" / "css" / "theme",
+       get_theme_path("sphinx_revealjs") / "static" / "revealjs" / "css" / "theme",
    ]
 
 When document updated, it compile scss to css.
