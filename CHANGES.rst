@@ -2,6 +2,17 @@
 Changelog
 =========
 
+ver 2.9.1
+=========
+
+:date: 2023-11-25 JST
+:base: Reveal.js 5.0.2
+
+Miscellaneous
+-------------
+
+* Mark deprecated into ``google_font`` in ``revealjs-slide`` directive.
+
 ver 2.9.0
 =========
 
