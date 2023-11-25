@@ -32,6 +32,8 @@ use this directive into your source.
 
       Override ``revealjs_google_fonts``, but it can specify only one.
 
+      .. warning:: This option is not work in v2.x. It will removed in v3.x
+
    .. rst:directive:option:: conf
       :type: JSON-string or no-value
 
