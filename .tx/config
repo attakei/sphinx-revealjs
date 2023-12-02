@@ -1,0 +1,147 @@
+[main]
+host = https://app.transifex.com
+
+[o:atsphinx:p:sphinx-revealjs:r:changes]
+file_filter            = locales/<lang>/LC_MESSAGES/changes.po
+source_file            = doc/_build/gettext/changes.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:changes--0_x]
+file_filter            = locales/<lang>/LC_MESSAGES/changes/0.x.po
+source_file            = doc/_build/gettext/changes/0.x.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:changes--1_x]
+file_filter            = locales/<lang>/LC_MESSAGES/changes/1.x.po
+source_file            = doc/_build/gettext/changes/1.x.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:configurations]
+file_filter            = locales/<lang>/LC_MESSAGES/configurations.po
+source_file            = doc/_build/gettext/configurations.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:contributing]
+file_filter            = locales/<lang>/LC_MESSAGES/contributing.po
+source_file            = doc/_build/gettext/contributing.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:directives]
+file_filter            = locales/<lang>/LC_MESSAGES/directives.po
+source_file            = doc/_build/gettext/directives.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:index]
+file_filter            = locales/<lang>/LC_MESSAGES/index.po
+source_file            = doc/_build/gettext/index.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:optional-extensions]
+file_filter            = locales/<lang>/LC_MESSAGES/optional-extensions.po
+source_file            = doc/_build/gettext/optional-extensions.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:optional-extensions--footnotes]
+file_filter            = locales/<lang>/LC_MESSAGES/optional-extensions/footnotes.po
+source_file            = doc/_build/gettext/optional-extensions/footnotes.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:optional-extensions--screenshot]
+file_filter            = locales/<lang>/LC_MESSAGES/optional-extensions/screenshot.po
+source_file            = doc/_build/gettext/optional-extensions/screenshot.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:setup]
+file_filter            = locales/<lang>/LC_MESSAGES/setup.po
+source_file            = doc/_build/gettext/setup.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:tips]
+file_filter            = locales/<lang>/LC_MESSAGES/tips.po
+source_file            = doc/_build/gettext/tips.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:tips--create-custom-theme]
+file_filter            = locales/<lang>/LC_MESSAGES/tips/create-custom-theme.po
+source_file            = doc/_build/gettext/tips/create-custom-theme.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:tips--customizing-design-simply]
+file_filter            = locales/<lang>/LC_MESSAGES/tips/customizing-design-simply.po
+source_file            = doc/_build/gettext/tips/customizing-design-simply.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:upgrade]
+file_filter            = locales/<lang>/LC_MESSAGES/upgrade.po
+source_file            = doc/_build/gettext/upgrade.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:upgrade--1_x]
+file_filter            = locales/<lang>/LC_MESSAGES/upgrade/1.x.po
+source_file            = doc/_build/gettext/upgrade/1.x.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:upgrade--2_x]
+file_filter            = locales/<lang>/LC_MESSAGES/upgrade/2.x.po
+source_file            = doc/_build/gettext/upgrade/2.x.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
+[o:atsphinx:p:sphinx-revealjs:r:versioning-policy]
+file_filter            = locales/<lang>/LC_MESSAGES/versioning-policy.po
+source_file            = doc/_build/gettext/versioning-policy.pot
+type                   = PO
+minimum_perc           = 0
+replace_edited_strings = false
+keep_translations      = false
+
