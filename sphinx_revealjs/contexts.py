@@ -58,7 +58,7 @@ class RevealjsProjectContext(object):
             )
             self.script_conf = script_conf
         else:
-            self.script_conf = f"JSON.parse('{json.dumps(script_conf)}')"
+            self.script_conf = json.dumps(script_conf)
         self.script_plugins = script_plugins or []
         self._script_files = script_files or []
 
