@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../versioning-policy.rst:3
+msgid "Versioning policy"
+msgstr ""
+
+#: ../../versioning-policy.rst
+msgid "date"
+msgstr ""
+
+#: ../../versioning-policy.rst:5
+msgid "2022-11-06"
+msgstr ""
+
+#: ../../versioning-policy.rst:7
+msgid "This is possibility to change without announces."
+msgstr ""
+
+#: ../../versioning-policy.rst:10
+msgid "Base rules"
+msgstr ""
+
+#: ../../versioning-policy.rst:12
+msgid ""
+"|THIS| releases based from `Semantic Versioning 2.0.0 "
+"<https://semver.org/spec/v2.0.0.html>`_."
+msgstr ""
+
+#: ../../versioning-policy.rst:14
+msgid "Update major version with:"
+msgstr ""
+
+#: ../../versioning-policy.rst:16
+msgid "Drop or changed configuration variables"
+msgstr ""
+
+#: ../../versioning-policy.rst:17
+msgid "Have big changes of generated contents by new Reveal.js"
+msgstr ""
+
+#: ../../versioning-policy.rst:18
+msgid "Breaking changes for setup-level requirements"
+msgstr ""
+
+#: ../../versioning-policy.rst:20
+msgid "Update minor version with:"
+msgstr ""
+
+#: ../../versioning-policy.rst:22
+msgid "Update marks for deprecated (wraning level)"
+msgstr ""
+
+#: ../../versioning-policy.rst:23
+msgid "Add new features (include inner extensions)"
+msgstr ""
+
+#: ../../versioning-policy.rst:24
+msgid "Add supporing dependencies"
+msgstr ""
+
+#: ../../versioning-policy.rst:25
+msgid "Drop supporing dependencies (not change setup-level)"
+msgstr ""
+
+#: ../../versioning-policy.rst:26
+msgid "Change major version of Reveal.js, but it need not update as major version"
+msgstr ""
+
+#: ../../versioning-policy.rst:27
+msgid "Change minor version of Reveal.js"
+msgstr ""
+
+#: ../../versioning-policy.rst:28
+msgid "Change compononents by misc reasons"
+msgstr ""
+
+#: ../../versioning-policy.rst:30
+msgid "Update patch version with:"
+msgstr ""
+
+#: ../../versioning-policy.rst:32
+msgid "Mark deprecated notice"
+msgstr ""
+
+#: ../../versioning-policy.rst:33
+msgid "Fixed bugs"
+msgstr ""
+
+#: ../../versioning-policy.rst:34
+msgid "Change patch version of Reveal.js"
+msgstr ""
+
+#: ../../versioning-policy.rst:37
+msgid "Following dependencies"
+msgstr ""
+
+#: ../../versioning-policy.rst:40
+msgid "CPython"
+msgstr ""
+
+#: ../../versioning-policy.rst:42
+msgid "|THIS| supports only \"Living\" versions for as of first of year."
+msgstr ""
+
+#: ../../versioning-policy.rst:44
+msgid ""
+"**\"Living\"** means that it have not published last security-only "
+"releases. **\"Not living\"** means that it is finished to published "
+"security-only releases."
+msgstr ""
+
+#: ../../versioning-policy.rst:47
+msgid ""
+"Wnen some version of CPython released \"last security-only release\", "
+"|THIS| will release with marks deprecated notice-level at upcoming (patch"
+" version)."
+msgstr ""
+
+#: ../../versioning-policy.rst:49
+msgid ""
+"When |THIS| releases new minor version after 2 month from version with "
+"marked deprecated notice, this will drop old versions from everywhere and"
+" depricated warning (minor versoin)."
+msgstr ""
+
+#: ../../versioning-policy.rst:51
+msgid ""
+"If |THIS| must only use specify version, this will set "
+"``python_requires`` and release new versoin (major or minor version)."
+msgstr ""
+
+#: ../../versioning-policy.rst:55
+msgid "Sphinx"
+msgstr ""
+
+#: ../../versioning-policy.rst:57
+msgid "(TBD)"
+msgstr ""
+
+#: ../../versioning-policy.rst:60
+msgid "Reveal.js"
+msgstr ""
+
+#: ../../versioning-policy.rst:62
+msgid "|THIS| bundles stable version."
+msgstr ""
+
+#: ../../versioning-policy.rst:64
+msgid ""
+"When Reveal.js is released as patch version, |THIS| bundles new version "
+"and releases as patch version at upcoming."
+msgstr ""
+
+#: ../../versioning-policy.rst:66
+msgid ""
+"When Reveal.js is released as minor version, |THIS| bundles new version "
+"and releases as minor version at upcoming. It is possibility to include "
+"adding options for new version."
+msgstr ""
+
+#: ../../versioning-policy.rst:69
+msgid ""
+"When Reveal.js is released as major version, I will check compatibility "
+"for configuration of extension."
+msgstr ""
+
+#: ../../versioning-policy.rst:72
+msgid ""
+"If I have decise to need breaking change, |THIS| will release as major "
+"version."
+msgstr ""
+
+#: ../../versioning-policy.rst:73
+msgid ""
+"if it need not change or only add configuration, |THIS| will release as "
+"minor versoin. |THIS| bundles new version and releases as patch version "
+"at upcoming."
+msgstr ""
+

@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../upgrade/2.x.rst:3
+msgid "Upgrading from 1.x to 2.x"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:5
+msgid ""
+"From 2.x, some features are removed because splitted other extensions or "
+"duplicated behaviors. If you want to use new version by documentation "
+"using 1.x, you should upgrade project files."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:9
+msgid "Fonts"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:11
+msgid ""
+"|THIS| does not support font configuration features to provide features "
+"as \"Presentation tools\"."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:14
+msgid "If you want to use Google Fonts"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:16
+msgid "You can add CSS URL into ``revealjs_css_files`` directly."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:25
+msgid "Example of ``css/custom.css``."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:34
+msgid "Use googlefonts-markup"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:36
+msgid ""
+"If you want to write only font-family, use `googlefonts-markup "
+"<https://pypi.org/project/googlefonts-markup/>`_."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:48
+msgid "Change using Google Fonts per presentations"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:50
+msgid "You need to create custom theme per presentations."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:69
+msgid "Speaker Views"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:71
+msgid ""
+"New configration :confval:`revealjs_notes_from_comments` are defined. "
+"But, because default values is ``False``, your presentation not write "
+"speaker-note when you upgrade |THIS|"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:75
+msgid "Replace reveajs-notes(recommended)"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:77
+msgid ""
+"You can replace :rst:dir:`revealjs-notes` from comment-block. And you can"
+" use comment-block as COMMENT(does not write as content from source)."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:80
+msgid "Before:"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:86
+msgid "After:"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:95
+msgid "Configuration for compatible behaviors"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:97
+msgid ""
+"You can set ``True`` :confval:`revealjs_notes_from_comments` to use "
+"behaviors of ver 1.x."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:104
+msgid "Configurations"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:107
+msgid "html_js_files/revealjs_js_files"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:109
+msgid ""
+"|THIS| does not ref ``html_js_files`` as list of additional JavaScript "
+"files. It refer only ``revealjs_js_files``."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:112
+msgid "You must do one of these."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:114
+msgid "Copy needy values of ``html_js_files`` to ``revealjs_js_files``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:115
+msgid ""
+"Sync ``html_js_files`` to ``revealjs_js_files`` (ex: ``revealjs_js_files "
+"= html_js_files``)"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:118
+msgid "revealjs_use_index"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:120
+msgid ""
+"|THIS| does not generate ``genindex.html`` (list of in vals) on default. "
+"If you want ``genindex.html`` for Reveal.js builder, you muse set "
+"``True``."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:124
+msgid "Directives"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:126
+msgid ""
+"|THIS| defines kebab-cased directives only, and removed snake-cesed "
+"directives. You must replace cases to run by 2.x."
+msgstr ""
+
+#: ../../upgrade/2.x.rst:130
+msgid "Before"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:130
+msgid "After"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:132
+msgid "``revealjs_break``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:132
+msgid "``revealjs-break``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:134
+msgid "``revealjs_fragments``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:134
+msgid "``revealjs-fragments``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:136
+msgid "``revealjs_section``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:136
+msgid "``revealjs-section``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:138
+msgid "``revealjs_slide``"
+msgstr ""
+
+#: ../../upgrade/2.x.rst:138
+msgid "``revealjs-slide``"
+msgstr ""
+

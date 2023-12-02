@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../optional-extensions.rst:3
+msgid "Optional extensions"
+msgstr ""
+
+#: ../../optional-extensions.rst:5
+msgid ""
+"|THIS| includes optional extensions. These are not core features for "
+"presentation, but supporting features to get for more values."
+msgstr ""
+
+#: ../../optional-extensions.rst:9
+msgid "Why these are optional ?"
+msgstr ""
+
+#: ../../optional-extensions.rst:11
+msgid ""
+"These require extra packages to work, but them do not need for standard "
+"features. However, required packages are large (example: playwright is "
+"27MB to only create screenshot)."
+msgstr ""
+
+#: ../../optional-extensions.rst:14
+msgid ""
+"Therefore, I splitted core features and optional features as \"package "
+"extra\"."
+msgstr ""
+
+#: ../../optional-extensions.rst:17
+msgid "Usage"
+msgstr ""
+
+#: ../../optional-extensions.rst:19
+msgid "With install |THIS|, append extras by ``[]``."
+msgstr ""
+
+#: ../../optional-extensions.rst:25
+msgid "You can install multiple extras with comma."
+msgstr ""
+
+#: ../../optional-extensions.rst:31
+msgid "Edit ``conf.py`` to work extensions."
+msgstr ""
+
+#: ../../optional-extensions.rst:33
+msgid "For details, please see extension's page."
+msgstr ""
+
+#: ../../optional-extensions.rst:36
+msgid "Features"
+msgstr ""
+

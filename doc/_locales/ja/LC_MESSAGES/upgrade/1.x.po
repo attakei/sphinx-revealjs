@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../upgrade/1.x.rst:3
+msgid "Upgrading from 0.x to 1.x"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:5
+msgid ""
+"From version 1.x, this bundle Reveal.js 4.x, and implement for it. Due "
+"it, documentations for old version does not work to build correctly."
+msgstr ""
+
+#: ../../upgrade/1.x.rst:8
+msgid "You have to lock version, or migrate source for next version."
+msgstr ""
+
+#: ../../upgrade/1.x.rst:11
+msgid "Configurations"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:14
+msgid "revealjs_script_plugins"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:16
+msgid "Reveal.js 4.x has big changes for usage of plugins from 3.x."
+msgstr ""
+
+#: ../../upgrade/1.x.rst:18
+msgid ""
+"|THIS| is also adjust for this changes, and need update "
+"``revealjs_script_plugins`` ."
+msgstr ""
+
+#: ../../upgrade/1.x.rst:39
+msgid "Changed structure from src and options to src and name."
+msgstr ""
+
+#: ../../upgrade/1.x.rst
+msgid "For 4.x, to use plugin for core,"
+msgstr ""
+
+#: ../../upgrade/1.x.rst
+msgid "add class name of it not source path,"
+msgstr ""
+
+#: ../../upgrade/1.x.rst
+msgid "and need to preload source by ``script`` tag."
+msgstr ""
+
+#: ../../upgrade/1.x.rst
+msgid "Class name is defined in plugin source."
+msgstr ""
+
+#: ../../upgrade/1.x.rst
+msgid "You need find from source or ref documents (official plugin only)"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:46
+msgid "In adding, does not accept options for plugins."
+msgstr ""
+
+#: ../../upgrade/1.x.rst:48
+msgid ""
+"MORE: See `Using Plugins from Reveal.js document "
+"<https://revealjs.com/plugins/>`_"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:51
+msgid "revealjs_css_files"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:53
+msgid ""
+"If you use highlight plugin and specify bundled stylesheet file, change "
+"path of stylesheet. Style files is migrated to highlight plugin folder."
+msgstr ""
+
+#: ../../upgrade/1.x.rst:57
+msgid "Before: ``revealjs/lib/css/zenburn.css``"
+msgstr ""
+
+#: ../../upgrade/1.x.rst:58
+msgid "After: ``revealjs4/plugin/highlight``"
+msgstr ""
+

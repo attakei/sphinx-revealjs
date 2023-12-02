@@ -1,0 +1,245 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../configurations.rst:3
+msgid "Configurations"
+msgstr ""
+
+#: ../../configurations.rst:5
+msgid ""
+"|THIS| can build multiple presentations. You can configure in ``conf.py``"
+" for all presentations."
+msgstr ""
+
+#: ../../configurations.rst:9
+msgid "Basic configurations"
+msgstr ""
+
+#: ../../configurations.rst
+msgid "Type"
+msgstr ""
+
+#: ../../configurations.rst:13 ../../configurations.rst:21
+#: ../../configurations.rst:31
+msgid "``list``"
+msgstr ""
+
+#: ../../configurations.rst
+msgid "Default"
+msgstr ""
+
+#: ../../configurations.rst:14 ../../configurations.rst:22
+#: ../../configurations.rst:32
+msgid "``[]`` (empty)"
+msgstr ""
+
+#: ../../configurations.rst
+msgid "Example"
+msgstr ""
+
+#: ../../configurations.rst:15
+msgid "``[\"_static\"]``"
+msgstr ""
+
+#: ../../configurations.rst:17
+msgid ""
+"List of static files directory ( same as "
+":confval:`sphinx:html_static_path` )"
+msgstr ""
+
+#: ../../configurations.rst:23
+msgid "``[\"custom.js\"]``"
+msgstr ""
+
+#: ../../configurations.rst:25
+msgid "List of using custom css (same as :confval:`sphinx:html_js_files` )."
+msgstr ""
+
+#: ../../configurations.rst:27
+msgid "When you want to use JS that does not related revealjs, can use this."
+msgstr ""
+
+#: ../../configurations.rst:33
+msgid "``[\"custom.css\"]``"
+msgstr ""
+
+#: ../../configurations.rst:35
+msgid "List of using custom css (same as :confval:`sphinx:html_css_files` )."
+msgstr ""
+
+#: ../../configurations.rst:37
+msgid ""
+"If you want to customize presentation by CSS, write external css and use "
+"it."
+msgstr ""
+
+#: ../../configurations.rst:41
+msgid "``bool``"
+msgstr ""
+
+#: ../../configurations.rst:42 ../../configurations.rst:66
+msgid "``False``"
+msgstr ""
+
+#: ../../configurations.rst:44
+msgid ""
+"Flag that does builder generate ``genindex.html`` (same as "
+":confval:`sphinx:html_use_index` )."
+msgstr ""
+
+#: ../../configurations.rst:47
+msgid "Style Configurations"
+msgstr ""
+
+#: ../../configurations.rst:51
+msgid "``str``"
+msgstr ""
+
+#: ../../configurations.rst:52
+msgid "``black``"
+msgstr ""
+
+#: ../../configurations.rst:53
+msgid "``moon``, ``custom.css``"
+msgstr ""
+
+#: ../../configurations.rst:55
+msgid "Theme name of stylesheet for Reveal.js."
+msgstr ""
+
+#: ../../configurations.rst
+msgid "If value does not have suffix ``.css``,"
+msgstr ""
+
+#: ../../configurations.rst
+msgid "use bundled Reveal.js theme(included ``revealjs/css/theme``)."
+msgstr ""
+
+#: ../../configurations.rst:61
+msgid "Presentation Configurations"
+msgstr ""
+
+#: ../../configurations.rst:65
+msgid "``boolean``"
+msgstr ""
+
+#: ../../configurations.rst:68
+msgid ""
+"If this is set ``True``, inject ``id`` attribute into ``section`` element"
+" (parent of headerings). This means that change format of internal links "
+"(default is numbering style)."
+msgstr ""
+
+#: ../../configurations.rst:74
+msgid "``List[str]``"
+msgstr ""
+
+#: ../../configurations.rst:75 ../../configurations.rst:166
+msgid "``[]``"
+msgstr ""
+
+#: ../../configurations.rst:76
+msgid "``[\"presentation.js\"]``"
+msgstr ""
+
+#: ../../configurations.rst:78
+msgid "List of sources that render as ``script`` tags."
+msgstr ""
+
+#: ../../configurations.rst:80
+msgid "There is bundled Reveal.js script at ``revealjs/js/reveal.js``."
+msgstr ""
+
+#: ../../configurations.rst:82 ../../configurations.rst:173
+msgid "Example:"
+msgstr ""
+
+#: ../../configurations.rst:95
+msgid "``str or dict``"
+msgstr ""
+
+#: ../../configurations.rst:96
+msgid "``None``"
+msgstr ""
+
+#: ../../configurations.rst:98
+msgid ""
+"Configuration of Reveal.js presentation. This value is used as options of"
+" ``Reveal.initialize`` in output files."
+msgstr ""
+
+#: ../../configurations.rst:101
+msgid "If value is string type, handle as raw javascript code."
+msgstr ""
+
+#: ../../configurations.rst:102
+msgid "If value is dict object, convert to json string at internal."
+msgstr ""
+
+#: ../../configurations.rst:106
+msgid ""
+"For behavior compatibility, it appends ``{\"scrollActivationWidth\": "
+"None}`` as default configuration when value is dict object or is not set."
+msgstr ""
+
+#: ../../configurations.rst:110
+msgid "See it: https://github.com/hakimel/reveal.js/releases/tag/5.0.0"
+msgstr ""
+
+#: ../../configurations.rst:112
+msgid "Example 1: case of str"
+msgstr ""
+
+#: ../../configurations.rst:139
+msgid "Example 2: case of dict"
+msgstr ""
+
+#: ../../configurations.rst:161
+msgid "example 1 and 2 are behaving same."
+msgstr ""
+
+#: ../../configurations.rst:165
+msgid "``List[Dict]``"
+msgstr ""
+
+#: ../../configurations.rst:168
+msgid ""
+"List of plugin configurations. If this value is set, render ``script`` "
+"tag after source script tags."
+msgstr ""
+
+#: ../../configurations.rst:171
+msgid "There are bundled Reveal.js plugins at ``revealjs/plugin``."
+msgstr ""
+
+#: ../../configurations.rst:200
+msgid "boolean"
+msgstr ""
+
+#: ../../configurations.rst:201
+msgid "False"
+msgstr ""
+
+#: ../../configurations.rst:203
+msgid "If this is set `True`, builder writes notes section from comment block."
+msgstr ""
+

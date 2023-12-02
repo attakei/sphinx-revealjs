@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../index.rst:3
+msgid "sphinx-revealjs"
+msgstr ""
+
+#: ../../index.rst:5
+msgid ""
+"|THIS| is Sphinx extension to generate Reveal.js presentation documents "
+"from **standard** reStructuredText."
+msgstr ""
+
+#: ../../index.rst:10
+msgid "Basic Features"
+msgstr ""
+
+#: ../../index.rst:12
+msgid "Nested sections"
+msgstr ""
+
+#: ../../index.rst:13
+msgid "Speaker note"
+msgstr ""
+
+#: ../../index.rst:14
+msgid "Syntax highlight for Reveal.js (not used pygments)"
+msgstr ""
+
+#: ../../index.rst:15
+msgid "Customize slides and sections by conf.py or source reST"
+msgstr ""
+
+#: ../../index.rst:18
+msgid "Demo"
+msgstr ""
+
+#: ../../index.rst:20
+msgid ""
+"Source: `Sphinx document <https://github.com/attakei/sphinx-"
+"revealjs/tree/master/demo>`_"
+msgstr ""
+
+#: ../../index.rst:21
+msgid ""
+"Created: `Reveal.js presentation <https://attakei.github.io/sphinx-"
+"revealjs/>`_"
+msgstr ""
+
+#: ../../index.rst
+msgid "Screenshot of source Sphinx doc"
+msgstr ""
+
+#: ../../index.rst
+msgid "Screenshot of Reveal.js slide"
+msgstr ""
+
+#: ../../index.rst:36
+msgid "Concept and motivation"
+msgstr ""
+
+#: ../../index.rst:38
+msgid ""
+"Goal of this library is to provide presentation platform for self-"
+"branding of engineer using Sphinx. Using static site hosting service, you"
+" can show own presentations to anyone."
+msgstr ""
+
+#: ../../index.rst:42
+msgid "Core motivation is that I want to play presentation by this library."
+msgstr ""
+
+#: ../../index.rst:45
+msgid "Contents"
+msgstr ""
+
+#: ../../index.rst:61
+msgid "Licenses"
+msgstr ""
+
+#: ../../index.rst:63
+msgid "This library is licensed Apache License version 2.0."
+msgstr ""
+
+#: ../../index.rst:65
+msgid ""
+"About license of directly dependencies, please see each software projects"
+" or documentations."
+msgstr ""
+
+#: ../../index.rst:68
+msgid "docutils:"
+msgstr ""
+
+#: ../../index.rst:70
+msgid "https://docutils.sourceforge.io/"
+msgstr ""
+
+#: ../../index.rst:72
+msgid "Sphinx:"
+msgstr ""
+
+#: ../../index.rst:74
+msgid "https://www.sphinx-doc.org/"
+msgstr ""
+
+#: ../../index.rst:75
+msgid "https://github.com/sphinx-doc/sphinx"
+msgstr ""
+
+#: ../../index.rst:77
+msgid "Reveal.js:"
+msgstr ""
+
+#: ../../index.rst:79
+msgid "https://revealjs.com/#/"
+msgstr ""
+
+#: ../../index.rst:80
+msgid "https://github.com/hakimel/reveal.js"
+msgstr ""
+
+#: ../../index.rst:83
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../index.rst:85
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:86
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:87
+msgid ":ref:`search`"
+msgstr ""
+

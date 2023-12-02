@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../setup.rst:3
+msgid "Setup"
+msgstr ""
+
+#: ../../setup.rst:6
+msgid "Requirements"
+msgstr ""
+
+#: ../../setup.rst:8
+msgid "|THIS| requires Python 3.6+ (recommended 3.7+) and Sphinx."
+msgstr ""
+
+#: ../../setup.rst:11
+msgid "Current development environment"
+msgstr ""
+
+#: ../../setup.rst:13
+msgid "Python: ``3.10.x``"
+msgstr ""
+
+#: ../../setup.rst:14
+msgid "Sphinx: ``5.3.0``"
+msgstr ""
+
+#: ../../setup.rst:18
+msgid "Installation"
+msgstr ""
+
+#: ../../setup.rst:20
+msgid "You can install |THIS| from PyPI."
+msgstr ""
+
+#: ../../setup.rst:26
+msgid ""
+"|THIS| specify ``Sphinx`` and ``docutils`` expressly as dependencies. You"
+" get ``Sphinx`` by this command only."
+msgstr ""
+
+#: ../../setup.rst:30
+msgid "Configuration"
+msgstr ""
+
+#: ../../setup.rst:32
+msgid ""
+"|THIS| does not provide ``revealjs`` builder instead of ``html`` builder."
+" To use builder, edit your ``conf.py``."
+msgstr ""
+
+#: ../../setup.rst:41
+msgid ""
+"if you want to configure more, edit conf.py with seeing "
+":doc:`./configurations`."
+msgstr ""
+
+#: ../../setup.rst:45
+msgid "Build"
+msgstr ""
+
+#: ../../setup.rst:47
+msgid ""
+"Run ``make`` command to build presentations. Files are generated to "
+"**revealjs** folder."
+msgstr ""
+
+#: ../../setup.rst:54
+msgid "You can generate all pages as ``index.html`` to use ``dirrevealjs``."
+msgstr ""
+

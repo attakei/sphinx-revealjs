@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../optional-extensions/footnotes.rst:3
+msgid "sphinx_revealjs.ext.footnotes"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst
+msgid "Added"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:5
+msgid "v2.8.0"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:8
+msgid "Overview"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:10
+msgid "This extension updates position of footnotes."
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:13
+msgid "Installation"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:15
+msgid ""
+"You need not install extra, you can use it immediately after installing "
+"|THIS|."
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:18
+msgid "Usage"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:20
+msgid ""
+"WHen adding extension into your ``conf.py``, insert CSS file to customize"
+" layout of footnotes."
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst
+#: ../../optional-extensions/footnotes.rst:23
+msgid "Example"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:25
+msgid "conf.py"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:33
+msgid "sample-slide.rst"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:44
+msgid "Configuration"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:46
+msgid "All Configuration names are prefixed ``revealjs_footnotes_``."
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst
+msgid "Type"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:50
+#: ../../optional-extensions/footnotes.rst:58
+msgid "``str``"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst
+msgid "Default"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:51
+msgid "``50%``"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:52
+#: ../../optional-extensions/footnotes.rst:60
+msgid "``60%``"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:54
+msgid "Font-size of rendered footnote contents."
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:59
+msgid "``70%``"
+msgstr ""
+
+#: ../../optional-extensions/footnotes.rst:62
+msgid "Font-size of rendered footnote's referer text."
+msgstr ""
+

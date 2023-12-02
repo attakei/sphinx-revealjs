@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../../CHANGES.rst:3
+msgid "Changelog"
+msgstr ""
+
+#: ../../../CHANGES.rst:6
+msgid "ver 2.9.1"
+msgstr ""
+
+#: ../../../CHANGES.rst
+msgid "date"
+msgstr ""
+
+#: ../../../CHANGES.rst:8
+msgid "2023-11-25 JST"
+msgstr ""
+
+#: ../../../CHANGES.rst
+msgid "base"
+msgstr ""
+
+#: ../../../CHANGES.rst:9
+msgid "Reveal.js 5.0.2"
+msgstr ""
+
+#: ../../../CHANGES.rst:12 ../../../CHANGES.rst:30 ../../../CHANGES.rst:49
+#: ../../../CHANGES.rst:61 ../../../CHANGES.rst:87 ../../../CHANGES.rst:103
+#: ../../../CHANGES.rst:123
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../../../CHANGES.rst:14
+msgid "Mark deprecated into ``google_font`` in ``revealjs-slide`` directive."
+msgstr ""
+
+#: ../../../CHANGES.rst:17
+msgid "ver 2.9.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:19
+msgid "2023-11-19 JST"
+msgstr ""
+
+#: ../../../CHANGES.rst:20
+msgid "Reveal.js 5.0.2 (updated)"
+msgstr ""
+
+#: ../../../CHANGES.rst:22
+msgid "This is for last minor update for v2.x"
+msgstr ""
+
+#: ../../../CHANGES.rst:25 ../../../CHANGES.rst:42 ../../../CHANGES.rst:80
+#: ../../../CHANGES.rst:117
+msgid "Features"
+msgstr ""
+
+#: ../../../CHANGES.rst:27
+msgid "Set default configuration to disable scroll-view mode for compatiblity."
+msgstr ""
+
+#: ../../../CHANGES.rst:32
+msgid "Update translations."
+msgstr ""
+
+#: ../../../CHANGES.rst:33
+msgid "Add logging for deprecated."
+msgstr ""
+
+#: ../../../CHANGES.rst:36
+msgid "ver 2.8.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:38
+msgid "2023-10-29 JST"
+msgstr ""
+
+#: ../../../CHANGES.rst:39 ../../../CHANGES.rst:58
+msgid "Reveal.js 4.6.1"
+msgstr ""
+
+#: ../../../CHANGES.rst:44
+msgid "Add custom event \"revealjs:ready-for-writing\" (internal)"
+msgstr ""
+
+#: ../../../CHANGES.rst:45
+msgid ""
+"Add optional extension ``sphinx_revealjs.ext.footnotes``. See `doc <https"
+"://sphinx-revealjs.readthedocs.io/en/stable/optional-"
+"extensions/footnotes/>`_ for detail."
+msgstr ""
+
+#: ../../../CHANGES.rst:51
+msgid "Checked works on Python 3.12"
+msgstr ""
+
+#: ../../../CHANGES.rst:52
+msgid "Use MyPy for type check"
+msgstr ""
+
+#: ../../../CHANGES.rst:55
+msgid "ver 2.7.1"
+msgstr ""
+
+#: ../../../CHANGES.rst:57 ../../../CHANGES.rst:68
+msgid "2023-09-29 JST"
+msgstr ""
+
+#: ../../../CHANGES.rst:63
+msgid "Lock Sphinx version for documentation"
+msgstr ""
+
+#: ../../../CHANGES.rst:66
+msgid "ver 2.7.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:69
+msgid "Reveal.js 4.6.1 (updated)"
+msgstr ""
+
+#: ../../../CHANGES.rst:71 ../../../CHANGES.rst:136
+msgid "(None updates for features)"
+msgstr ""
+
+#: ../../../CHANGES.rst:74
+msgid "ver 2.6.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:76
+msgid "2023-04-30 JST"
+msgstr ""
+
+#: ../../../CHANGES.rst:77
+msgid "Reveal.js 4.5.0 (updated)"
+msgstr ""
+
+#: ../../../CHANGES.rst:82
+msgid "Support custom fragments of Reveal.js 4.5.0 or greater."
+msgstr ""
+
+#: ../../../CHANGES.rst:84
+msgid "Include demo updating."
+msgstr ""
+
+#: ../../../CHANGES.rst:89
+msgid "Checked Sphinx 7.x compatiblity."
+msgstr ""
+
+#: ../../../CHANGES.rst:92
+msgid "ver 2.5.1"
+msgstr ""
+
+#: ../../../CHANGES.rst:94
+msgid "2023-01-07"
+msgstr ""
+
+#: ../../../CHANGES.rst:95 ../../../CHANGES.rst:114 ../../../CHANGES.rst:134
+#: ../../../CHANGES.rst:147
+msgid "Reveal.js 4.4.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:98 ../../../CHANGES.rst:226 ../../../CHANGES.rst:249
+msgid "Fixes"
+msgstr ""
+
+#: ../../../CHANGES.rst:100
+msgid "``sphinx_revealjs.ext.screenshot`` works only revealjs based builders."
+msgstr ""
+
+#: ../../../CHANGES.rst:105
+msgid "Update demo"
+msgstr ""
+
+#: ../../../CHANGES.rst:107
+msgid "Use ``sphinx_revealjs.ext.screenshot`` and ``sphinxext-opengraph``"
+msgstr ""
+
+#: ../../../CHANGES.rst:108
+msgid "Change structure for i18n"
+msgstr ""
+
+#: ../../../CHANGES.rst:111
+msgid "ver 2.5.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:113
+msgid "2022-12-18"
+msgstr ""
+
+#: ../../../CHANGES.rst:119
+msgid ""
+"Add optional extension ``sphinx_revealjs.ext.screenshot``. See `doc "
+"<https://sphinx-revealjs.readthedocs.io/en/latest/optional-"
+"extensions/screenshot/>`_ for detail."
+msgstr ""
+
+#: ../../../CHANGES.rst:125
+msgid "Extract only target files from archive of Reveal.js."
+msgstr ""
+
+#: ../../../CHANGES.rst:127
+msgid "Contain files are not changed"
+msgstr ""
+
+#: ../../../CHANGES.rst:128
+msgid "It is for CVE-2007-4559"
+msgstr ""
+
+#: ../../../CHANGES.rst:131
+msgid "ver 2.4.1"
+msgstr ""
+
+#: ../../../CHANGES.rst:133
+msgid "2022-11-20"
+msgstr ""
+
+#: ../../../CHANGES.rst:139 ../../../CHANGES.rst:215
+msgid "Extra"
+msgstr ""
+
+#: ../../../CHANGES.rst:141
+msgid "Fix badge of readme"
+msgstr ""
+
+#: ../../../CHANGES.rst:144
+msgid "ver 2.4.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:146
+msgid "2022-11-13"
+msgstr ""
+
+#: ../../../CHANGES.rst:150 ../../../CHANGES.rst:198
+msgid "Added features"
+msgstr ""
+
+#: ../../../CHANGES.rst:152
+msgid ""
+"Add ``data-ln-start-from`` into ``revealjs-code-block`` and ``revealjs-"
+"literalinclude``."
+msgstr ""
+
+#: ../../../CHANGES.rst:155
+msgid "Changes"
+msgstr ""
+
+#: ../../../CHANGES.rst:157
+msgid "Demo documentation are changed from ``demo/revealjs4`` to ``demo``."
+msgstr ""
+
+#: ../../../CHANGES.rst:160
+msgid "Deprecated"
+msgstr ""
+
+#: ../../../CHANGES.rst:162
+msgid "Output warning when using it by Python 3.6"
+msgstr ""
+
+#: ../../../CHANGES.rst:163
+msgid "Mark notice level deprecated"
+msgstr ""
+
+#: ../../../CHANGES.rst:165
+msgid "Change directory for contents of Reveal.js"
+msgstr ""
+
+#: ../../../CHANGES.rst:168
+msgid "Change supportings"
+msgstr ""
+
+#: ../../../CHANGES.rst:170
+msgid "Add Python 3.11 into supportings"
+msgstr ""
+
+#: ../../../CHANGES.rst:171
+msgid "Drop Python 3.6 from supportings"
+msgstr ""
+
+#: ../../../CHANGES.rst:174
+msgid "Develoment environment"
+msgstr ""
+
+#: ../../../CHANGES.rst:176
+msgid ""
+"Hooks of ``pre-commit`` are using as standard lintings. In GitHub "
+"Actions, ``lint`` is running ``pre-commit``."
+msgstr ""
+
+#: ../../../CHANGES.rst:178
+msgid "Use Flit as building library instead of Poetry."
+msgstr ""
+
+#: ../../../CHANGES.rst:181
+msgid "ver 2.3.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:183
+msgid "2022-10-23"
+msgstr ""
+
+#: ../../../CHANGES.rst:184
+msgid "Reveal.js 4.4.0 (updated)"
+msgstr ""
+
+#: ../../../CHANGES.rst:187
+msgid "Updated Features"
+msgstr ""
+
+#: ../../../CHANGES.rst:189
+msgid ""
+"Support data-background-gradient correctly (already defined, but not "
+"working at older Reveal.js)"
+msgstr ""
+
+#: ../../../CHANGES.rst:192
+msgid "ver 2.2.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:194
+msgid "2022-10-01"
+msgstr ""
+
+#: ../../../CHANGES.rst:195 ../../../CHANGES.rst:207 ../../../CHANGES.rst:223
+#: ../../../CHANGES.rst:234
+msgid "Reveal.js 4.3.1"
+msgstr ""
+
+#: ../../../CHANGES.rst:200
+msgid ""
+"Add ``revealjs-literalinclude`` that is extends of ``literalinclude`` for"
+" ``data-line-numbers``. It is likely ``revealjs-code-block``."
+msgstr ""
+
+#: ../../../CHANGES.rst:204
+msgid "ver 2.1.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:206
+msgid "2022-08-28"
+msgstr ""
+
+#: ../../../CHANGES.rst:210 ../../../CHANGES.rst:237
+msgid "Added Features"
+msgstr ""
+
+#: ../../../CHANGES.rst:212
+msgid "Package includes SCSS sources of revealjs bundled-themes"
+msgstr ""
+
+#: ../../../CHANGES.rst:217
+msgid "Use pre-commit"
+msgstr ""
+
+#: ../../../CHANGES.rst:220
+msgid "ver 2.0.1"
+msgstr ""
+
+#: ../../../CHANGES.rst:222
+msgid "2022-08-02"
+msgstr ""
+
+#: ../../../CHANGES.rst:228
+msgid ""
+"Custom builders accept ``app`` and ``env`` (optional) in initialize "
+"function"
+msgstr ""
+
+#: ../../../CHANGES.rst:231
+msgid "ver 2.0.0"
+msgstr ""
+
+#: ../../../CHANGES.rst:233
+msgid "2022-05-31"
+msgstr ""
+
+#: ../../../CHANGES.rst:239
+msgid "Directive ``revealjs-notes`` writes speaker-view content into presentation"
+msgstr ""
+
+#: ../../../CHANGES.rst:241
+msgid ""
+"Config ``reveajs_notes_from_comments`` toggle if it creates speaker-view "
+"content from comment-block"
+msgstr ""
+
+#: ../../../CHANGES.rst:243 ../../../CHANGES.rst:246
+msgid ""
+"BREAKING CHANGE: Default value is False. You must set ``True`` explicitly"
+" to use as same as ver 1.x"
+msgstr ""
+
+#: ../../../CHANGES.rst:244
+msgid "Config ``reveajs_use_index`` toggle if it creates ``genindex.html``"
+msgstr ""
+
+#: ../../../CHANGES.rst:251
+msgid ""
+"Register ``data-XXX`` attributes into ``revealjs-section`` and "
+"``revealjs-break`` from https://revealjs.com/"
+msgstr ""
+
+#: ../../../CHANGES.rst:254
+msgid "Deleted feaures"
+msgstr ""
+
+#: ../../../CHANGES.rst:256
+msgid "Remove snake-cesed directives"
+msgstr ""
+
+#: ../../../CHANGES.rst:257
+msgid "Does not generate ``search.html``"
+msgstr ""
+
+#: ../../changes.rst:4
+msgid "Old versions"
+msgstr ""
+

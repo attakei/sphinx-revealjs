@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../tips/create-custom-theme.rst:3
+msgid "Create custom theme"
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst
+msgid "Added"
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:5
+msgid "v2.1.0"
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:7
+msgid ""
+"``sphinx-revealjs`` includes SCSS sources of bundled themes. You can "
+"write custom theme from theme template of reveal.js using ``libsass``."
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:11
+msgid "Example 1: Using `libsass`_"
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:13
+msgid "First, install `libsass`_ to compile SASS/SCSS on your environment."
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:19
+msgid "Write SCSS source for your theme."
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:42
+msgid "Compile source."
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:58
+msgid "Use compiled CSS as your theme."
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:68
+msgid "Example 2: `sphinxcontrib-sass`_"
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:70
+msgid "You can use `sphinxcontrib-sass`_ to simplify."
+msgstr ""
+
+#: ../../tips/create-custom-theme.rst:94
+msgid "When document updated, it compile scss to css."
+msgstr ""
+

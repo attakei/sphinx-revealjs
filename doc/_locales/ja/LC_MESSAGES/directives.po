@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../directives.rst:3
+msgid "Directives"
+msgstr ""
+
+#: ../../directives.rst:5
+msgid "|THIS| provides some directives to customize presence and behaviors."
+msgstr ""
+
+#: ../../directives.rst:8
+msgid "For customize presentation"
+msgstr ""
+
+#: ../../directives.rst:10
+msgid ""
+"Sphinx can manage multiple documents, so that |THIS| can build multiple "
+"presentation slides."
+msgstr ""
+
+#: ../../directives.rst:13
+msgid ""
+"If you want to configure one presentaion from some, use this directive "
+"into your source."
+msgstr ""
+
+#: ../../directives.rst:18
+msgid "Write ``revealjs-slide`` directive on directly below of title header."
+msgstr ""
+
+#: ../../directives.rst:22
+msgid ""
+"Directive based customize has options less than conf based because "
+"implementation restrict."
+msgstr ""
+
+#: ../../directives.rst:28
+msgid "Override ``revealjs_style_theme``."
+msgstr ""
+
+#: ../../directives.rst:33
+msgid "Override ``revealjs_google_fonts``, but it can specify only one."
+msgstr ""
+
+#: ../../directives.rst:35
+msgid "This option is not work in v2.x. It will removed in v3.x"
+msgstr ""
+
+#: ../../directives.rst:40
+msgid "Override ``revealjs_script_conf``, but single line only."
+msgstr ""
+
+#: ../../directives.rst:42 ../../directives.rst:76 ../../directives.rst:96
+msgid "Usage:"
+msgstr ""
+
+#: ../../directives.rst:58
+msgid "For customize sections"
+msgstr ""
+
+#: ../../directives.rst:60
+msgid "If you want to change behavior of sections, use these directives."
+msgstr ""
+
+#: ../../directives.rst:64
+msgid "To change behavior per section, write directive per section."
+msgstr ""
+
+#: ../../directives.rst:68
+msgid ""
+"This directive can accept attribute as same as Reveal.js ``section`` "
+"tags. For more information, please see `Reveal.js documentation "
+"<https://revealjs.com/>`_."
+msgstr ""
+
+#: ../../directives.rst:73
+msgid ""
+"This may be not completed all attributes for Reveal.js. If you find "
+"missing attribute, pleas post issues or pull-requests into GitHub."
+msgstr ""
+
+#: ../../directives.rst:78
+msgid ""
+"Write ``revealjs-slide`` directive on directly below of section title "
+"header."
+msgstr ""
+
+#: ../../directives.rst:93
+msgid ""
+"If you want to transition section with keeping title, ``revealjs-break`` "
+"can use."
+msgstr ""
+
+#: ../../directives.rst:98
+msgid "Write ``revealjs-break`` to point of want to split section."
+msgstr ""
+
+#: ../../directives.rst:116
+msgid "It accepts attributes as same as ``revealjs-section``."
+msgstr ""
+
+#: ../../directives.rst:120
+msgid "If it is set in directive, next section page does not display title."
+msgstr ""
+
+#: ../../directives.rst:123
+msgid "For interactive contents"
+msgstr ""
+
+#: ../../directives.rst:127
+msgid "This is extends of :rst:dir:`code-block` direcrive for presentation."
+msgstr ""
+
+#: ../../directives.rst:129
+msgid "If you want to use custom attributes in code-block."
+msgstr ""
+
+#: ../../directives.rst:134
+msgid ""
+"Code highlighting pattern. See `Reveal.js document "
+"<https://revealjs.com/code/#line-numbers-%26-highlights>`_"
+msgstr ""
+
+#: ../../directives.rst:136 ../../directives.rst:186 ../../directives.rst:210
+msgid "Example:"
+msgstr ""
+
+#: ../../directives.rst:149
+msgid ""
+"Set number of first-line in code block. When this is assigned, display "
+"line numbers even if ``data-line-numbers`` is not set."
+msgstr ""
+
+#: ../../directives.rst:163
+msgid "This is extends of :rst:dir:`literalinclude` direcrive for presentation."
+msgstr ""
+
+#: ../../directives.rst:165
+msgid "If you want to use custom attributes in literalinclude."
+msgstr ""
+
+#: ../../directives.rst:167
+msgid "External attributes are same from :rst:dir:`revealjs-code-block`."
+msgstr ""
+
+#: ../../directives.rst:173
+msgid "There are cases not working regular."
+msgstr ""
+
+#: ../../directives.rst:175
+msgid ""
+"Inject ``fragment`` attribute into objects. Referer to `\"Fragments\" "
+"from Reveal.js <https://revealjs.com/fragments/>`_"
+msgstr ""
+
+#: ../../directives.rst:178
+msgid ""
+"You can see `demo <https://attakei.github.io/sphinx-revealjs/en/#/5/1>`_ "
+"to know usage."
+msgstr ""
+
+#: ../../directives.rst:183
+msgid ""
+"When it is set, inject as custom class. You can customize behavior of "
+"fragments transitions with CSS."
+msgstr ""
+
+#: ../../directives.rst:188
+msgid "Write block as directive that you want to present as fragments."
+msgstr ""
+
+#: ../../directives.rst:200
+msgid ""
+"When you write this section, inner text are as content of `Speaker View "
+"<https://revealjs.com/speaker-view/>`_."
+msgstr ""
+
+#: ../../directives.rst:202
+msgid ""
+"If you write some directives on same-level, Reveal.js uses first "
+"direcrive only."
+msgstr ""
+
+#: ../../directives.rst:206
+msgid ""
+"You must be careful for comment block when you set "
+":confval:`revealjs_notes_from_comments` in ``conf.py``. Reveal.js "
+"recoginzes first ``<aside>`` element as content of speaker-view, so you "
+"may not see directive content as notes."
+msgstr ""
+

@@ -1,0 +1,455 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../changes/1.x.rst:3
+msgid "Version 1.x"
+msgstr ""
+
+#: ../../changes/1.x.rst:6
+msgid "ver 1.5.3"
+msgstr ""
+
+#: ../../changes/1.x.rst
+msgid "date"
+msgstr ""
+
+#: ../../changes/1.x.rst:8
+msgid "2022-06-02"
+msgstr ""
+
+#: ../../changes/1.x.rst
+msgid "base"
+msgstr ""
+
+#: ../../changes/1.x.rst:9 ../../changes/1.x.rst:20 ../../changes/1.x.rst:41
+#: ../../changes/1.x.rst:57
+msgid "Reveal.js 4.3.1"
+msgstr ""
+
+#: ../../changes/1.x.rst:12 ../../changes/1.x.rst:23 ../../changes/1.x.rst:44
+#: ../../changes/1.x.rst:135 ../../changes/1.x.rst:163
+#: ../../changes/1.x.rst:230
+msgid "Fixes"
+msgstr ""
+
+#: ../../changes/1.x.rst:14
+msgid ""
+"All nodes for ``sphinx-revealjs`` does not write anything when none "
+"revealjs builder works."
+msgstr ""
+
+#: ../../changes/1.x.rst:17
+msgid "ver 1.5.2"
+msgstr ""
+
+#: ../../changes/1.x.rst:19
+msgid "2022-04-29"
+msgstr ""
+
+#: ../../changes/1.x.rst:25
+msgid "Work ``revealjs-break`` directive in ``dirrevealjs`` builder (#109)"
+msgstr ""
+
+#: ../../changes/1.x.rst:26
+msgid ""
+"Inherit behavior of any nodes from ``html`` builder to ``dirrevealjs`` "
+"builder (#108)"
+msgstr ""
+
+#: ../../changes/1.x.rst:29 ../../changes/1.x.rst:65
+msgid "Deprecated"
+msgstr ""
+
+#: ../../changes/1.x.rst:31
+msgid ""
+"Mark as deprecated(logging.warning) to drop at version 2.x (updated from "
+"v1.5.0)"
+msgstr ""
+
+#: ../../changes/1.x.rst:33 ../../changes/1.x.rst:69
+msgid ""
+"Snake-cased directive ( ``revealjs_slide``, ``revealjs_section`` and "
+"``revealjs_break`` )"
+msgstr ""
+
+#: ../../changes/1.x.rst:34 ../../changes/1.x.rst:70
+msgid ""
+"CSS Font configurations ( ``revealjs_google_fonts`` and "
+"``revealjs_generic_font`` )"
+msgstr ""
+
+#: ../../changes/1.x.rst:35 ../../changes/1.x.rst:71
+msgid "Passing values from ``html_js_files`` to ``revealjs_js_files``"
+msgstr ""
+
+#: ../../changes/1.x.rst:38
+msgid "ver 1.5.1"
+msgstr ""
+
+#: ../../changes/1.x.rst:40
+msgid "2022-04-21"
+msgstr ""
+
+#: ../../changes/1.x.rst:46
+msgid "Add ``role=\"main\"`` into ``page.html`` for searching by Sphinx (#102)"
+msgstr ""
+
+#: ../../changes/1.x.rst:49
+msgid "Misc"
+msgstr ""
+
+#: ../../changes/1.x.rst:51
+msgid "Add documentation link into metadata (PyPI)"
+msgstr ""
+
+#: ../../changes/1.x.rst:54
+msgid "ver 1.5.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:56
+msgid "2022-04-11"
+msgstr ""
+
+#: ../../changes/1.x.rst:60
+msgid "Features"
+msgstr ""
+
+#: ../../changes/1.x.rst:62
+msgid "Add ``dirrevealjs`` builder to generate all pages as ``index.html``"
+msgstr ""
+
+#: ../../changes/1.x.rst:67
+msgid "Mark as deprecated(logging.info) to drop at version 2.x"
+msgstr ""
+
+#: ../../changes/1.x.rst:72
+msgid "Full-support for Python 3.6.x"
+msgstr ""
+
+#: ../../changes/1.x.rst:75
+msgid "ver 1.4.6"
+msgstr ""
+
+#: ../../changes/1.x.rst:77
+msgid "2022-03-26"
+msgstr ""
+
+#: ../../changes/1.x.rst:78
+msgid "Reveal.js 4.3.1 (updated)"
+msgstr ""
+
+#: ../../changes/1.x.rst:80 ../../changes/1.x.rst:88 ../../changes/1.x.rst:96
+#: ../../changes/1.x.rst:191
+msgid "(Only update reveal.js)"
+msgstr ""
+
+#: ../../changes/1.x.rst:83
+msgid "ver 1.4.5"
+msgstr ""
+
+#: ../../changes/1.x.rst:85
+msgid "2022-03-06"
+msgstr ""
+
+#: ../../changes/1.x.rst:86
+msgid "Reveal.js 4.3.0 (updated)"
+msgstr ""
+
+#: ../../changes/1.x.rst:91
+msgid "ver 1.4.4"
+msgstr ""
+
+#: ../../changes/1.x.rst:93
+msgid "2021-12-12"
+msgstr ""
+
+#: ../../changes/1.x.rst:94
+msgid "Reveal.js 4.2.1 (updated)"
+msgstr ""
+
+#: ../../changes/1.x.rst:99
+msgid "ver 1.4.3"
+msgstr ""
+
+#: ../../changes/1.x.rst
+msgid "Date"
+msgstr ""
+
+#: ../../changes/1.x.rst:101 ../../changes/1.x.rst:117
+msgid "2021-11-20"
+msgstr ""
+
+#: ../../changes/1.x.rst
+msgid "Reveal.js"
+msgstr ""
+
+#: ../../changes/1.x.rst:102 ../../changes/1.x.rst:118
+msgid "v4.2.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:104 ../../changes/1.x.rst:120
+msgid "(None updates for features)"
+msgstr ""
+
+#: ../../changes/1.x.rst:107 ../../changes/1.x.rst:123
+#: ../../changes/1.x.rst:152 ../../changes/1.x.rst:218
+msgid "Extra"
+msgstr ""
+
+#: ../../changes/1.x.rst:109
+msgid "Update classifiers of PyPI"
+msgstr ""
+
+#: ../../changes/1.x.rst:111
+msgid "Fix key of license"
+msgstr ""
+
+#: ../../changes/1.x.rst:112
+msgid "Add other keys"
+msgstr ""
+
+#: ../../changes/1.x.rst:115
+msgid "ver 1.4.2"
+msgstr ""
+
+#: ../../changes/1.x.rst:125
+msgid ""
+"Update test matrix of GitHub Actions to confirm that this supports python"
+" 3.10"
+msgstr ""
+
+#: ../../changes/1.x.rst:126
+msgid ""
+"Update classifiers of PyPI because test cases passed under Python 3.10 "
+"and Sphinx 4.x"
+msgstr ""
+
+#: ../../changes/1.x.rst:129
+msgid "ver 1.4.1"
+msgstr ""
+
+#: ../../changes/1.x.rst:131
+msgid "2021-11-16"
+msgstr ""
+
+#: ../../changes/1.x.rst:132 ../../changes/1.x.rst:143
+msgid "v4.2.0 **(updated)**"
+msgstr ""
+
+#: ../../changes/1.x.rst:137
+msgid "Replace reveal.js to use right bundle version."
+msgstr ""
+
+#: ../../changes/1.x.rst:140
+msgid "ver 1.4.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:142
+msgid "2021-11-13"
+msgstr ""
+
+#: ../../changes/1.x.rst:146 ../../changes/1.x.rst:174
+#: ../../changes/1.x.rst:211 ../../changes/1.x.rst:251
+msgid "New features"
+msgstr ""
+
+#: ../../changes/1.x.rst:148
+msgid "Add ``revealjs_js_files`` for ``conf.py`` to set JS file. (#77)"
+msgstr ""
+
+#: ../../changes/1.x.rst:149
+msgid "``revealjs_script_conf`` accepts dict types (#56)"
+msgstr ""
+
+#: ../../changes/1.x.rst:154
+msgid "Change test codes from nose to py.test"
+msgstr ""
+
+#: ../../changes/1.x.rst:157
+msgid "ver 1.3.1"
+msgstr ""
+
+#: ../../changes/1.x.rst:159
+msgid "2021-07-17"
+msgstr ""
+
+#: ../../changes/1.x.rst:160 ../../changes/1.x.rst:171
+msgid "Reveal.js 4.1.3"
+msgstr ""
+
+#: ../../changes/1.x.rst:165
+msgid "``revealjs-fragments`` for paragraph contents (#71)"
+msgstr ""
+
+#: ../../changes/1.x.rst:168
+msgid "ver 1.3.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:170
+msgid "2021-07-11"
+msgstr ""
+
+#: ../../changes/1.x.rst:176
+msgid "Support some attributes of sections"
+msgstr ""
+
+#: ../../changes/1.x.rst:177
+msgid "Add directive ``revealjs-code-block`` to line highlighting for reveal.js"
+msgstr ""
+
+#: ../../changes/1.x.rst:178
+msgid "Add kebab-case directives for currently snake-case directives"
+msgstr ""
+
+#: ../../changes/1.x.rst:180
+msgid "`revealjs-slide` <= `revealjs_slie`"
+msgstr ""
+
+#: ../../changes/1.x.rst:181
+msgid "`revealjs-section` <= `revealjs_section`"
+msgstr ""
+
+#: ../../changes/1.x.rst:182
+msgid "`revealjs-break` <= `revealjs_break`"
+msgstr ""
+
+#: ../../changes/1.x.rst:183
+msgid "`revealjs-fragments` <= `revealjs_fragments`"
+msgstr ""
+
+#: ../../changes/1.x.rst:186
+msgid "ver 1.2.1"
+msgstr ""
+
+#: ../../changes/1.x.rst:188
+msgid "2021-06-13"
+msgstr ""
+
+#: ../../changes/1.x.rst:189
+msgid "Reveal.js 4.1.3 (updated)"
+msgstr ""
+
+#: ../../changes/1.x.rst:194
+msgid "ver 1.2.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:196
+msgid "2021-06-06"
+msgstr ""
+
+#: ../../changes/1.x.rst:197
+msgid "Reveal.js 4.1.1 (updated)"
+msgstr ""
+
+#: ../../changes/1.x.rst:200
+msgid "New fetures"
+msgstr ""
+
+#: ../../changes/1.x.rst:202
+msgid "When builder writes contents from extensions, use same of html builder"
+msgstr ""
+
+#: ../../changes/1.x.rst:205
+msgid "ver 1.1.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:207
+msgid "2021-04-04"
+msgstr ""
+
+#: ../../changes/1.x.rst:208 ../../changes/1.x.rst:227
+#: ../../changes/1.x.rst:239
+msgid "Reveal.js 4.1.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:213
+msgid "Add option to add ``id`` attribute per sections (#59, #61)"
+msgstr ""
+
+#: ../../changes/1.x.rst:215
+msgid "Supporting label syntax of Sphinx."
+msgstr ""
+
+#: ../../changes/1.x.rst:220
+msgid "Fix dependencies for development environment"
+msgstr ""
+
+#: ../../changes/1.x.rst:221
+msgid "Add ``package.json`` to notify updates reveal.js by dependabot"
+msgstr ""
+
+#: ../../changes/1.x.rst:224
+msgid "ver 1.0.1"
+msgstr ""
+
+#: ../../changes/1.x.rst:226
+msgid "2021-01-30"
+msgstr ""
+
+#: ../../changes/1.x.rst:232
+msgid "Change order of link tags for css files (#40, #41)"
+msgstr ""
+
+#: ../../changes/1.x.rst:233
+msgid "Rename test case function names for duplicated (#42, #54)"
+msgstr ""
+
+#: ../../changes/1.x.rst:236
+msgid "ver 1.0.0"
+msgstr ""
+
+#: ../../changes/1.x.rst:238
+msgid "2021-01-03"
+msgstr ""
+
+#: ../../changes/1.x.rst:242
+msgid "Breaking changes"
+msgstr ""
+
+#: ../../changes/1.x.rst:244
+msgid ""
+"In this version, ``sphinx-revealjs`` bundle Reveal.js version 4.x, and "
+"does not supporting to work with Reveal.js 3.x."
+msgstr ""
+
+#: ../../changes/1.x.rst:247
+msgid ""
+"If you want to migrate presentation source for this version, please see "
+"`migration example <./docs/migrations>`_."
+msgstr ""
+
+#: ../../changes/1.x.rst:253
+msgid "Using Revealjs 4.x (use 4.1.0)"
+msgstr ""
+
+#: ../../changes/1.x.rst:255
+msgid "With supporting multiple presentation management in single documentation"
+msgstr ""
+
+#: ../../changes/1.x.rst:258
+msgid "Drop"
+msgstr ""
+
+#: ../../changes/1.x.rst:260
+msgid "Bundle and implements for Revealjs 3.x"
+msgstr ""
+

@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../tips/customizing-design-simply.rst:3
+msgid "Customizing design simply"
+msgstr ""
+
+#: ../../tips/customizing-design-simply.rst:5
+msgid "When using bundled theme, you can customze design by adding custom CSS."
+msgstr ""
+
+#: ../../tips/customizing-design-simply.rst:8
+msgid "Example: Disable transform style in header text"
+msgstr ""
+
+#: ../../tips/customizing-design-simply.rst:10
+msgid ""
+"Some of reveal.js bundled themes (ex: ``black`` ) set uppercase in "
+"``text-transform`` of heading texts. You can add extra custom CSS to use "
+"other settings."
+msgstr ""
+
+#: ../../tips/customizing-design-simply.rst:14
+msgid "Source"
+msgstr ""
+
+#: ../../tips/customizing-design-simply.rst:16
+msgid "conf.py"
+msgstr ""
+
+#: ../../tips/customizing-design-simply.rst:25
+msgid "custom.css"
+msgstr ""
+

@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Kazuya Takei
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinx-revealjs 2.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../optional-extensions/screenshot.rst:3
+msgid "sphinx_revealjs.ext.screenshot"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst
+msgid "Added"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:5
+msgid "v2.5.0"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:8
+msgid "Overview"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:10
+msgid ""
+"Generate screenshot first section of presentations by Playwright. "
+"Screenshots can use as OGP Image contents."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:15
+msgid ""
+"This extension generates screenshots only when your running builder is "
+"``revealjs`` or ``dirrevealjs``. Even if you run other builder with this "
+"in extensions, any screenshot are not generated."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:19
+msgid "Installation"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:21
+msgid "This extension need Playwright and browser component."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:29
+msgid "Usage"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:31
+msgid ""
+"When addning extention into your ``conf.py``, this generates screenshots "
+"per pages. You can set image path into ``:og:image:`` field of sphinxext-"
+"opengraph_ in advance."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst
+#: ../../optional-extensions/screenshot.rst:35
+msgid "Example"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:37
+msgid "conf.py"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:46
+msgid "sample-slide.rst"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:55
+msgid "Configuration"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:57
+msgid "All Configuration names are prefixed ``revealjs_screenshot_``."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst
+msgid "Type"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:61
+msgid "``str``"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst
+msgid "Default"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:62
+msgid "``\"_images/ogp\"``"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:63
+msgid "``\"_static/images\"``"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:65
+msgid ""
+"Output directory for generated screenshots. This must be releative path "
+"for outdir of Sphinx."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:70
+msgid "``List[str]``"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:71
+msgid "``[]`` (empty)"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:72
+msgid "``[\"index\"]``"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:74
+msgid ""
+"List of docnames to exclude for target of screenshots. Valuese must be "
+"docname format that does not need extension of files."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:78
+msgid "Works"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:80
+msgid "After build all documents, launch headless-browser by Playwright."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:82
+msgid "Browser captures screenshots any document pages for these rule."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:84
+msgid ""
+"Targets are generating files. If it runs incremental build and document "
+"is not changed, document is not target."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:85
+msgid ""
+"If docname contains are :confval:`revealjs_screenshot_excludes`, document"
+" is not target."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:87
+msgid ""
+"When browser capture screenshots, this sets image size from ``Reveal`` "
+"config (with and height). This values are used viewport of presentation."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:90
+msgid ""
+"If you want to change all sizes, you can set "
+":confval:`revealjs_script_conf`."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:91
+msgid ""
+"If you want to change per docs, you can set :rst:dir:`revealjs-slide` "
+"directive."
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:94
+msgid "Note"
+msgstr ""
+
+#: ../../optional-extensions/screenshot.rst:96
+msgid ""
+"Currently, I reccomend using sphinxext-opengraph_ to add ogp metatags (it"
+" is useful). I delegate behavior about opengraph, and |THIS| does not "
+"have feature to generate ogp tags."
+msgstr ""
+
