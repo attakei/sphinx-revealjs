@@ -2,6 +2,17 @@
 Changelog
 =========
 
+ver 2.9.2
+=========
+
+:date: 2023-12-03 JST
+:base: Reveal.js 5.0.2
+
+Fixes
+-----
+
+* Output script config from ``json.dumps()`` without ``JSON.parse`` in ``<script>``.
+
 ver 2.9.1
 =========
 
