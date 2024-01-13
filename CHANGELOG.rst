@@ -11,6 +11,7 @@ ver 3.0.0
 Breaking changes
 ----------------
 
+* Dropped old Python and Sphinx versions.
 * Change path of bundled revealjs path.
 
 Features
