@@ -1,0 +1,6 @@
+=========================
+Upgrading from 2.x to 3.x
+=========================
+
+From 2.x, some features are removed because splitted other extensions or duplicated behaviors.
+If you want to use new version by documentation using 2.x, you should upgrade project files.
