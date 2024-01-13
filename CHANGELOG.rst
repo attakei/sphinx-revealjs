@@ -11,8 +11,12 @@ ver 3.0.0
 Breaking changes
 ----------------
 
+* Change path of bundled revealjs path.
+
 Features
 --------
+
+* Add wrapper function to get bundled revealjs path.
 
 Fixes
 -----
