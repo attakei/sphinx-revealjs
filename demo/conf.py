@@ -4,7 +4,7 @@
 import os
 from urllib.parse import urljoin
 
-from sphinx_revealjs.themes import get_theme_path
+from sphinx_revealjs.themes import get_revealjs_path
 
 # -- Project information -----------------------------------------------------
 project = "sphinx-revealjs"
@@ -116,7 +116,7 @@ sass_src_dir = "_sass"
 sass_out_dir = "_static"
 sass_targets = {"custom.scss": "custom.css"}
 sass_include_paths = [
-    get_theme_path("sphinx_revealjs") / "static" / "revealjs" / "css" / "theme",
+    get_revealjs_path() / "css" / "theme",
 ]
 
 # sphinxext-opengraph
