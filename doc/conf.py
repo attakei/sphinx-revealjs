@@ -14,6 +14,7 @@ release = __version__
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "atsphinx.footnotes",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",

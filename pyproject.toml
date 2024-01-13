@@ -56,6 +56,7 @@ doc = [
     "Sphinx ==5.*",  # For readthedocs (pass --upgrade-strategy only-if-needed)
     "sphinx-autobuild ==2021.3.14",
     "sphinx-rtd-theme >=0.5.1,<0.6",
+    "atsphinx-footnotes",
 ]
 demo = [
     "sphinx-intl >=2.0.1,<3",

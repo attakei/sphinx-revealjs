@@ -4,3 +4,21 @@ Upgrading from 2.x to 3.x
 
 From 2.x, some features are removed because splitted other extensions or duplicated behaviors.
 If you want to use new version by documentation using 2.x, you should upgrade project files.
+
+Supported dependencies version
+==============================
+
+This explicits versions of some dependencies.
+If you are using old version libraries,
+must update environment. [#]_
+
++-----------------+--------------+
+| Runtime/Library | Requirement  |
++=================+==============+
+| Python          | 3.7 or newer |
++-----------------+--------------+
+| Sphinx core     | 4.0 or newer |
++-----------------+--------------+
+
+.. [#] This is defined as package metada on ``pyproject.toml``.
+       If your environment does not meet requirements, you cannot install.
