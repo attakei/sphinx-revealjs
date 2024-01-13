@@ -22,3 +22,19 @@ must update environment. [#]_
 
 .. [#] This is defined as package metada on ``pyproject.toml``.
        If your environment does not meet requirements, you cannot install.
+
+Change bundled revealjs path
+============================
+
+|THIS| is using Revealjs v5.x(new major version) at version 2.9.0.
+
+If you use path of bundled revealjs directly in other place,
+you need to change path.
+
++---------------+--------------+
+| Before        | After        |
++===============+==============+
+| ``revealjs4`` | ``revealjs`` |
++---------------+--------------+
+
+You can use :func:`get_revealjs_path <sphinx_revealjs.themes.get_revealjs_path>`.

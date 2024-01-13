@@ -11,7 +11,7 @@ Description
    revealjs_script_plugins = [
        {
            "name": "RevealMath",
-           "src": "revealjs4/plugin/math/math.js",
+           "src": "revealjs/plugin/math/math.js",
        },
    ]
 
@@ -23,7 +23,7 @@ Code highlighting
    revealjs_script_plugins = [
        {
            "name": "RevealHighlight",
-           "src": "revealjs4/plugin/highlight/highlight.js",
+           "src": "revealjs/plugin/highlight/highlight.js",
        },
    ]
 
@@ -73,7 +73,7 @@ You can include other file with step-by-step highlighting by ``revealjs-literali
    revealjs_script_plugins = [
        {
            "name": "RevealHighlight",
-           "src": "revealjs4/plugin/highlight/highlight.js",
+           "src": "revealjs/plugin/highlight/highlight.js",
        },
    ]
 
@@ -95,7 +95,7 @@ Speaker notes
    revealjs_script_plugins = [
        {
            "name": "RevealNotes",
-           "src": "revealjs4/plugin/notes/notes.js",
+           "src": "revealjs/plugin/notes/notes.js",
        },
    ]
 

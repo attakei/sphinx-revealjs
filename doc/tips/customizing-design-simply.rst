@@ -18,7 +18,7 @@ Source
    :name: conf-py
 
    revealjs_css_files = [
-       "revealjs4/plugin/highlight/zenburn.css",
+       "revealjs/plugin/highlight/zenburn.css",
        "custom.css",
    ]
 
