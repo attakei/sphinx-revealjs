@@ -2,10 +2,6 @@
 
 __version__ = "2.9.3"
 
-import sys
-
-from packaging.specifiers import SpecifierSet
-from packaging.version import parse
 from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx.util import logging
@@ -58,12 +54,6 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
-    # Message deprecated
-    python_support = SpecifierSet(">=3.7.0")
-    python_version = parse(sys.version.split(" ")[0])
-    if python_version not in python_support:
-        logger.warning("You are using not supported version Python.")
-
     app.add_event("revealjs:ready-for-writing")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
