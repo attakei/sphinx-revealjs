@@ -2,6 +2,14 @@
 Changelog
 =========
 
+ver 2.9.3
+=========
+
+:date: 2024-01-13 JST
+:base: Reveal.js 5.0.4 (updated)
+
+(None updates for features)
+
 ver 2.9.2
 =========
 
