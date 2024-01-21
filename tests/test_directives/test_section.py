@@ -25,3 +25,11 @@ def test_no_render_parent_bg(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "with-revealjs-section.html")
     section_tag = soup.h2.parent.parent
     assert "data-background-color" not in section_tag.attrs
+
+
+@pytest.mark.sphinx("revealjs", testroot="default")
+def test_render_custom_attributes(app: SphinxTestApp, status, warning):  # noqa
+    soup = soup_html(app, "with-revealjs-section-having-custom-attributes.html")
+    section_tag = soup.h2.parent
+    assert "data-markdown" in section_tag.attrs
+    assert section_tag["data-markdown"] == ""
