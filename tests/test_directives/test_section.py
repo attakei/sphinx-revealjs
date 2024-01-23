@@ -1,5 +1,9 @@
 """Test cases for ``revealjs-section`` directive."""
+import io
+from textwrap import dedent
+
 import pytest
+from sphinx.testing import restructuredtext
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
 
@@ -33,3 +37,57 @@ def test_render_custom_attributes(app: SphinxTestApp, status, warning):  # noqa
     section_tag = soup.h2.parent
     assert "data-markdown" in section_tag.attrs
     assert section_tag["data-markdown"] == ""
+
+
+class TestForRevealjsSection:
+    @pytest.mark.sphinx("revealjs", testroot="default")
+    def test_csutom_params(self, app: SphinxTestApp, warning: io.StringIO):
+        text = dedent(
+            """
+        .. revealjs-section::
+           :data-x:
+        """
+        )
+        doctree = restructuredtext.parse(app, text)
+        assert 'ERROR: Error in "revealjs-section" directive:' not in warning.getvalue()
+        assert "data-x" in doctree.children[0].attributes
+
+    @pytest.mark.sphinx("revealjs", testroot="default")
+    def test_invalid_section_params(self, app: SphinxTestApp, warning: io.StringIO):
+        text = dedent(
+            """
+        .. revealjs-section::
+           :x-data:
+        """
+        )
+        doctree = restructuredtext.parse(app, text)
+        assert 'ERROR: Error in "revealjs-section" directive:' in warning.getvalue()
+        assert 'unknown option: "x-data"' in warning.getvalue()
+        assert "x-data" not in doctree.attributes
+
+
+class TestForRevealjsBreak:
+    @pytest.mark.sphinx("revealjs", testroot="default")
+    def test_csutom_params(self, app: SphinxTestApp, warning: io.StringIO):
+        text = dedent(
+            """
+        .. revealjs-break::
+           :data-x:
+        """
+        )
+        doctree = restructuredtext.parse(app, text)
+        assert 'ERROR: Error in "revealjs-break" directive:' not in warning.getvalue()
+        assert "data-x" in doctree.children[0].attributes
+
+    @pytest.mark.sphinx("revealjs", testroot="default")
+    def test_invalid_section_params(self, app: SphinxTestApp, warning: io.StringIO):
+        text = dedent(
+            """
+        .. revealjs-break::
+           :x-data:
+        """
+        )
+        doctree = restructuredtext.parse(app, text)
+        assert 'ERROR: Error in "revealjs-break" directive:' in warning.getvalue()
+        assert 'unknown option: "x-data"' in warning.getvalue()
+        assert "x-data" not in doctree.attributes
