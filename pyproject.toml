@@ -79,7 +79,7 @@ name = "sphinx_revealjs"
 include = [
     "demo",
     "doc",
-    "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs/",
+    "sphinx_revealjs/_static/revealjs/",
     "tests",
     "tools",
 ]

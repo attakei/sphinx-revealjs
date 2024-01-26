@@ -1,5 +1,15 @@
 """Util as functions for some modules."""
+from pathlib import Path
 from typing import Optional
+
+
+def get_internal_static_path() -> Path:  # noqa: D103
+    return Path(__file__).parent / "_static"
+
+
+def get_revealjs_path() -> Path:
+    """Return path-object of bundled Reveal.js files."""
+    return get_internal_static_path() / "revealjs"
 
 
 def static_resource_uri(src: str, prefix: Optional[str] = None) -> str:

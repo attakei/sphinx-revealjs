@@ -15,7 +15,7 @@ from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import RevealjsPlugin, RevealjsProjectContext
-from .utils import static_resource_uri
+from .utils import get_internal_static_path, static_resource_uri
 
 logger = logging.getLogger(__name__)
 
@@ -61,6 +61,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])
             ],
         )
+        self.config.revealjs_static_path.append(str(get_internal_static_path()))
         # Hand over builder configs to html builder.
         setattr(self.config, "html_static_path", self.config.revealjs_static_path)
         super().init()

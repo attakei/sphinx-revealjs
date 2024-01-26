@@ -47,7 +47,7 @@ Compile source.
    from pathlib import Path
 
    import sass
-   from sphinx_revealjs.themes import get_revealjs_path
+   from sphinx_revealjs.utils import get_revealjs_path
 
    source = Path("_sass/custom.scss").read_text()
    css = sass.compile(
@@ -77,7 +77,7 @@ You can use `sphinxcontrib-sass`_ to simplify.
 .. code-block:: python
 
    # conf.py
-   from sphinx_revealjs.themes import get_revealjs_path
+   from sphinx_revealjs.utils import get_revealjs_path
 
    extensions = [
        # .. Your extensions

@@ -27,7 +27,7 @@ RULE = {
         "package/plugin": "plugin",
         "package/LICENSE": "LICENSE",
     },
-    "dest": "sphinx_revealjs/themes/sphinx_revealjs/static/revealjs",
+    "dest": "sphinx_revealjs/_static/revealjs",
 }
 
 

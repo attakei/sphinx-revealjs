@@ -4,7 +4,7 @@
 import os
 from urllib.parse import urljoin
 
-from sphinx_revealjs.themes import get_revealjs_path
+from sphinx_revealjs.utils import get_revealjs_path
 
 # -- Project information -----------------------------------------------------
 project = "sphinx-revealjs"
