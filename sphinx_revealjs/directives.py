@@ -11,6 +11,7 @@ from sphinx_revealjs.nodes import (
     revealjs_fragments,
     revealjs_section,
     revealjs_slide,
+    revealjs_vertical,
 )
 
 logger = logging.getLogger(__name__)
@@ -79,6 +80,17 @@ REVEALJS_SECTION_ATTRIBUTES = {
     # Auto-Slide / Slide Timing
     "data-autoslide": directives.unchanged,
 }
+
+
+class RevealjsVertical(Directive):  # noqa: D101
+    option_spec = RevealjsSectionAttributes(**REVEALJS_SECTION_ATTRIBUTES)
+
+    def run(self):  # noqa: D102
+        node = revealjs_vertical()
+        node.attributes = self.options
+        return [
+            node,
+        ]
 
 
 class RevealjsSection(Directive):  # noqa: D101

@@ -16,12 +16,14 @@ from sphinx_revealjs.directives import (
     RevealjsFragments,
     RevealjsSection,
     RevealjsSlide,
+    RevealjsVertical,
 )
 from sphinx_revealjs.nodes import (
     revealjs_break,
     revealjs_fragments,
     revealjs_section,
     revealjs_slide,
+    revealjs_vertical,
 )
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
@@ -59,6 +61,16 @@ def setup(app: Sphinx):
     app.connect("config-inited", convert_reveal_js_files)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
+    app.add_node(
+        revealjs_vertical,
+        html=(not_write, not_write),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
+        revealjs=(not_write, not_write),
+        dirrevealjs=(not_write, not_write),
+    )
     app.add_node(
         revealjs_section,
         html=(not_write, not_write),
@@ -99,6 +111,7 @@ def setup(app: Sphinx):
         revealjs=(not_write, not_write),
         dirrevealjs=(not_write, not_write),
     )
+    app.add_directive("revealjs-vertical", RevealjsVertical)
     app.add_directive("revealjs-section", RevealjsSection)
     app.add_directive("revealjs-break", RevealjsBreak)
     app.add_directive("revealjs-slide", RevealjsSlide)
