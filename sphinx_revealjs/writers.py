@@ -42,6 +42,8 @@ class RevealjsSlideTranslator(HTML5Translator):
         - When enter next section, nest level.
         """
         self.section_level += 1
+        if self.section_level >= 4:
+            return
         meta = find_child_section(node, "revealjs_section")
         if meta is not None:
             attrs = meta.attributes_str()
@@ -68,8 +70,9 @@ class RevealjsSlideTranslator(HTML5Translator):
         Dedent section level
         """
         self.section_level -= 1
-        if self.section_level >= 1:
-            self.body.append("</section>\n")
+        if self.section_level >= 3:
+            return
+        self.body.append("</section>\n")
 
     def visit_comment(self, node: comment):
         """Begin ``comment`` node.
