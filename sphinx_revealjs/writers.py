@@ -58,10 +58,13 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self.section_level == 1:
             self._nest_step = 2
             self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
-            self.body.append("<section>\n")
         elif has_child_sections(node, "section"):
             self._nest_step = 1
-            self.body.append("<section>\n")
+
+        if self._nest_step > 0:
+            v_meta = find_child_section(node, "revealjs_vertical")
+            v_attrs = v_meta.attributes_str() if v_meta is not None else ""
+            self.body.append(f"<section {v_attrs}>\n")
         self.body.append(f"<section {attrs}>\n")
 
     def depart_section(self, node: section):
