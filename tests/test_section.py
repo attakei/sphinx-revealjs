@@ -21,5 +21,5 @@ def test_count_horizontal_sections(app: SphinxTestApp, status, warning):  # noqa
 def test_count_vertical_sections(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     main = soup.find("div", {"role": "main"})
-    section = main.find_all("section", reccursive=False)[1]
+    section = main.find_all("section", recursive=False)[1]
     assert len(section.find_all("section", recursive=False)) == 3
