@@ -33,7 +33,7 @@ class RevealjsSlideTranslator(HTML5Translator):
     def __init__(self, builder, *args, **kwds):  # noqa: D107
         super().__init__(builder, *args, **kwds)
         self.builder.add_permalinks = False
-        self._proc_first_on_section = False
+        self._nest_step = 0
 
     def visit_section(self, node: section):
         """Begin ``section`` node.
@@ -49,17 +49,16 @@ class RevealjsSlideTranslator(HTML5Translator):
             attrs = ""
         if node.attributes.get("ids") and self.config.revealjs_use_section_ids:
             attrs += ' id="{}"'.format(node.attributes["ids"][-1])
-        if self.section_level == 1:
-            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
-            self._proc_first_on_section = True
-            self.body.append(f"<section {attrs}>\n")
-            return
-        if self._proc_first_on_section:
-            self._proc_first_on_section = False
-            self.body.append("</section>\n")
 
-        if has_child_sections(node, "section"):
-            self._proc_first_on_section = True
+        if self._nest_step > 0:
+            self.body.append("</section>\n" * self._nest_step)
+            self._nest_step = 0
+        if self.section_level == 1:
+            self._nest_step = 2
+            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
+            self.body.append("<section>\n")
+        elif has_child_sections(node, "section"):
+            self._nest_step = 1
             self.body.append("<section>\n")
         self.body.append(f"<section {attrs}>\n")
 
