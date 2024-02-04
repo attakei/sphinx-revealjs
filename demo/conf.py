@@ -39,6 +39,7 @@ html_theme = "alabaster"
 html_static_path = ["_static"]
 
 # -- Options for Reveal.js output ---------------------------------------------
+revealjs_html_theme = "revealjs-simple"
 revealjs_static_path = ["_static"]
 revealjs_style_theme = "custom.css"
 revealjs_script_conf = {

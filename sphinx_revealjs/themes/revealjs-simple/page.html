@@ -1,0 +1,83 @@
+{#-
+  Revealjs simple output theme
+  ----------------------------
+
+  This theme is for sphinx-revealjs to generate compact html.
+  Therefore, it picks essence from basic theme,
+  but it does not inherit html theme onpurpose.
+-#}
+<!DOCTYPE html>
+{%- macro script() %}
+    {%- for js in script_files %}
+    {{ js_tag(js) }}
+    {%- endfor %}
+{%- endmacro %}
+
+{%- macro css() %}
+    {%- for css in css_files %}
+      {%- if css|attr("filename") %}
+    {{ css_tag(css) }}
+      {%- else %}
+    <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+      {%- endif %}
+    {%- endfor %}
+{%- endmacro %}
+<html {% if language is not none %} lang="{{ language }}"{% endif %} data-content_root="{{ content_root }}">
+  <head>
+    <meta charset="{{ encoding }}" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- block htmltitle %}
+      <title>{{ title|striptags|e }}</title>
+    {%- endblock %}
+    {%- block css %}
+      {{- css() }}
+    {%- endblock %}
+    {%- block scripts %}
+      {{- script() }}
+    {%- endblock %}
+    {%- if pageurl %}
+      <link rel="canonical" href="{{ pageurl|e }}">
+    {%- endif %}
+    {%- if favicon_url %}
+      <link rel="icon" href="{{ favicon_url|e }}">
+    {%- endif %}
+    {%- block extrahead %}
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    {% endblock %}
+  </head>
+  <body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            {{ body }}
+        </div>
+    </div>
+    {% for script_file in revealjs.script_files %}
+    <script src="{{ pathto(script_file, 1) }}"></script>
+    {% endfor %}
+    {% if revealjs.engine.version == 4 %}
+      {% for plugin in revealjs.script_plugins -%}
+      <script src="{{ pathto(plugin.src, 1) }}"></script>
+      {% endfor %}
+    {% endif %}
+    <script>
+      var revealjsConfig = new Object();
+      {% if revealjs.script_conf -%}
+      Object.assign(revealjsConfig, {{ revealjs.script_conf }});
+      {%- endif %}
+      {% for conf in revealjs_page_confs -%}
+      Object.assign(revealjsConfig, {{ conf }});
+      {%- endfor %}
+      {# Render plugins injection #}
+      {% if revealjs.engine.version == 4 %}
+        revealjsConfig.plugins = [
+          {% for plugin in revealjs.script_plugins -%}
+          {{ plugin.name }},
+          {%- endfor %}
+        ];
+      {% endif %}
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize(revealjsConfig);
+    </script>
+  </body>
+</html>
