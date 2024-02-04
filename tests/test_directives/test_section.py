@@ -107,3 +107,32 @@ class TestForRevealjsBreak:
         assert 'ERROR: Error in "revealjs-break" directive:' in warning.getvalue()
         assert 'unknown option: "x-data"' in warning.getvalue()
         assert "x-data" not in doctree.attributes
+
+
+class TestForRevealjsVertical:
+    @pytest.mark.sphinx("revealjs", testroot="default")
+    def test_csutom_params(self, app: SphinxTestApp, warning: io.StringIO):
+        text = dedent(
+            """
+        .. revealjs-vertical::
+           :data-x:
+        """
+        )
+        doctree = restructuredtext.parse(app, text)
+        assert (
+            'ERROR: Error in "revealjs-vertical" directive:' not in warning.getvalue()
+        )
+        assert "data-x" in doctree.children[0].attributes
+
+    @pytest.mark.sphinx("revealjs", testroot="default")
+    def test_invalid_section_params(self, app: SphinxTestApp, warning: io.StringIO):
+        text = dedent(
+            """
+        .. revealjs-vertical::
+           :x-data:
+        """
+        )
+        doctree = restructuredtext.parse(app, text)
+        assert 'ERROR: Error in "revealjs-vertical" directive:' in warning.getvalue()
+        assert 'unknown option: "x-data"' in warning.getvalue()
+        assert "x-data" not in doctree.attributes
