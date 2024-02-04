@@ -84,7 +84,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
         Find theme and merge options.
         """
-        theme_name = getattr(self.config, "revealjs_theme", "sphinx_revealjs")
+        theme_name = getattr(self.config, "revealjs_theme", "revealjs-basic")
         theme_options = getattr(self.config, "revealjs_theme_options", {})
         config = raw_json(theme_options.get("revealjs_config", ""))
         theme_options["revealjs_config"] = config
