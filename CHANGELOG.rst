@@ -13,14 +13,21 @@ Breaking changes
 
 * Dropped old Python and Sphinx versions.
 * Change path of bundled revealjs path.
+* The builder outputs everything in the "vertical slide" format.
+* Builder does not generate ``section`` element for level-4 sections.
 
 Features
 --------
 
+* Add new directive ``revealjs-vertical``.
+* Section directives accepts any ``data-`` attributes.
+  (``revealjs-secion``, ``revealjs-break`` and ``revealjs-vertical``)
 * Add wrapper function to get bundled revealjs path.
 
 Fixes
 -----
+
+* ``revealjs-break`` splits pages in vertical slides when it is added to top of section.
 
 Miscellaneous
 -------------
