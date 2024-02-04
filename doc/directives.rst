@@ -121,6 +121,29 @@ If you want to change behavior of sections, use these directives.
 
       If it is set in directive, next section page does not display title.
 
+.. rst:directive:: revealjs-vertical
+
+   To change behavior of sections rendered vertical (called as vertical slides [#]_).
+
+   .. [#] Pleas see `Reveal.js document <https://revealjs.com/vertical-slides/>`_ to know about this.
+
+   .. rst:directive:option:: data-XXX
+
+      It accepts attributes as same as :rst:dir:`revealjs-section`.
+      There are affected on all slides vertical from declared section.
+
+   Usage:
+
+   Write ``revealjs-vertical`` to point of want to split section (second level).
+
+   .. code-block:: rst
+
+      Title
+      =====
+
+      .. revaeljs-vertical::
+         :data-background-color: #009900
+
 For interactive contents
 ========================
 
