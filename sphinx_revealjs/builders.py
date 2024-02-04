@@ -1,6 +1,7 @@
 """Definition for sphinx custom builder."""
 import copy
 import logging
+from os import path
 from typing import Any, Dict, List, Set, Tuple
 
 from sphinx import version_info as sphinx_versoin
@@ -10,6 +11,8 @@ from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.config import Config
 from sphinx.environment import BuildEnvironment
 from sphinx.locale import __
+from sphinx.util.fileutil import copy_asset
+from sphinx.util.matching import Matcher
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
@@ -61,8 +64,6 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])
             ],
         )
-        # Hand over builder configs to html builder.
-        setattr(self.config, "html_static_path", self.config.revealjs_static_path)
         super().init()
         self.use_index = self.get_builder_config("use_index", "revealjs")
 
@@ -137,6 +138,32 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     def prepare_writing(self, docnames: Set[str]):
         super().prepare_writing((docnames))
         self.events.emit("revealjs:ready-for-writing", self.globalcontext)
+
+    def copy_html_static_files(self, context: dict) -> None:
+        super().copy_html_static_files(context)
+        self.copy_revealjs_static_files(context)
+
+    def copy_revealjs_static_files(self, context: dict) -> None:
+        """Copy assets defined revealjs_XXX contexts.
+
+        This is duplicated from :py:meth:`StandaloneHTMLBuilder.copy_html_static_files`.
+        """
+
+        def onerror(filename: str, error: Exception) -> None:
+            logger.warning(
+                __("Failed to copy a file in html_static_file: %s: %r"), filename, error
+            )
+
+        excluded = Matcher(self.config.exclude_patterns + ["**/.*"])
+        for entry in self.config.revealjs_static_path:
+            copy_asset(
+                path.join(self.confdir, entry),
+                path.join(self.outdir, "_static"),
+                excluded,
+                context=context,
+                renderer=self.templates,
+                onerror=onerror,
+            )
 
 
 class DirectoryRevealjsHTMLBuilder(DirectoryHTMLBuilder, RevealjsHTMLBuilder):
