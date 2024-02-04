@@ -116,6 +116,7 @@ def setup(app: Sphinx):
     app.add_directive("revealjs-break", RevealjsBreak)
     app.add_directive("revealjs-slide", RevealjsSlide)
     app.add_directive("revealjs-fragments", RevealjsFragments)
+    app.add_config_value("revealjs_html_theme", "revealjs-basic", "env")
     app.add_config_value("revealjs_use_section_ids", False, True)
     app.add_config_value("revealjs_use_index", False, "env")
     app.add_config_value("revealjs_static_path", [], True)
@@ -126,6 +127,7 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_script_conf", None, True)
     app.add_config_value("revealjs_script_plugins", [], True)
     app.add_html_theme("revealjs-basic", str(get_theme_path("revealjs-basic")))
+    app.add_html_theme("revealjs-simple", str(get_theme_path("revealjs-simple")))
     app.setup_extension("sphinx_revealjs._ext.highlightings")
     app.setup_extension("sphinx_revealjs._ext.notes")
     return {

@@ -43,6 +43,20 @@ Basic configurations
 
    Flag that does builder generate ``genindex.html`` (same as :confval:`sphinx:html_use_index` ).
 
+.. confval:: revealjs_html_theme
+
+   :Type: ``str``
+   :Default: ``revealjs-basic``
+   :Example: ``revealjs-simple``
+
+   Using HTML Theme for output contents.
+   It can set any html theme, but it should set theme made for revealjs.
+
+   Bundled themes are:
+
+   * ``revealjs-basic`` : Inherit style from basic html theme.
+   * ``revealjs-simple`` : Minimal defined style.
+
 Style Configurations
 ====================
 
