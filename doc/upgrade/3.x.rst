@@ -20,7 +20,7 @@ must update environment. [#]_
 | Sphinx core     | 4.0 or newer |
 +-----------------+--------------+
 
-.. [#] This is defined as package metada on ``pyproject.toml``.
+.. [#] This is defined as package metadata on ``pyproject.toml``.
        If your environment does not meet requirements, you cannot install.
 
 Change bundled revealjs path
