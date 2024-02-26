@@ -1,4 +1,8 @@
-.. include:: ../CHANGES.rst
+=========
+Changelog
+=========
+
+.. include:: ../CHANGELOG.rst
 
 Old versions
 ============
