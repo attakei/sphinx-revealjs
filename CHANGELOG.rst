@@ -23,6 +23,8 @@ Features
 * Section directives accepts any ``data-`` attributes.
   (``revealjs-secion``, ``revealjs-break`` and ``revealjs-vertical``)
 * Add wrapper function to get bundled revealjs path.
+* Add new html-theme ``revealjs-simple`` that render minimum style reveal.js
+  (Default theme is named ``revealjs-basic`` )
 
 Fixes
 -----
