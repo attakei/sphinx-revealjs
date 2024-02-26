@@ -1,7 +1,3 @@
-==============
-Latest changes
-==============
-
 ver 3.0.0
 =========
 
@@ -30,6 +26,3 @@ Fixes
 -----
 
 * ``revealjs-break`` splits pages in vertical slides when it is added to top of section.
-
-Miscellaneous
--------------
