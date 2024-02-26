@@ -24,9 +24,9 @@ class RevealjsEngine:
     def from_version(cls, version: int = 4):  # noqa
         return cls(
             version,
-            "revealjs4/dist/reveal.js",
-            "revealjs4/dist/reveal.css",
-            "revealjs4/dist/theme",
+            "revealjs/dist/reveal.js",
+            "revealjs/dist/reveal.css",
+            "revealjs/dist/theme",
         )
 
 

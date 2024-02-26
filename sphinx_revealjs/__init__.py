@@ -2,10 +2,6 @@
 
 __version__ = "2.9.3"
 
-import sys
-
-from packaging.specifiers import SpecifierSet
-from packaging.version import parse
 from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx.util import logging
@@ -20,12 +16,14 @@ from sphinx_revealjs.directives import (
     RevealjsFragments,
     RevealjsSection,
     RevealjsSlide,
+    RevealjsVertical,
 )
 from sphinx_revealjs.nodes import (
     revealjs_break,
     revealjs_fragments,
     revealjs_section,
     revealjs_slide,
+    revealjs_vertical,
 )
 from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
@@ -56,27 +54,23 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
             dirrevealjs_trans[n] = b
 
 
-def notify_deprecated(app: Sphinx, config: Config):  # noqa: D103
-    """Do not work. But it keep for next deprecated."""
-    logger.info(
-        "NOTICE: For next major version, path of Revealjs will change to other."
-    )
-
-
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
-    # Message deprecated
-    python_support = SpecifierSet(">=3.7.0")
-    python_version = parse(sys.version.split(" ")[0])
-    if python_version not in python_support:
-        logger.warning("You are using not supported version Python.")
-
     app.add_event("revealjs:ready-for-writing")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
-    app.connect("config-inited", notify_deprecated)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
+    app.add_node(
+        revealjs_vertical,
+        html=(not_write, not_write),
+        latex=(not_write, not_write),
+        text=(not_write, not_write),
+        man=(not_write, not_write),
+        texinfo=(not_write, not_write),
+        revealjs=(not_write, not_write),
+        dirrevealjs=(not_write, not_write),
+    )
     app.add_node(
         revealjs_section,
         html=(not_write, not_write),
@@ -117,10 +111,12 @@ def setup(app: Sphinx):
         revealjs=(not_write, not_write),
         dirrevealjs=(not_write, not_write),
     )
+    app.add_directive("revealjs-vertical", RevealjsVertical)
     app.add_directive("revealjs-section", RevealjsSection)
     app.add_directive("revealjs-break", RevealjsBreak)
     app.add_directive("revealjs-slide", RevealjsSlide)
     app.add_directive("revealjs-fragments", RevealjsFragments)
+    app.add_config_value("revealjs_html_theme", "revealjs-basic", "env")
     app.add_config_value("revealjs_use_section_ids", False, True)
     app.add_config_value("revealjs_use_index", False, "env")
     app.add_config_value("revealjs_static_path", [], True)
@@ -130,7 +126,8 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_script_files", [], True)
     app.add_config_value("revealjs_script_conf", None, True)
     app.add_config_value("revealjs_script_plugins", [], True)
-    app.add_html_theme("sphinx_revealjs", str(get_theme_path("sphinx_revealjs")))
+    app.add_html_theme("revealjs-basic", str(get_theme_path("revealjs-basic")))
+    app.add_html_theme("revealjs-simple", str(get_theme_path("revealjs-simple")))
     app.setup_extension("sphinx_revealjs._ext.highlightings")
     app.setup_extension("sphinx_revealjs._ext.notes")
     return {

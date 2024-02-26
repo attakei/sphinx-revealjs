@@ -22,3 +22,6 @@ Sub 2-1
 -------
 
 End
+
+Internal headding
+^^^^^^^^^^^^^^^^^

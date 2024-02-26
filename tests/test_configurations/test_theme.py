@@ -14,7 +14,7 @@ def test_using_builtin_theme(app: SphinxTestApp, status, warning):  # noqa
     links = [
         e
         for e in soup.find_all("link", rel="stylesheet")
-        if "_static/revealjs4/dist/theme/moon.css" in e["href"]
+        if "_static/revealjs/dist/theme/moon.css" in e["href"]
     ]
     assert len(links) == 1
 

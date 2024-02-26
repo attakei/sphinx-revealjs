@@ -21,5 +21,14 @@ def test_count_horizontal_sections(app: SphinxTestApp, status, warning):  # noqa
 def test_count_vertical_sections(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     main = soup.find("div", {"role": "main"})
-    section = main.find_all("section", reccursive=False)[1]
+    section = main.find_all("section", recursive=False)[1]
     assert len(section.find_all("section", recursive=False)) == 3
+
+
+@pytest.mark.sphinx("revealjs", testroot="default")
+def test_lv4_section(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    h4 = soup.h4
+    assert h4 is not None
+    # Lv4 content is sibling pf Lv3 content (not splitted as other slides)
+    assert h4.parent.h3 is not None

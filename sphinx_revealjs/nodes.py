@@ -28,6 +28,12 @@ class SectionTagRenderer(object):
         return " ".join(pair)
 
 
+class revealjs_vertical(
+    SectionTagRenderer, nodes.Structural, nodes.Element
+):  # noqa: D101,E501
+    pass
+
+
 class revealjs_section(
     SectionTagRenderer, nodes.Structural, nodes.Element
 ):  # noqa: D101,E501

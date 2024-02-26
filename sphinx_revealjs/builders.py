@@ -15,7 +15,7 @@ from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import RevealjsPlugin, RevealjsProjectContext
-from .utils import static_resource_uri
+from .utils import get_internal_static_path, static_resource_uri
 
 logger = logging.getLogger(__name__)
 
@@ -61,6 +61,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 for plugin in getattr(self.config, "revealjs_script_plugins", [])
             ],
         )
+        self.config.revealjs_static_path.append(str(get_internal_static_path()))
         # Hand over builder configs to html builder.
         setattr(self.config, "html_static_path", self.config.revealjs_static_path)
         super().init()
@@ -83,11 +84,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
         Find theme and merge options.
         """
-        theme_name = getattr(self.config, "revealjs_theme", "sphinx_revealjs")
         theme_options = getattr(self.config, "revealjs_theme_options", {})
         config = raw_json(theme_options.get("revealjs_config", ""))
         theme_options["revealjs_config"] = config
-        return theme_name, theme_options
+        return self.config.revealjs_html_theme, theme_options
 
     def get_doc_context(self, docname, body, metatags):
         """Return customized context.
@@ -164,4 +164,5 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
             except Exception:
                 logger.warning(__("invalid js_file: %r, ignored"), entry)
                 continue
+    config.revealjs_js_files = revealjs_js_files  # type: ignore
     config.revealjs_js_files = revealjs_js_files  # type: ignore

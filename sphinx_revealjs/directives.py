@@ -11,6 +11,7 @@ from sphinx_revealjs.nodes import (
     revealjs_fragments,
     revealjs_section,
     revealjs_slide,
+    revealjs_vertical,
 )
 
 logger = logging.getLogger(__name__)
@@ -25,6 +26,20 @@ def raw_json(argument):
     except json.decoder.JSONDecodeError:
         return ""
     return argument
+
+
+class RevealjsSectionAttributes(dict):
+    def __getitem__(self, key):
+        """Extend dict for custom plugins of revealjs.
+
+        Many plugins may refer ``data-`` attributes
+        of ``section`` elements as optional behaviors.
+        """
+        if key in self:
+            return super().__getitem__(key)
+        if key.startswith("data-"):
+            return directives.unchanged
+        return None
 
 
 REVEALJS_SECTION_ATTRIBUTES = {
@@ -67,8 +82,19 @@ REVEALJS_SECTION_ATTRIBUTES = {
 }
 
 
+class RevealjsVertical(Directive):  # noqa: D101
+    option_spec = RevealjsSectionAttributes(**REVEALJS_SECTION_ATTRIBUTES)
+
+    def run(self):  # noqa: D102
+        node = revealjs_vertical()
+        node.attributes = self.options
+        return [
+            node,
+        ]
+
+
 class RevealjsSection(Directive):  # noqa: D101
-    option_spec = REVEALJS_SECTION_ATTRIBUTES
+    option_spec = RevealjsSectionAttributes(**REVEALJS_SECTION_ATTRIBUTES)
 
     def run(self):  # noqa: D102
         node = revealjs_section()
@@ -79,10 +105,10 @@ class RevealjsSection(Directive):  # noqa: D101
 
 
 class RevealjsBreak(Directive):  # noqa: D101
-    option_spec = dict(
+    option_spec = RevealjsSectionAttributes(
         # if it is set, next section does not display title
         notitle=lambda x: FlagAttribute(),
-        **REVEALJS_SECTION_ATTRIBUTES
+        **REVEALJS_SECTION_ATTRIBUTES,
     )
 
     def run(self):  # noqa: D102
