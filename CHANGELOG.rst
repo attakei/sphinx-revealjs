@@ -2,7 +2,7 @@ ver 3.0.0
 =========
 
 :Release date: 2024-02-27
-:Reveal.js version: 5.0.2
+:Reveal.js version: 5.0.5 (updated)
 
 Breaking changes
 ----------------
