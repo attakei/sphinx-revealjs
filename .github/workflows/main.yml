@@ -45,7 +45,7 @@ jobs:
         run: |
           python tools/fetch_revealjs.py
           pip install '.[screenshot,test]' 'Sphinx${{ matrix.sphinx-version }}'
-          playwright install
+          playwright install chromium
       - if: ${{ matrix.sphinx-version == '>=3.0.0,<4.0.0' }}
         run: pip install 'Jinja2<3.0.0' 'MarkupSafe<2.0.0' 'sphinxcontrib-applehelp<1.0.8'
       - if: ${{ matrix.sphinx-version == '>=4.0.0,<5.0.0' }}
