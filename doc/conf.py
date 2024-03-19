@@ -15,6 +15,7 @@ release = __version__
 # -- General configuration ---------------------------------------------------
 extensions = [
     "atsphinx.footnotes",
+    "atsphinx.htmx_boost",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
@@ -78,6 +79,8 @@ intersphinx_mapping = {
 }
 # For sphinx.ext.todo
 todo_include_todos = True
+# For atsphinx.htmx_boost
+htmx_boost_preload = "mouseover"
 
 
 def setup(app):

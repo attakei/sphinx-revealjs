@@ -57,6 +57,7 @@ doc = [
     "sphinx-autobuild ==2021.3.14",
     "sphinx-rtd-theme >=0.5.1,<0.6",
     "atsphinx-footnotes",
+    "atsphinx-htmx-boost",
 ]
 demo = [
     "sphinx-intl >=2.0.1,<3",
