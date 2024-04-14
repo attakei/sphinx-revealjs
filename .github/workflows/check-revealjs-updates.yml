@@ -24,7 +24,7 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
           branch: update/revealjs-${{ steps.checked.outputs.revealjs_updated }}
-          commit-message: "Update reveal.js"
+          commit-message: "build(deps): Use latest Reveal.js"
           title: "Update reveal.js from v${{ steps.checked.outputs.revealjs_current }} to ${{ steps.checked.outputs.revealjs_updated }}"
           delete-branch: true
           body: |
