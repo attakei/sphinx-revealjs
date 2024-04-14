@@ -1,0 +1,11 @@
+current_version = "3.0.0"
+
+[[files]]
+path = "demo/index.rst"
+search = ":Based version: {{current_version}}"
+replace = ":Based version: {{new_version}}"
+
+[[files]]
+path = "sphinx_revealjs/__init__.py"
+search = "__version__ = \"{{current_version}}\""
+replace = "__version__ = \"{{new_version}}\""
