@@ -9,3 +9,32 @@ replace = ":Based version: {{new_version}}"
 path = "sphinx_revealjs/__init__.py"
 search = "__version__ = \"{{current_version}}\""
 replace = "__version__ = \"{{new_version}}\""
+
+[[files]]
+path = "CHANGELOG.rst"
+search = """
+ver {{current_version}}
+===={% for _ in current_version %}={% endfor %}
+"""
+replace = """
+ver {{new_version}}
+===={% for _ in new_version %}={% endfor %}
+
+:Release date: {{ now|date }} (JST)
+:Reveal.js version: 5.1.0
+
+Breaking changes
+----------------
+
+Features
+--------
+
+Fixes
+-----
+
+Others
+------
+
+ver {{current_version}}
+===={% for _ in current_version %}={% endfor %}
+"""
