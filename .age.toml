@@ -38,3 +38,20 @@ Others
 ver {{current_version}}
 ===={% for _ in current_version %}={% endfor %}
 """
+
+# This file has other replace target, but currently not supported.
+[[files]]
+path = ".github/release-body.md"
+regex = true
+search = """
+(.+)
+
+- Changelog is https://github.com/attakei/sphinx-revealjs/blob/v{{current_version}}/CHANGELOG.rst
+- Source changes is (.+)
+"""
+replace = """
+REWRITE HERE
+
+- Changelog is https://github.com/attakei/sphinx-revealjs/blob/v{{new_version}}/CHANGELOG.rst
+- Source changes is https://github.com/attakei/sphinx-revealjs/compare/v{{current_version}}...v{{new_version}}
+"""

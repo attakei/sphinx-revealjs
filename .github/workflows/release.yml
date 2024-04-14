@@ -67,6 +67,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
         with:
           name: dist-packages
@@ -77,6 +78,7 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           release_name: Release ${{ github.ref_name }}
+          body_path: .github/release-body.md
           body: |
             To know update details, please see [Changelog](https://sphinx-revealjs.readthedocs.io/en/stable/changes/) of documentation.
           draft: false
