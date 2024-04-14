@@ -1,3 +1,11 @@
+ver 3.0.1
+=========
+
+:Release date: 2024-04-14 (JST)
+:Reveal.js version: 5.1.0 (updated)
+
+(None updates for features)
+
 ver 3.0.0
 =========
 
