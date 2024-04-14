@@ -2,6 +2,6 @@
   "private": true,
   "name": "sphinx-revealjs",
   "dependencies": {
-    "reveal.js": "^5.0.5"
+    "reveal.js": "^5.1.0"
   }
 }
