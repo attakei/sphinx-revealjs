@@ -47,9 +47,9 @@ jobs:
           pip install '.[screenshot,test]' 'Sphinx[test]${{ matrix.sphinx-version }}'
           playwright install
       - if: ${{ matrix.sphinx-version == '>=3.0.0,<4.0.0' }}
-        run: pip install 'Jinja2<3.0.0' 'MarkupSafe<2.0.0' 'sphinxcontrib-applehelp<1.0.8'
+        run: pip install 'Jinja2<3.0.0' 'MarkupSafe<2.0.0' 'sphinxcontrib-applehelp<1.0.5' 'sphinxcontrib-devhelp<1.0.3' 'sphinxcontrib-htmlhelp<2.0.2' 'sphinxcontrib-serializinghtml<1.1.6' 'sphinxcontrib-qthelp<1.0.5'
       - if: ${{ matrix.sphinx-version == '>=4.0.0,<5.0.0' }}
-        run: pip install 'sphinxcontrib-applehelp<1.0.8'
+        run: pip install 'sphinxcontrib-applehelp<1.0.5' 'sphinxcontrib-devhelp<1.0.3' 'sphinxcontrib-htmlhelp<2.0.2' 'sphinxcontrib-serializinghtml<1.1.6' 'sphinxcontrib-qthelp<1.0.5'
       - name: Run tests
         run: |
           pytest
