@@ -51,6 +51,7 @@ test = [
     "Pillow",
     "pytest >=6.2.5,<7",
     "python-magic",
+    "Sphinx[test]>=4.0",
 ]
 doc = [
     "Sphinx ==5.*",  # For readthedocs (pass --upgrade-strategy only-if-needed)
