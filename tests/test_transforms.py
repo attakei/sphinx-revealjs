@@ -4,6 +4,8 @@ import pytest
 from sphinx.testing.fixtures import SphinxTestApp
 from sphinx.util.docutils import nodes
 
+from sphinx_revealjs import directives
+from sphinx_revealjs import nodes as rj_nodes
 from sphinx_revealjs import transforms
 
 here = Path(__file__).parent
@@ -19,3 +21,55 @@ def test__remap_sections(
     assert len(list(doctree.findall(nodes.section))) == cnt_before
     doctree = transforms.remap_sections(doctree)
     assert len(list(doctree.findall(nodes.section))) == cnt_after
+
+
+@pytest.mark.sphinx("html", testroot="dummy")
+class TestFor_append_section_attributes:
+    @pytest.fixture(autouse=True)
+    def _fixture(self, app: SphinxTestApp):
+        self._app = app
+        self._app.add_directive("revealjs-section", directives.RevealjsSection)
+        self._app.builder.read()
+
+    def get_doctree(self, docname: str) -> nodes.document:
+        return transforms.remap_sections(self._app.env.get_doctree(docname))
+
+    def test__index(self):
+        doctree = self.get_doctree("index")
+        assert len(list(doctree.findall(rj_nodes.revealjs_section))) == 0
+        doctree = transforms.append_section_attributes(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_section))) == 0
+
+    def test__has_revealjs_section(self):
+        doctree = self.get_doctree("with-revealjs-section")
+        assert len(list(doctree.findall(rj_nodes.revealjs_section))) == 2
+        doctree = transforms.append_section_attributes(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_section))) == 0
+        assert "revealjs" in doctree.children[0].children[0].attributes
+
+
+@pytest.mark.sphinx("html", testroot="dummy")
+class TestFor_append_vertical_attributes:
+    @pytest.fixture(autouse=True)
+    def _fixture(self, app: SphinxTestApp):
+        self._app = app
+        self._app.add_directive("revealjs-section", directives.RevealjsSection)
+        self._app.add_directive("revealjs-vertical", directives.RevealjsVertical)
+        self._app.builder.read()
+
+    def get_doctree(self, docname: str) -> nodes.document:
+        return transforms.remap_sections(self._app.env.get_doctree(docname))
+
+    def test__index(self):
+        doctree = self.get_doctree("index")
+        assert len(list(doctree.findall(rj_nodes.revealjs_vertical))) == 0
+        doctree = transforms.append_vertical_attributes(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_vertical))) == 0
+
+    def test__has_revealjs_vertical(self):
+        doctree = self.get_doctree("with-revealjs-vertical-1")
+        assert len(list(doctree.findall(rj_nodes.revealjs_vertical))) == 1
+        doctree = transforms.append_vertical_attributes(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_vertical))) == 0
+        assert "revealjs" in doctree.children[0].attributes
+        assert "revealjs" not in doctree.children[0].children[0].attributes

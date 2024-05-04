@@ -2,6 +2,8 @@
 
 from sphinx.util.docutils import nodes
 
+from . import nodes as rj_nodes
+
 
 def remap_sections(doctree: nodes.document) -> nodes.document:
     """Change struct of sections.
@@ -49,5 +51,35 @@ def remap_sections(doctree: nodes.document) -> nodes.document:
         wrapper_section.insert(0, top_section)
         doctree.remove(top_section)
         doctree.insert(idx, wrapper_section)
+
+    return doctree
+
+
+def append_section_attributes(doctree: nodes.document) -> nodes.document:
+    """Find <revealj-section> nodes and delegate attributes into parent section for customize Revealjs.
+
+    In current implementation,
+    ``<revealj-section>`` with revealjs-type builder are used to inherit attribute into ``<section``,
+    and remove itself.
+    """  # noqa: E501
+    for node in list(doctree.findall(rj_nodes.revealjs_section)):
+        section = node.parent
+        section.attributes["revealjs"] = node.attributes_str()
+        section.remove(node)
+
+    return doctree
+
+
+def append_vertical_attributes(doctree: nodes.document) -> nodes.document:
+    """Find <revealj-vertical> nodes and delegate attributes into parent section for customize Revealjs.
+
+    In current implementation,
+    ``<revealj-section>`` with revealjs-type builder are used to inherit attribute into ``<section``,
+    and remove itself.
+    """  # noqa: E501
+    for node in list(doctree.findall(rj_nodes.revealjs_vertical)):
+        target = node.parent.parent
+        target.attributes["revealjs"] = node.attributes_str()
+        node.parent.remove(node)
 
     return doctree
