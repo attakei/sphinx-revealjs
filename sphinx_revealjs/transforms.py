@@ -83,3 +83,26 @@ def append_vertical_attributes(doctree: nodes.document) -> nodes.document:
         node.parent.remove(node)
 
     return doctree
+
+
+def break_sections(doctree: nodes.document) -> nodes.document:
+    """Find <revealjs-break> nodes and split sections by found nodes as delimiter."""
+    for node in list(doctree.findall(rj_nodes.revealjs_break)):
+        vsec = node.parent.parent
+        base = node.parent
+        new_section = nodes.section()
+        new_section.attributes["revealjs"] = node.attributes_str()
+        if "notitle" not in node.attributes:
+            new_section.append(next(base.findall(nodes.title)).deepcopy())
+        can_move = False
+        for child in base.children.copy():
+            if child is node:
+                can_move = True
+                continue
+            if can_move:
+                new_section.append(child)
+                base.remove(child)
+        base.remove(node)
+        vsec.insert(vsec.index(base) + 1, new_section)
+
+    return doctree

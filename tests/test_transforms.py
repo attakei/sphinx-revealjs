@@ -73,3 +73,52 @@ class TestFor_append_vertical_attributes:
         assert len(list(doctree.findall(rj_nodes.revealjs_vertical))) == 0
         assert "revealjs" in doctree.children[0].attributes
         assert "revealjs" not in doctree.children[0].children[0].attributes
+
+
+@pytest.mark.sphinx("html", testroot="dummy")
+class TestFor_break_sections:
+    @pytest.fixture(autouse=True)
+    def _fixture(self, app: SphinxTestApp):
+        self._app = app
+        self._app.add_directive("revealjs-break", directives.RevealjsBreak)
+        self._app.builder.read()
+
+    def get_doctree(self, docname: str) -> nodes.document:
+        return transforms.remap_sections(self._app.env.get_doctree(docname))
+
+    def test__index(self):
+        doctree = self.get_doctree("index")
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 0
+        doctree = transforms.break_sections(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 0
+
+    def test__on_top(self):
+        doctree = self.get_doctree("with-revealjs-break-top")
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 1
+        doctree = transforms.break_sections(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 0
+        assert len(doctree.children[0].children) == 2
+
+    def test__single(self):
+        doctree = self.get_doctree("with-revealjs-break")
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 1
+        doctree = transforms.break_sections(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 0
+        assert len(doctree.children[1].children) == 3
+        assert len(list(doctree.children[1].children[-1].findall(nodes.title))) == 1
+
+    def test__chain(self):
+        doctree = self.get_doctree("with-revealjs-break-chain")
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 2
+        doctree = transforms.break_sections(doctree)
+        assert len(list(doctree.findall(rj_nodes.revealjs_break))) == 0
+        assert len(doctree.children[1].children) == 4
+        assert doctree.children[1].children[1].astext() == "Head\n\ncontent 1"
+        assert doctree.children[1].children[3].astext() == "content 3"
+        # For attributes_str
+        assert "revealjs" not in doctree.children[1].children[0].attributes
+        assert "revealjs" in doctree.children[1].children[2].attributes
+        assert "revealjs" in doctree.children[1].children[3].attributes
+        assert doctree.children[1].children[3].attributes["revealjs"] == ""
+        # For notitle
+        assert not list(doctree.children[1].children[3].findall(nodes.title))
