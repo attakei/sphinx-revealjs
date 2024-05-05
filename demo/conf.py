@@ -15,6 +15,7 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "oembedpy.ext.sphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
@@ -22,7 +23,6 @@ extensions = [
     "sphinx_revealjs.ext.screenshot",
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
-    "sphinxcontrib.oembed",
     "sphinxcontrib.sass",
     "sphinxext.opengraph",
 ]
