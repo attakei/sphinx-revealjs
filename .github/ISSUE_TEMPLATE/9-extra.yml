@@ -1,0 +1,19 @@
+name: Extra issues
+description: Please use this if it does not match for other templates.
+labels: ["triage"]
+projects: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this report!
+  - type: textarea
+    id: content
+    attributes:
+      label: What do you tell us?
+      description: Write content that you want to tell us.
+      placeholder: Tell us what you see!
+      value: "Your message"
+    validations:
+      required: true
