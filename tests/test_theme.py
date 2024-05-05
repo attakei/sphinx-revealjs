@@ -1,4 +1,5 @@
 """Test cases for builtin theme."""
+
 from urllib.parse import urlparse
 
 import pytest
@@ -82,3 +83,12 @@ class TestForRevealjsSimpleTheme:
         soup = soup_html(app, "index.html")
         links = [link["href"] for link in soup.find_all("link", rel="stylesheet")]
         assert "_static/revealjs/dist/theme/black.css" in links
+
+
+@pytest.mark.sphinx(
+    "revealjs",
+    testroot="simple-theme",
+)
+def test_metatag(app, status, warning):  # noqa
+    soup = soup_html(app, "index.html")
+    assert "<style></style>" in str(soup)
