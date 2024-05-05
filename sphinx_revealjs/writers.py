@@ -10,6 +10,7 @@ from docutils.nodes import (  # type: ignore
 from sphinx.util.docutils import nodes
 from sphinx.writers.html5 import HTML5Translator
 
+from . import _patches
 from .nodes import revealjs_break, revealjs_slide
 
 
@@ -31,6 +32,8 @@ class RevealjsSlideTranslator(HTML5Translator):
     """Translate Reveal.js HTML class."""
 
     permalink_text = False
+
+    visit_title = _patches.visit_title
 
     def __init__(self, builder, *args, **kwds):  # noqa: D107
         super().__init__(builder, *args, **kwds)
