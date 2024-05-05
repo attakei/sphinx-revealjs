@@ -1,7 +1,9 @@
 """Doctree transformer functions."""
 
+from sphinx.application import Sphinx
 from sphinx.util.docutils import nodes
 
+from . import builders
 from . import nodes as rj_nodes
 
 
@@ -14,6 +16,34 @@ def _calc_section_level(section: nodes.section) -> int:
             level += 1
         pt = pt.parent
     return level
+
+
+def rebuild_revealjs_structure(app: Sphinx, doctree: nodes.document, docname: str):
+    """Transform from standard doctree to optimized for Reveal.js.
+
+    This works only with 'revealjs' type builders.
+    """
+    if not isinstance(app.builder, builders.RevealjsHTMLBuilder):
+        return
+    bind_title_level(doctree)
+    remap_sections(doctree)
+    append_vertical_attributes(doctree)
+    append_section_attributes(doctree)
+    break_sections(doctree)
+    fill_section_ids(doctree)
+
+
+def bind_title_level(doctree: nodes.document) -> nodes.document:
+    """Set heading level of titles.
+
+    It need preserve level of titles
+    because library restructures section using ``remap_sections``.
+    """
+    for title in doctree.findall(nodes.title):
+        section = title.parent
+        level = _calc_section_level(section)
+        title.attributes["heading"] = level
+    return doctree
 
 
 def remap_sections(doctree: nodes.document) -> nodes.document:
@@ -127,4 +157,28 @@ def break_sections(doctree: nodes.document) -> nodes.document:
         base.remove(node)
         vsec.insert(vsec.index(base) + 1, new_section)
 
+    return doctree
+
+
+def fill_section_ids(doctree: nodes.document) -> nodes.document:
+    """Set required attributes into all section nodes.
+
+    This is to render in writer.
+    This is skipped if section has attributes already.
+    """
+    for vsec in doctree.children:
+        if not isinstance(vsec, nodes.section):
+            continue
+        if vsec.attributes["ids"]:
+            continue
+        idx = doctree.index(vsec)
+        label = f"revealj-section-{idx + 1}"
+        vsec["ids"].append(label)
+        for section in vsec.children:
+            if not isinstance(section, nodes.section):
+                continue
+            if section.attributes["ids"]:
+                continue
+            idx = vsec.index(section)
+            section["ids"].append(f"{label}-{idx + 1}")
     return doctree

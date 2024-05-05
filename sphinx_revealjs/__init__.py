@@ -6,6 +6,7 @@ from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx.util import logging
 
+from sphinx_revealjs import transforms
 from sphinx_revealjs.builders import (
     DirectoryRevealjsHTMLBuilder,
     RevealjsHTMLBuilder,
@@ -130,6 +131,7 @@ def setup(app: Sphinx):
     app.add_html_theme("revealjs-simple", str(get_theme_path("revealjs-simple")))
     app.setup_extension("sphinx_revealjs._ext.highlightings")
     app.setup_extension("sphinx_revealjs._ext.notes")
+    app.connect("doctree-resolved", transforms.rebuild_revealjs_structure)
     return {
         "version": __version__,
         "env_version": 1,

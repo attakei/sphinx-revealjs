@@ -1,4 +1,5 @@
 """Custom write module."""
+
 from docutils.nodes import (  # type: ignore
     Element,
     SkipNode,
@@ -6,9 +7,10 @@ from docutils.nodes import (  # type: ignore
     literal_block,
     section,
 )
+from sphinx.util.docutils import nodes
 from sphinx.writers.html5 import HTML5Translator
 
-from .nodes import revealjs_break
+from .nodes import revealjs_break, revealjs_slide
 
 
 def has_child_sections(node: Element, name: str):
@@ -38,44 +40,47 @@ class RevealjsSlideTranslator(HTML5Translator):
     def visit_section(self, node: section):
         """Begin ``section`` node.
 
-        - Find first ``revealjs_section`` node and build attributes string.
-        - When enter next section, nest level.
-        """
+        * In first access, find and bind <revealjs-slide> node
+        * If section has 'revealjs' attribute,
+          use it (binded from <revealjs-section>, <revealjs-break> and <revealjs-vertical>).
+        """  # noqa: E501
+        if self.section_level == 0:
+            slide_ = list(node.parent.findall(revealjs_slide))
+            self.builder.revealjs_slide = slide_[0] if slide_ else None
         self.section_level += 1
-        if self.section_level >= 4:
-            return
-        meta = find_child_section(node, "revealjs_section")
-        if meta is not None:
-            attrs = meta.attributes_str()
-        else:
-            attrs = ""
+
+        attrs = node.attributes.get("revealjs", "")
         if node.attributes.get("ids") and self.config.revealjs_use_section_ids:
             attrs += ' id="{}"'.format(node.attributes["ids"][-1])
 
-        if self._nest_step > 0:
-            self.body.append("</section>\n" * self._nest_step)
-            self._nest_step = 0
-        if self.section_level == 1:
-            self._nest_step = 2
-            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
-        elif has_child_sections(node, "section"):
-            self._nest_step = 1
-
-        if self._nest_step > 0:
-            v_meta = find_child_section(node, "revealjs_vertical")
-            v_attrs = v_meta.attributes_str() if v_meta is not None else ""
-            self.body.append(f"<section {v_attrs}>\n")
         self.body.append(f"<section {attrs}>\n")
 
-    def depart_section(self, node: section):
-        """End ``section``.
+    def section_title_tags(self, node: nodes.title):
+        """Create title tag pair for headings.
 
-        Dedent section level
-        """
-        self.section_level -= 1
-        if self.section_level >= 3:
-            return
-        self.body.append("</section>\n")
+        * This is forked from :meth:`docutils.writers._html_base.HTMLTranslator.section_title_tags`.
+        * When this class is used,
+          doctree is transformed by :func:`sphinx_revealjs.transforms.bind_title_level`
+          and title of section has 'heading'.
+        * There is only logic of ``h_level`` about difference of original.
+        """  # noqa: E501
+        atts = {}
+        h_level = node.attributes.get("heading", self.section_level + 2)
+        # Only 6 heading levels have dedicated HTML tags.
+        tagname = "h%i" % min(h_level, 6)
+        if h_level > 6:
+            atts["aria-level"] = h_level
+        start_tag = self.starttag(node, tagname, "", **atts)
+        if node.hasattr("refid"):
+            atts = {}
+            atts["class"] = "toc-backref"
+            atts["role"] = "doc-backlink"  # HTML5 only
+            atts["href"] = "#" + node["refid"]
+            start_tag += self.starttag(nodes.reference(), "a", "", **atts)
+            close_tag = "</a></%s>\n" % tagname
+        else:
+            close_tag = "</%s>\n" % tagname
+        return start_tag, close_tag
 
     def visit_comment(self, node: comment):
         """Begin ``comment`` node.
