@@ -11,7 +11,7 @@ from sphinx_revealjs import transforms
 here = Path(__file__).parent
 
 
-@pytest.mark.parametrize("docname,cnt_before,cnt_after", [("index", 7, 10)])
+@pytest.mark.parametrize("docname,cnt_before,cnt_after", [("index", 7, 9)])
 @pytest.mark.sphinx("html", testroot="dummy")
 def test__remap_sections(
     app: SphinxTestApp, docname: str, cnt_before: int, cnt_after: int

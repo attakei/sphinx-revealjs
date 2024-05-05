@@ -5,6 +5,17 @@ from sphinx.util.docutils import nodes
 from . import nodes as rj_nodes
 
 
+def _calc_section_level(section: nodes.section) -> int:
+    """Count 'section-level' that is numbers of sections until upgoing for root."""
+    level = 1
+    pt = section
+    while not isinstance(pt.parent, nodes.document):
+        if isinstance(pt.parent, nodes.section):
+            level += 1
+        pt = pt.parent
+    return level
+
+
 def remap_sections(doctree: nodes.document) -> nodes.document:
     """Change struct of sections.
 
@@ -34,6 +45,8 @@ def remap_sections(doctree: nodes.document) -> nodes.document:
              <title>
            <section>
              ...
+
+    If section-nests are more than 3 layers, remove nested section.
     """
     root_section = next(doctree.findall(nodes.section))
     for child in root_section.children.copy():
@@ -51,6 +64,15 @@ def remap_sections(doctree: nodes.document) -> nodes.document:
         wrapper_section.insert(0, top_section)
         doctree.remove(top_section)
         doctree.insert(idx, wrapper_section)
+
+    # Trim 3 layered sections.
+    for section in list(doctree.findall(nodes.section)):
+        level = _calc_section_level(section)
+        if level < 3:
+            continue
+        parent = section.parent
+        parent += section.children
+        parent.remove(section)
 
     return doctree
 
