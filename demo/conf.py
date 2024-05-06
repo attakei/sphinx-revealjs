@@ -15,6 +15,7 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "atsphinx.mini18n",
     "oembedpy.ext.sphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
@@ -25,7 +26,6 @@ extensions = [
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.sass",
     "sphinxext.opengraph",
-    "atsphinx.mini18n",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
