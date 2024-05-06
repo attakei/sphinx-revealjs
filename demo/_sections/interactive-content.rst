@@ -108,11 +108,11 @@ Using ``container`` directive, you can work stack layouting.
 
       .. revealjs-fragments::
 
-         .. image:: https://placekitten.com/450/300
+         .. image:: https://picsum.photos/450/300
 
-         .. image:: https://placekitten.com/300/450
+         .. image:: https://picsum.photos/300/450
 
-         .. image:: https://placekitten.com/400/400
+         .. image:: https://picsum.photos/400/400
 
 .. revealjs-break::
 
@@ -122,8 +122,8 @@ Using ``container`` directive, you can work stack layouting.
 
    .. revealjs-fragments::
 
-      .. image:: https://placekitten.com/450/300
+      .. image:: https://picsum.photos/450/300
 
-      .. image:: https://placekitten.com/300/450
+      .. image:: https://picsum.photos/300/450
 
-      .. image:: https://placekitten.com/400/400
+      .. image:: https://picsum.photos/400/400
