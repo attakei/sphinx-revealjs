@@ -15,6 +15,8 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "atsphinx.mini18n",
+    "oembedpy.ext.sphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx_revealjs",
@@ -22,7 +24,6 @@ extensions = [
     "sphinx_revealjs.ext.screenshot",
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
-    "sphinxcontrib.oembed",
     "sphinxcontrib.sass",
     "sphinxext.opengraph",
 ]
@@ -48,6 +49,18 @@ revealjs_script_conf = {
     "hash": True,
     "center": True,
     "transition": "slide",
+    "customcontrols": {
+        "controls": [
+            {
+                "icon": "EN",
+                "action": "location.href = '/en/';",
+            },
+            {
+                "icon": "JA",
+                "action": "location.href = '/ja/';",
+            },
+        ]
+    },
 }
 revealjs_script_plugins = [
     {
@@ -62,70 +75,43 @@ revealjs_script_plugins = [
         "name": "RevealMath",
         "src": "revealjs/plugin/math/math.js",
     },
+    {
+        "name": "RevealCustomControls",
+        "src": "https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js",
+    },
 ]
 revealjs_css_files = [
     "revealjs/plugin/highlight/zenburn.css",
+    "https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css",
 ]
 revealjs_notes_from_comments = True
 
-# -- Options for HTMLHelp output ---------------------------------------------
-htmlhelp_basename = "sphinx-revealjsdoc"
-
-# -- Options for LaTeX output ------------------------------------------------
-latex_elements = {}
-latex_documents = [
-    (
-        master_doc,
-        "sphinx-revealjs.tex",
-        "sphinx-revealjs Documentation",
-        "Kazuya Takei",
-        "manual",
-    ),
-]
-
-# -- Options for manual page output ------------------------------------------
-man_pages = [
-    (master_doc, "sphinx-revealjs", "sphinx-revealjs Documentation", [author], 1)
-]
-
-# -- Options for Texinfo output ----------------------------------------------
-texinfo_documents = [
-    (
-        master_doc,
-        "sphinx-revealjs",
-        "sphinx-revealjs Documentation",
-        author,
-        "sphinx-revealjs",
-        "One line description of project.",
-        "Miscellaneous",
-    ),
-]
-
-# -- Options for Epub output -------------------------------------------------
-epub_title = project
-epub_exclude_files = ["search.html"]
-
 # -- Options for extensions --------------------------------------------------
+# - sphinx.ext.todo
 todo_include_todos = True
-
+# - sphinxcontrib.gtagjs
 if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
-
+# - sphinxcontrib.budoux
 budoux_targets = ["h1", "h2", "h3"]
-
+# - sphinxcontrib.sass
 sass_src_dir = "_sass"
 sass_out_dir = "_static"
 sass_targets = {"custom.scss": "custom.css"}
 sass_include_paths = [
     get_revealjs_path() / "css" / "theme",
 ]
-
-# sphinxext-opengraph
+# sphinxext.opengraph
 ogp_site_url = os.environ.get("DEMO_URL_BASE", "http://localhost:8000/")
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="summary_large_image" />',
     '<meta name="twitter:site" content="@attakei" />',
 ]
+
+# atsphinx-mini18n
+mini18n_default_language = "en"
+mini18n_support_languages = ["en", "ja"]
+mini18n_basepath = "/sphinx-revealjs/"
 
 
 def update_ogp(app, config):
@@ -133,5 +119,18 @@ def update_ogp(app, config):
     config.ogp_site_url = urljoin(config.ogp_site_url, f"{config.language}/")
 
 
+def _add_navigation_for_mini18n(app, config):
+    config.revealjs_script_conf["customcontrols"] = {
+        "controls": [
+            {
+                "icon": lang.upper(),
+                "action": f"location.href = '{config.mini18n_basepath}{lang}/';",
+            }
+            for lang in config.mini18n_support_languages
+        ]
+    }
+
+
 def setup(app):
     app.connect("config-inited", update_ogp)
+    app.connect("config-inited", _add_navigation_for_mini18n)

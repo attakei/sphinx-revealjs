@@ -1,0 +1,80 @@
+name: Trouble report
+description: Happen troubles using this library.
+labels: ["triage"]
+projects: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: |
+        ## To reproduce
+
+        Steps to reproduce the behavior:
+
+        * Go to '...'
+        * Click on '....'
+        * Scroll down to '....'
+        * See error
+
+        ## Expected behavior
+
+        A clear and concise description of what you expected to happen.
+
+        ## Screenshots
+
+        If applicable, add screenshots to help explain your problem.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: What Operating style of our software are you running?
+      value: "Windows 11"
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Python runtime and version
+      description: |
+        What python runtime are you seeing the problem on?
+        You can get `python -VV` in terminal.
+      value: "Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]"
+    validations:
+      required: true
+  - type: input
+    id: Sphinx
+    attributes:
+      label: Sphinx version
+      description: |
+        What Sphinx of our software are you running ?
+        You can get `python -c "import sphinx as lib; print(lib.__version__)"` in terminal.
+      value: "7.3.7"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Library version
+      description: |
+        What version of our software are you running?
+        You can get `python -c "import sphinx_revealjs as lib; print(lib.__version__)"` in terminal.
+      value: "3.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Extra context
+      description: |
+        Please write other information as much as possible!
+        (Using other extensions, logs in build and more)

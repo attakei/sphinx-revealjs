@@ -1,3 +1,20 @@
+ver 3.0.2
+=========
+
+:Release date: 2024-05-06 (JST)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Enable to use ``metatags`` variable in ``revealjs-simple`` theme.
+
+Others
+------
+
+* Add message for deprecated: Sphinx<5.0 and Python<3.8.
+* Use oEmbedPy in demo (instead of sphinxcontrib-oembed).
+
 ver 3.0.1
 =========
 
