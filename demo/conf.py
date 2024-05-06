@@ -25,6 +25,7 @@ extensions = [
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.sass",
     "sphinxext.opengraph",
+    "atsphinx.mini18n",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -126,6 +127,10 @@ ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="summary_large_image" />',
     '<meta name="twitter:site" content="@attakei" />',
 ]
+
+# atsphinx-mini18n
+mini18n_default_language = "en"
+mini18n_support_languages = ["en", "ja"]
 
 
 def update_ogp(app, config):
