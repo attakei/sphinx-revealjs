@@ -111,6 +111,7 @@ ogp_custom_meta_tags = [
 # atsphinx-mini18n
 mini18n_default_language = "en"
 mini18n_support_languages = ["en", "ja"]
+mini18n_basepath = "/sphinx-revealjs/"
 
 
 def update_ogp(app, config):
@@ -123,7 +124,7 @@ def _add_navigation_for_mini18n(app, config):
         "controls": [
             {
                 "icon": lang.upper(),
-                "action": f"location.href = '/{lang}/';",
+                "action": f"location.href = '{config.mini18n_basepath}{lang}/';",
             }
             for lang in config.mini18n_support_languages
         ]
