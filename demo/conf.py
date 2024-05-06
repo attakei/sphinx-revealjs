@@ -15,6 +15,7 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    "atsphinx.mini18n",
     "oembedpy.ext.sphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
@@ -48,6 +49,18 @@ revealjs_script_conf = {
     "hash": True,
     "center": True,
     "transition": "slide",
+    "customcontrols": {
+        "controls": [
+            {
+                "icon": "EN",
+                "action": "location.href = '/en/';",
+            },
+            {
+                "icon": "JA",
+                "action": "location.href = '/ja/';",
+            },
+        ]
+    },
 }
 revealjs_script_plugins = [
     {
@@ -62,9 +75,14 @@ revealjs_script_plugins = [
         "name": "RevealMath",
         "src": "revealjs/plugin/math/math.js",
     },
+    {
+        "name": "RevealCustomControls",
+        "src": "https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js",
+    },
 ]
 revealjs_css_files = [
     "revealjs/plugin/highlight/zenburn.css",
+    "https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css",
 ]
 revealjs_notes_from_comments = True
 
@@ -90,11 +108,28 @@ ogp_custom_meta_tags = [
     '<meta name="twitter:site" content="@attakei" />',
 ]
 
+# atsphinx-mini18n
+mini18n_default_language = "en"
+mini18n_support_languages = ["en", "ja"]
+
 
 def update_ogp(app, config):
     print(config.ogp_site_url, config.language)
     config.ogp_site_url = urljoin(config.ogp_site_url, f"{config.language}/")
 
 
+def _add_navigation_for_mini18n(app, config):
+    config.revealjs_script_conf["customcontrols"] = {
+        "controls": [
+            {
+                "icon": lang.upper(),
+                "action": f"location.href = '/{lang}/';",
+            }
+            for lang in config.mini18n_support_languages
+        ]
+    }
+
+
 def setup(app):
     app.connect("config-inited", update_ogp)
+    app.connect("config-inited", _add_navigation_for_mini18n)
