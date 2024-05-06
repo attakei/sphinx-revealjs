@@ -11,13 +11,7 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile demo intl
-
-demo:
-	@$(SPHINXBUILD) -b dirrevealjs "$(SOURCEDIR)" "$(BUILDDIR)/demo/ja" $(SPHINXOPTS) $(O) -D language="ja"
-	@$(SPHINXBUILD) -b dirrevealjs "$(SOURCEDIR)" "$(BUILDDIR)/demo/en" $(SPHINXOPTS) $(O)
-	./gen-index.py $(BUILDDIR)/demo
-	touch $(BUILDDIR)/demo/.nojekyll
+.PHONY: help Makefile intl
 
 intl:
 	@$(SPHINXBUILD) -M gettext "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
