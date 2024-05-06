@@ -49,6 +49,20 @@ revealjs_script_conf = {
     "hash": True,
     "center": True,
     "transition": "slide",
+    "customcontrols": {
+        "controls": [
+            {
+                "icon": "EN",
+                "action": "location.href = '/en/';",
+            },
+            {
+                "id": "goto-ja",
+                "title": "Change Japanese",
+                "icon": "JA",
+                "action": "location.href = '/ja/';",
+            },
+        ]
+    },
 }
 revealjs_script_plugins = [
     {
@@ -63,9 +77,14 @@ revealjs_script_plugins = [
         "name": "RevealMath",
         "src": "revealjs/plugin/math/math.js",
     },
+    {
+        "name": "RevealCustomControls",
+        "src": "https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js",
+    },
 ]
 revealjs_css_files = [
     "revealjs/plugin/highlight/zenburn.css",
+    "https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css",
 ]
 revealjs_notes_from_comments = True
 
