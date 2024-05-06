@@ -68,59 +68,22 @@ revealjs_css_files = [
 ]
 revealjs_notes_from_comments = True
 
-# -- Options for HTMLHelp output ---------------------------------------------
-htmlhelp_basename = "sphinx-revealjsdoc"
-
-# -- Options for LaTeX output ------------------------------------------------
-latex_elements = {}
-latex_documents = [
-    (
-        master_doc,
-        "sphinx-revealjs.tex",
-        "sphinx-revealjs Documentation",
-        "Kazuya Takei",
-        "manual",
-    ),
-]
-
-# -- Options for manual page output ------------------------------------------
-man_pages = [
-    (master_doc, "sphinx-revealjs", "sphinx-revealjs Documentation", [author], 1)
-]
-
-# -- Options for Texinfo output ----------------------------------------------
-texinfo_documents = [
-    (
-        master_doc,
-        "sphinx-revealjs",
-        "sphinx-revealjs Documentation",
-        author,
-        "sphinx-revealjs",
-        "One line description of project.",
-        "Miscellaneous",
-    ),
-]
-
-# -- Options for Epub output -------------------------------------------------
-epub_title = project
-epub_exclude_files = ["search.html"]
-
 # -- Options for extensions --------------------------------------------------
+# - sphinx.ext.todo
 todo_include_todos = True
-
+# - sphinxcontrib.gtagjs
 if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
-
+# - sphinxcontrib.budoux
 budoux_targets = ["h1", "h2", "h3"]
-
+# - sphinxcontrib.sass
 sass_src_dir = "_sass"
 sass_out_dir = "_static"
 sass_targets = {"custom.scss": "custom.css"}
 sass_include_paths = [
     get_revealjs_path() / "css" / "theme",
 ]
-
-# sphinxext-opengraph
+# sphinxext.opengraph
 ogp_site_url = os.environ.get("DEMO_URL_BASE", "http://localhost:8000/")
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="summary_large_image" />',
