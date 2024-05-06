@@ -6,6 +6,7 @@ from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx.util import logging
 
+from sphinx_revealjs import deprecated
 from sphinx_revealjs.builders import (
     DirectoryRevealjsHTMLBuilder,
     RevealjsHTMLBuilder,
@@ -59,6 +60,7 @@ def setup(app: Sphinx):
     app.add_event("revealjs:ready-for-writing")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
+    app.connect("config-inited", deprecated.handle)
     app.add_builder(RevealjsHTMLBuilder)
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
