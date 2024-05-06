@@ -56,8 +56,6 @@ revealjs_script_conf = {
                 "action": "location.href = '/en/';",
             },
             {
-                "id": "goto-ja",
-                "title": "Change Japanese",
                 "icon": "JA",
                 "action": "location.href = '/ja/';",
             },
@@ -157,5 +155,18 @@ def update_ogp(app, config):
     config.ogp_site_url = urljoin(config.ogp_site_url, f"{config.language}/")
 
 
+def _add_navigation_for_mini18n(app, config):
+    config.revealjs_script_conf["customcontrols"] = {
+        "controls": [
+            {
+                "icon": lang.upper(),
+                "action": f"location.href = '/{lang}/';",
+            }
+            for lang in config.mini18n_support_languages
+        ]
+    }
+
+
 def setup(app):
     app.connect("config-inited", update_ogp)
+    app.connect("config-inited", _add_navigation_for_mini18n)
