@@ -1,12 +1,6 @@
 """Custom write module."""
 
-from docutils.nodes import (  # type: ignore
-    Element,
-    SkipNode,
-    comment,
-    literal_block,
-    section,
-)
+from docutils.nodes import SkipNode, comment, literal_block, section  # type: ignore
 from sphinx.util.docutils import nodes
 from sphinx.util.logging import getLogger
 from sphinx.writers.html5 import HTML5Translator
@@ -15,20 +9,6 @@ from . import _patches
 from .nodes import revealjs_slide
 
 logger = getLogger(__name__)
-
-
-def has_child_sections(node: Element, name: str):
-    """Search has specified section in children."""
-    nodes = set([n.tagname for n in node.children])
-    return name in nodes
-
-
-def find_child_section(node: Element, name: str):
-    """Search and return first specified section in children."""
-    for n in node.children:
-        if n.tagname == name:
-            return n
-    return None
 
 
 class RevealjsSlideTranslator(HTML5Translator):
