@@ -8,10 +8,13 @@ from docutils.nodes import (  # type: ignore
     section,
 )
 from sphinx.util.docutils import nodes
+from sphinx.util.logging import getLogger
 from sphinx.writers.html5 import HTML5Translator
 
 from . import _patches
-from .nodes import revealjs_break, revealjs_slide
+from .nodes import revealjs_slide
+
+logger = getLogger(__name__)
 
 
 def has_child_sections(node: Element, name: str):
@@ -143,22 +146,15 @@ def not_write(self, node):
     pass
 
 
-def visit_revealjs_break(self, node: revealjs_break):
-    """Close current section."""
-    self.body.append("</section>\n")
+def alert_unremoved_node(self, node):
+    """Note warning message about remained nodes.
 
-
-def depart_revealjs_break(self, node: revealjs_break):
-    """Open as next section.
-
-    If node does not have attribute 'notitle',
-    render title from current original section.
+    ``revealjs_vertical``, ``revealjs_section`` and ``revealjs_break``
+    will be removed before process of writer by transforms.
+    This visitor function logs as Sphinx warning.
     """
-    attrs = node.attributes_str()
-    self.body.append(f"<section {attrs}>\n")
-    if "notitle" not in node.attributes:
-        title = find_child_section(node.parent, "title")
-        self.body.append(f"<h{self.section_level}>")
-        self.body.append(title.children[0])
-        self.body.append(f"</h{self.section_level}>")
-        self.body.append("\n")
+    logger.warning(
+        f"<{node.tagname}> is detected,"
+        " but it should have been removed before writing content."
+        " If you see this message unexpectedly, please report to GitHub."
+    )

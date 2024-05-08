@@ -27,11 +27,7 @@ from sphinx_revealjs.nodes import (
     revealjs_vertical,
 )
 from sphinx_revealjs.themes import get_theme_path
-from sphinx_revealjs.writers import (
-    depart_revealjs_break,
-    not_write,
-    visit_revealjs_break,
-)
+from sphinx_revealjs.writers import alert_unremoved_node, not_write
 
 logger = logging.getLogger(__name__)
 
@@ -70,8 +66,8 @@ def setup(app: Sphinx):
         text=(not_write, not_write),
         man=(not_write, not_write),
         texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
+        revealjs=(alert_unremoved_node, alert_unremoved_node),
+        dirrevealjs=(alert_unremoved_node, alert_unremoved_node),
     )
     app.add_node(
         revealjs_section,
@@ -80,8 +76,8 @@ def setup(app: Sphinx):
         text=(not_write, not_write),
         man=(not_write, not_write),
         texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
+        revealjs=(alert_unremoved_node, alert_unremoved_node),
+        dirrevealjs=(alert_unremoved_node, alert_unremoved_node),
     )
     app.add_node(
         revealjs_break,
@@ -90,8 +86,8 @@ def setup(app: Sphinx):
         text=(not_write, not_write),
         man=(not_write, not_write),
         texinfo=(not_write, not_write),
-        revealjs=(visit_revealjs_break, depart_revealjs_break),
-        dirrevealjs=(visit_revealjs_break, depart_revealjs_break),
+        revealjs=(alert_unremoved_node, alert_unremoved_node),
+        dirrevealjs=(alert_unremoved_node, alert_unremoved_node),
     )
     app.add_node(
         revealjs_slide,
