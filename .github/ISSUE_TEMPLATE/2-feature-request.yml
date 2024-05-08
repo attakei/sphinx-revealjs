@@ -1,0 +1,15 @@
+name: Feature request
+description: You want features or apploach in sphinx-revealjs.
+labels: ["triage"]
+projects: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do you have ideas or request for features of sphinx-revealjs?
+  - type: textarea
+    id: idea
+    attributes:
+      label: What do you need?
+      placeholder: Tell us what you see!
