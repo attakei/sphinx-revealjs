@@ -96,3 +96,18 @@ addopts = "-ra -q"
 testpaths = [
     "tests",
 ]
+
+[tool.ruff]
+extend-exclude = ["tests/*/__init__.py", "*/conf.py"]
+
+[tool.ruff.lint]
+select = ["C90", "D", "E", "F", "I", "W"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D107", "D200", "D203", "D213", "D400"]
+
+[tool.ruff.lint.per-file-ignores]
+"doc/*.py" = ["I"]
+
+[tool.ruff.lint.isort]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
