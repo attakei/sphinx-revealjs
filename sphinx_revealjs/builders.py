@@ -1,9 +1,10 @@
 """Definition for sphinx custom builder."""
+
 import copy
 import logging
 from typing import Any, Dict, List, Set, Tuple
 
-from sphinx import version_info as sphinx_versoin
+from sphinx import version_info as sphinx_version
 from sphinx.application import Sphinx
 from sphinx.builders.dirhtml import DirectoryHTMLBuilder
 from sphinx.builders.html import StandaloneHTMLBuilder
@@ -32,7 +33,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def __init__(self, app, env: BuildEnvironment = None):  # noqa: D107
         # TODO: Remove it if this not need support Sphinx 5.1.0 and older
-        if sphinx_versoin[0] <= 4 or sphinx_versoin[:2] == (5, 0):
+        if sphinx_version[0] <= 4 or sphinx_version[:2] == (5, 0):
             super().__init__(app)
         else:
             super().__init__(app, env)
