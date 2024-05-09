@@ -1,4 +1,5 @@
 """Util as functions for some modules."""
+
 from pathlib import Path
 from typing import Optional
 

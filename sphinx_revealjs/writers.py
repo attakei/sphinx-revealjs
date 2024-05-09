@@ -1,4 +1,5 @@
 """Custom write module."""
+
 from docutils.nodes import (  # type: ignore
     Element,
     SkipNode,

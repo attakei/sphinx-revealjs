@@ -1,4 +1,5 @@
 """Test cases for deprecated messages from Sphinx."""
+
 import sys
 
 import pytest

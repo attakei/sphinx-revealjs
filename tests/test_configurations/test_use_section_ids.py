@@ -1,4 +1,5 @@
 """Build tests for configuration parameters."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
@@ -26,9 +27,7 @@ def test_inject_id_to_all_sections(app: SphinxTestApp, status, warning):  # noqa
         "revealjs_use_section_ids": True,
     },
 )
-def test_inject_id_to_all_sections_with_label(
-    app: SphinxTestApp, status, warning
-):  # noqa
+def test_inject_id_to_all_sections_with_label(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "with-label.html")
     h2_section = soup.h2.parent
     assert "id" in h2_section.attrs

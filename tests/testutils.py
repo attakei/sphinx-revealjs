@@ -1,4 +1,5 @@
 """Test support functions."""
+
 from bs4 import BeautifulSoup
 from sphinx.testing.util import SphinxTestApp
 

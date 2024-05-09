@@ -1,4 +1,5 @@
 """Contexts for passing between objects."""
+
 import json
 from typing import Dict, List, Optional, Union
 
@@ -12,9 +13,7 @@ logger = logging.getLogger(__name__)
 class RevealjsEngine:
     """Reveal.js core metadata."""
 
-    def __init__(
-        self, version: int, js_path: str, css_path: str, theme_dir: str
-    ):  # noqa
+    def __init__(self, version: int, js_path: str, css_path: str, theme_dir: str):  # noqa
         self.version = version
         self.js_path = js_path
         self.css_path = css_path

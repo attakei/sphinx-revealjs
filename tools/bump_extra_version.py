@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Bump post version writer."""
+
 import argparse
 import configparser
 from datetime import datetime

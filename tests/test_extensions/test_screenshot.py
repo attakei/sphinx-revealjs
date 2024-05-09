@@ -1,4 +1,5 @@
 """Test cases for sphix_revealjs.ext.screenshot."""
+
 import magic
 import pytest
 from PIL import Image

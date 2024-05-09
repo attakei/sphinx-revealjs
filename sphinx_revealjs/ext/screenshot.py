@@ -3,6 +3,7 @@
 This is optional extension.
 You need install extra and configure to use it.
 """
+
 from pathlib import Path
 from typing import Dict, Set
 

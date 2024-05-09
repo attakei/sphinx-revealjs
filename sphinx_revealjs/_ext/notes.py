@@ -1,4 +1,5 @@
 """Internal extension for Speaker view or Reveal.js."""
+
 import html
 
 from docutils import nodes  # type: ignore

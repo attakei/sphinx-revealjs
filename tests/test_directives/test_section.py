@@ -1,4 +1,5 @@
 """Test cases for ``revealjs-section`` directive."""
+
 import io
 from textwrap import dedent
 

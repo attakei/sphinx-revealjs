@@ -1,4 +1,5 @@
 """Extension to add custom CSS for footnotes."""
+
 from pathlib import Path
 
 from sphinx.application import Sphinx

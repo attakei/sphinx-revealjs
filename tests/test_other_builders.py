@@ -1,4 +1,5 @@
 """Test cases for not revealjs builders."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 

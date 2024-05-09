@@ -1,4 +1,5 @@
 """Theme handle module."""
+
 from pathlib import Path
 
 DEFAULT_THEME = "revealjs-basic"

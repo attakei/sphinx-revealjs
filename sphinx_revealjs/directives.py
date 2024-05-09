@@ -1,4 +1,5 @@
 """Custom directives for Reveal.js."""
+
 import json
 
 from docutils.nodes import Sequential  # type: ignore

@@ -1,4 +1,5 @@
 """Test cases for generating giles."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 

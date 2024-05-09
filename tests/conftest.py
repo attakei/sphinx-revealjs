@@ -1,4 +1,5 @@
 """Configuration for pytest."""
+
 import inspect
 
 import pytest

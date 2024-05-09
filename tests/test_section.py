@@ -1,4 +1,5 @@
 """Build tests for core behaviors of presentation(sections)."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html

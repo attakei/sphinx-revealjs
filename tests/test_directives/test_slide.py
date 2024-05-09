@@ -1,4 +1,5 @@
 """Test cases for ``revealjs_slide`` directive."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html

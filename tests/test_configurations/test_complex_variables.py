@@ -1,4 +1,5 @@
 """Build tests for configuration parameters."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
@@ -12,9 +13,7 @@ from testutils import soup_html
         "revealjs_css_files": ["custom.css"],
     },
 )
-def test_default_theme_css_comes_before_custom_css(
-    app: SphinxTestApp, status, warning
-):  # noqa
+def test_default_theme_css_comes_before_custom_css(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     stylesheet_href_list = [e["href"] for e in soup.find_all("link", rel="stylesheet")]
     default_theme_index = stylesheet_href_list.index(

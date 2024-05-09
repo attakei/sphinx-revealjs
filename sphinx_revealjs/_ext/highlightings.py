@@ -1,4 +1,5 @@
 """Internal extension for highlighting of Reveal.js."""
+
 from docutils.parsers.rst import directives  # type: ignore
 from sphinx.application import Sphinx
 from sphinx.directives.code import CodeBlock, LiteralInclude

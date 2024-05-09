@@ -1,4 +1,5 @@
 """Test cases for sphix_revealjs.ext.footnotes."""
+
 import pytest
 from sphinx.testing.util import SphinxTestApp
 
