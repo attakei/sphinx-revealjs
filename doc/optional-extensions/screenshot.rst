@@ -28,7 +28,7 @@ This extension need Playwright and browser component.
 Usage
 =====
 
-When addning extention into your ``conf.py``, this generates screenshots per pages.
+When adding extension into your ``conf.py``, this generates screenshots per pages.
 You can set image path into ``:og:image:`` field of sphinxext-opengraph_ in advance.
 
 Example
@@ -63,7 +63,7 @@ All Configuration names are prefixed ``revealjs_screenshot_``.
    :Example: ``"_static/images"``
 
    Output directory for generated screenshots.
-   This must be releative path for outdir of Sphinx.
+   This must be relative path for outdir of Sphinx.
 
 .. confval:: revealjs_screenshot_excludes
 
@@ -72,7 +72,7 @@ All Configuration names are prefixed ``revealjs_screenshot_``.
    :Example: ``["index"]``
 
    List of docnames to exclude for target of screenshots.
-   Valuese must be docname format that does not need extension of files.
+   Values must be docname format that does not need extension of files.
 
 Works
 =====
@@ -93,7 +93,7 @@ This values are used viewport of presentation.
 Note
 ====
 
-Currently, I reccomend using sphinxext-opengraph_ to add ogp metatags (it is useful).
+Currently, I recommend using sphinxext-opengraph_ to add ogp metatags (it is useful).
 I delegate behavior about opengraph, and |THIS| does not have feature to generate ogp tags.
 
 

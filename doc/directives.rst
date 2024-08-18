@@ -10,7 +10,7 @@ For customize presentation
 Sphinx can manage multiple documents,
 so that |THIS| can build multiple presentation slides.
 
-If you want to configure one presentaion from some,
+If you want to configure one presentation from some,
 use this directive into your source.
 
 .. rst:directive:: revealjs-slide
@@ -149,7 +149,7 @@ For interactive contents
 
 .. rst:directive:: revealjs-code-block
 
-   This is extends of :rst:dir:`code-block` direcrive for presentation.
+   This is extends of :rst:dir:`code-block` directive for presentation.
 
    If you want to use custom attributes in code-block.
 
@@ -185,7 +185,7 @@ For interactive contents
 
 .. rst:directive:: revealjs-literalinclude
 
-   This is extends of :rst:dir:`literalinclude` direcrive for presentation.
+   This is extends of :rst:dir:`literalinclude` directive for presentation.
 
    If you want to use custom attributes in literalinclude.
 
@@ -224,12 +224,12 @@ For interactive contents
 
    When you write this section, inner text are as content of `Speaker View <https://revealjs.com/speaker-view/>`_.
 
-   If you write some directives on same-level, Reveal.js uses first direcrive only.
+   If you write some directives on same-level, Reveal.js uses first directive only.
 
    .. note::
 
       You must be careful for comment block when you set :confval:`revealjs_notes_from_comments` in ``conf.py``.
-      Reveal.js recoginzes first ``<aside>`` element as content of speaker-view,
+      Reveal.js recognizes first ``<aside>`` element as content of speaker-view,
       so you may not see directive content as notes.
 
    Example:

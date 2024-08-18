@@ -6,8 +6,8 @@ Thank you for interested to ``sphinx-revealjs``.
 
 .. todo:: Add USING, QUESTION and DOCUMENTATION
 
-Conttribute code
-================
+Contribute code
+===============
 
 Local development environment
 -----------------------------
