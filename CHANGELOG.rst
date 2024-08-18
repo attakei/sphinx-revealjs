@@ -1,3 +1,23 @@
+ver 3.0.3
+=========
+
+:Release date: 2024-08-18 (JST)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Change accessing property in builder for compatibility.
+
+Others
+------
+
+* Fix broken links in documents.
+* Fix typo in documents and comments.
+* Use Ruff for lint and format sources instead of flake8 and black.
+* Use latest patterns from GitignoreIO.
+* Adjust compatibility of dependencies.
+
 ver 3.0.2
 =========
 
