@@ -96,7 +96,11 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         if source has ``revealjs_slide`` property, add configures.
         """
         ctx = super().get_doc_context(docname, body, metatags)
-        ctx["css_files"] = copy.copy(self.css_files)
+        # TODO: Add note it why it copies from properties
+        if sphinx_version[0] >= 8:
+            ctx["css_files"] = copy.copy(self._css_files)
+        else:
+            ctx["css_files"] = copy.copy(self.css_files)
         ctx["revealjs"] = self.revealjs_context
         return ctx
 
