@@ -80,7 +80,7 @@ Presentation Configurations
    :Default: ``False``
 
    If this is set ``True``,
-   inject ``id`` attribute into ``section`` element (parent of headerings).
+   inject ``id`` attribute into ``section`` element (parent of headings).
    This means that change format of internal links (default is numbering style).
 
 .. confval:: revealjs_script_files

@@ -57,7 +57,7 @@ Usage
 Change logs
 -----------
 
-See `it <./CHANGES.rst>`_
+See `it <./CHANGELOG.rst>`_
 
 Policy for following to Reveal.js version
 -----------------------------------------
@@ -68,8 +68,8 @@ I plan to update it at patch-version for catch up when new Reveal.js version rel
 * If Reveal.js updated minor or patch version, sphinx-revealjs update patch version.
 * If Reveal.js updated major version, sphinx-revealjs update minor version with compatible for two versions.
 
-Contributings
--------------
+Contributing
+------------
 
 GitHub repository does not have reveal.js library.
 

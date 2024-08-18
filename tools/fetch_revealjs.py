@@ -4,7 +4,7 @@
 This script need to run these case.
 
 * After editable install
-* Before build package archibves
+* Before build package archives
 """
 
 import argparse

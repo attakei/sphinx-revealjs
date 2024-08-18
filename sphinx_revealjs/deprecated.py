@@ -33,7 +33,7 @@ def handle(app: Sphinx, config: Config):
     """Monitor dependencies and log deprecated messages."""
     python_version = _get_python_version()
     sphinx_version = _get_sphinx_version()
-    # For python supportings
+    # For python supporting
     if python_version < version.parse("3.8"):
         msg = f"""
             2024-05-06 - All Python <3.8 is already dropped in supporting.

@@ -43,7 +43,7 @@ ver 2.9.0
 Features
 --------
 
-* Set default configuration to disable scroll-view mode for compatiblity.
+* Set default configuration to disable scroll-view mode for compatibility.
 
 Miscellaneous
 -------------
@@ -105,7 +105,7 @@ Features
 Miscellaneous
 -------------
 
-* Checked Sphinx 7.x compatiblity.
+* Checked Sphinx 7.x compatibility.
 
 ver 2.5.1
 =========
@@ -183,16 +183,16 @@ Deprecated
 
   * Change directory for contents of Reveal.js
 
-Change supportings
-------------------
+Change supporting
+-----------------
 
-* Add Python 3.11 into supportings
-* Drop Python 3.6 from supportings
+* Add Python 3.11 into supporting
+* Drop Python 3.6 from supporting
 
-Develoment environment
-----------------------
+Development environment
+-----------------------
 
-* Hooks of ``pre-commit`` are using as standard lintings.
+* Hooks of ``pre-commit`` are using as standard linting.
   In GitHub Actions, ``lint`` is running ``pre-commit``.
 * Use Flit as building library instead of Poetry.
 
@@ -269,8 +269,8 @@ Fixes
 
 * Register ``data-XXX`` attributes into ``revealjs-section`` and ``revealjs-break`` from https://revealjs.com/
 
-Deleted feaures
----------------
+Deleted features
+----------------
 
-* Remove snake-cesed directives
+* Remove snake-case style directives
 * Does not generate ``search.html``

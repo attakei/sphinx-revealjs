@@ -47,9 +47,9 @@ screenshot = [
     "playwright",
 ]
 test = [
-    "BeautifulSoup4 >=4.9.3,<5",
+    "BeautifulSoup4",
     "Pillow",
-    "pytest >=6.2.5,<7",
+    "pytest",
     "python-magic",
     "Sphinx[test]>=4.0",
 ]

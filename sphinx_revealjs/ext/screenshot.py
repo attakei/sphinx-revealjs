@@ -72,7 +72,7 @@ def connect_extension_events(app: Sphinx):
 
 
 def setup(app: Sphinx):
-    """Entryoint."""
+    """Entrypoint."""
     app.add_config_value("revealjs_screenshot_outdir", "_images/ogp", "env")
     app.add_config_value("revealjs_screenshot_excludes", [], "env")
     app.connect("builder-inited", connect_extension_events)

@@ -11,7 +11,7 @@ Why these are optional ?
 These require extra packages to work, but them do not need for standard features.
 However, required packages are large (example: playwright is 27MB to only create screenshot).
 
-Therefore, I splitted core features and optional features as "package extra".
+Therefore, I split core features and optional features as "package extra".
 
 Usage
 =====

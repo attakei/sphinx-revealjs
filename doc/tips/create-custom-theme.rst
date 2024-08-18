@@ -21,7 +21,7 @@ Write SCSS source for your theme.
 
 .. code-block:: SCSS
 
-   // Use teamplate sources from Reveal.js
+   // Use template sources from Reveal.js
    @import "template/mixins";
    @import "template/settings";
 
