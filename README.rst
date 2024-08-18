@@ -57,7 +57,7 @@ Usage
 Change logs
 -----------
 
-See `it <./CHANGES.rst>`_
+See `it <./CHANGELOG.rst>`_
 
 Policy for following to Reveal.js version
 -----------------------------------------
