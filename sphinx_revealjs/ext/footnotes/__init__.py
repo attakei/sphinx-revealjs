@@ -30,7 +30,7 @@ def register_css_context(app: Sphinx, ctx: dict):
 
 
 def setup(app: Sphinx):
-    """Entryoint."""
+    """Entrypoint."""
     app.add_config_value("revealjs_footnotes_font_size", "50%", "env")
     app.add_config_value("revealjs_footnotes_ref_font_size", "70%", "env")
     app.connect("builder-inited", register_extra_static_path)
