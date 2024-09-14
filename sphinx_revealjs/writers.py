@@ -152,6 +152,7 @@ def depart_revealjs_break(self, node: revealjs_break):
     if "notitle" not in node.attributes:
         title = find_child_section(node.parent, "title")
         self.body.append(f"<h{self.section_level}>")
-        self.body.append(title.children[0])
+        for c in title.children:
+            c.walkabout(self)
         self.body.append(f"</h{self.section_level}>")
         self.body.append("\n")
