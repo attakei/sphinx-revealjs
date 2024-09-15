@@ -19,3 +19,10 @@ def test_top_of_section(app: SphinxTestApp, status, warning):  # noqa
     section_tag = soup.h1.parent.parent
     print(section_tag)
     assert len(section_tag.find_all("section")) == 2
+
+
+@pytest.mark.sphinx("revealjs", testroot="default")
+def test_render_all_items_of_head(app: SphinxTestApp, status, warning):  # noqa
+    soup = soup_html(app, "with-revealjs-break-decorated.html")
+    head = soup.find_all("h3")[-1]
+    assert head.text == "Decorated Head"
