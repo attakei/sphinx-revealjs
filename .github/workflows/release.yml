@@ -50,7 +50,7 @@ jobs:
       - prepare
     if: success() && ${{ needs.prepare.outputs.is-release }}
     steps:
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v3
         with:
           name: dist-packages
           path: dist/
