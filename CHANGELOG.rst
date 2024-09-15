@@ -1,3 +1,19 @@
+ver 3.0.4
+=========
+
+:Release date: 2024-09-15 (JST)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Render all heading content by ``revealjs-break``.
+
+Others
+------
+
+* Update version of workflow.
+
 ver 3.0.3
 =========
 
