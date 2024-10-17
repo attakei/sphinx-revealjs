@@ -6,6 +6,15 @@ from testutils import soup_html
 
 
 @pytest.mark.sphinx("revealjs", testroot="default")
+def test_valid_html(app: SphinxTestApp):  # noqa
+    app.build()
+    content = (app.outdir / "index.html").read_text()
+    assert content.count("<section >") == content.count("</section>")
+    content = (app.outdir / "simple.html").read_text()
+    assert content.count("<section >") == content.count("</section>")
+
+
+@pytest.mark.sphinx("revealjs", testroot="default")
 def test_render_title(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     assert soup.h1.text == "Test presentation"

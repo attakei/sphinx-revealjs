@@ -59,7 +59,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self.section_level == 1:
             self._nest_step = 2
             self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
-        elif has_child_sections(node, "section"):
+        elif self.section_level == 2:
             self._nest_step = 1
 
         if self._nest_step > 0:
@@ -74,7 +74,11 @@ class RevealjsSlideTranslator(HTML5Translator):
         Dedent section level
         """
         self.section_level -= 1
-        if self.section_level >= 3:
+        # NOTE:: When level changes 1 to 0, tag is closed by proc of ``_nest_step``.
+        if self.section_level == 0:
+            return
+        # NOTE:: Reveal.js is max section level is 2.
+        if self.section_level > 2:
             return
         self.body.append("</section>\n")
 
