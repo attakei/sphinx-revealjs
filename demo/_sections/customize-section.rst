@@ -8,6 +8,7 @@ Description
 
 * ``revealjs-section``
 * ``revealjs-break``
+* ( ``revealjs-vertical`` )
 
 Showing part of examples.
 
@@ -98,3 +99,16 @@ Second
       :notitle:
 
    Second
+
+Customse all slide of one vertical items
+----------------------------------------
+
+If you want to change behaivor of all slides on vertical slides (level 2 section),
+set ``revealjs-vertical``.
+
+.. code-block:: rst
+
+   .. Changing background-color of vertical slides (items scrolled bottom)
+
+   .. revealjs-vertical::
+      :data-background-color: #009900

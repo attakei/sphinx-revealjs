@@ -13,7 +13,7 @@ You can install stable version of ``sphinx-revealjs`` from PyPI.
 Set up
 ------
 
-Edit ``conf.py`` to use this extension
+Edit ``conf.py`` to use this extension.
 
 .. code-block:: python
 
@@ -21,7 +21,7 @@ Edit ``conf.py`` to use this extension
        "sphinx_revealjs",
    ]
 
-You can customize behabior. Please see `documentation <https://sphinx-revealjs.readthedocs.io/en/latest/configurations.html>`_.
+You can customize behavior. Please see `documentation <https://sphinx-revealjs.readthedocs.io/en/stable/configurations/>`_.
 
 Write source
 ------------

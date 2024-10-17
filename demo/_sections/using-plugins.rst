@@ -56,7 +56,7 @@ Using ``revealjs-code-block``, line-level highlighting works.
 .. revealjs-literalinclude:: ./conf.py
    :language: python
    :lines: 45-58
-   :data-line-numbers: 2-5|6-9|10-13
+   :data-line-numbers: 2-5|6-7|10-13
 
 You can include other file with step-by-step highlighting by ``revealjs-literalinclude``.
 

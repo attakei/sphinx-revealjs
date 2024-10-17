@@ -31,7 +31,9 @@ reST structure to Reveal.js sections
       .. code-block:: html
 
           <section>
-              <h1>Title</h1>
+              <section>
+                  <h1>Title</h1>
+              </section>
           </section>
           <section>
               <section>
@@ -94,7 +96,7 @@ Using custom directives of Sphinx extensions
          .. oembed:: \
          https://twitter.com/attakei/status/1517152841550376961
 
-      ``oembed`` is custom directive from `sphinxcontrib-oembed <https://github.com/attakei-lab/sphinxcontrib-oembed>`_
+      ``oembed`` is custom directive from :pypi:`oEmbedPy`.
 
    .. container:: half
 
