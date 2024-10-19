@@ -18,7 +18,7 @@ Animate source code transitions
 .. revealjs-section::
    :data-auto-animate:
 
-Enable animations for each `revealjs-section` and `revealjs-break`:
+Enable animations for each ``revealjs-section`` and ``revealjs-break``:
 
 .. code-block:: console
    :linenos:
@@ -28,7 +28,7 @@ Enable animations for each `revealjs-section` and `revealjs-break`:
 .. revealjs-break::
    :data-auto-animate:
 
-Enable animations for each `revealjs-section` and `revealjs-break`:
+Enable animations for each ``revealjs-section`` and ``revealjs-break``:
 
 .. code-block:: console
    :linenos:
