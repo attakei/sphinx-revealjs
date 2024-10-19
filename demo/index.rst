@@ -7,7 +7,7 @@
 Introduction of sphinx-revealjs
 ===============================
 
-:Based version: 3.0.4
+:Based version: 3.0.5
 :Demo updated: 2024-10-18 JST
 
 Overview

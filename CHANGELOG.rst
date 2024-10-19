@@ -1,3 +1,20 @@
+ver 3.0.5
+=========
+
+:Release date: 2024-10-20 (JST)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Do not render stray end-tag (``</section>``) - `GH#180 <https://github.com/attakei/sphinx-revealjs/issues/180>`_.
+
+Others
+------
+
+* Update contents of demo for latest features.
+* Mark python version of author workspace by mise.
+
 ver 3.0.4
 =========
 
