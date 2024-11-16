@@ -13,6 +13,7 @@
       "version": "5.1.0",
       "resolved": "https://registry.npmjs.org/reveal.js/-/reveal.js-5.1.0.tgz",
       "integrity": "sha512-KDt7m0+xwKV6nAZt4CNPVFBf42sTKRQapg0bGGKB5PKO5XvChnMfwlZkybydHiQJ7p5+6LbHKRGrhXODdoNIaA==",
+      "license": "MIT",
       "engines": {
         "node": ">=18.0.0"
       }
