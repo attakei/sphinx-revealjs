@@ -4,19 +4,13 @@ build:
   os: 'ubuntu-22.04'
   tools:
     python: '3.11'
-
-# Build documentation in the doc/ directory with Sphinx
-sphinx:
-  configuration: doc/conf.py
-  builder: dirhtml
-
-# Optionally build your docs in additional formats such as PDF and ePub
-formats: all
-
-# Optionally set the version of Python and requirements required to build your docs
-python:
-  install:
-    - method: pip
-      path: .
-      extra_requirements:
-        - doc
+  commands:
+    - pip install uv
+    - uv venv
+    - uv pip install '.[doc]'
+    - uv run --no-sync sphinx-build -b dirhtml doc $READTHEDOCS_OUTPUT/html
+    - uv run --no-sync sphinx-build -b epub doc $READTHEDOCS_OUTPUT/epub
+    - find $READTHEDOCS_OUTPUT/epub -mindepth 1 ! -name '*.epub' -exec rm -rf {} +
+    - uv run --no-sync sphinx-build -b latex doc $READTHEDOCS_OUTPUT/pdf
+    - make -C $READTHEDOCS_OUTPUT/pdf
+    - find $READTHEDOCS_OUTPUT/pdf -mindepth 1 ! -name '*.pdf' -exec rm -rf {} +
