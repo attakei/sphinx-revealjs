@@ -5,21 +5,20 @@ on:
     tags:
       - 'v*.*.*'
 
+env:
+  UV_NO_SYNC: 1
+
 jobs:
   # Build and configure package(s)
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          architecture: x64
-          python-version: '3.11'
+      - uses: jdx/mise-action@v2
       - name: Build packages
         run: |
-          python tools/fetch_revealjs.py
-          pip install flit
-          flit build
+          uv run tools/fetch_revealjs.py
+          uv build
       - name: Store filepath
         id: store-filepath
         run: |

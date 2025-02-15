@@ -15,19 +15,22 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  UV_NO_SYNC: 1
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+      - uses: jdx/mise-action@v2
       - name: Make demo page
         run: |
-          python tools/fetch_revealjs.py
-          pip install ".[screenshot,demo]"
-          playwright install
+          uv venv
+          uv run tools/fetch_revealjs.py
+          uv pip install ".[screenshot,demo]"
+          uv run playwright install
+          source .venv/bin/activate
           make -C demo mini18n-revealjs
           touch demo/_build/mini18n-revealjs/.nojeykll
         env:
