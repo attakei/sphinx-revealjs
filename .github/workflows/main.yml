@@ -11,20 +11,18 @@ on:
   schedule:
     - cron: '30 0 * * 1'
 
+env:
+  UV_NO_SYNC: 1
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup python
-        uses: actions/setup-python@v4
-        with:
-          architecture: x64
-          python-version: '3.11'
+      - uses: jdx/mise-action@v2
       - name: Lint by pre-commit
         run: |
-          pip install pre-commit
-          pre-commit run --all-files
+          uvx pre-commit run --all-files
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -46,33 +44,26 @@ jobs:
             sphinx-version: '==8.*'
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          architecture: x64
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+      - uses: jdx/mise-action@v2
+      - name: Set up workspace ${{ matrix.python-version }}
         run: |
-          python tools/fetch_revealjs.py
-          pip install '.[screenshot,test]' 'Sphinx[test]${{ matrix.sphinx-version }}'
-          playwright install
+          echo '${{ matrix.python-version }}' > .python-version
+          uv venv
+          uv run tools/fetch_revealjs.py
+          uv pip install '.[screenshot,test]' 'Sphinx[test]${{ matrix.sphinx-version }}'
+          uv run playwright install
       - if: ${{ matrix.sphinx-version == '>=4.0.0,<5.0.0' }}
-        run: pip install 'sphinxcontrib-applehelp<1.0.5' 'sphinxcontrib-devhelp<1.0.3' 'sphinxcontrib-htmlhelp<2.0.2' 'sphinxcontrib-serializinghtml<1.1.6' 'sphinxcontrib-qthelp<1.0.5'
+        run: uv pip install 'sphinxcontrib-applehelp<1.0.5' 'sphinxcontrib-devhelp<1.0.3' 'sphinxcontrib-htmlhelp<2.0.2' 'sphinxcontrib-serializinghtml<1.1.6' 'sphinxcontrib-qthelp<1.0.5'
       - name: Run tests
         run: |
-          pytest
+          uv run pytest
   buildtest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup python
-        uses: actions/setup-python@v4
-        with:
-          architecture: x64
-          python-version: '3.11'
+      - uses: jdx/mise-action@v2
       - name: Build
         run: |
-          pip install flit
-          python tools/fetch_revealjs.py
-          flit build
+          uv run tools/fetch_revealjs.py
+          uv build
           ls -l dist
