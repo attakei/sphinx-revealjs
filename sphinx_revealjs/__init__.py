@@ -105,13 +105,7 @@ def setup(app: Sphinx):
     )
     app.add_node(
         revealjs_fragments,
-        html=(not_write, not_write),
-        latex=(not_write, not_write),
-        text=(not_write, not_write),
-        man=(not_write, not_write),
-        texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
+        **BEHVIOR_FOR_BUILDERS["walk_contents"],
     )
     app.add_directive("revealjs-vertical", RevealjsVertical)
     app.add_directive("revealjs-section", RevealjsSection)
