@@ -27,7 +27,7 @@ jobs:
       - name: Make demo page
         run: |
           uv venv
-          uv sync --extra screenshot --extra screenshot
+          uv sync --no-dev --extra screenshot --group demo
           uv run tools/fetch_revealjs.py
           uv run playwright install
           uv run make -C demo mini18n-revealjs

@@ -44,6 +44,17 @@ dependencies = [
 screenshot = [
     "playwright",
 ]
+
+[project.urls]
+Home = "https://attakei.github.io/sphinx-revealjs"
+Documentation = "https://sphinx-revealjs.readthedocs.io/"
+Repository = "https://github.com/attakei/sphinx-revealjs"
+
+[dependency-groups]
+dev = [
+    {include-group = "test"},
+    {include-group = "doc"},
+]
 test = [
     "BeautifulSoup4",
     "Pillow",
@@ -68,11 +79,6 @@ demo = [
     "sphinxcontrib-sass",
     "sphinxext-opengraph",
 ]
-
-[project.urls]
-Home = "https://attakei.github.io/sphinx-revealjs"
-Documentation = "https://sphinx-revealjs.readthedocs.io/"
-Repository = "https://github.com/attakei/sphinx-revealjs"
 
 [tool.flit.module]
 name = "sphinx_revealjs"
