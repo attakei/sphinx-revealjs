@@ -3,13 +3,13 @@
 from docutils import nodes  # type: ignore
 
 
-class FlagAttribute(object):
+class FlagAttribute:
     """Flag options for docutils node."""
 
     pass
 
 
-class SectionTagRenderer(object):
+class SectionTagRenderer:
     """Mix-in class to build attributes combined string."""
 
     def attributes_str(self):

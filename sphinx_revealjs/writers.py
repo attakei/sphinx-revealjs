@@ -14,7 +14,7 @@ from .nodes import revealjs_break
 
 def has_child_sections(node: Element, name: str):
     """Search has specified section in children."""
-    nodes = set([n.tagname for n in node.children])
+    nodes = {n.tagname for n in node.children}
     return name in nodes
 
 

@@ -2,7 +2,7 @@
 
 import copy
 import logging
-from typing import Any, Dict, List, Set, Tuple
+from typing import Any
 
 from sphinx import version_info as sphinx_version
 from sphinx.application import Sphinx
@@ -76,7 +76,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         for filename, attrs in self.get_builder_config("js_files", "revealjs"):
             self.add_js_file(filename, **attrs)
 
-    def get_theme_config(self) -> Tuple[str, Dict]:
+    def get_theme_config(self) -> tuple[str, dict]:
         """Find and return configuration about theme (name and option params).
 
         Find theme and merge options.
@@ -101,12 +101,12 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         return ctx
 
     def update_page_context(
-        self, pagename: str, templatename: str, ctx: Dict, event_arg: Any
+        self, pagename: str, templatename: str, ctx: dict, event_arg: Any
     ) -> None:  # noqa
         self.configure_theme(ctx)
         ctx["revealjs_page_confs"] = self.configure_page_script_conf()
 
-    def configure_theme(self, ctx: Dict):
+    def configure_theme(self, ctx: dict):
         """Find and add theme css from conf and directive."""
         # Use directive or conf
         if self.revealjs_slide and "theme" in self.revealjs_slide.attributes:
@@ -125,7 +125,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
         # index 2 or later: other css files
         ctx["css_files"].insert(1, theme)
 
-    def configure_page_script_conf(self) -> List[str]:  # noqa
+    def configure_page_script_conf(self) -> list[str]:  # noqa
         if not self.revealjs_slide:
             return []
         configs = []
@@ -135,8 +135,8 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
             configs.append(self.revealjs_slide.content)
         return configs
 
-    def prepare_writing(self, docnames: Set[str]):
-        super().prepare_writing((docnames))
+    def prepare_writing(self, docnames: set[str]):
+        super().prepare_writing(docnames)
         self.events.emit("revealjs:ready-for-writing", self.globalcontext)
 
 

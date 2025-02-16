@@ -5,7 +5,6 @@ You need install extra and configure to use it.
 """
 
 from pathlib import Path
-from typing import Dict, Set
 
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
@@ -27,15 +26,15 @@ except ImportError:
 from .. import __version__ as core_version
 
 logger = getLogger(__name__)
-_targets: Dict[str, str] = dict()
+_targets: dict[str, str] = dict()
 
 
 def collect_screenshot_targets(
     app: Sphinx,
     env: BuildEnvironment,
-    added: Set[str],
-    changed: Set[str],
-    removed: Set[str],
+    added: set[str],
+    changed: set[str],
+    removed: set[str],
 ):
     global _targets
     _targets = {}

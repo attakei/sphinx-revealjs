@@ -15,7 +15,7 @@ from testutils import soup_html
 def test_inject_id_to_all_sections(app: SphinxTestApp, status, warning):  # noqa
     soup = soup_html(app, "index.html")
     for e in soup.find_all("section"):
-        children = set([c.name for c in e.children])
+        children = {c.name for c in e.children}
         if children & {"h1", "h2", "h3"}:
             assert "id" in e.attrs
 
