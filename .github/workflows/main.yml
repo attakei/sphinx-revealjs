@@ -30,14 +30,13 @@ jobs:
       matrix:
         python-version: ['3.9', '3.10', '3.11', '3.12']
         sphinx-version: ['==7.*', '==8.*']
-        exclude:
-          # Old major version does not support python>=3.10
+        exclude:  # These cases are not supported pair.
           - python-version: '3.9'
             sphinx-version: '==8.*'
     steps:
       - uses: actions/checkout@v3
       - uses: jdx/mise-action@v2
-      - name: Set up workspace ${{ matrix.python-version }}
+      - name: Set up workspace
         run: |
           echo '${{ matrix.python-version }}' > .python-version
           uv sync --group test --extra screenshot
