@@ -53,6 +53,7 @@ Contents
    directives
    optional-extensions
    tips
+   local-workspace
    contributing
    changes
    versioning-policy
