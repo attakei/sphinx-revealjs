@@ -154,7 +154,7 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
 
     Original is :py:func:`sphinx.builders.html.convert_html_js_files`.
     """
-    revealjs_js_files = []  # type: List[Tuple[str, Dict]]
+    revealjs_js_files: list[tuple[str, dict]] = []
     for entry in config.revealjs_js_files:
         if isinstance(entry, str):
             revealjs_js_files.append((entry, {}))
