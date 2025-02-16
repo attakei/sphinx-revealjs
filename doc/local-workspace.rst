@@ -13,14 +13,6 @@ Overview
 
 .. todo:: TBD
 
-Notice
-------
-
-This project uses ``uv`` to configure development environment.
-
-But you cannot ``uv sync``,
-because this has missmatch of ``requires-python`` of this and dependencies.
-
 Development tools
 =================
 
@@ -46,14 +38,13 @@ Setup workspace
 .. note:: After ``git clone``.
 
 #. Set up hooks by ``pre-commit install``.
-#. Create virtualenv by ``uv venv``.
-#. Get Reveal.js assets by ``uv run --no-sync tools/fetch_revealjs.py``.
-#. Install dependencies by ``uv pip install -e .[doc,test]``.
+#. Set up virtualenv and deps by ``uv sync --extra test --extra doc``.
 
    * If you want to develop for screenshot options,
-     append ``screenshot`` optional and run ``uv run --no-sync playwright install``.
+     append ``--extra screenshot`` into ``uv sync`` and run ``uv run playwright install``.
 
-#. Verify workspace by ``uv run --no-sync pytest``.
+#. Get Reveal.js assets by ``uv run tools/fetch_revealjs.py``.
+#. Verify workspace by ``uv run pytest``.
 
    * If it runs on Windows and it does not install **libmagic**,
      append ``--ignore=tests/test_extensions/test_screenshot.py`` into pytest command.

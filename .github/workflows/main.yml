@@ -40,9 +40,9 @@ jobs:
       - name: Set up workspace ${{ matrix.python-version }}
         run: |
           echo '${{ matrix.python-version }}' > .python-version
-          uv venv
+          uv sync --extra screenshot --extra test
           uv run tools/fetch_revealjs.py
-          uv pip install '.[screenshot,test]' 'Sphinx[test]${{ matrix.sphinx-version }}'
+          uv pip install 'Sphinx[test]${{ matrix.sphinx-version }}'
           uv run playwright install
       - name: Run tests
         run: |
