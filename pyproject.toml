@@ -116,3 +116,17 @@ ignore = ["D100", "D101", "D102", "D103", "D104", "D107", "D200", "D203", "D213"
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
+
+[tool.doc8]
+default-extension = ".rst"
+extension = ".rst"
+ignore-path = [
+	"*.egg-info",".tox",".venv","var",
+	"doc/_build,demo/_build",
+]
+ignore-path-errors = [
+	"CHANGELOG.rst;D000",
+	"doc/changes.rst;D000",
+	"doc/changes/2.x.rst;D000",
+]
+max-line-length = 119
