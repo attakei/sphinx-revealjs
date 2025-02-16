@@ -31,12 +31,8 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
     default_translator_class = RevealjsSlideTranslator
     search = False
 
-    def __init__(self, app, env: BuildEnvironment = None):  # noqa: D107
-        # TODO: Remove it if this not need support Sphinx 5.1.0 and older
-        if sphinx_version[0] <= 4 or sphinx_version[:2] == (5, 0):
-            super().__init__(app)
-        else:
-            super().__init__(app, env)
+    def __init__(self, app, env: BuildEnvironment):  # noqa: D107
+        super().__init__(app, env)
         self.revealjs_slide = None
 
     def init(self):  # noqa
