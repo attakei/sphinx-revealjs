@@ -140,6 +140,14 @@ def not_write(self, node):
     pass
 
 
+def skip_node(self, node):
+    """Skip child nodes if it is exists.
+
+    This is used to explicit that it does not have sub tontents in nodes.
+    """
+    raise SkipNode()
+
+
 def visit_revealjs_break(self, node: revealjs_break):
     """Close current section."""
     self.body.append("</section>\n")

@@ -30,10 +30,30 @@ from sphinx_revealjs.themes import get_theme_path
 from sphinx_revealjs.writers import (
     depart_revealjs_break,
     not_write,
+    skip_node,
     visit_revealjs_break,
 )
 
 logger = logging.getLogger(__name__)
+
+BEHVIOR_FOR_BUILDERS = {
+    "skip_contents": {
+        "html": (skip_node, None),
+        "latex": (skip_node, None),
+        "text": (skip_node, None),
+        "texinfo": (skip_node, None),
+        "revealjs": (skip_node, None),
+        "dirrevealjs": (skip_node, None),
+    },
+    "walk_contents": {
+        "html": (not_write, not_write),
+        "latex": (not_write, not_write),
+        "text": (not_write, not_write),
+        "texinfo": (not_write, not_write),
+        "revealjs": (not_write, not_write),
+        "dirrevealjs": (not_write, not_write),
+    },
+}
 
 
 def inherit_extension_nodes(app: Sphinx, config: Config):
@@ -65,43 +85,23 @@ def setup(app: Sphinx):
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
         revealjs_vertical,
-        html=(not_write, not_write),
-        latex=(not_write, not_write),
-        text=(not_write, not_write),
-        man=(not_write, not_write),
-        texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],
     )
     app.add_node(
         revealjs_section,
-        html=(not_write, not_write),
-        latex=(not_write, not_write),
-        text=(not_write, not_write),
-        man=(not_write, not_write),
-        texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],
     )
     app.add_node(
         revealjs_break,
-        html=(not_write, not_write),
-        latex=(not_write, not_write),
-        text=(not_write, not_write),
-        man=(not_write, not_write),
-        texinfo=(not_write, not_write),
-        revealjs=(visit_revealjs_break, depart_revealjs_break),
-        dirrevealjs=(visit_revealjs_break, depart_revealjs_break),
+        **{
+            **BEHVIOR_FOR_BUILDERS["skip_contents"],
+            "revealjs": (visit_revealjs_break, depart_revealjs_break),
+            "dirrevealjs": (visit_revealjs_break, depart_revealjs_break),
+        },
     )
     app.add_node(
         revealjs_slide,
-        html=(not_write, not_write),
-        latex=(not_write, not_write),
-        text=(not_write, not_write),
-        man=(not_write, not_write),
-        texinfo=(not_write, not_write),
-        revealjs=(not_write, not_write),
-        dirrevealjs=(not_write, not_write),
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],
     )
     app.add_node(
         revealjs_fragments,
