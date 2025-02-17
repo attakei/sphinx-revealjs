@@ -54,6 +54,9 @@ Repository = "https://github.com/attakei/sphinx-revealjs"
 dev = [
     {include-group = "test"},
     {include-group = "doc"},
+    "ruff>=0.9.6",
+    "doc8>=1.1.2",
+    "mypy>=1.15.0",
 ]
 test = [
     "BeautifulSoup4",
