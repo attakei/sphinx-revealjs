@@ -1,6 +1,7 @@
 """Custom write module."""
 
 from docutils.nodes import (  # type: ignore
+    Element,
     SkipNode,
     comment,
     literal_block,
@@ -69,7 +70,7 @@ class RevealjsSlideTranslator(HTML5Translator):
             return
         self.body.append("</section>\n")
 
-    def visit_comment(self, node: comment):
+    def visit_comment(self, node: Element):
         """Begin ``comment`` node.
 
         comment node render as speaker note.
@@ -87,7 +88,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self.builder.app.config.revealjs_notes_from_comments:
             self.body.append("</aside>\n")
 
-    def visit_literal_block(self, node: literal_block):
+    def visit_literal_block(self, node: Element):
         """Begin ``literal_block`` .
 
         Override base method, and open simply ``pre`` and ``code`` tags.
