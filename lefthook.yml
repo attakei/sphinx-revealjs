@@ -15,4 +15,4 @@ pre-commit:
       run: 'uv run mypy {staged_files}'
     doc8:
       glob: '*.rst'
-      run: 'uv run doc8 --max-line-length=119 {staged_files}'
+      run: 'uv run doc8 {staged_files}'

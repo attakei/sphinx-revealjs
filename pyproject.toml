@@ -126,6 +126,7 @@ extension = ".rst"
 ignore-path = [
 	"*.egg-info",".tox",".venv","var",
 	"doc/_build,demo/_build",
+	"doc/changes/2.x.rst",  # TODO: Ignore until fixed PyCQA/doc8#162
 ]
 ignore-path-errors = [
 	"CHANGELOG.rst;D000",
