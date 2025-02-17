@@ -31,10 +31,12 @@ def _to_single_message(msg: str) -> str:
 
 def handle(app: Sphinx, config: Config):
     """Monitor dependencies and log deprecated messages."""
+    return
+    # NOTE: Keep work to warn in next steps.
     python_version = _get_python_version()
     sphinx_version = _get_sphinx_version()
     # For python supporting
-    if python_version < version.parse("3.8"):
+    if python_version < version.parse("3.9"):
         msg = f"""
             2024-05-06 - All Python <3.8 is already dropped in supporting.
             {__name__} will supports only python 3.8 and newer using `requires-python` metadata with minor version up.
@@ -42,7 +44,9 @@ def handle(app: Sphinx, config: Config):
             """  # noqa: E501
         logger.warning(_to_single_message(msg))
 
-    if sphinx_version.major < 5:
+    if sphinx_version.major < 7 or (
+        sphinx_version.major == 8 and sphinx_version.minor < 3
+    ):
         msg = f"""
             2024-05-06 - In near future,
             {__name__} will drop supports for Sphinx of version less than 5 with minor version up.

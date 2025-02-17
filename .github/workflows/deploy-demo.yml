@@ -27,11 +27,10 @@ jobs:
       - name: Make demo page
         run: |
           uv venv
+          uv sync --no-dev --extra screenshot --group demo
           uv run tools/fetch_revealjs.py
-          uv pip install ".[screenshot,demo]"
           uv run playwright install
-          source .venv/bin/activate
-          make -C demo mini18n-revealjs
+          uv run make -C demo mini18n-revealjs
           touch demo/_build/mini18n-revealjs/.nojeykll
         env:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}

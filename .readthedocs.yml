@@ -6,8 +6,7 @@ build:
     python: '3.11'
   commands:
     - pip install uv
-    - uv venv
-    - uv pip install '.[doc]'
+    - uv sync --group doc
     - uv run --no-sync sphinx-build -b dirhtml doc $READTHEDOCS_OUTPUT/html
     - uv run --no-sync sphinx-build -b epub doc $READTHEDOCS_OUTPUT/epub
     - find $READTHEDOCS_OUTPUT/epub -mindepth 1 ! -name '*.epub' -exec rm -rf {} +

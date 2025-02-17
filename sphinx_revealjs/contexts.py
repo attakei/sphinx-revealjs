@@ -1,7 +1,7 @@
 """Contexts for passing between objects."""
 
 import json
-from typing import Dict, List, Optional, Union
+from typing import Optional, Union
 
 from sphinx.util import logging
 
@@ -40,15 +40,15 @@ class RevealjsPlugin:
         self.options = options
 
 
-class RevealjsProjectContext(object):
+class RevealjsProjectContext:
     """Context object for Reveal.js (project-wide)."""
 
     def __init__(
         self,
         engine_version: int,
-        script_files: Optional[List[str]] = None,
-        script_conf: Optional[Union[str, Dict]] = None,
-        script_plugins: Optional[List[RevealjsPlugin]] = None,
+        script_files: Optional[list[str]] = None,
+        script_conf: Optional[Union[str, dict]] = None,
+        script_plugins: Optional[list[RevealjsPlugin]] = None,
     ):  # noqa
         self.engine = RevealjsEngine.from_version(engine_version)
         if isinstance(script_conf, str):

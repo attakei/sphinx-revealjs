@@ -21,8 +21,6 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -34,7 +32,7 @@ classifiers = [
     "Topic :: Software Development :: Documentation",
     "Topic :: Text Processing :: Markup :: HTML",
 ]
-requires-python = ">= 3.7"
+requires-python = ">= 3.9"
 dynamic = ["version"]
 dependencies = [
     "docutils",
@@ -45,6 +43,17 @@ dependencies = [
 [project.optional-dependencies]
 screenshot = [
     "playwright",
+]
+
+[project.urls]
+Home = "https://attakei.github.io/sphinx-revealjs"
+Documentation = "https://sphinx-revealjs.readthedocs.io/"
+Repository = "https://github.com/attakei/sphinx-revealjs"
+
+[dependency-groups]
+dev = [
+    {include-group = "test"},
+    {include-group = "doc"},
 ]
 test = [
     "BeautifulSoup4",
@@ -70,11 +79,6 @@ demo = [
     "sphinxcontrib-sass",
     "sphinxext-opengraph",
 ]
-
-[project.urls]
-Home = "https://attakei.github.io/sphinx-revealjs"
-Documentation = "https://sphinx-revealjs.readthedocs.io/"
-Repository = "https://github.com/attakei/sphinx-revealjs"
 
 [tool.flit.module]
 name = "sphinx_revealjs"
@@ -112,3 +116,17 @@ ignore = ["D100", "D101", "D102", "D103", "D104", "D107", "D200", "D203", "D213"
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
+
+[tool.doc8]
+default-extension = ".rst"
+extension = ".rst"
+ignore-path = [
+	"*.egg-info",".tox",".venv","var",
+	"doc/_build,demo/_build",
+]
+ignore-path-errors = [
+	"CHANGELOG.rst;D000",
+	"doc/changes.rst;D000",
+	"doc/changes/2.x.rst;D000",
+]
+max-line-length = 119
