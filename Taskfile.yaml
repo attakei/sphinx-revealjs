@@ -1,0 +1,37 @@
+version: '3'
+
+vars:
+  # If you run bare environment or activated venv, set '' (blank string)
+  RUN_PYTHON: 'uv run'
+
+tasks:
+  setup:
+    desc: 'Setup workspace'
+    cmds:
+      - 'uv sync --frozen --all-extras'
+      - 'lefthook install'
+      - task: 'docs:apidoc'
+  verify:
+    desc: 'Verify environment by all procs'
+    cmds:
+      - 'lefthook run pre-commit --all-files'
+      - '{{.RUN_PYTHON}} pytest'
+      - task: 'docs:intl'
+      - task: 'docs:apidoc'
+      - task: 'docs:build-linkcheck'
+      - task: 'docs:build-dirhtml'
+      - task: 'demo:intl'
+      - task: 'docs:build-linkcheck'
+      - task: 'demo:build'
+      - 'uv build'
+  release-*:
+    desc: 'Run release process'
+    vars:
+      VERSION: '{{index .MATCH 0}}'
+    cmds:
+      - 'age update {{.VERSION}}'
+      - 'uv sync --all-extras'  # To write out as lock-file
+
+includes:
+  docs: './doc'
+  demo: './demo'

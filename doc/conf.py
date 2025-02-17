@@ -72,6 +72,15 @@ texinfo_documents = [
 epub_title = project
 epub_exclude_files = ["search.html"]
 
+# -- Options for Linkcheck output
+linkcheck_ignore = [
+    r"./docs/migrations",  # TODO: Fix after.
+    # TODO: Migrate ``linkcheck_anchors_ignore_for_url``
+    r"https://attakei.github.io/sphinx-revealjs/en/#/5/1",
+    r"https://revealjs.com/#/",
+    r"https://revealjs.com/code/#line-numbers-%26-highlights",
+]
+
 # -- Extension configuration -------------------------------------------------
 # For sphinx.ext.intersphinx
 intersphinx_mapping = {
