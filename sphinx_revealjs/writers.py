@@ -1,29 +1,15 @@
 """Custom write module."""
 
 from docutils.nodes import (  # type: ignore
-    Element,
     SkipNode,
     comment,
     literal_block,
     section,
+    title,
 )
 from sphinx.writers.html5 import HTML5Translator
 
-from .nodes import revealjs_break
-
-
-def has_child_sections(node: Element, name: str):
-    """Search has specified section in children."""
-    nodes = {n.tagname for n in node.children}
-    return name in nodes
-
-
-def find_child_section(node: Element, name: str):
-    """Search and return first specified section in children."""
-    for n in node.children:
-        if n.tagname == name:
-            return n
-    return None
+from .nodes import revealjs_break, revealjs_section, revealjs_slide, revealjs_vertical
 
 
 class RevealjsSlideTranslator(HTML5Translator):
@@ -45,11 +31,8 @@ class RevealjsSlideTranslator(HTML5Translator):
         self.section_level += 1
         if self.section_level >= 4:
             return
-        meta = find_child_section(node, "revealjs_section")
-        if meta is not None:
-            attrs = meta.attributes_str()
-        else:
-            attrs = ""
+        idx = node.first_child_matching_class(revealjs_section)
+        attrs = "" if idx is None else node.children[idx].attributes_str()
         if node.attributes.get("ids") and self.config.revealjs_use_section_ids:
             attrs += ' id="{}"'.format(node.attributes["ids"][-1])
 
@@ -58,13 +41,17 @@ class RevealjsSlideTranslator(HTML5Translator):
             self._nest_step = 0
         if self.section_level == 1:
             self._nest_step = 2
-            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
+            s_idx = node.first_child_matching_class(revealjs_slide)
+
+            self.builder.revealjs_slide = (
+                None if s_idx is None else node.children[s_idx]
+            )
         elif self.section_level == 2:
             self._nest_step = 1
 
         if self._nest_step > 0:
-            v_meta = find_child_section(node, "revealjs_vertical")
-            v_attrs = v_meta.attributes_str() if v_meta is not None else ""
+            v_idx = node.first_child_matching_class(revealjs_vertical)
+            v_attrs = "" if v_idx is None else node.children[v_idx].attributes_str()
             self.body.append(f"<section {v_attrs}>\n")
         self.body.append(f"<section {attrs}>\n")
 
@@ -108,21 +95,21 @@ class RevealjsSlideTranslator(HTML5Translator):
         lang = node["language"]
         # add section id as data-id if it is exists
         if "data-id" in node:
-            self.body.append(f"<pre data-id=\"{node['data-id']}\">")
+            self.body.append(f'<pre data-id="{node["data-id"]}">')
         elif isinstance(node.parent, section) and len(node.parent["ids"]):
-            self.body.append(f"<pre data-id=\"{node.parent['ids'][0]}\">")
+            self.body.append(f'<pre data-id="{node.parent["ids"][0]}">')
         else:
             self.body.append("<pre>")
         self.body.append(f'<code data-trim data-noescape class="{lang}"')
         # use the emphasize-lines directive to create line for line animations
         if "data-line-numbers" in node:
-            self.body.append(f" data-line-numbers=\"{node['data-line-numbers']}\"")
+            self.body.append(f' data-line-numbers="{node["data-line-numbers"]}"')
         else:
             # show line numbers
             if node["linenos"]:
                 self.body.append(" data-line-numbers")
         if "data-ln-start-from" in node:
-            self.body.append(f" data-ln-start-from=\"{node['data-ln-start-from']}\"")
+            self.body.append(f' data-ln-start-from="{node["data-ln-start-from"]}"')
             if "data-line-numbers" not in node:
                 self.body.append(" data-line-numbers")
         self.body.append(">")
@@ -154,7 +141,9 @@ def depart_revealjs_break(self, node: revealjs_break):
     attrs = node.attributes_str()
     self.body.append(f"<section {attrs}>\n")
     if "notitle" not in node.attributes:
-        title = find_child_section(node.parent, "title")
+        idx = node.parent.first_child_matching_class(title)
+        if idx is None:
+            return
         # NOTE: It has possibility to work side effect because re-walk for used nodes.
-        title.walkabout(self)
+        node.parent.children[idx].walkabout(self)
         self.body.append("\n")
