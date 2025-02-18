@@ -1,0 +1,46 @@
+version: '3'
+
+vars:
+  # If you run bare environment or activated venv, set '' (blank string)
+  # RUN_PYTHON: ''
+  SPHINX_DEFAULT_BUILD: 'mini18n-dirrevealjs'
+  SPHINX_SOURCE_DIR: '.'
+  SPHINX_OUTPUT_DIR: '_build'
+  SPHINX_OPTIONS: ''
+  SPHINX_LANGUAGES:
+    - 'ja'
+
+env:
+  SPHINXINTL_TRANSLATOR: "Kazuya Takei <myself@attakei.net>"
+
+tasks:
+  intl:
+    desc: 'Sync i18n environment'
+    dir: '{{.TASKFILE_DIR}}'
+    cmds:
+      - '{{.RUN_PYTHON}} sphinx-build -M gettext {{.SPHINX_SOURCE_DIR}} {{.SPHINX_OUTPUT_DIR}} {{.SPHINX_OPTIONS}}'
+      - '{{.RUN_PYTHON}} sphinx-intl update --language={{.SPHINX_LANGUAGES | join ","}}'
+  dev:
+    desc: 'Run docs server'
+    dir: '{{.TASKFILE_DIR}}'
+    cmds:
+      - '{{.RUN_PYTHON}} sphinx-autobuild -b dirrevealjs {{.SPHINX_SOURCE_DIR}} {{.SPHINX_OUTPUT_DIR}}/dirrevealjs'
+  build-*:
+    desc: 'Make docs'
+    dir: '{{.TASKFILE_DIR}}'
+    vars:
+      TARGET: '{{index .MATCH 0}}'
+    cmds:
+      - '{{.RUN_PYTHON}} sphinx-build -M {{.TARGET}} {{.SPHINX_SOURCE_DIR}} {{.SPHINX_OUTPUT_DIR}}'
+  build:
+    desc: 'Make docs (default target)'
+    deps:
+      - 'build-{{.SPHINX_DEFAULT_BUILD}}'
+  help:
+    desc: 'Display help of docs'
+    deps:
+      - 'build-help'
+  clean:
+    desc: 'Clean build files of docs'
+    deps:
+      - 'build-clean'

@@ -54,6 +54,10 @@ Repository = "https://github.com/attakei/sphinx-revealjs"
 dev = [
     {include-group = "test"},
     {include-group = "doc"},
+    "ruff>=0.9.6",
+    "doc8>=1.1.2",
+    "mypy>=1.15.0",
+    "esbonio>=0.16.5",
 ]
 test = [
     "BeautifulSoup4",
@@ -123,6 +127,7 @@ extension = ".rst"
 ignore-path = [
 	"*.egg-info",".tox",".venv","var",
 	"doc/_build,demo/_build",
+	"doc/changes/2.x.rst",  # TODO: Ignore until fixed PyCQA/doc8#162
 ]
 ignore-path-errors = [
 	"CHANGELOG.rst;D000",

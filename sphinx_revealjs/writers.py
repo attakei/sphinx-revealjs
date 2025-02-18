@@ -58,7 +58,7 @@ class RevealjsSlideTranslator(HTML5Translator):
             self._nest_step = 0
         if self.section_level == 1:
             self._nest_step = 2
-            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")
+            self.builder.revealjs_slide = find_child_section(node, "revealjs_slide")  # type: ignore[attr-defined]
         elif self.section_level == 2:
             self._nest_step = 1
 
@@ -108,21 +108,21 @@ class RevealjsSlideTranslator(HTML5Translator):
         lang = node["language"]
         # add section id as data-id if it is exists
         if "data-id" in node:
-            self.body.append(f"<pre data-id=\"{node['data-id']}\">")
+            self.body.append(f'<pre data-id="{node["data-id"]}">')
         elif isinstance(node.parent, section) and len(node.parent["ids"]):
-            self.body.append(f"<pre data-id=\"{node.parent['ids'][0]}\">")
+            self.body.append(f'<pre data-id="{node.parent["ids"][0]}">')
         else:
             self.body.append("<pre>")
         self.body.append(f'<code data-trim data-noescape class="{lang}"')
         # use the emphasize-lines directive to create line for line animations
         if "data-line-numbers" in node:
-            self.body.append(f" data-line-numbers=\"{node['data-line-numbers']}\"")
+            self.body.append(f' data-line-numbers="{node["data-line-numbers"]}"')
         else:
             # show line numbers
             if node["linenos"]:
                 self.body.append(" data-line-numbers")
         if "data-ln-start-from" in node:
-            self.body.append(f" data-ln-start-from=\"{node['data-ln-start-from']}\"")
+            self.body.append(f' data-ln-start-from="{node["data-ln-start-from"]}"')
             if "data-line-numbers" not in node:
                 self.body.append(" data-line-numbers")
         self.body.append(">")
