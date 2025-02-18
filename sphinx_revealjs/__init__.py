@@ -85,27 +85,27 @@ def setup(app: Sphinx):
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
         revealjs_vertical,
-        **BEHVIOR_FOR_BUILDERS["skip_contents"],
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[arg-type]
     )
     app.add_node(
         revealjs_section,
-        **BEHVIOR_FOR_BUILDERS["skip_contents"],
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[arg-type]
     )
     app.add_node(
         revealjs_break,
         **{
-            **BEHVIOR_FOR_BUILDERS["skip_contents"],
+            **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[dict-item]
             "revealjs": (visit_revealjs_break, depart_revealjs_break),
             "dirrevealjs": (visit_revealjs_break, depart_revealjs_break),
-        },
+        },  # type:ignore [arg-type]
     )
     app.add_node(
         revealjs_slide,
-        **BEHVIOR_FOR_BUILDERS["skip_contents"],
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[arg-type]
     )
     app.add_node(
         revealjs_fragments,
-        **BEHVIOR_FOR_BUILDERS["walk_contents"],
+        **BEHVIOR_FOR_BUILDERS["walk_contents"],  # type: ignore[arg-type]
     )
     app.add_directive("revealjs-vertical", RevealjsVertical)
     app.add_directive("revealjs-section", RevealjsSection)
