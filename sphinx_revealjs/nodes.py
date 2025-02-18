@@ -12,6 +12,8 @@ class FlagAttribute:
 class SectionTagRenderer:
     """Mix-in class to build attributes combined string."""
 
+    attributes: dict
+
     def attributes_str(self):
         """Build string of attributes for Reveal.js sections.
 

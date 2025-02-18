@@ -1204,6 +1204,7 @@ dev = [
     { name = "sphinx", extra = ["test"] },
     { name = "sphinx-autobuild" },
     { name = "sphinx-rtd-theme" },
+    { name = "types-docutils" },
 ]
 doc = [
     { name = "atsphinx-footnotes" },
@@ -1255,6 +1256,7 @@ dev = [
     { name = "sphinx", extras = ["test"], specifier = ">=4.0" },
     { name = "sphinx-autobuild", specifier = "==2021.3.14" },
     { name = "sphinx-rtd-theme", specifier = ">=0.5.1,<0.6" },
+    { name = "types-docutils", specifier = ">=0.21.0.20241128" },
 ]
 doc = [
     { name = "atsphinx-footnotes" },
@@ -1452,6 +1454,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/2b/ae/c1b22d4524b0e10da2f29a176fb2890386f7bd1f63aacf186444873a88a0/tornado-6.4.2-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:932d195ca9015956fa502c6b56af9eb06106140d844a335590c1ec7f5277d10c", size = 437261 },
     { url = "https://files.pythonhosted.org/packages/b5/25/36dbd49ab6d179bcfc4c6c093a51795a4f3bed380543a8242ac3517a1751/tornado-6.4.2-cp38-abi3-win32.whl", hash = "sha256:2876cef82e6c5978fde1e0d5b1f919d756968d5b4282418f3146b79b58556482", size = 438463 },
     { url = "https://files.pythonhosted.org/packages/61/cc/58b1adeb1bb46228442081e746fcdbc4540905c87e8add7c277540934edb/tornado-6.4.2-cp38-abi3-win_amd64.whl", hash = "sha256:908b71bf3ff37d81073356a5fadcc660eb10c1476ee6e2725588626ce7e5ca38", size = 438907 },
+]
+
+[[package]]
+name = "types-docutils"
+version = "0.21.0.20241128"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/dd/df/64e7ab01a4fc5ce46895dc94e31cffc8b8087c8d91ee54c45ac2d8d82445/types_docutils-0.21.0.20241128.tar.gz", hash = "sha256:4dd059805b83ac6ec5a223699195c4e9eeb0446a4f7f2aeff1759a4a7cc17473", size = 26739 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/59/b6/10ba95739f2cbb9c5bd2f6568148d62b468afe01a94c633e8892a2936d8a/types_docutils-0.21.0.20241128-py3-none-any.whl", hash = "sha256:e0409204009639e9b0bf4521eeabe58b5e574ce9c0db08421c2ac26c32be0039", size = 34677 },
 ]
 
 [[package]]

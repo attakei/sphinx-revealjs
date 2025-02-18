@@ -58,6 +58,7 @@ dev = [
     "doc8>=1.1.2",
     "mypy>=1.15.0",
     "esbonio>=0.16.5",
+    "types-docutils>=0.21.0.20241128",
 ]
 test = [
     "BeautifulSoup4",
