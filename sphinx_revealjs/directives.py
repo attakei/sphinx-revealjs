@@ -125,11 +125,13 @@ class RevealjsSlide(Directive):  # noqa: D101
 
     option_spec = {
         "theme": directives.unchanged,
+        # TODO: Remove it next breaking changes.
         "google_font": directives.unchanged,
         "conf": raw_json,
     }
 
     def run(self):  # noqa: D102
+        # TODO: Remove it next breaking changes.
         if "google_font" in self.options:
             logger.warning("DEPRECATED: 'google_font' is not working already.")
         node = revealjs_slide()
