@@ -43,8 +43,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self.section_level == 1:
             self._nest_step = 2
             s_idx = node.first_child_matching_class(revealjs_slide)
-
-            self.builder.revealjs_slide = (
+            self.builder.revealjs_slide = (  # type: ignore[attr-defined]
                 None if s_idx is None else node.children[s_idx]
             )
         elif self.section_level == 2:

@@ -20,9 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: jdx/mise-action@v2
-      - name: Lint by pre-commit
+      - name: Set up workspace
         run: |
-          uvx pre-commit run --all-files
+          uv sync --dev --all-extras
+      - name: Lint by lefthook
+        run: |
+          lefthook run pre-commit --all-files
   test:
     runs-on: ubuntu-latest
     strategy:

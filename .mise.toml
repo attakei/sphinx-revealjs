@@ -1,2 +1,4 @@
 [tools]
+lefthook = "latest"
+task = "latest"
 uv = "latest"
