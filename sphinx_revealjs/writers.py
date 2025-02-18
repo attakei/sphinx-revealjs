@@ -33,7 +33,7 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self.section_level >= 4:
             return
         idx = node.first_child_matching_class(revealjs_section)
-        attrs = "" if idx is None else node.children[idx].attributes_str()
+        attrs = "" if idx is None else node.children[idx].attributes_str()  # type: ignore[attr-defined]
         if node.attributes.get("ids") and self.config.revealjs_use_section_ids:
             attrs += ' id="{}"'.format(node.attributes["ids"][-1])
 
@@ -51,7 +51,7 @@ class RevealjsSlideTranslator(HTML5Translator):
 
         if self._nest_step > 0:
             v_idx = node.first_child_matching_class(revealjs_vertical)
-            v_attrs = "" if v_idx is None else node.children[v_idx].attributes_str()
+            v_attrs = "" if v_idx is None else node.children[v_idx].attributes_str()  # type: ignore[attr-defined]
             self.body.append(f"<section {v_attrs}>\n")
         self.body.append(f"<section {attrs}>\n")
 
