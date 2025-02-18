@@ -18,19 +18,15 @@ Development tools
 
 This project uses these tools to management.
 
-* pre-commit (to manage git hooks)
+* lefthook (to manage git hooks)
 * uv >= 0.6.0 (to manage inner of python project)
-
-.. todo:: Future plans
-
-   * Lefthook (to manage git hooks instead of pre-commit)
-   * go-task (project workflow excluded GitHub Actions)
+* go-task (to manage tosks outside of python)
 
 Use mise (reccomended)
 ----------------------
 
 I use `mise <https://mise.jdx.dev/>`_ to manage tools outside of python.
-If you use mise, you can setup by only ``mise install``.
+If you use mise, you can setup by only ``mise install`` and ``task setup-dev``.
 
 Setup workspace
 ===============
@@ -38,7 +34,7 @@ Setup workspace
 .. note:: After ``git clone``.
 
 #. Set up hooks by ``pre-commit install``.
-#. Set up virtualenv and deps by ``uv sync --extra test --extra doc``.
+#. Set up virtualenv and deps by ``uv sync --frozen``.
 
    * If you want to develop for screenshot options,
      append ``--extra screenshot`` into ``uv sync`` and run ``uv run playwright install``.
