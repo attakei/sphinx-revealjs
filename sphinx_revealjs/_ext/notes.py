@@ -5,8 +5,8 @@ import html
 from docutils import nodes  # type: ignore
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition  # type: ignore
 from sphinx.application import Sphinx
-from sphinx.directives import SphinxDirective
-from sphinx.util.docutils import SphinxTranslator
+from sphinx.util.docutils import SphinxDirective
+from sphinx.writers.html import HTMLTranslator
 
 from .. import __version__
 from ..builders import RevealjsHTMLBuilder
@@ -27,7 +27,7 @@ class RevealjsNotes(BaseAdmonition, SphinxDirective):  # noqa: D101
             return [node]
 
 
-def visit_revealjs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa: D103
+def visit_revealjs_notes(self: HTMLTranslator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.visit_admonition(node)
         return
@@ -35,7 +35,7 @@ def visit_revealjs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa:
     raise nodes.SkipNode
 
 
-def depart_revaljs_notes(self: SphinxTranslator, node: revealjs_notes):  # noqa: D103
+def depart_revaljs_notes(self: HTMLTranslator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.depart_admonition(node)
         return

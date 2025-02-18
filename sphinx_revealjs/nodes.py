@@ -12,6 +12,8 @@ class FlagAttribute:
 class SectionTagRenderer:
     """Mix-in class to build attributes combined string."""
 
+    attributes: dict
+
     def attributes_str(self):
         """Build string of attributes for Reveal.js sections.
 
@@ -42,7 +44,7 @@ class revealjs_break(SectionTagRenderer, nodes.Structural, nodes.Element):  # no
 
 
 class revealjs_slide(nodes.Structural, nodes.Element):  # noqa: D101
-    pass
+    content: str
 
 
 class revealjs_fragments(nodes.Structural, nodes.Element):  # noqa: D101

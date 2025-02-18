@@ -2,7 +2,7 @@
 
 import copy
 import logging
-from typing import Any
+from typing import Any, Optional
 
 from sphinx import version_info as sphinx_version
 from sphinx.application import Sphinx
@@ -16,6 +16,7 @@ from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import RevealjsPlugin, RevealjsProjectContext
+from .nodes import revealjs_slide
 from .utils import get_internal_static_path, static_resource_uri
 
 logger = logging.getLogger(__name__)
@@ -33,7 +34,7 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def __init__(self, app, env: BuildEnvironment):  # noqa: D107
         super().__init__(app, env)
-        self.revealjs_slide = None
+        self.revealjs_slide: Optional[revealjs_slide] = None
 
     def init(self):  # noqa
         # Create RevealjsProjectContext
