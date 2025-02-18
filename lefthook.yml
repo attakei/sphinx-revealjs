@@ -1,0 +1,19 @@
+# Important!
+#   This hooks require uv to
+
+pre-commit:
+  parallel: true
+  commands:
+    ruff:
+      glob: '*.py'
+      run: 'uv run ruff format {staged_files}'
+      stage_fixed: true
+    mypy:
+      glob: '*.py'
+      exclude:
+        - '**/conf.py'
+        - 'tests/**'  # NOTE: Skip until if I want to clean overall.
+      run: 'uv run mypy {staged_files}'
+    doc8:
+      glob: '*.rst'
+      run: 'uv run doc8 {staged_files}'
