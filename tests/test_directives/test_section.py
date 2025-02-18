@@ -1,6 +1,7 @@
 """Test cases for ``revealjs-section`` directive."""
 
 import io
+from pathlib import Path
 from textwrap import dedent
 
 import pytest
@@ -54,6 +55,15 @@ def test_render_custom_attributes(app: SphinxTestApp, status, warning):  # noqa
     section_tag = soup.h2.parent
     assert "data-markdown" in section_tag.attrs
     assert section_tag["data-markdown"] == ""
+
+
+@pytest.mark.sphinx("revealjs", testroot="default")
+def test_render_local_photo(app: SphinxTestApp):  # noqa
+    soup = soup_html(app, "with-section-directives/with-background-image.html")
+    assert (Path(app.outdir) / "_images/photo.jpg").exists()
+    section_tag = soup.h2.parent
+    assert "data-background-image" in section_tag.attrs
+    assert section_tag["data-background-image"] == "../_images/photo.jpg"
 
 
 class TestForRevealjsSection:

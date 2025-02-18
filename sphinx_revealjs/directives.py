@@ -2,6 +2,7 @@
 
 import json
 
+from docutils import nodes
 from docutils.nodes import Sequential  # type: ignore
 from docutils.parsers.rst import Directive, directives  # type:ignore
 from sphinx.util import logging
@@ -83,6 +84,15 @@ REVEALJS_SECTION_ATTRIBUTES = {
 }
 
 
+def inject_children(node: revealjs_section) -> revealjs_section:
+    """Inject extra nodes as children."""
+    if "data-background-image" in node.attributes:
+        child = nodes.image(uri=node.attributes["data-background-image"])
+        node.append(child)
+
+    return node
+
+
 class RevealjsVertical(Directive):  # noqa: D101
     option_spec = RevealjsSectionAttributes(**REVEALJS_SECTION_ATTRIBUTES)
 
@@ -101,7 +111,7 @@ class RevealjsSection(Directive):  # noqa: D101
         node = revealjs_section()
         node.attributes = self.options
         return [
-            node,
+            inject_children(node),
         ]
 
 
