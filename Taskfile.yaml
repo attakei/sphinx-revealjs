@@ -5,11 +5,12 @@ vars:
   RUN_PYTHON: 'uv run'
 
 tasks:
-  setup:
+  setup-dev:
     desc: 'Setup workspace'
     cmds:
       - 'uv sync --frozen --all-extras'
       - 'lefthook install'
+      - 'uv run tools/fetch_revealjs.py'
       - task: 'docs:apidoc'
   verify:
     desc: 'Verify environment by all procs'

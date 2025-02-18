@@ -63,7 +63,7 @@ def main(args: argparse.Namespace):  # noqa: D103
     dest = Path(RULE["dest"])  # type: ignore
     if dest.exists() and not args.force:
         print("Dest directory is already exists")
-        sys.exit(1)
+        sys.exit(0)
     elif args.force:
         shutil.rmtree(dest)
     lockfile_json = ROOT_DIR / "npm-shrinkwrap.json"
