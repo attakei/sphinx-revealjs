@@ -88,7 +88,7 @@ class RevealjsVertical(Directive):  # noqa: D101
 
     def run(self):  # noqa: D102
         node = revealjs_vertical()
-        node.attributes = self.options
+        node.attributes.update(self.options)
         return [
             node,
         ]
@@ -99,7 +99,7 @@ class RevealjsSection(Directive):  # noqa: D101
 
     def run(self):  # noqa: D102
         node = revealjs_section()
-        node.attributes = self.options
+        node.attributes.update(self.options)
         return [
             node,
         ]
@@ -114,7 +114,7 @@ class RevealjsBreak(Directive):  # noqa: D101
 
     def run(self):  # noqa: D102
         node = revealjs_break()
-        node.attributes = self.options
+        node.attributes.update(self.options)
         return [
             node,
         ]
@@ -135,7 +135,7 @@ class RevealjsSlide(Directive):  # noqa: D101
         if "google_font" in self.options:
             logger.warning("DEPRECATED: 'google_font' is not working already.")
         node = revealjs_slide()
-        node.attributes = self.options
+        node.attributes.update(self.options)
         node.content = "\n".join(self.content or [])
         return [
             node,
