@@ -36,7 +36,7 @@ jobs:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
           DEMO_URL_BASE: "https://attakei.github.io/sphinx-revealjs/"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: demo/_build/mini18n-revealjs/
   deploy:
