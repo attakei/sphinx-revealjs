@@ -1,3 +1,27 @@
+ver 3.1.0
+=========
+
+:Release date: 2025-02-27 (JST)
+:Reveal.js version: 5.1.0
+
+Dependencies
+------------
+
+* Drop Python 3.7 and 3.8 from supported version.
+
+Fixes
+-----
+
+* Keep all attributes of project's nodes. ( `#189 <https://github.com/attakei/sphinx-revealjs/issues/189>`_ )
+
+Others
+------
+
+* Refactor by Ruff and MyPy.
+* Update type hintings.
+* Use uv and go-task for wrokspace management.
+* Use lefthook for hooks management instead of pre-commit.
+
 ver 3.0.5
 =========
 
