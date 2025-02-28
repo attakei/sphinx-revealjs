@@ -1,4 +1,4 @@
 [tools]
 lefthook = "latest"
 task = "latest"
-uv = "latest"
+uv = "0.6.2"
