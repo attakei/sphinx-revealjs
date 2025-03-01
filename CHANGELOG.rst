@@ -1,3 +1,14 @@
+ver 3.1.1
+=========
+
+:Release date: 2025-03-01 (Asia/Manila)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Fallback when ``literal_block`` and inherits does not have ``language`` attribute.
+
 ver 3.1.0
 =========
 
