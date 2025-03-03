@@ -9,7 +9,7 @@ jobs:
   update-revealjs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Try update package.json
         id: checked
         run: |

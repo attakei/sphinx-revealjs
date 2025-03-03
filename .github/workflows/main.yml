@@ -18,7 +18,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       - name: Set up workspace
         run: |
@@ -37,7 +37,7 @@ jobs:
           - python-version: '3.9'
             sphinx-version: '==8.*'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       - name: Set up workspace
         run: |
@@ -52,7 +52,7 @@ jobs:
   buildtest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       - name: Build
         run: |
