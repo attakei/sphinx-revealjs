@@ -3,12 +3,7 @@
   "extends": [
     "config:recommended"
   ],
-  // NOTE: Supports old version python.
-  "python": {
-    "enabled": false,
-  },
-  // NOTE: Require to update other files.
-  "npm": {
-    "enabled": false,
-  },
+  "enableManagers": [
+    "github-actions",
+  ],
 }
