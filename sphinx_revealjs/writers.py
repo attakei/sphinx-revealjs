@@ -119,6 +119,9 @@ class RevealjsSlideTranslator(HTML5Translator):
 
         Override base method, and open simply ``pre`` and ``code`` tags.
         """
+        # TODO: Add test
+        if "language" not in node:
+            return super().visit_literal_block(node)
         lang = node["language"]
         # add section id as data-id if it is exists
         if "data-id" in node:

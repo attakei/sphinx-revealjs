@@ -22,7 +22,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       - name: Make demo page
         run: |
@@ -36,7 +36,7 @@ jobs:
           GTAGJS_IDS: ${{ secrets.GTAGJS_IDS }}
           DEMO_URL_BASE: "https://attakei.github.io/sphinx-revealjs/"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: demo/_build/mini18n-revealjs/
   deploy:
@@ -48,4 +48,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4

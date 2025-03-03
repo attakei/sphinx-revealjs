@@ -1,11 +1,14 @@
 """Configuration for pytest."""
 
 import inspect
+from pathlib import Path
 
 import pytest
 from _pytest.config import Config
+from packaging import version
 from sphinx import deprecation
-from sphinx.testing.path import path
+
+from sphinx_revealjs.deprecated import _get_sphinx_version
 
 pytest_plugins = "sphinx.testing.fixtures"
 collect_ignore = ["roots"]
@@ -23,4 +26,10 @@ def pytest_configure(config: Config):  # noqa
 @pytest.fixture(scope="session")
 def rootdir():
     """Set root directory to use testing sphinx project."""
-    return path(__file__).parent.abspath() / "roots"
+    current_ver = _get_sphinx_version()
+    delimter_ver = version.parse("7.2.0")
+    if current_ver < delimter_ver:
+        from sphinx.testing.path import path
+
+        return path(__file__).parent.abspath() / "roots"
+    return Path(__file__).parent.resolve() / "roots"
