@@ -126,6 +126,7 @@ convention = "pep257"
 [tool.doc8]
 default-extension = ".rst"
 extension = ".rst"
+ignore = ["D004"]
 ignore-path = [
 	"*.egg-info",".tox",".venv","var",
 	"doc/_build,demo/_build",
