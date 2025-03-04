@@ -18,7 +18,8 @@ tasks:
     cmds:
       - 'lefthook run pre-commit --all-files'
       - '{{.RUN_PYTHON}} pytest'
-      - task: 'docs:intl'
+      # NOTE: To decide about management translations
+      # - task: 'docs:intl'
       - task: 'docs:apidoc'
       - task: 'docs:build-linkcheck'
       - task: 'docs:build-dirhtml'
