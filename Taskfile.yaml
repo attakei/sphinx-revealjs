@@ -9,6 +9,7 @@ tasks:
     desc: 'Setup workspace'
     cmds:
       - 'uv sync --frozen --all-extras'
+      - '{{.RUN_PYTHON}} playwright install chromium'
       - 'lefthook install'
       - 'uv run tools/fetch_revealjs.py'
       - task: 'docs:apidoc'
