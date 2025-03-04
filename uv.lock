@@ -1172,6 +1172,7 @@ dependencies = [
     { name = "docutils" },
     { name = "packaging" },
     { name = "sphinx" },
+    { name = "sphinx-intl" },
 ]
 
 [package.optional-dependencies]
@@ -1227,6 +1228,7 @@ requires-dist = [
     { name = "packaging" },
     { name = "playwright", marker = "extra == 'screenshot'" },
     { name = "sphinx", specifier = ">=4.0" },
+    { name = "sphinx-intl", extras = ["doc"], specifier = ">=2.3.1" },
 ]
 provides-extras = ["screenshot"]
 

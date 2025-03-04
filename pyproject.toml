@@ -39,6 +39,7 @@ dependencies = [
     "docutils",
     "Sphinx>=4.0",
     "packaging",
+    "sphinx-intl[doc]>=2.3.1",
 ]
 
 [project.optional-dependencies]
