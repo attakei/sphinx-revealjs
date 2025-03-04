@@ -23,7 +23,7 @@ This extension need Playwright and browser component.
 .. code-block:: console
 
    pip install 'sphinx-revealjs[screenshot]'
-   playwright install
+   playwright install chromium
 
 Usage
 =====

@@ -45,7 +45,7 @@ jobs:
           uv sync --group test --extra screenshot
           uv run tools/fetch_revealjs.py
           uv pip install 'Sphinx[test]${{ matrix.sphinx-version }}'
-          uv run playwright install
+          uv run playwright install chromium
       - name: Run tests
         run: |
           uv run pytest
