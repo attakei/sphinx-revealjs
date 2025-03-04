@@ -37,7 +37,7 @@ Setup workspace
 #. Set up virtualenv and deps by ``uv sync --frozen``.
 
    * If you want to develop for screenshot options,
-     append ``--extra screenshot`` into ``uv sync`` and run ``uv run playwright install``.
+     append ``--extra screenshot`` into ``uv sync`` and run ``uv run playwright install chromium``.
 
 #. Get Reveal.js assets by ``uv run tools/fetch_revealjs.py``.
 #. Verify workspace by ``uv run pytest``.

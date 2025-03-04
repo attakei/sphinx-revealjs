@@ -9,6 +9,7 @@ tasks:
     desc: 'Setup workspace'
     cmds:
       - 'uv sync --frozen --all-extras'
+      - '{{.RUN_PYTHON}} playwright install chromium'
       - 'lefthook install'
       - 'uv run tools/fetch_revealjs.py'
       - task: 'docs:apidoc'
@@ -17,7 +18,8 @@ tasks:
     cmds:
       - 'lefthook run pre-commit --all-files'
       - '{{.RUN_PYTHON}} pytest'
-      - task: 'docs:intl'
+      # NOTE: To decide about management translations
+      # - task: 'docs:intl'
       - task: 'docs:apidoc'
       - task: 'docs:build-linkcheck'
       - task: 'docs:build-dirhtml'

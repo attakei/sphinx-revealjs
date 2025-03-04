@@ -29,7 +29,7 @@ jobs:
           uv venv
           uv sync --no-dev --extra screenshot --group demo
           uv run tools/fetch_revealjs.py
-          uv run playwright install
+          uv run playwright install chromium
           uv run make -C demo mini18n-revealjs
           touch demo/_build/mini18n-revealjs/.nojeykll
         env:

@@ -1,6 +1,5 @@
 """Test cases for sphix_revealjs.ext.screenshot."""
 
-import magic
 import pytest
 from PIL import Image
 from sphinx.testing.util import SphinxTestApp
@@ -13,6 +12,11 @@ from sphinx.testing.util import SphinxTestApp
     confoverrides={"extensions": ["sphinx_revealjs", "sphinx_revealjs.ext.screenshot"]},
 )
 def test_generate_screenshot(app: SphinxTestApp, status, warning):  # noqa
+    try:
+        import magic
+    except ImportError as err:
+        pytest.skip(reason=err.msg)
+
     app.build()
     image_path = app.outdir / "_images/ogp/index.png"
     assert image_path.exists()

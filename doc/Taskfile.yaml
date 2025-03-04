@@ -29,7 +29,7 @@ tasks:
     desc: 'Update apidoc'
     dir: '{{.TASKFILE_DIR}}'
     cmds:
-      - 'rm -rf api'
+      - '{{.RUN_PYTHON}} _tools/clean-apidoc.py api'
       - '{{.RUN_PYTHON}} sphinx-apidoc -f -e -T -o=api/ ../sphinx_revealjs'
   build-*:
     desc: 'Make docs'
