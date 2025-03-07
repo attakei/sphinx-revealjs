@@ -66,6 +66,15 @@ def test_render_local_photo(app: SphinxTestApp):  # noqa
     assert section_tag["data-background-image"] == "../_images/photo.jpg"
 
 
+@pytest.mark.sphinx("revealjs", testroot="default")
+def test_render_local_video(app: SphinxTestApp):  # noqa
+    soup = soup_html(app, "with-section-directives/with-background-video.html")
+    assert (Path(app.outdir) / "_images/sample.mp4").exists()
+    section_tag = soup.h2.parent
+    assert "data-background-video" in section_tag.attrs
+    assert section_tag["data-background-video"] == "../_images/sample.mp4"
+
+
 class TestForRevealjsSection:
     @pytest.mark.sphinx("revealjs", testroot="default")
     def test_csutom_params(self, app: SphinxTestApp, warning: io.StringIO):

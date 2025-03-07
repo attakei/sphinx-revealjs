@@ -31,9 +31,14 @@ def build_attributes_str(
     img_idx = node.first_child_matching_class(image)
     if img_idx is not None:
         img: image = node.children[img_idx]  # type: ignore[assignment]
-        node["data-background-image"] = posixpath.join(
-            builder.imgpath, builder.images[img["uri"]]
-        )
+        if "data-background-image" in node.attributes:
+            node["data-background-image"] = posixpath.join(
+                builder.imgpath, builder.images[img["uri"]]
+            )
+        if "data-background-video" in node.attributes:
+            node["data-background-video"] = posixpath.join(
+                builder.imgpath, builder.images[img["uri"]]
+            )
     return node.attributes_str()
 
 
