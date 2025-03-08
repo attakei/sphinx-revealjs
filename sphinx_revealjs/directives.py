@@ -86,15 +86,19 @@ REVEALJS_SECTION_ATTRIBUTES = {
 
 def inject_children(node: revealjs_section) -> revealjs_section:
     """Inject extra nodes as children."""
+
+    def _configure_local_image(node, uri):
+        if any([uri.startswith(p) for p in ("//", "http://", "https://")]):
+            return
+        child = nodes.image(uri=uri)
+        node.append(child)
+
     if "data-background-image" in node.attributes:
-        child = nodes.image(uri=node.attributes["data-background-image"])
-        node.append(child)
+        _configure_local_image(node, node.attributes["data-background-image"])
     if "data-background-video" in node.attributes:
-        child = nodes.image(uri=node.attributes["data-background-video"])
-        node.append(child)
+        _configure_local_image(node, node.attributes["data-background-video"])
     if "data-background-iframe" in node.attributes:
-        child = nodes.image(uri=node.attributes["data-background-iframe"])
-        node.append(child)
+        _configure_local_image(node, node.attributes["data-background-iframe"])
 
     return node
 

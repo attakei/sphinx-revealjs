@@ -6,7 +6,7 @@ Sample
 ======
 
 .. revealjs-section::
-   :data-background-iframe: iframe/sample.html
+   :data-background-iframe: https://example.com
 
 Head
 ----
