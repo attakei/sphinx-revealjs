@@ -1,16 +1,49 @@
 """Custom write module."""
 
+import posixpath
+from typing import Union
+
 from docutils.nodes import (  # type: ignore
     Element,
     SkipNode,
     comment,
+    image,
     literal_block,
     section,
     title,
 )
+from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.writers.html5 import HTML5Translator
 
-from .nodes import revealjs_break, revealjs_section, revealjs_slide, revealjs_vertical
+from .nodes import (
+    revealjs_break,
+    revealjs_section,
+    revealjs_slide,
+    revealjs_vertical,
+)
+
+
+def build_attributes_str(
+    node: Union[revealjs_section, revealjs_break, revealjs_vertical],
+    builder: StandaloneHTMLBuilder,
+) -> str:
+    node = node.deepcopy()
+    img_idx = node.first_child_matching_class(image)
+    if img_idx is not None:
+        img: image = node.children[img_idx]  # type: ignore[assignment]
+        if "data-background-image" in node.attributes:
+            node["data-background-image"] = posixpath.join(
+                builder.imgpath, builder.images[img["uri"]]
+            )
+        if "data-background-video" in node.attributes:
+            node["data-background-video"] = posixpath.join(
+                builder.imgpath, builder.images[img["uri"]]
+            )
+        if "data-background-iframe" in node.attributes:
+            node["data-background-iframe"] = posixpath.join(
+                builder.imgpath, builder.images[img["uri"]]
+            )
+    return node.attributes_str()
 
 
 class RevealjsSlideTranslator(HTML5Translator):
@@ -33,7 +66,10 @@ class RevealjsSlideTranslator(HTML5Translator):
         if self.section_level >= 4:
             return
         idx = node.first_child_matching_class(revealjs_section)
-        attrs = "" if idx is None else node.children[idx].attributes_str()  # type: ignore[attr-defined]
+        attrs = ""
+        if idx is not None:
+            attrs = build_attributes_str(node.children[idx], self.builder)  # type: ignore[arg-type]
+
         if node.attributes.get("ids") and self.config.revealjs_use_section_ids:
             attrs += ' id="{}"'.format(node.attributes["ids"][-1])
 
@@ -128,6 +164,14 @@ class RevealjsSlideTranslator(HTML5Translator):
 def not_write(self, node):
     """visit/depart function for declare "no write"."""
     pass
+
+
+def skip_node(self, node):
+    """Skip child nodes if it is exists.
+
+    This is used to explicit that it does not have sub tontents in nodes.
+    """
+    raise SkipNode()
 
 
 def visit_revealjs_break(self, node: revealjs_break):
