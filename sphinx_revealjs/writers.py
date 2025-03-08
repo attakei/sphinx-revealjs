@@ -39,6 +39,10 @@ def build_attributes_str(
             node["data-background-video"] = posixpath.join(
                 builder.imgpath, builder.images[img["uri"]]
             )
+        if "data-background-iframe" in node.attributes:
+            node["data-background-iframe"] = posixpath.join(
+                builder.imgpath, builder.images[img["uri"]]
+            )
     return node.attributes_str()
 
 

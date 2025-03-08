@@ -92,6 +92,9 @@ def inject_children(node: revealjs_section) -> revealjs_section:
     if "data-background-video" in node.attributes:
         child = nodes.image(uri=node.attributes["data-background-video"])
         node.append(child)
+    if "data-background-iframe" in node.attributes:
+        child = nodes.image(uri=node.attributes["data-background-iframe"])
+        node.append(child)
 
     return node
 
