@@ -1,3 +1,17 @@
+ver 3.1.3
+=========
+
+:Release date: 2025-03-10 (Asia/Tokyo)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Fix to set local files for background item.
+
+  * It is same of fixes on ver 3.1.2.
+  * This version includes for ``revaljs-vertical`` and ``revealjs-break``.
+
 ver 3.1.2
 =========
 
