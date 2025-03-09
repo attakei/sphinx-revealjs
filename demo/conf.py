@@ -15,18 +15,22 @@ release = "2018.10"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
+    # Core-bundled extensions
+    "sphinx.ext.mathjax",
+    "sphinx.ext.todo",
+    # My extensions
     "atsphinx.mini18n",
     "oembedpy.adapters.sphinx",
     "rst_package_refs.sphinx",
-    "sphinx.ext.mathjax",
-    "sphinx.ext.todo",
-    "sphinx_revealjs",
-    "sphinx_revealjs.ext.footnotes",
-    "sphinx_revealjs.ext.screenshot",
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
     "sphinxcontrib.sass",
+    # Third-party extensions
     "sphinxext.opengraph",
+    # This project
+    "sphinx_revealjs",
+    "sphinx_revealjs.ext.footnotes",
+    "sphinx_revealjs.ext.screenshot",
 ]
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -102,21 +106,20 @@ sass_targets = {"custom.scss": "custom.css"}
 sass_include_paths = [
     get_revealjs_path() / "css" / "theme",
 ]
-# sphinxext.opengraph
+# - sphinxext.opengraph
 ogp_site_url = os.environ.get("DEMO_URL_BASE", "http://localhost:8000/")
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="summary_large_image" />',
     '<meta name="twitter:site" content="@attakei" />',
 ]
-
-# atsphinx-mini18n
+# - atsphinx.mini18n
 mini18n_default_language = "en"
 mini18n_support_languages = ["en", "ja"]
 mini18n_basepath = "/sphinx-revealjs/"
 
 
 def update_ogp(app, config):
-    print(config.ogp_site_url, config.language)
+    """Set URL after decide language."""
     config.ogp_site_url = urljoin(config.ogp_site_url, f"{config.language}/")
 
 
