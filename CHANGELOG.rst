@@ -1,3 +1,23 @@
+ver 3.1.2
+=========
+
+:Release date: 2025-03-09 (Asia/Tokyo)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Fix to set local files for background item.
+
+  * Target are ``data-background-image`` , ``data-background-video`` and ``data-background-iframe`` .
+
+Others
+------
+
+* Update translation of demo.
+* Use latest actions in GitHub Actions.
+* Use renovate to sync versions of actions.
+
 ver 3.1.1
 =========
 
