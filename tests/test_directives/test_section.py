@@ -118,6 +118,17 @@ def test_render_local_iframe_localfile_from_vertical(app: SphinxTestApp):  # noq
 
 
 @pytest.mark.sphinx("revealjs", testroot="default")
+def test_render_local_iframe_localfile_from_break(app: SphinxTestApp):  # noqa
+    soup = soup_html(
+        app, "with-section-directives/with-break-background-iframe-local.html"
+    )
+    assert (Path(app.outdir) / "_images/sample.html").exists()
+    section_tag = soup.h2.parent.parent.find_all("section")[-1]
+    assert "data-background-iframe" in section_tag.attrs
+    assert section_tag["data-background-iframe"] == "../_images/sample.html"
+
+
+@pytest.mark.sphinx("revealjs", testroot="default")
 def test_render_local_iframe(app: SphinxTestApp):  # noqa
     soup = soup_html(app, "with-section-directives/with-background-iframe.html")
     section_tag = soup.h2.parent

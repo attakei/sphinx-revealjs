@@ -5,6 +5,7 @@ from typing import Union
 
 from docutils.nodes import (  # type: ignore
     Element,
+    SkipChildren,
     SkipNode,
     comment,
     image,
@@ -181,6 +182,7 @@ def skip_node(self, node):
 def visit_revealjs_break(self, node: revealjs_break):
     """Close current section."""
     self.body.append("</section>\n")
+    raise SkipChildren
 
 
 def depart_revealjs_break(self, node: revealjs_break):
@@ -189,7 +191,7 @@ def depart_revealjs_break(self, node: revealjs_break):
     If node does not have attribute 'notitle',
     render title from current original section.
     """
-    attrs = node.attributes_str()
+    attrs = build_attributes_str(node, self.builder)  # type: ignore[arg-type]
     self.body.append(f"<section {attrs}>\n")
     if "notitle" not in node.attributes:
         idx = node.parent.first_child_matching_class(title)
