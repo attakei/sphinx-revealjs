@@ -1,6 +1,7 @@
 """Custom directives for Reveal.js."""
 
 import json
+from typing import Union, overload
 
 from docutils import nodes
 from docutils.nodes import Sequential  # type: ignore
@@ -84,7 +85,21 @@ REVEALJS_SECTION_ATTRIBUTES = {
 }
 
 
-def inject_children(node: revealjs_section) -> revealjs_section:
+@overload
+def inject_children(node: revealjs_section) -> revealjs_section: ...
+
+
+@overload
+def inject_children(node: revealjs_break) -> revealjs_break: ...
+
+
+@overload
+def inject_children(node: revealjs_vertical) -> revealjs_vertical: ...
+
+
+def inject_children(
+    node: Union[revealjs_section, revealjs_break, revealjs_vertical],
+) -> Union[revealjs_section, revealjs_break, revealjs_vertical]:
     """Inject extra nodes as children."""
 
     def _configure_local_image(node, uri):
@@ -110,7 +125,7 @@ class RevealjsVertical(Directive):  # noqa: D101
         node = revealjs_vertical()
         node.attributes.update(self.options)
         return [
-            node,
+            inject_children(node),
         ]
 
 
@@ -136,7 +151,7 @@ class RevealjsBreak(Directive):  # noqa: D101
         node = revealjs_break()
         node.attributes.update(self.options)
         return [
-            node,
+            inject_children(node),
         ]
 
 

@@ -87,7 +87,11 @@ class RevealjsSlideTranslator(HTML5Translator):
 
         if self._nest_step > 0:
             v_idx = node.first_child_matching_class(revealjs_vertical)
-            v_attrs = "" if v_idx is None else node.children[v_idx].attributes_str()  # type: ignore[attr-defined]
+            v_attrs = (
+                ""
+                if v_idx is None
+                else build_attributes_str(node.children[v_idx], self.builder)  # type: ignore[arg-type]
+            )
             self.body.append(f"<section {v_attrs}>\n")
         self.body.append(f"<section {attrs}>\n")
 
