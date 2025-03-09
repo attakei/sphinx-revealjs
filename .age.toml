@@ -20,7 +20,7 @@ replace = """
 ver {{new_version}}
 ===={% for _ in new_version %}={% endfor %}
 
-:Release date: {{ now|date }} (JST)
+:Release date: {{ now|date }} (Asia/Tokyo)
 :Reveal.js version: 5.1.0
 
 Breaking changes
