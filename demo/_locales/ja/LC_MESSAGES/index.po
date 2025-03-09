@@ -1,6 +1,7 @@
 # Translations template for PROJECT.
 # Copyright (C) 2023 Kazuya Takei
-# This file is distributed under the same license as the sphinx-revealjs package.
+# This file is distributed under the same license as the sphinx-revealjs
+# package.
 # Kazuya Takei <myself@attakei.net>, 2023.
 #
 #, fuzzy
@@ -8,25 +9,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-29 16:43+0900\n"
+"POT-Creation-Date: 2025-03-09 11:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: ../../index.rst:8
 msgid "Introduction of sphinx-revealjs"
-msgstr "sphinx-revealjsの紹介"
+msgstr "sphinx-revealjs の紹介"
 
 #: ../../index.rst
 msgid "Based version"
 msgstr ""
 
 #: ../../index.rst:10
-msgid "2.8.0"
+msgid "3.1.1"
 msgstr ""
 
 #: ../../index.rst
@@ -34,7 +35,7 @@ msgid "Demo updated"
 msgstr ""
 
 #: ../../index.rst:11
-msgid "2022-11-13"
+msgid "2024-10-18 JST"
 msgstr ""
 
 #: ../../index.rst:14
@@ -90,13 +91,15 @@ msgid "Set up"
 msgstr "セットアップ"
 
 #: ../../_sections/standard-usage.rst:16
-msgid "Edit ``conf.py`` to use this extension"
+#, fuzzy
+msgid "Edit ``conf.py`` to use this extension."
 msgstr "``conf.py`` を編集して拡張を有効にするだけで使えます。"
 
 #: ../../_sections/standard-usage.rst:24
+#, fuzzy
 msgid ""
-"You can customize behabior. Please see `documentation <https://sphinx-"
-"revealjs.readthedocs.io/en/latest/configurations.html>`_."
+"You can customize behavior. Please see `documentation <https://sphinx-"
+"revealjs.readthedocs.io/en/stable/configurations/>`_."
 msgstr ""
 "設定の調整なども可能です。細かい設定は `ドキュメンテーション <https://sphinx-"
 "revealjs.readthedocs.io/en/lates/configurations.html>`_ を参照してください。"
@@ -137,8 +140,7 @@ msgstr "脚注"
 msgid ""
 "You can set footnotes. footnotes are rendered on tail of slide by using "
 "internal-extension. [#]_"
-msgstr ""
-"脚注記法を用いることが出来ます。内部拡張を利用することで、脚注の出力位置をスライド下部に調整することが出来ます。 [#]_"
+msgstr "脚注記法を用いることが出来ます。内部拡張を利用することで、脚注の出力位置をスライド下部に調整することが出来ます。 [#]_"
 
 #: ../../_sections/standard-usage.rst:67
 msgid "This is footnote."
@@ -153,40 +155,36 @@ msgid "reST structure to Reveal.js sections"
 msgstr "reSTの構造が、そのままReveal.jsのセクション構造に"
 
 #: ../../_sections/rst-to-revealjs.rst:11
-#: ../../_sections/rst-to-revealjs.rst:55
-#: ../../_sections/rst-to-revealjs.rst:90
-#: ../../_sections/rst-to-revealjs.rst:114
+#: ../../_sections/rst-to-revealjs.rst:57
+#: ../../_sections/rst-to-revealjs.rst:92
+#: ../../_sections/rst-to-revealjs.rst:116
 msgid "From:"
 msgstr "入力:"
 
 #: ../../_sections/rst-to-revealjs.rst:29
-#: ../../_sections/rst-to-revealjs.rst:69
-#: ../../_sections/rst-to-revealjs.rst:101
-#: ../../_sections/rst-to-revealjs.rst:128
+#: ../../_sections/rst-to-revealjs.rst:71
+#: ../../_sections/rst-to-revealjs.rst:103
+#: ../../_sections/rst-to-revealjs.rst:130
 msgid "To:"
 msgstr "出力:"
 
-#: ../../_sections/rst-to-revealjs.rst:49
+#: ../../_sections/rst-to-revealjs.rst:51
 msgid "Using built-in directives"
 msgstr "標準ディレティブが利用可能"
 
-#: ../../_sections/rst-to-revealjs.rst:84
+#: ../../_sections/rst-to-revealjs.rst:86
 msgid "Using custom directives of Sphinx extensions"
 msgstr "Sphinx拡張によるディレクティブも利用可能"
 
-#: ../../_sections/rst-to-revealjs.rst:97
-msgid ""
-"``oembed`` is custom directive from `sphinxcontrib-oembed "
-"<https://github.com/attakei-lab/sphinxcontrib-oembed>`_"
-msgstr ""
-"``oembed`` は、 `sphinxcontrib-oembed <https://github.com/attakei-lab"
-"/sphinxcontrib-oembed>`_` で導入可能な独自ディレクティブです。"
+#: ../../_sections/rst-to-revealjs.rst:99
+msgid "``oembed`` is custom directive from :pypi:`oEmbedPy`."
+msgstr "``oembed`` は、 :pypi:`oEmbedPy` で導入可能な独自ディレクティブです。"
 
-#: ../../_sections/rst-to-revealjs.rst:106
+#: ../../_sections/rst-to-revealjs.rst:108
 msgid "Comments of reST"
 msgstr "reSTのコメント"
 
-#: ../../_sections/rst-to-revealjs.rst:141
+#: ../../_sections/rst-to-revealjs.rst:143
 msgid "Comments of reST are not written into output files by default settings."
 msgstr "reSTのコメントは、デフォルトの設定では出力されません。"
 
@@ -216,42 +214,56 @@ msgstr ""
 msgid "``revealjs-break``"
 msgstr ""
 
-#: ../../_sections/customize-section.rst:12
+#: ../../_sections/customize-section.rst:11
+msgid "( ``revealjs-vertical`` )"
+msgstr ""
+
+#: ../../_sections/customize-section.rst:13
 #: ../../_sections/interactive-content.rst:13
 msgid "Showing part of examples."
 msgstr "ここからは、いくつかの例を紹介します。"
 
-#: ../../_sections/customize-section.rst:15
+#: ../../_sections/customize-section.rst:16
 msgid "Change background color"
 msgstr "背景色の変更"
 
-#: ../../_sections/customize-section.rst:34
+#: ../../_sections/customize-section.rst:35
 msgid "Set background image"
 msgstr "背景に画像の差し込み"
 
-#: ../../_sections/customize-section.rst:47
+#: ../../_sections/customize-section.rst:48
 msgid "Change transition(before)"
 msgstr "セクション間の切り替えの動き(1)"
 
-#: ../../_sections/customize-section.rst:58
+#: ../../_sections/customize-section.rst:59
 msgid "Change transition(after)"
 msgstr "セクション間の切り替えの動き(2)"
 
-#: ../../_sections/customize-section.rst:69
+#: ../../_sections/customize-section.rst:70
 msgid "Non-title section"
 msgstr "タイトルを持たないセクション"
 
-#: ../../_sections/customize-section.rst:71
+#: ../../_sections/customize-section.rst:72
 #: ../../_sections/interactive-content.rst:54
 #: ../../_sections/interactive-content.rst:97
 msgid "First"
 msgstr ""
 
-#: ../../_sections/customize-section.rst:88
+#: ../../_sections/customize-section.rst:89
 #: ../../_sections/interactive-content.rst:55
 #: ../../_sections/interactive-content.rst:98
 msgid "Second"
 msgstr ""
+
+#: ../../_sections/customize-section.rst:104
+msgid "Customse all slide of one vertical items"
+msgstr "縦に並んだスライドをまとめてカスタイマイズする"
+
+#: ../../_sections/customize-section.rst:106
+msgid ""
+"If you want to change behaivor of all slides on vertical slides (level 2 "
+"section), set ``revealjs-vertical``."
+msgstr "縦並び（通称レベル2セクション）の全スライドについての動きを変更したい場合は、 ``revealjs-vertical`` を使用してください。"
 
 #: ../../_sections/interactive-content.rst:2
 msgid "Interactive content"
@@ -271,7 +283,8 @@ msgstr "コードブロックのアニメ表示"
 
 #: ../../_sections/interactive-content.rst:21
 #: ../../_sections/interactive-content.rst:31
-msgid "Enable animations for each `revealjs-section` and `revealjs-break`:"
+#, fuzzy
+msgid "Enable animations for each ``revealjs-section`` and ``revealjs-break``:"
 msgstr "``revealjs-section`` や ``revealjs-break`` を用いてアニメーションの設定が可能です。"
 
 #: ../../_sections/interactive-content.rst:40
@@ -290,7 +303,7 @@ msgstr ""
 #: ../../_sections/interactive-content.rst:60
 #: ../../_sections/interactive-content.rst:83
 msgid "You can customize behavior of fragments."
-msgstr ""
+msgstr "Fragments の挙動はカスタマイズすることも出来ます。"
 
 #: ../../_sections/interactive-content.rst:103
 #: ../../_sections/interactive-content.rst:119
@@ -360,7 +373,3 @@ msgstr "reStructuredTextでのプレゼンテーションをぜひ体験して�
 #: ../../index.rst:41
 msgid "Please star!"
 msgstr ""
-
-#~ msgid "2.5.0"
-#~ msgstr ""
-
