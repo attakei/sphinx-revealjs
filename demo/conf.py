@@ -16,7 +16,7 @@ release = "2018.10"
 # -- General configuration ---------------------------------------------------
 extensions = [
     "atsphinx.mini18n",
-    "oembedpy.ext.sphinx",
+    "oembedpy.adapters.sphinx",
     "rst_package_refs.sphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
