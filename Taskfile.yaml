@@ -32,8 +32,13 @@ tasks:
     vars:
       VERSION: '{{index .MATCH 0}}'
     cmds:
-      - 'age update {{.VERSION}}'
-      - 'uv sync --all-extras'  # To write out as lock-file
+      - 'age {{.VERSION}}'
+      - 'uv sync --all-extras --all-groups'  # To write out as lock-file
+  release:
+    desc: 'Run release process'
+    cmds:
+      - 'age update {{.CLI_ARGS}}'
+      - 'uv sync --all-extras --all-groups'  # To write out as lock-file
 
 includes:
   docs: './doc'
