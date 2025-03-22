@@ -1172,7 +1172,6 @@ dependencies = [
     { name = "docutils" },
     { name = "packaging" },
     { name = "sphinx" },
-    { name = "sphinx-intl" },
 ]
 
 [package.optional-dependencies]
@@ -1204,6 +1203,7 @@ dev = [
     { name = "ruff" },
     { name = "sphinx", extra = ["test"] },
     { name = "sphinx-autobuild" },
+    { name = "sphinx-intl" },
     { name = "sphinx-rtd-theme" },
     { name = "types-docutils" },
 ]
@@ -1212,6 +1212,7 @@ doc = [
     { name = "atsphinx-htmx-boost" },
     { name = "sphinx" },
     { name = "sphinx-autobuild" },
+    { name = "sphinx-intl" },
     { name = "sphinx-rtd-theme" },
 ]
 test = [
@@ -1228,7 +1229,6 @@ requires-dist = [
     { name = "packaging" },
     { name = "playwright", marker = "extra == 'screenshot'" },
     { name = "sphinx", specifier = ">=4.0" },
-    { name = "sphinx-intl", extras = ["doc"], specifier = ">=2.3.1" },
 ]
 provides-extras = ["screenshot"]
 
@@ -1257,6 +1257,7 @@ dev = [
     { name = "sphinx", specifier = "==5.*" },
     { name = "sphinx", extras = ["test"], specifier = ">=4.0" },
     { name = "sphinx-autobuild", specifier = "==2021.3.14" },
+    { name = "sphinx-intl", specifier = ">=2.3.1" },
     { name = "sphinx-rtd-theme", specifier = ">=0.5.1,<0.6" },
     { name = "types-docutils", specifier = ">=0.21.0.20241128" },
 ]
@@ -1265,6 +1266,7 @@ doc = [
     { name = "atsphinx-htmx-boost" },
     { name = "sphinx", specifier = "==5.*" },
     { name = "sphinx-autobuild", specifier = "==2021.3.14" },
+    { name = "sphinx-intl", specifier = ">=2.3.1" },
     { name = "sphinx-rtd-theme", specifier = ">=0.5.1,<0.6" },
 ]
 test = [

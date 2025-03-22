@@ -1,3 +1,14 @@
+ver 3.1.4
+=========
+
+:Release date: 2025-03-22 (Asia/Tokyo)
+:Reveal.js version: 5.1.0
+
+Fixes
+-----
+
+* Remove unnecessary deps for core.
+
 ver 3.1.3
 =========
 
