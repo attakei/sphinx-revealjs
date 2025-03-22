@@ -39,7 +39,6 @@ dependencies = [
     "docutils",
     "Sphinx>=4.0",
     "packaging",
-    "sphinx-intl[doc]>=2.3.1",
 ]
 
 [project.optional-dependencies]
@@ -72,6 +71,7 @@ test = [
 doc = [
     "Sphinx ==5.*",  # For readthedocs (pass --upgrade-strategy only-if-needed)
     "sphinx-autobuild ==2021.3.14",
+    "sphinx-intl>=2.3.1",
     "sphinx-rtd-theme >=0.5.1,<0.6",
     "atsphinx-footnotes",
     "atsphinx-htmx-boost",
