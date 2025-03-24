@@ -77,6 +77,7 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
+    app.require_sphinx("7.0")
     app.add_event("revealjs:ready-for-writing")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
