@@ -1,27 +1,36 @@
 """Custom write module."""
 
+from __future__ import annotations
+
 import posixpath
-from typing import Union
+from typing import TYPE_CHECKING
 
 from docutils.nodes import (  # type: ignore
-    Element,
     SkipChildren,
     SkipNode,
-    comment,
     image,
-    literal_block,
     section,
     title,
 )
-from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.writers.html5 import HTML5Translator
 
 from .nodes import (
-    revealjs_break,
     revealjs_section,
     revealjs_slide,
     revealjs_vertical,
 )
+
+if TYPE_CHECKING:
+    from typing import Union
+
+    from docutils.nodes import (  # type: ignore
+        Element,
+        comment,
+        literal_block,
+    )
+    from sphinx.builders.html import StandaloneHTMLBuilder
+
+    from .nodes import revealjs_break
 
 
 def build_attributes_str(

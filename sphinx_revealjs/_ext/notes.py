@@ -1,16 +1,21 @@
 """Internal extension for Speaker view or Reveal.js."""
 
+from __future__ import annotations
+
 import html
+from typing import TYPE_CHECKING
 
 from docutils import nodes  # type: ignore
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition  # type: ignore
-from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxDirective
-from sphinx.writers.html5 import HTML5Translator
 
 from .. import __version__
 from ..builders import RevealjsHTMLBuilder
 from ..writers import not_write
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+    from sphinx.writers.html5 import HTML5Translator
 
 
 class revealjs_notes(nodes.Admonition, nodes.Element):  # noqa: D101

@@ -1,11 +1,17 @@
 """Internal extension for highlighting of Reveal.js."""
 
-from docutils import nodes
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from docutils.parsers.rst import directives  # type: ignore
-from sphinx.application import Sphinx
 from sphinx.directives.code import CodeBlock, LiteralInclude
 
 from .. import __version__
+
+if TYPE_CHECKING:
+    from docutils import nodes
+    from sphinx.application import Sphinx
 
 
 class RevealjsCodeBlock(CodeBlock):  # noqa: D101

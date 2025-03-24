@@ -1,12 +1,17 @@
 """Deprecated notes."""
 
+from __future__ import annotations
+
 import sys
 import textwrap
+from typing import TYPE_CHECKING
 
 from packaging import version
-from sphinx.application import Sphinx
-from sphinx.config import Config
 from sphinx.util import logging
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+    from sphinx.config import Config
 
 logger = logging.getLogger(__name__)
 

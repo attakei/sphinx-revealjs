@@ -1,12 +1,18 @@
 """Extension to add custom CSS for footnotes."""
 
-from pathlib import Path
+from __future__ import annotations
 
-from sphinx.application import Sphinx
+from pathlib import Path
+from typing import TYPE_CHECKING
+
 from sphinx.util.logging import getLogger
 
 from ... import __version__ as core_version
 from ...builders import RevealjsHTMLBuilder
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+
 
 here = Path(__file__).parent
 logger = getLogger(__name__)

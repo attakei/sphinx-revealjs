@@ -4,15 +4,20 @@ This is optional extension.
 You need install extra and configure to use it.
 """
 
-from pathlib import Path
+from __future__ import annotations
 
-from sphinx.application import Sphinx
-from sphinx.environment import BuildEnvironment
+from pathlib import Path
+from typing import TYPE_CHECKING
+
 from sphinx.errors import ExtensionError
 from sphinx.util.logging import getLogger
 from sphinx.util.matching import Matcher
 
 from ..builders import RevealjsHTMLBuilder
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+    from sphinx.environment import BuildEnvironment
 
 try:
     from playwright.sync_api import sync_playwright

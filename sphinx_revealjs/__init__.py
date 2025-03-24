@@ -1,9 +1,11 @@
 """Root module for sphinx-revealjs."""
 
+from __future__ import annotations
+
 __version__ = "3.1.4"
 
-from sphinx.application import Sphinx
-from sphinx.config import Config
+from typing import TYPE_CHECKING
+
 from sphinx.util import logging
 
 from sphinx_revealjs import deprecated
@@ -33,6 +35,11 @@ from sphinx_revealjs.writers import (
     skip_node,
     visit_revealjs_break,
 )
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+    from sphinx.config import Config
+
 
 logger = logging.getLogger(__name__)
 

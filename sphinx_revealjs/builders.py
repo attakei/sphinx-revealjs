@@ -1,23 +1,31 @@
 """Definition for sphinx custom builder."""
 
+from __future__ import annotations
+
 import copy
 import logging
-from typing import Any, Optional
+from typing import TYPE_CHECKING
 
 from sphinx import version_info as sphinx_version
-from sphinx.application import Sphinx
 from sphinx.builders.dirhtml import DirectoryHTMLBuilder
 from sphinx.builders.html import StandaloneHTMLBuilder
-from sphinx.config import Config
-from sphinx.environment import BuildEnvironment
 from sphinx.locale import __
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import RevealjsPlugin, RevealjsProjectContext
-from .nodes import revealjs_slide
 from .utils import get_internal_static_path, static_resource_uri
+
+if TYPE_CHECKING:
+    from typing import Any, Optional
+
+    from sphinx.application import Sphinx
+    from sphinx.config import Config
+    from sphinx.environment import BuildEnvironment
+
+    from .nodes import revealjs_slide
+
 
 logger = logging.getLogger(__name__)
 

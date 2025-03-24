@@ -1,8 +1,14 @@
 """Build tests for configuration parameters."""
 
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import pytest
-from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
+
+if TYPE_CHECKING:
+    from sphinx.testing.util import SphinxTestApp
 
 
 @pytest.mark.sphinx(
