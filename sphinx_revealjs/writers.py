@@ -5,7 +5,7 @@ from __future__ import annotations
 import posixpath
 from typing import TYPE_CHECKING
 
-from docutils.nodes import (  # type: ignore
+from docutils.nodes import (
     SkipChildren,
     SkipNode,
     image,
@@ -23,7 +23,7 @@ from .nodes import (
 if TYPE_CHECKING:
     from typing import Union
 
-    from docutils.nodes import (  # type: ignore
+    from docutils.nodes import (
         Element,
         comment,
         literal_block,
@@ -200,7 +200,7 @@ def depart_revealjs_break(self, node: revealjs_break):
     If node does not have attribute 'notitle',
     render title from current original section.
     """
-    attrs = build_attributes_str(node, self.builder)  # type: ignore[arg-type]
+    attrs = build_attributes_str(node, self.builder)
     self.body.append(f"<section {attrs}>\n")
     if "notitle" not in node.attributes:
         idx = node.parent.first_child_matching_class(title)

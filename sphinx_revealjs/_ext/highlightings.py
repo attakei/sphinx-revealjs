@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from docutils.parsers.rst import directives  # type: ignore
+from docutils.parsers.rst import directives
 from sphinx.directives.code import CodeBlock, LiteralInclude
 
 from .. import __version__
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 
 class RevealjsCodeBlock(CodeBlock):  # noqa: D101
-    option_spec = {  # type: ignore[misc]
+    option_spec = {
         **CodeBlock.option_spec,
         "data-id": directives.unchanged,
         "data-line-numbers": directives.unchanged,
@@ -40,7 +40,7 @@ class RevealjsLiteralInclude(LiteralInclude):
     See `it <https://revealjs.com/code/>`_ for more information.
     """
 
-    option_spec = {  # type: ignore[misc]
+    option_spec = {
         **LiteralInclude.option_spec,
         "data-id": directives.unchanged,
         "data-line-numbers": directives.unchanged,

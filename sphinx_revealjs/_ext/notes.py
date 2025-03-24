@@ -5,8 +5,8 @@ from __future__ import annotations
 import html
 from typing import TYPE_CHECKING
 
-from docutils import nodes  # type: ignore
-from docutils.parsers.rst.directives.admonitions import BaseAdmonition  # type: ignore
+from docutils import nodes
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 from sphinx.util.docutils import SphinxDirective
 
 from .. import __version__

@@ -6,8 +6,8 @@ import json
 from typing import TYPE_CHECKING, overload
 
 from docutils import nodes
-from docutils.nodes import Sequential  # type: ignore
-from docutils.parsers.rst import Directive, directives  # type:ignore
+from docutils.nodes import Sequential
+from docutils.parsers.rst import Directive, directives
 from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (
