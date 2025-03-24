@@ -59,3 +59,16 @@ jobs:
           uv run tools/fetch_revealjs.py
           uv build
           ls -l dist
+  demo-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - name: 'Configure workspace'
+        run: |
+          uv sync --group demo --extra screenshot
+          uv run tools/fetch_revealjs.py
+          uv run playwright install chromium
+      - name: 'Build demo presentation'
+        run: |
+          task demo:build-revealjs
