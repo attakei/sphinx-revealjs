@@ -72,10 +72,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def init_js_files(self) -> None:  # noqa
         for filename, attrs in self.app.registry.js_files:
-            self.add_js_file(filename, **attrs)
+            self.add_js_file(filename, **attrs)  # type: ignore[arg-type]
 
         for filename, attrs in self.get_builder_config("js_files", "revealjs"):
-            self.add_js_file(filename, **attrs)
+            self.add_js_file(filename, **attrs)  # type: ignore[arg-type]
 
     def get_theme_config(self) -> tuple[str, dict]:
         """Find and return configuration about theme (name and option params).
