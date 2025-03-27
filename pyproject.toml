@@ -60,6 +60,7 @@ dev = [
     "mypy>=1.15.0",
     "esbonio>=0.16.5",
     "types-docutils>=0.21.0.20241128",
+    "types-requests>=2.32.0.20250306",
 ]
 test = [
     "BeautifulSoup4",

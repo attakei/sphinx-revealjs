@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
-import httpx
+import requests
 from sphinx.util import logging
 
 OS_NAME = Literal["android", "linux", "macos", "windows"]
@@ -95,7 +95,7 @@ def setup_dart_sass(version: str, dist: Path) -> Path:
     fullpath = dist / "dart-sass" / f"sass{release.exec_ext}"
     if not fullpath.exists():
         logger.debug(f"Binary archive is {release.archive_url}")
-        resp = httpx.get(release.archive_url, follow_redirects=True)
+        resp = requests.get(release.archive_url, allow_redirects=True)
         archive_path = Path(tempfile.mktemp())
         archive_path.write_bytes(resp.content)
         shutil.unpack_archive(archive_path, dist, release.archive_format)
