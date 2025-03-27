@@ -46,7 +46,10 @@ def build_sass_sources(app: Sphinx, env: BuildEnvironment):
     src_dir = configure_path(app.confdir, app.config.sass_src_dir)
     out_dir = configure_path(app.confdir, app.config.sass_out_dir)
 
-    options = [f"--style={app.config.sass_output_style}"]
+    options = [
+        f"--style={app.config.sass_output_style}",
+        app.config.sass_build_warnings,
+    ]
     if app.config.sass_include_paths:
         options += [f"--load-path={p}" for p in app.config.sass_include_paths]
 
@@ -73,4 +76,5 @@ def setup(app: Sphinx):
     app.add_config_value("sass_targets", {}, "html")
     app.add_config_value("sass_output_style", "expanded", "html")
     app.add_config_value("sass_auto_targets", False, "html")
+    app.add_config_value("sass_build_warnings", "-q", "env")
     app.connect("env-updated", build_sass_sources)
