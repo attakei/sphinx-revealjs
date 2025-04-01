@@ -11,5 +11,5 @@ rst_prolog = """
 """
 
 revealjs_static_path = ["_static"]
-sass_src_dir = "_static"
-sass_out_dir = "_static"
+revealjs_sass_src_dir = "_static"
+revealjs_sass_out_dir = "_static"

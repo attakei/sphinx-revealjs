@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     "revealjs",
     testroot="sass",
     confoverrides={
-        "sass_targets": {"style.scss": "style.css"},
+        "revealjs_sass_targets": {"style.scss": "style.css"},
     },
 )
 def test_sass_simple_build(app: SphinxTestApp):
@@ -24,7 +24,7 @@ def test_sass_simple_build(app: SphinxTestApp):
     "revealjs",
     testroot="sass",
     confoverrides={
-        "sass_auto_targets": True,
+        "revealjs_sass_auto_targets": True,
     },
 )
 def test_sass_auto_build(app: SphinxTestApp):

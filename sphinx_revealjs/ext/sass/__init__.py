@@ -43,18 +43,18 @@ def configure_path(conf_dir: PathLike, src: Optional[Union[PathLike, Path]]) -> 
 def build_sass_sources(app: Sphinx, env: BuildEnvironment):
     sass_bin = setup_dart_sass("1.86.0", SUB_ROOT)
     logger.debug("Building stylesheet files")
-    src_dir = configure_path(app.confdir, app.config.sass_src_dir)
-    out_dir = configure_path(app.confdir, app.config.sass_out_dir)
+    src_dir = configure_path(app.confdir, app.config.revealjs_sass_src_dir)
+    out_dir = configure_path(app.confdir, app.config.revealjs_sass_out_dir)
 
     options = [
-        f"--style={app.config.sass_output_style}",
-        app.config.sass_build_warnings,
+        f"--style={app.config.revealjs_sass_output_style}",
+        app.config.revealjs_sass_build_warnings,
     ]
-    if app.config.sass_include_paths:
-        options += [f"--load-path={p}" for p in app.config.sass_include_paths]
+    if app.config.revealjs_sass_include_paths:
+        options += [f"--load-path={p}" for p in app.config.revealjs_sass_include_paths]
 
-    targets: Targets = app.config.sass_targets
-    if app.config.sass_auto_targets:
+    targets: Targets = app.config.revealjs_sass_targets
+    if app.config.revealjs_sass_auto_targets:
         for s in src_dir.glob("*.s[ac]ss"):
             if s.name.startswith("_"):
                 continue
@@ -70,11 +70,11 @@ def build_sass_sources(app: Sphinx, env: BuildEnvironment):
 
 
 def setup(app: Sphinx):
-    app.add_config_value("sass_include_paths", [], "html")
-    app.add_config_value("sass_src_dir", None, "html")
-    app.add_config_value("sass_out_dir", None, "html")
-    app.add_config_value("sass_targets", {}, "html")
-    app.add_config_value("sass_output_style", "expanded", "html")
-    app.add_config_value("sass_auto_targets", False, "html")
-    app.add_config_value("sass_build_warnings", "-q", "env")
+    app.add_config_value("revealjs_sass_include_paths", [], "html")
+    app.add_config_value("revealjs_sass_src_dir", None, "html")
+    app.add_config_value("revealjs_sass_out_dir", None, "html")
+    app.add_config_value("revealjs_sass_targets", {}, "html")
+    app.add_config_value("revealjs_sass_output_style", "expanded", "html")
+    app.add_config_value("revealjs_sass_auto_targets", False, "html")
+    app.add_config_value("revealjs_sass_build_warnings", "-q", "env")
     app.connect("env-updated", build_sass_sources)
