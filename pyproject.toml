@@ -60,6 +60,7 @@ dev = [
     "mypy>=1.15.0",
     "esbonio>=0.16.5",
     "types-docutils>=0.21.0.20241128",
+    "types-requests>=2.32.0.20250306",
 ]
 test = [
     "BeautifulSoup4",
@@ -71,9 +72,10 @@ test = [
 doc = [
     "sphinx-autobuild ==2021.3.14",
     "sphinx-intl>=2.3.1",
-    "sphinx-rtd-theme >=0.5.1,<0.6",
+    "sphinx-rtd-theme",
     "atsphinx-footnotes",
     "atsphinx-htmx-boost",
+    "rst-package-refs>=0.1.0",
 ]
 demo = [
     "atsphinx-mini18n >=0.3.1",

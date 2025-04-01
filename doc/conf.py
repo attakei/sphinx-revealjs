@@ -16,6 +16,7 @@ release = __version__
 extensions = [
     "atsphinx.footnotes",
     "atsphinx.htmx_boost",
+    "rst_package_refs.sphinx",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",

@@ -20,7 +20,6 @@ extensions = [
     "sphinx.ext.todo",
     # My extensions
     "atsphinx.mini18n",
-    "atsphinx.toybox.sass",
     "oembedpy.adapters.sphinx",
     "rst_package_refs.sphinx",
     "sphinxcontrib.budoux",
@@ -30,6 +29,7 @@ extensions = [
     # This project
     "sphinx_revealjs",
     "sphinx_revealjs.ext.footnotes",
+    "sphinx_revealjs.ext.sass",
     "sphinx_revealjs.ext.screenshot",
 ]
 templates_path = ["_templates"]
@@ -47,7 +47,7 @@ html_static_path = ["_static"]
 # -- Options for Reveal.js output ---------------------------------------------
 revealjs_html_theme = "revealjs-simple"
 revealjs_static_path = ["_static"]
-revealjs_style_theme = "css/custom.css"
+revealjs_style_theme = "custom.css"
 revealjs_script_conf = {
     "controls": True,
     "progress": True,
@@ -109,10 +109,14 @@ ogp_custom_meta_tags = [
 mini18n_default_language = "en"
 mini18n_support_languages = ["en", "ja"]
 mini18n_basepath = "/sphinx-revealjs/"
-# - atsphinx.toybox.sass
-sass_load_paths = [
+# - sphinx_revealjs.ext.sass
+sass_src_dir = "_sass"
+sass_out_dir = "_static"
+sass_targets = {}
+sass_include_paths = [
     get_revealjs_path() / "css" / "theme",
 ]
+sass_auto_targets = True
 
 
 def update_ogp(app, config):
