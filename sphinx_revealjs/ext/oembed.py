@@ -63,12 +63,15 @@ def create_oembed_content(
 
     title = _get_title(doctree)
     width, height = _calc_size(context)
+    url = f"{app.config.revealjs_oembed_urlbase}/{pagename}.html"
+    html = f'<iframe src="{url}" title="{title}" width="{width}" height="{height}"></iframe>'
     data = {
         "type": "rich",
         "version": "1.0",
         "title": title,
         "width": width,
         "height": height,
+        "html": html,
     }
 
     content_fullpath.parent.mkdir(parents=True, exist_ok=True)
