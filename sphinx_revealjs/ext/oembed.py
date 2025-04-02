@@ -78,7 +78,7 @@ def create_oembed_content(
     content_fullpath.write_text(json.dumps(data))
 
     metatags = context.get("metatags", "")
-    metatags += f'<link rel="alternate" type="application/json+oembed" href="{content_url}" title="{title}" />'
+    metatags += f'<link rel="alternate" type="application/json+oembed" href="{content_url}?url=self" title="{title}" />'
     context["metatags"] = metatags
 
 
