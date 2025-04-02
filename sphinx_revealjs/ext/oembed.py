@@ -59,6 +59,7 @@ def create_oembed_content(
 
     content_path = f"{app.config.revealjs_oembed_outdir}/{pagename}.json"
     content_fullpath = Path(app.outdir) / content_path
+    content_url = f"{app.config.revealjs_oembed_urlbase}/{content_path}"
 
     title = _get_title(doctree)
     width, height = _calc_size(context)
@@ -72,6 +73,10 @@ def create_oembed_content(
 
     content_fullpath.parent.mkdir(parents=True, exist_ok=True)
     content_fullpath.write_text(json.dumps(data))
+
+    metatags = context.get("metatags", "")
+    metatags += f'<link rel="alternate" type="application/json+oembed" href="{content_url}" title="{title}" />'
+    context["metatags"] = metatags
 
 
 def setup(app: Sphinx):
