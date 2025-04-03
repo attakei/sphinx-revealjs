@@ -1356,6 +1356,7 @@ dev = [
     { name = "doc8" },
     { name = "esbonio" },
     { name = "mypy" },
+    { name = "oembedpy" },
     { name = "pillow" },
     { name = "pytest" },
     { name = "python-magic" },
@@ -1373,6 +1374,7 @@ dev = [
 doc = [
     { name = "atsphinx-footnotes" },
     { name = "atsphinx-htmx-boost" },
+    { name = "oembedpy" },
     { name = "rst-package-refs" },
     { name = "sphinx-autobuild" },
     { name = "sphinx-intl" },
@@ -1415,6 +1417,7 @@ dev = [
     { name = "doc8", specifier = ">=1.1.2" },
     { name = "esbonio", specifier = ">=0.16.5" },
     { name = "mypy", specifier = ">=1.15.0" },
+    { name = "oembedpy" },
     { name = "pillow" },
     { name = "pytest" },
     { name = "python-magic" },
@@ -1430,6 +1433,7 @@ dev = [
 doc = [
     { name = "atsphinx-footnotes" },
     { name = "atsphinx-htmx-boost" },
+    { name = "oembedpy" },
     { name = "rst-package-refs", specifier = ">=0.1.0" },
     { name = "sphinx-autobuild", specifier = "==2021.3.14" },
     { name = "sphinx-intl", specifier = ">=2.3.1" },

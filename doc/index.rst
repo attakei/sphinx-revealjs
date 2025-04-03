@@ -32,6 +32,11 @@ Demo
     .. figure:: _static/screenshot-revealjs.png
         :alt: Screenshot of Reveal.js slide
 
+
+.. container:: presentation
+
+   .. oembed:: https://attakei.github.io/sphinx-revealjs/en/
+
 Concept and motivation
 ======================
 
