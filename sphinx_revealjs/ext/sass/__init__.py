@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 
 from sphinx.util import logging
 
+from ...utils import get_revealjs_path
 from .dart_sass import setup_dart_sass
 
 if TYPE_CHECKING:
@@ -46,12 +47,13 @@ def build_sass_sources(app: Sphinx, env: BuildEnvironment):
     src_dir = configure_path(app.confdir, app.config.revealjs_sass_src_dir)
     out_dir = configure_path(app.confdir, app.config.revealjs_sass_out_dir)
 
+    load_paths = app.config.revealjs_sass_include_paths + [
+        get_revealjs_path() / "css" / "theme",
+    ]
     options = [
         f"--style={app.config.revealjs_sass_output_style}",
         app.config.revealjs_sass_build_warnings,
-    ]
-    if app.config.revealjs_sass_include_paths:
-        options += [f"--load-path={p}" for p in app.config.revealjs_sass_include_paths]
+    ] + [f"--load-path={p}" for p in load_paths]
 
     targets: Targets = app.config.revealjs_sass_targets
     if app.config.revealjs_sass_auto_targets:
