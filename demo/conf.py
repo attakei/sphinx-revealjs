@@ -118,6 +118,8 @@ sass_include_paths = [
     get_revealjs_path() / "css" / "theme",
 ]
 sass_auto_targets = True
+# - sphinx_revealjs.ext.oembed
+revealjs_oembed_urlbase = ogp_site_url
 
 
 def update_ogp(app, config):
