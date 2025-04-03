@@ -2,14 +2,42 @@
 Create custom theme
 ===================
 
-:Added: v2.1.0
-:Updated: v3.0.0
+.. versionadded:: 2.1.0
+
+.. versionchanged:: 3.2.0
 
 ``sphinx-revealjs`` includes SCSS sources of bundled themes.
-You can write custom theme from theme template of reveal.js using ``libsass``.
+You can write custom theme from theme template of reveal.js using ``sphinx_revealjs.ext.sass``.
+
+Example 1: Using ``sphinx_revealjs.ext.sass`` (recommended)
+===========================================================
+
+.. code-block:: python
+
+   extensions = [
+       # .. Your extensions
+       # Add
+       "sphinx_revealjs.ext.sass",
+   ]
+
+   revealjs_style_theme = "custom.css"
+
+   revealjs_sass_src_dir = "_sass"
+   revealjs_sass_out_dir = "_static"
+   revealjs_sass_auto_targets = True
+
+When you build document with ``/_sass/custom.scss``,
+it compile SCSS to CSS and you can use ``_static/custom.css`` as theme style of presentation.
+
+Old examples
+============
+
+.. versionremoved:: 3.2.0
+
+   This does not works since Reveal.js v5.2.0.
 
 Example 1: Using `libsass`_
-===========================
+---------------------------
 
 First, install `libsass`_ to compile SASS/SCSS on your environment.
 
@@ -66,7 +94,7 @@ Use compiled CSS as your theme.
    revealjs_static_path = ["_static"]
 
 Example 2: `sphinxcontrib-sass`_
-================================
+--------------------------------
 
 You can use `sphinxcontrib-sass`_ to simplify.
 
