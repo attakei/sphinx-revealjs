@@ -29,6 +29,7 @@ extensions = [
     # This project
     "sphinx_revealjs",
     "sphinx_revealjs.ext.footnotes",
+    "sphinx_revealjs.ext.oembed",
     "sphinx_revealjs.ext.sass",
     "sphinx_revealjs.ext.screenshot",
 ]
