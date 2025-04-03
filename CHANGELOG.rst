@@ -1,3 +1,35 @@
+ver 3.2.0
+=========
+
+:Release date: 2025-04-03 (Asia/Tokyo)
+:Reveal.js version: 5.2.1 (updated)
+
+Breaking changes
+----------------
+
+(CSS compilation using libsass does not work, but it is not core feature.
+Therefore, it is not included as breaking-change)
+
+Features
+--------
+
+* New optional extensions.
+
+  * ``sphinx_revealjs.ext.oembed`` provides JSON file as oEmbed content.
+  * ``sphinx_revealjs.ext.sass`` can build latest Sass/SCSS.
+
+Fixes
+-----
+
+* Set required Sphinx version. It raise error when using old versions.
+
+Others
+------
+
+* Demo: change process to compile theme stylesheet.
+* Demo: Output oEmbed content to inject presentation by other website.
+* Source: Update codings for type annotations.
+
 ver 3.1.4
 =========
 
