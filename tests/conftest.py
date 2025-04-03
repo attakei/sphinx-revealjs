@@ -1,14 +1,20 @@
 """Configuration for pytest."""
 
+from __future__ import annotations
+
 import inspect
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
-from _pytest.config import Config
 from packaging import version
 from sphinx import deprecation
 
 from sphinx_revealjs.deprecated import _get_sphinx_version
+
+if TYPE_CHECKING:
+    from _pytest.config import Config
+
 
 pytest_plugins = "sphinx.testing.fixtures"
 collect_ignore = ["roots"]

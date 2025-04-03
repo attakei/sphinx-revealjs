@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "template/mixins";
 @import "template/settings";
 
@@ -26,7 +27,7 @@ $heading1Size: $heading1Size * 0.8;
 $headingTextShadow: none;
 $backgroundColor: $base03;
 $linkColor: $blue;
-$linkColorHover: lighten( $linkColor, 20% );
+$linkColorHover: color.scale( $linkColor, $lightness: 20% );
 $selectionBackgroundColor: $magenta;
 $headingFont: 'Noto Sans JP', sans-serif;
 

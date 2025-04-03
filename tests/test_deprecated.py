@@ -1,9 +1,14 @@
 """Test cases for deprecated messages from Sphinx."""
 
+from __future__ import annotations
+
 import sys
+from typing import TYPE_CHECKING
 
 import pytest
-from sphinx.testing.util import SphinxTestApp
+
+if TYPE_CHECKING:
+    from sphinx.testing.util import SphinxTestApp
 
 
 @pytest.mark.sphinx("revealjs", testroot="default")

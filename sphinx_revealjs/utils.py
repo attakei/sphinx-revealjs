@@ -1,7 +1,12 @@
 """Util as functions for some modules."""
 
+from __future__ import annotations
+
 from pathlib import Path
-from typing import Optional
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from typing import Optional
 
 
 def get_internal_static_path() -> Path:  # noqa: D103

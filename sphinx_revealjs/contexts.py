@@ -1,11 +1,16 @@
 """Contexts for passing between objects."""
 
+from __future__ import annotations
+
 import json
-from typing import Optional, Union
+from typing import TYPE_CHECKING
 
 from sphinx.util import logging
 
 from .utils import static_resource_uri
+
+if TYPE_CHECKING:
+    from typing import Optional, Union
 
 logger = logging.getLogger(__name__)
 

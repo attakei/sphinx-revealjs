@@ -1,13 +1,18 @@
 """Test cases for ``revealjs-section`` directive."""
 
+from __future__ import annotations
+
 import io
 from pathlib import Path
 from textwrap import dedent
+from typing import TYPE_CHECKING
 
 import pytest
 from sphinx.testing import restructuredtext
-from sphinx.testing.util import SphinxTestApp
 from testutils import soup_html
+
+if TYPE_CHECKING:
+    from sphinx.testing.util import SphinxTestApp
 
 
 @pytest.mark.sphinx("revealjs", testroot="default")

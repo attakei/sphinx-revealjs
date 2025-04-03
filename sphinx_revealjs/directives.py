@@ -1,11 +1,13 @@
 """Custom directives for Reveal.js."""
 
+from __future__ import annotations
+
 import json
-from typing import Union, overload
+from typing import TYPE_CHECKING, overload
 
 from docutils import nodes
-from docutils.nodes import Sequential  # type: ignore
-from docutils.parsers.rst import Directive, directives  # type:ignore
+from docutils.nodes import Sequential
+from docutils.parsers.rst import Directive, directives
 from sphinx.util import logging
 
 from sphinx_revealjs.nodes import (
@@ -16,6 +18,9 @@ from sphinx_revealjs.nodes import (
     revealjs_slide,
     revealjs_vertical,
 )
+
+if TYPE_CHECKING:
+    from typing import Union
 
 logger = logging.getLogger(__name__)
 

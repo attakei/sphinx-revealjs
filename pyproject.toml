@@ -37,7 +37,7 @@ requires-python = ">= 3.9"
 dynamic = ["version"]
 dependencies = [
     "docutils",
-    "Sphinx>=4.0",
+    "Sphinx>=7",
     "packaging",
 ]
 
@@ -60,6 +60,7 @@ dev = [
     "mypy>=1.15.0",
     "esbonio>=0.16.5",
     "types-docutils>=0.21.0.20241128",
+    "types-requests>=2.32.0.20250306",
 ]
 test = [
     "BeautifulSoup4",
@@ -69,12 +70,12 @@ test = [
     "Sphinx[test]>=4.0",
 ]
 doc = [
-    "Sphinx ==5.*",  # For readthedocs (pass --upgrade-strategy only-if-needed)
     "sphinx-autobuild ==2021.3.14",
     "sphinx-intl>=2.3.1",
-    "sphinx-rtd-theme >=0.5.1,<0.6",
+    "sphinx-rtd-theme",
     "atsphinx-footnotes",
     "atsphinx-htmx-boost",
+    "rst-package-refs>=0.1.0",
 ]
 demo = [
     "atsphinx-mini18n >=0.3.1",
@@ -83,8 +84,8 @@ demo = [
     "sphinx-intl >=2.0.1,<3",
     "sphinxcontrib-gtagjs >=0.2.0,<0.3",
     "sphinxcontrib-budoux",
-    "sphinxcontrib-sass",
     "sphinxext-opengraph",
+    "atsphinx-toybox>=2025.1.21",
 ]
 
 [tool.flit.module]

@@ -1,9 +1,11 @@
 """Root module for sphinx-revealjs."""
 
+from __future__ import annotations
+
 __version__ = "3.1.4"
 
-from sphinx.application import Sphinx
-from sphinx.config import Config
+from typing import TYPE_CHECKING
+
 from sphinx.util import logging
 
 from sphinx_revealjs import deprecated
@@ -34,9 +36,14 @@ from sphinx_revealjs.writers import (
     visit_revealjs_break,
 )
 
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+    from sphinx.config import Config
+
+
 logger = logging.getLogger(__name__)
 
-BEHVIOR_FOR_BUILDERS = {
+BEHVIOR_FOR_BUILDERS: dict[str, dict] = {
     "skip_contents": {
         "html": (skip_node, None),
         "latex": (skip_node, None),
@@ -77,6 +84,7 @@ def inherit_extension_nodes(app: Sphinx, config: Config):
 
 def setup(app: Sphinx):
     """Set up function called by Sphinx."""
+    app.require_sphinx("7.0")
     app.add_event("revealjs:ready-for-writing")
     app.connect("config-inited", inherit_extension_nodes)
     app.connect("config-inited", convert_reveal_js_files)
@@ -85,27 +93,27 @@ def setup(app: Sphinx):
     app.add_builder(DirectoryRevealjsHTMLBuilder)
     app.add_node(
         revealjs_vertical,
-        **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[arg-type]
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],
     )
     app.add_node(
         revealjs_section,
-        **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[arg-type]
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],
     )
     app.add_node(
         revealjs_break,
         **{
-            **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[dict-item]
+            **BEHVIOR_FOR_BUILDERS["skip_contents"],
             "revealjs": (visit_revealjs_break, depart_revealjs_break),
             "dirrevealjs": (visit_revealjs_break, depart_revealjs_break),
-        },  # type:ignore [arg-type]
+        },
     )
     app.add_node(
         revealjs_slide,
-        **BEHVIOR_FOR_BUILDERS["skip_contents"],  # type: ignore[arg-type]
+        **BEHVIOR_FOR_BUILDERS["skip_contents"],
     )
     app.add_node(
         revealjs_fragments,
-        **BEHVIOR_FOR_BUILDERS["walk_contents"],  # type: ignore[arg-type]
+        **BEHVIOR_FOR_BUILDERS["walk_contents"],
     )
     app.add_directive("revealjs-vertical", RevealjsVertical)
     app.add_directive("revealjs-section", RevealjsSection)
@@ -113,15 +121,15 @@ def setup(app: Sphinx):
     app.add_directive("revealjs-slide", RevealjsSlide)
     app.add_directive("revealjs-fragments", RevealjsFragments)
     app.add_config_value("revealjs_html_theme", "revealjs-basic", "env")
-    app.add_config_value("revealjs_use_section_ids", False, True)
+    app.add_config_value("revealjs_use_section_ids", False, "env")
     app.add_config_value("revealjs_use_index", False, "env")
-    app.add_config_value("revealjs_static_path", [], True)
-    app.add_config_value("revealjs_style_theme", "black", True)
-    app.add_config_value("revealjs_js_files", [], True)
-    app.add_config_value("revealjs_css_files", [], True)
-    app.add_config_value("revealjs_script_files", [], True)
-    app.add_config_value("revealjs_script_conf", None, True)
-    app.add_config_value("revealjs_script_plugins", [], True)
+    app.add_config_value("revealjs_static_path", [], "env")
+    app.add_config_value("revealjs_style_theme", "black", "env")
+    app.add_config_value("revealjs_js_files", [], "env")
+    app.add_config_value("revealjs_css_files", [], "env")
+    app.add_config_value("revealjs_script_files", [], "env")
+    app.add_config_value("revealjs_script_conf", None, "env")
+    app.add_config_value("revealjs_script_plugins", [], "env")
     app.add_html_theme("revealjs-basic", str(get_theme_path("revealjs-basic")))
     app.add_html_theme("revealjs-simple", str(get_theme_path("revealjs-simple")))
     app.setup_extension("sphinx_revealjs._ext.highlightings")

@@ -24,12 +24,12 @@ extensions = [
     "rst_package_refs.sphinx",
     "sphinxcontrib.budoux",
     "sphinxcontrib.gtagjs",
-    "sphinxcontrib.sass",
     # Third-party extensions
     "sphinxext.opengraph",
     # This project
     "sphinx_revealjs",
     "sphinx_revealjs.ext.footnotes",
+    "sphinx_revealjs.ext.sass",
     "sphinx_revealjs.ext.screenshot",
 ]
 templates_path = ["_templates"]
@@ -99,13 +99,6 @@ if "GTAGJS_IDS" in os.environ:
     gtagjs_ids = os.environ["GTAGJS_IDS"].split(",")
 # - sphinxcontrib.budoux
 budoux_targets = ["h1", "h2", "h3"]
-# - sphinxcontrib.sass
-sass_src_dir = "_sass"
-sass_out_dir = "_static"
-sass_targets = {"custom.scss": "custom.css"}
-sass_include_paths = [
-    get_revealjs_path() / "css" / "theme",
-]
 # - sphinxext.opengraph
 ogp_site_url = os.environ.get("DEMO_URL_BASE", "http://localhost:8000/")
 ogp_custom_meta_tags = [
@@ -116,6 +109,14 @@ ogp_custom_meta_tags = [
 mini18n_default_language = "en"
 mini18n_support_languages = ["en", "ja"]
 mini18n_basepath = "/sphinx-revealjs/"
+# - sphinx_revealjs.ext.sass
+sass_src_dir = "_sass"
+sass_out_dir = "_static"
+sass_targets = {}
+sass_include_paths = [
+    get_revealjs_path() / "css" / "theme",
+]
+sass_auto_targets = True
 
 
 def update_ogp(app, config):

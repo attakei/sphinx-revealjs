@@ -1,23 +1,31 @@
 """Definition for sphinx custom builder."""
 
+from __future__ import annotations
+
 import copy
 import logging
-from typing import Any, Optional
+from typing import TYPE_CHECKING
 
 from sphinx import version_info as sphinx_version
-from sphinx.application import Sphinx
 from sphinx.builders.dirhtml import DirectoryHTMLBuilder
 from sphinx.builders.html import StandaloneHTMLBuilder
-from sphinx.config import Config
-from sphinx.environment import BuildEnvironment
 from sphinx.locale import __
 
 from sphinx_revealjs.directives import raw_json
 from sphinx_revealjs.writers import RevealjsSlideTranslator
 
 from .contexts import RevealjsPlugin, RevealjsProjectContext
-from .nodes import revealjs_slide
 from .utils import get_internal_static_path, static_resource_uri
+
+if TYPE_CHECKING:
+    from typing import Any, Optional
+
+    from sphinx.application import Sphinx
+    from sphinx.config import Config
+    from sphinx.environment import BuildEnvironment
+
+    from .nodes import revealjs_slide
+
 
 logger = logging.getLogger(__name__)
 
@@ -72,10 +80,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
 
     def init_js_files(self) -> None:  # noqa
         for filename, attrs in self.app.registry.js_files:
-            self.add_js_file(filename, **attrs)
+            self.add_js_file(filename, **attrs)  # type: ignore[arg-type]
 
         for filename, attrs in self.get_builder_config("js_files", "revealjs"):
-            self.add_js_file(filename, **attrs)
+            self.add_js_file(filename, **attrs)  # type: ignore[arg-type]
 
     def get_theme_config(self) -> tuple[str, dict]:
         """Find and return configuration about theme (name and option params).
@@ -166,5 +174,4 @@ def convert_reveal_js_files(app: Sphinx, config: Config) -> None:
             except Exception:
                 logger.warning(__("invalid js_file: %r, ignored"), entry)
                 continue
-    config.revealjs_js_files = revealjs_js_files  # type: ignore
-    config.revealjs_js_files = revealjs_js_files  # type: ignore
+    config.revealjs_js_files = revealjs_js_files

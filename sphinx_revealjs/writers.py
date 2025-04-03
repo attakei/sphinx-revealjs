@@ -1,27 +1,36 @@
 """Custom write module."""
 
-import posixpath
-from typing import Union
+from __future__ import annotations
 
-from docutils.nodes import (  # type: ignore
-    Element,
+import posixpath
+from typing import TYPE_CHECKING
+
+from docutils.nodes import (
     SkipChildren,
     SkipNode,
-    comment,
     image,
-    literal_block,
     section,
     title,
 )
-from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.writers.html5 import HTML5Translator
 
 from .nodes import (
-    revealjs_break,
     revealjs_section,
     revealjs_slide,
     revealjs_vertical,
 )
+
+if TYPE_CHECKING:
+    from typing import Union
+
+    from docutils.nodes import (
+        Element,
+        comment,
+        literal_block,
+    )
+    from sphinx.builders.html import StandaloneHTMLBuilder
+
+    from .nodes import revealjs_break
 
 
 def build_attributes_str(
@@ -191,7 +200,7 @@ def depart_revealjs_break(self, node: revealjs_break):
     If node does not have attribute 'notitle',
     render title from current original section.
     """
-    attrs = build_attributes_str(node, self.builder)  # type: ignore[arg-type]
+    attrs = build_attributes_str(node, self.builder)
     self.body.append(f"<section {attrs}>\n")
     if "notitle" not in node.attributes:
         idx = node.parent.first_child_matching_class(title)

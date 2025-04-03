@@ -1,16 +1,21 @@
 """Internal extension for Speaker view or Reveal.js."""
 
-import html
+from __future__ import annotations
 
-from docutils import nodes  # type: ignore
-from docutils.parsers.rst.directives.admonitions import BaseAdmonition  # type: ignore
-from sphinx.application import Sphinx
+import html
+from typing import TYPE_CHECKING
+
+from docutils import nodes
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 from sphinx.util.docutils import SphinxDirective
-from sphinx.writers.html import HTMLTranslator
 
 from .. import __version__
 from ..builders import RevealjsHTMLBuilder
 from ..writers import not_write
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
+    from sphinx.writers.html5 import HTML5Translator
 
 
 class revealjs_notes(nodes.Admonition, nodes.Element):  # noqa: D101
@@ -27,7 +32,7 @@ class RevealjsNotes(BaseAdmonition, SphinxDirective):  # noqa: D101
             return [node]
 
 
-def visit_revealjs_notes(self: HTMLTranslator, node: revealjs_notes):  # noqa: D103
+def visit_revealjs_notes(self: HTML5Translator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.visit_admonition(node)
         return
@@ -35,7 +40,7 @@ def visit_revealjs_notes(self: HTMLTranslator, node: revealjs_notes):  # noqa: D
     raise nodes.SkipNode
 
 
-def depart_revaljs_notes(self: HTMLTranslator, node: revealjs_notes):  # noqa: D103
+def depart_revaljs_notes(self: HTML5Translator, node: revealjs_notes):  # noqa: D103
     if not isinstance(self.builder, RevealjsHTMLBuilder):
         self.depart_admonition(node)
         return

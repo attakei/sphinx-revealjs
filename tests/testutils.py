@@ -1,7 +1,13 @@
 """Test support functions."""
 
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from bs4 import BeautifulSoup
-from sphinx.testing.util import SphinxTestApp
+
+if TYPE_CHECKING:
+    from sphinx.testing.util import SphinxTestApp
 
 
 def soup_html(app: SphinxTestApp, path: str) -> BeautifulSoup:
