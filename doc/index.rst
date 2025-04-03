@@ -32,10 +32,11 @@ Demo
     .. figure:: _static/screenshot-revealjs.png
         :alt: Screenshot of Reveal.js slide
 
+.. only:: not latex
 
-.. container:: presentation
+   .. container:: presentation
 
-   .. oembed:: https://attakei.github.io/sphinx-revealjs/en/
+      .. oembed:: https://attakei.github.io/sphinx-revealjs/en/
 
 Concept and motivation
 ======================
