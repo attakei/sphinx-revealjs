@@ -111,13 +111,13 @@ mini18n_default_language = "en"
 mini18n_support_languages = ["en", "ja"]
 mini18n_basepath = "/sphinx-revealjs/"
 # - sphinx_revealjs.ext.sass
-sass_src_dir = "_sass"
-sass_out_dir = "_static"
-sass_targets = {}
-sass_include_paths = [
+revealjs_sass_src_dir = "_sass"
+revealjs_sass_out_dir = "_static"
+revealjs_sass_targets = {}
+revealjs_sass_include_paths = [
     get_revealjs_path() / "css" / "theme",
 ]
-sass_auto_targets = True
+revealjs_sass_auto_targets = True
 # - sphinx_revealjs.ext.oembed
 revealjs_oembed_urlbase = ogp_site_url
 
@@ -125,6 +125,9 @@ revealjs_oembed_urlbase = ogp_site_url
 def update_ogp(app, config):
     """Set URL after decide language."""
     config.ogp_site_url = urljoin(config.ogp_site_url, f"{config.language}/")
+    config.revealjs_oembed_urlbase = urljoin(
+        config.revealjs_oembed_urlbase, f"{config.language}"
+    )
 
 
 def _add_navigation_for_mini18n(app, config):
