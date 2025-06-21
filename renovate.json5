@@ -1,9 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "github>aquaproj/aqua-renovate-config#2.8.2",
   ],
   "enabledManagers": [
     "github-actions",
+    "regex",
   ],
 }
