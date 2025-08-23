@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v3
       - name: Set up workspace
         run: |
           uv sync --dev --all-extras
@@ -38,7 +38,7 @@ jobs:
             sphinx-version: '==8.*'
     steps:
       - uses: actions/checkout@v5
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v3
       - name: Set up workspace
         run: |
           echo '${{ matrix.python-version }}' > .python-version
@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v3
       - name: Build
         run: |
           uv run tools/fetch_revealjs.py
@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v3
       - name: 'Configure workspace'
         run: |
           uv sync --group demo --extra screenshot
