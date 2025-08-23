@@ -49,7 +49,7 @@ jobs:
       - prepare
     if: success() && ${{ needs.prepare.outputs.is-release }}
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: dist-packages
           path: dist/
@@ -67,7 +67,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: dist-packages
           path: dist/
