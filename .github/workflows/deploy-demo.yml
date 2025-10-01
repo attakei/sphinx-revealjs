@@ -23,7 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: jdx/mise-action@v3
+      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
+        with:
+          aqua_version: v2.51.2
       - name: Make demo page
         run: |
           uv venv

@@ -1,0 +1,16 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+# checksum:
+#   enabled: true
+#   require_checksum: true
+#   supported_envs:
+#   - all
+registries:
+- type: standard
+  ref: v4.401.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+- name: astral-sh/uv@0.8.9
+- name: go-task/task@v3.44.1
+- name: evilmartians/lefthook@v1.12.3
