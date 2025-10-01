@@ -89,7 +89,7 @@ Presentation Configurations
    :Default: ``[]``
    :Example: ``["presentation.js"]``
 
-   List of sources that render as ``script`` tags.
+   List of sources that render as ``script`` tags before the plugin scripts.
 
    There is bundled Reveal.js script at ``revealjs/js/reveal.js``.
 
@@ -103,6 +103,14 @@ Presentation Configurations
       <!-- here!! -->
       <script src="_static/revealjs/js/revealjs.js"></script>
       <script src="_static/presentation.js"></script>
+
+.. confval:: revealjs_script_appended_files
+
+   :Type: ``List[str]``
+   :Default: ``[]``
+   :Example: ``["presentation.js"]``
+
+   Same as ``revealjs_script_files``, but for scripts loaded after the plugin scripts.
 
 .. confval:: revealjs_script_conf
 

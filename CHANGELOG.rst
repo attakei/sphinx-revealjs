@@ -1,3 +1,30 @@
+ver 3.2.1
+=========
+
+:Release date: 2025-10-01 (Europe/Vienna)
+:Reveal.js version: 5.2.1
+
+Breaking changes
+----------------
+
+(CSS compilation using libsass does not work, but it is not core feature.
+Therefore, it is not included as breaking-change)
+
+Features
+--------
+
+* New configuration option ``revealjs_script_appended_files``.
+
+Fixes
+-----
+
+* Only define ``revealjsConfig`` when it is not yet defined.
+
+Others
+------
+
+* Added guide for including language packages and custom registration in RevealHighlight.
+
 ver 3.2.0
 =========
 
