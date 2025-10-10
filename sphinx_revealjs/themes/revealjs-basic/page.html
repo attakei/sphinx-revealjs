@@ -20,12 +20,15 @@
     <script src="{{ pathto(script_file, 1) }}"></script>
     {% endfor %}
     {% if revealjs.engine.version == 4 %}
-      {% for plugin in revealjs.script_plugins -%}
-      <script src="{{ pathto(plugin.src, 1) }}"></script>
-      {% endfor %}
+    {% for plugin in revealjs.script_plugins -%}
+    <script src="{{ pathto(plugin.src, 1) }}"></script>
+    {% endfor %}
+    {% for script_appended_file in revealjs.script_appended_files %}
+    <script src="{{ pathto(script_appended_file, 1) }}"></script>
+    {% endfor %}
     {% endif %}
     <script>
-        var revealjsConfig = new Object();
+        if (typeof revealjsConfig === 'undefined') { var revealjsConfig = new Object(); }
         {% if revealjs.script_conf -%}
         Object.assign(revealjsConfig, {{ revealjs.script_conf }});
         {%- endif %}
