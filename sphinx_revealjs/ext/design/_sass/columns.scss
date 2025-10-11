@@ -1,0 +1,14 @@
+.reveal section {
+  div.columns {
+    display: -webkit-flex;
+    display: flex;
+    // NOTE:: It is based on empirical use cases
+    $sizes: 1, 2, 3;
+    @each $size in $sizes {
+      div.column-#{$size} {
+        -webkit-flex: $size;
+        flex: $size;
+      }
+    }
+  }
+}

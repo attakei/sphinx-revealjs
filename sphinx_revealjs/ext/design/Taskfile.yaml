@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+  sass:
+    desc: 'Compile all Sass/SCSS resources'
+    dir: '{{.TASKFILE_DIR}}'
+    cmds:
+      - 'sass _sass/:_static/sphinx-revealjs/design/'

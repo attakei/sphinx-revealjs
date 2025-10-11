@@ -43,3 +43,4 @@ tasks:
 includes:
   docs: './doc'
   demo: './demo'
+  design: './sphinx_revealjs/ext/design'
