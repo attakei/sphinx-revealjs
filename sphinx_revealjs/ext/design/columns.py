@@ -1,13 +1,4 @@
-"""Design root.
-
-We can use this package.
-
-* Import as package to use function.
-* Load as Sphinx extension.
-
-If you add as Sphinx extensions,
-Sphinx will load all sub packages.
-"""
+"""Multiple column layout."""
 
 from __future__ import annotations
 
@@ -20,7 +11,6 @@ if TYPE_CHECKING:
 
 
 def setup(app: Sphinx):
-    app.setup_extension(f"{__name__}.columns")
     return {
         "version": __version__,
         "env_version": 1,
