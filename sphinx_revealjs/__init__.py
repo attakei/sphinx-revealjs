@@ -128,6 +128,7 @@ def setup(app: Sphinx):
     app.add_config_value("revealjs_js_files", [], "env")
     app.add_config_value("revealjs_css_files", [], "env")
     app.add_config_value("revealjs_script_files", [], "env")
+    app.add_config_value("revealjs_script_appended_files", [], "env")
     app.add_config_value("revealjs_script_conf", None, "env")
     app.add_config_value("revealjs_script_plugins", [], "env")
     app.add_html_theme("revealjs-basic", str(get_theme_path("revealjs-basic")))

@@ -52,6 +52,7 @@ class RevealjsProjectContext:
         self,
         engine_version: int,
         script_files: Optional[list[str]] = None,
+        script_appended_files: Optional[list[str]] = None,
         script_conf: Optional[Union[str, dict]] = None,
         script_plugins: Optional[list[RevealjsPlugin]] = None,
     ):  # noqa
@@ -65,7 +66,12 @@ class RevealjsProjectContext:
             self.script_conf = json.dumps(script_conf)
         self.script_plugins = script_plugins or []
         self._script_files = script_files or []
+        self._script_appended_files = script_appended_files or []
 
     @property
     def script_files(self):  # noqa
         return [static_resource_uri(self.engine.js_path)] + self._script_files
+
+    @property
+    def script_appended_files(self):  # noqa
+        return self._script_appended_files
