@@ -57,6 +57,10 @@ class RevealjsHTMLBuilder(StandaloneHTMLBuilder):
                 static_resource_uri(src)
                 for src in getattr(self.config, "revealjs_script_files", [])
             ],
+            [  # noqa: W503
+                static_resource_uri(src)
+                for src in getattr(self.config, "revealjs_script_appended_files", [])
+            ],
             script_conf,
             [
                 RevealjsPlugin(
