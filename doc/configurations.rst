@@ -123,6 +123,13 @@ Presentation Configurations
 
       See it: https://github.com/hakimel/reveal.js/releases/tag/5.0.0
 
+   .. hint::
+
+      If you want to initialze plugins with custom arguments,
+      you should use "string type" configuration.
+
+      "dict object" does not work correctly because it convert to JSON string into script.
+
    Example 1: case of str
 
    .. code-block:: py
@@ -174,6 +181,17 @@ Presentation Configurations
 
    example 1 and 2 are behaving same.
 
+   Example 3: Using Highligt plugin with ``beforeHighlight`` hook.
+
+   .. code-block:: python
+
+      revealjs_script_conf = """
+      {
+          highlight: {
+              beforeHighlight: (hljs) => hljs.registerLanguage(/*...*/),
+          }
+      }
+
 .. confval:: revealjs_script_plugins
 
    :Type: ``List[Dict]``
@@ -215,4 +233,3 @@ Presentation Configurations
    :Default: False
 
    If this is set `True`, builder writes notes section from comment block.
-
