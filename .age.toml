@@ -14,14 +14,14 @@ replace = "__version__ = \"{{new_version}}\""
 path = "CHANGELOG.rst"
 search = """
 ver {{current_version}}
-===={% for _ in current_version %}={% endfor %}
+{{#sameLengthChars}}=@ver {{current_version}}{{/sameLengthChars}}
 """
 replace = """
 ver {{new_version}}
-===={% for _ in new_version %}={% endfor %}
+{{#sameLengthChars}}=@ver {{new_version}}{{/sameLengthChars}}
 
-:Release date: {{ now|date }} (Asia/Tokyo)
-:Reveal.js version: 5.1.0
+:Release date: {{ nowFormat.dateISO }} (Asia/Tokyo)
+:Reveal.js version: 5.2.1
 
 Breaking changes
 ----------------
@@ -36,7 +36,7 @@ Others
 ------
 
 ver {{current_version}}
-===={% for _ in current_version %}={% endfor %}
+{{#sameLengthChars}}=@ver {{current_version}}{{/sameLengthChars}}
 """
 
 # This file has other replace target, but currently not supported.
