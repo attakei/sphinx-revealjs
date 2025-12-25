@@ -57,9 +57,11 @@ class RevealjsProjectContext:
     ):  # noqa
         self.engine = RevealjsEngine.from_version(engine_version)
         if isinstance(script_conf, str):
-            logger.warning(
-                "For next major version, revealjs_script_conf accepts only dict",
-            )
+            """.. noe::
+               This need to keep as specs until found better implements to handle JavaScript code.
+
+               :refs: #229
+            """
             self.script_conf = script_conf
         else:
             self.script_conf = json.dumps(script_conf)
