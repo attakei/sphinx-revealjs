@@ -1,3 +1,21 @@
+ver 3.2.1
+=========
+
+:Release date: 2025-12-26 (Asia/Tokyo)
+:Reveal.js version: 5.2.1
+
+Fixes
+-----
+
+* Remove deprecated message when it set ``revealjs_script_conf`` with str type.
+  - `GH#229 <https://github.com/attakei/sphinx-revealjs/issues/229>`_
+
+Others
+------
+
+* Show timezone ID instead of timezone name in demo heading.
+* Fix template of age settings to apply for latest version.
+
 ver 3.2.0
 =========
 
