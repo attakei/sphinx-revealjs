@@ -26,7 +26,7 @@ jobs:
         run: |
           echo ::set-output name=targz::$(basename $(ls dist/*tar.gz))
           echo ::set-output name=wheel::$(basename $(ls dist/*whl))
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: dist-packages
           path: dist
@@ -51,7 +51,7 @@ jobs:
       - prepare
     if: success() && ${{ needs.prepare.outputs.is-release }}
     steps:
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: dist-packages
           path: dist/
@@ -69,7 +69,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: dist-packages
           path: dist/
