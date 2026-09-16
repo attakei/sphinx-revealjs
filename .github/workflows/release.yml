@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
         with:
-          aqua_version: v2.51.2
+          aqua_version: v2.63.0
       - name: Build packages
         run: |
           uv run tools/fetch_revealjs.py
