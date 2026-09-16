@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
         with:
-          aqua_version: v2.51.2
+          aqua_version: v2.63.0
       - name: Set up workspace
         run: |
           uv sync --dev --all-extras
@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
         with:
-          aqua_version: v2.51.2
+          aqua_version: v2.63.0
       - name: Set up workspace
         run: |
           echo '${{ matrix.python-version }}' > .python-version
@@ -59,7 +59,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
         with:
-          aqua_version: v2.51.2
+          aqua_version: v2.63.0
       - name: Build
         run: |
           uv run tools/fetch_revealjs.py
@@ -71,7 +71,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
         with:
-          aqua_version: v2.51.2
+          aqua_version: v2.63.0
       - name: 'Configure workspace'
         run: |
           uv sync --group demo --extra screenshot
